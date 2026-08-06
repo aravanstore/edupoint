@@ -1,0 +1,153 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Аналитика — Edu Point{% endblock %}
+{% block lms_breadcrumb %}Аналитика{% endblock %}
+{% block lms_heading %}Аналитика{% endblock %}
+
+{% block lms_content %}
+<div class="row g-3">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-people"></i></div>
+      <div>
+        <div class="stat-num">{{ total_students }}</div>
+        <div class="stat-lbl">Всего учеников</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-person-check"></i></div>
+      <div>
+        <div class="stat-num">{{ active_students }}</div>
+        <div class="stat-lbl">Активных</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon red"><i class="bi bi-pause-circle"></i></div>
+      <div>
+        <div class="stat-num">{{ frozen_count }}</div>
+        <div class="stat-lbl">Заморожено</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon gold"><i class="bi bi-cash-stack"></i></div>
+      <div>
+        <div class="stat-num">{{ revenue_total }}</div>
+        <div class="stat-lbl">Выручка всего (сом)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mt-0">
+  <div class="col-lg-7">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-cash-coin me-2 text-primary"></i> Выручка за {{ today|date:"F Y" }}</h2>
+      </div>
+      <div class="lms-card-body">
+        <div class="row text-center g-3">
+          <div class="col-4">
+            <div class="stat-num text-primary">{{ revenue_month }}</div>
+            <div class="stat-lbl">сом (подтверждено)</div>
+          </div>
+          <div class="col-4">
+            <div class="stat-num">{{ payments_month_count }}</div>
+            <div class="stat-lbl">платежей за месяц</div>
+          </div>
+          <div class="col-4">
+            <div class="stat-num">{% if overall_avg %}{{ overall_avg }}{% else %}—{% endif %}</div>
+            <div class="stat-lbl">средний балл (все)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-journal-bookmark me-2 text-primary"></i> Популярные книги</h2>
+      </div>
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead><tr><th>Книга</th><th>Учеников</th></tr></thead>
+          <tbody>
+            {% for b in top_books %}
+            <tr><td class="fw-bold">{{ b.name }}</td><td>{{ b.s_count }}</td></tr>
+            {% empty %}
+            <tr><td colspan="2"><div class="empty-lms"><p>Нет данных.</p></div></td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-people me-2 text-primary"></i> Заполненность групп</h2>
+      </div>
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead><tr><th>Группа</th><th>Учеников</th><th>Лимит</th><th>Средний балл</th></tr></thead>
+          <tbody>
+            {% for g in groups_stats %}
+            <tr>
+              <td class="fw-bold">{{ g.name }}</td>
+              <td>{{ g.s_count }}</td>
+              <td>
+                {% if g.capacity %}
+                  {% if g.s_count >= g.capacity %}<span class="badge-ep badge-red">полная</span>
+                  {% else %}<span class="badge-ep badge-blue">{{ g.capacity }}</span>{% endif %}
+                {% else %}∞{% endif %}
+              </td>
+              <td>{% if g.avg_grade %}{{ g.avg_grade|floatformat:1 }}{% else %}—{% endif %}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4"><div class="empty-lms"><p>Групп нет.</p></div></td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-bar-chart me-2 text-primary"></i> Посещаемость</h2>
+      </div>
+      <div class="lms-card-body">
+        {% if attendance.total %}
+        <div class="row text-center g-3">
+          <div class="col-4"><div class="stat-num">{{ attendance.present }}</div><div class="stat-lbl">присутствие</div></div>
+          <div class="col-4"><div class="stat-num">{{ attendance.late }}</div><div class="stat-lbl">опоздания</div></div>
+          <div class="col-4"><div class="stat-num">{{ attendance.total }}</div><div class="stat-lbl">всего отметок</div></div>
+        </div>
+        {% else %}<div class="empty-lms"><p>Отметок пока нет.</p></div>{% endif %}
+      </div>
+    </div>
+
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-clock-history me-2 text-primary"></i> Последние действия</h2>
+        <a href="{% url 'lms:activity_log' %}" class="small">Все →</a>
+      </div>
+      <div class="lms-card-body">
+        {% if recent_activity %}
+        {% for log in recent_activity %}
+        <div class="d-flex justify-content-between gap-2 py-1 border-bottom" style="border-color:var(--border) !important;">
+          <span class="small">{{ log.user.get_full_name|default:log.user.username }} — <b>{{ log.action }}</b></span>
+          <span class="small text-muted text-nowrap">{{ log.created_at|date:"d.m H:i" }}</span>
+        </div>
+        {% endfor %}
+        {% else %}<div class="empty-lms"><p>Нет активности.</p></div>{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

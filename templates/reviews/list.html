@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Отзывы студентов — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container text-center" data-aos="fade-up">
+    <h1>Отзывы наших студентов</h1>
+    <p style="color:var(--text-muted);">История успеха и впечатления от обучения в Edu Point</p>
+    <div class="mt-4">
+      <button class="btn-primary-ep" data-bs-toggle="modal" data-bs-target="#addReviewModal">
+        <i class="bi bi-pencil-square"></i> Оставить отзыв
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for review in reviews %}
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="review-card h-100 d-flex flex-column">
+          <div class="quote-icon">"</div>
+          <div class="review-stars mb-2">
+            {% for i in review.get_stars_range %}⭐{% endfor %}
+          </div>
+          <p class="review-text flex-fill">{{ review.text }}</p>
+          <div class="reviewer-info mt-auto">
+            {% if review.photo %}
+            <img src="{{ review.photo.url }}" alt="{{ review.name }}" class="reviewer-avatar">
+            {% else %}
+            <div class="reviewer-avatar-placeholder">{{ review.name|first }}</div>
+            {% endif %}
+            <div>
+              <div class="reviewer-name">{{ review.name }}</div>
+              {% if review.course %}
+              <div class="reviewer-course">{{ review.course.category.flag_emoji }} {{ review.course.name }}</div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center text-muted py-5">
+        <h4>Пока нет опубликованных отзывов. Будьте первыми!</h4>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Modal: Оставить отзыв -->
+<div class="modal fade" id="addReviewModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg" style="border-radius:20px;">
+      <div class="modal-header border-0 pb-0">
+        <h4 class="modal-title fw-bold">Оставить отзыв об Edu Point</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form method="post" action="{% url 'reviews:list' %}" enctype="multipart/form-data" class="form-ep" data-validate>
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Ваше имя *</label>
+            <input type="text" name="name" class="form-control" placeholder="Асан Асанов" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Курс, который вы проходили</label>
+            <select name="course" class="form-select">
+              <option value="">-- Выберите курс (необязательно) --</option>
+              {% for course in courses %}
+              <option value="{{ course.id }}">{{ course.category.flag_emoji }} {{ course.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Ваша оценка *</label>
+            <select name="rating" class="form-select" required>
+              <option value="5">⭐⭐⭐⭐⭐ (5 из 5 - Отлично)</option>
+              <option value="4">⭐⭐⭐⭐ (4 из 5 - Хорошо)</option>
+              <option value="3">⭐⭐⭐ (3 из 5 - Удовлетворительно)</option>
+              <option value="2">⭐⭐ (2 из 5 - Плохо)</option>
+              <option value="1">⭐ (1 из 5 - Очень плохо)</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Текст вашего отзыва *</label>
+            <textarea name="text" rows="4" class="form-control" placeholder="Поделитесь своими впечатлениями об обучении, преподавателях и результатах..." required></textarea>
+          </div>
+
+          <div class="alert alert-info py-2 px-3 mb-4 fs-6" style="border-radius:12px;">
+            <i class="bi bi-info-circle me-1"></i> Ваш отзыв будет опубликован сразу после проверки модератором.
+          </div>
+
+          <button type="submit" class="btn-primary-ep w-100 justify-content-center py-3 fs-5">
+            Отправить отзыв <i class="bi bi-send ms-2"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

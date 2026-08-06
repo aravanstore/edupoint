@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ game.icon }} {{ game.title }} — Комната #{{ room.room_number }} | Edu Point{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/games.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}
+
+{% block content %}
+<!-- Arena Header Bar -->
+<div class="arena-header">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <div class="d-flex align-items-center gap-3">
+        <a href="{% url 'games:room_select' game.slug %}" class="btn btn-sm btn-outline-secondary">
+          <i class="bi bi-arrow-left"></i> Комнаты
+        </a>
+        <h4 class="fw-bold mb-0">{{ game.icon }} {{ game.title }} <small class="text-primary">(Комната #{{ room.room_number }})</small></h4>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <!-- Language Selector -->
+        <select class="form-select form-select-sm fw-bold border-primary rounded-pill px-3" onchange="window.gameEngine.setTargetLanguage(this.value)">
+          <option value="korean" {% if room.target_language == 'korean' %}selected{% endif %}>🇰🇷 Корейский</option>
+          <option value="english" {% if room.target_language == 'english' %}selected{% endif %}>🇬🇧 Английский</option>
+          <option value="german" {% if room.target_language == 'german' %}selected{% endif %}>🇩🇪 Немецкий</option>
+          <option value="chinese" {% if room.target_language == 'chinese' %}selected{% endif %}>🇨🇳 Китайский</option>
+          <option value="russian" {% if room.target_language == 'russian' %}selected{% endif %}>🇷🇺 Русский</option>
+        </select>
+
+        <!-- Timer -->
+        <div class="timer-box">
+          <i class="bi bi-stopwatch-fill"></i>
+          <span id="gameTimerText">{{ room.round_time_sec }}s</span>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="bg-light px-3 py-2 rounded-4 border">
+          <small class="text-muted d-block" style="font-size:0.7rem;">Раунд:</small>
+          <strong id="roundCounterText" class="text-dark">1 / {{ room.max_rounds }}</strong>
+        </div>
+
+        <div class="bg-light px-3 py-2 rounded-4 border">
+          <small class="text-muted d-block" style="font-size:0.7rem;">Очки:</small>
+          <strong id="scoreCounterText" class="text-success">0 pts</strong>
+        </div>
+
+        <!-- Audio Toggle -->
+        <button class="btn btn-sm btn-outline-primary rounded-circle" id="soundToggleBtn" onclick="toggleSound()" title="Включить/Выключить звук">
+          <i class="bi bi-volume-up-fill fs-5" id="soundIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Timer Progress Bar -->
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-inner" id="gameProgressBar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Game Arena Container -->
+<section class="section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        
+        <!-- Welcome / Multiplayer Lobby Screen -->
+        <div id="welcomeScreen" class="lobby-card text-center shadow-lg" data-aos="zoom-in">
+          <div class="game-card-icon mx-auto mb-3">
+            <span>{{ game.icon }}</span>
+          </div>
+          <h2 class="display-6 fw-bold mb-1">{{ game.title }}</h2>
+          <p class="fs-5 text-muted mb-3">{{ game.subtitle }}</p>
+
+          <div class="d-flex justify-content-center gap-2 flex-wrap mb-4">
+            <span class="badge bg-primary fs-6 px-3 py-2"><i class="bi bi-translate"></i> Язык: {{ room.get_target_language_display }}</span>
+            <span class="badge bg-secondary fs-6 px-3 py-2"><i class="bi bi-repeat"></i> Раундов: {{ room.max_rounds }}</span>
+            <span class="badge bg-success fs-6 px-3 py-2"><i class="bi bi-speedometer2"></i> {{ room.get_difficulty_display }}</span>
+            <span class="badge bg-info text-dark fs-6 px-3 py-2"><i class="bi bi-people-fill"></i> Слотов: {{ room.max_players }}</span>
+          </div>
+
+          <!-- Multiplayer Lobby Player Cards Container -->
+          <div id="lobbyPlayersBox" class="mb-4">
+            <!-- Rendered dynamically by games_engine.js renderLobby() -->
+          </div>
+
+          <div class="alert alert-info rounded-4 text-start p-3 mb-4 mx-auto small" style="max-width: 650px;">
+            <h6 class="fw-bold text-primary mb-1"><i class="bi bi-info-circle-fill me-2"></i>Правила игры:</h6>
+            <p class="mb-0">{{ game.description }}</p>
+          </div>
+
+          <!-- Host Early Start Controls Box -->
+          <div id="hostControlsBox" class="mx-auto" style="max-width: 500px;">
+            <!-- Rendered by games_engine.js -->
+          </div>
+        </div>
+
+        <!-- Dynamic Game Content Screen -->
+        <div id="arenaScreen" class="card-ep p-4 p-md-5 shadow-lg d-none">
+          <div id="gameArenaContent">
+            <!-- Rendered by games_engine.js -->
+          </div>
+
+          <div id="gameFeedbackBox" class="alert d-none"></div>
+        </div>
+
+        <!-- Results & Podium Screen -->
+        <div id="resultsScreen" class="card-ep p-5 text-center shadow-lg d-none">
+          <span class="fs-1">🏆</span>
+          <h2 class="display-5 fw-bold text-primary mb-1">Игра Завершена!</h2>
+          <p class="text-muted fs-5">Поздравляем с прохождением всех раундов!</p>
+
+          <div class="row g-3 justify-content-center my-4">
+            <div class="col-md-4">
+              <div class="bg-primary-bg border p-3 rounded-4">
+                <small class="text-muted d-block">Финальный счёт:</small>
+                <h2 class="fw-bold text-primary mb-0" id="finalPlayerScore">0</h2>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="bg-success-bg border p-3 rounded-4">
+                <small class="text-muted d-block">Точность ответов:</small>
+                <h2 class="fw-bold text-success mb-0" id="finalCorrectCount">0</h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- Podium 1st 2nd 3rd places -->
+          <h4 class="fw-bold mt-4 mb-3">🥇 Подиум лучших результатов:</h4>
+          <div id="podiumBox">
+            <!-- Rendered by games_engine.js -->
+          </div>
+
+          <!-- Detailed Error Breakdown Review Table -->
+          <div id="reviewTableBox">
+            <!-- Rendered by games_engine.js renderReviewTable() -->
+          </div>
+
+          <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+            <button class="btn-primary-ep px-4 py-3" onclick="window.gameEngine.startGame()">
+              <i class="bi bi-arrow-counterclockwise"></i> Играть Снова
+            </button>
+            <a href="{% url 'games:room_select' game.slug %}" class="btn-outline-ep px-4 py-3">
+              <i class="bi bi-door-open"></i> Сменить Комнату
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Include Engine and Audio Scripts -->
+<script src="{% static 'js/games_audio.js' %}"></script>
+<script src="{% static 'js/games_engine.js' %}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  window.gameEngine = new EduPointGameEngine({
+    gameSlug: '{{ game.slug }}',
+    roomNumber: {{ room.room_number }},
+    playerName: '{{ player_name|escapejs }}',
+    isHost: {% if is_host %}true{% else %}false{% endif %},
+    maxRounds: {{ room.max_rounds }},
+    roundTimeSec: {{ room.round_time_sec }},
+    maxPlayers: {{ room.max_players|default:4 }},
+    targetLanguage: '{{ room.target_language|default:"korean" }}',
+    difficulty: '{{ room.difficulty }}',
+    csrfToken: '{{ csrf_token }}'
+  });
+
+  // Render Multiplayer Lobby Player Cards
+  window.gameEngine.renderLobby();
+});
+
+function toggleSound() {
+  if (window.gameAudio) {
+    window.gameAudio.muted = !window.gameAudio.muted;
+    const icon = document.getElementById('soundIcon');
+    if (window.gameAudio.muted) {
+      icon.className = 'bi bi-volume-mute-fill text-danger fs-5';
+    } else {
+      icon.className = 'bi bi-volume-up-fill text-primary fs-5';
+      window.gameAudio.playClick();
+    }
+  }
+}
+</script>
+{% endblock %}

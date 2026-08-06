@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container" data-aos="fade-up">
+    <div class="news-date mb-2"><i class="bi bi-calendar3"></i> {{ post.published_at|date:"d F Y" }} · <i class="bi bi-eye"></i> {{ post.views }} просмотров</div>
+    <h1>{{ post.title }}</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8" data-aos="fade-right">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width:100%;max-height:450px;object-fit:cover;border-radius:16px;margin-bottom:2rem;">
+        {% endif %}
+
+        <div style="font-size:1.1rem;line-height:1.8;color:var(--text-secondary);" class="mb-5">
+          {{ post.content|safe }}
+        </div>
+
+        <a href="{% url 'news:list' %}" class="btn-outline-ep">← Назад к новостям</a>
+      </div>
+
+      <div class="col-lg-4" data-aos="fade-left">
+        {% if related %}
+        <div class="sidebar-widget">
+          <h5>Другие новости</h5>
+          {% for r in related %}
+          <div class="mb-3 pb-3 border-bottom">
+            <div class="text-muted fs-6 mb-1">{{ r.published_at|date:"d.m.Y" }}</div>
+            <a href="{{ r.get_absolute_url }}" class="fw-semibold text-dark text-decoration-none">{{ r.title }}</a>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

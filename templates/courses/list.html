@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Каталог курсов — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container text-center" data-aos="fade-up">
+    <h1>Курсы иностранных языков</h1>
+    <p style="color:var(--text-muted);">Выберите язык и программу обучения</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- Category Tabs -->
+    <div class="filter-tabs justify-content-center mb-5" data-aos="fade-up">
+      <a href="{% url 'courses:list' %}" class="filter-tab {% if not active_category %}active{% endif %}">Все языки</a>
+      {% for cat in categories %}
+      <a href="?category={{ cat.slug }}" class="filter-tab {% if active_category.slug == cat.slug %}active{% endif %}">
+        {{ cat.flag_emoji }} {{ cat.name }}
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Courses Grid -->
+    <div class="row g-4">
+      {% for course in courses %}
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="course-card">
+          {% if course.image %}
+          <img src="{{ course.image.url }}" alt="{{ course.name }}" class="course-card-img">
+          {% else %}
+          <div class="course-card-img-placeholder">{{ course.category.flag_emoji }}</div>
+          {% endif %}
+          <div class="course-card-body">
+            <div class="course-badge">{{ course.category.flag_emoji }} {{ course.category.name }}</div>
+            <h4>{{ course.name }}</h4>
+            <p>{{ course.short_description }}</p>
+            <div class="course-meta">
+              <span><i class="bi bi-clock"></i> {{ course.duration }}</span>
+              <span><i class="bi bi-bar-chart"></i> {{ course.get_level_display }}</span>
+            </div>
+            {% if course.price %}
+            <div class="course-price">{{ course.price|floatformat:0 }} сом/мес</div>
+            {% endif %}
+            <div class="d-flex gap-2 mt-3">
+              <a href="{{ course.get_absolute_url }}" class="btn-outline-ep flex-fill text-center" style="font-size:0.85rem;padding:0.5rem 1rem;">Подробнее</a>
+              <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep flex-fill text-center" style="font-size:0.85rem;padding:0.5rem 1rem;">Записаться</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="empty-state">
+        <div class="empty-state-icon">📚</div>
+        <h4>В этой категории пока нет курсов</h4>
+        <p>Свяжитесь с нами, чтобы узнать о наборе в новые группы</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}{{ student }}{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_students' %}">Ученики</a> / {{ student }}{% endblock %}
+{% block lms_heading %}{{ student }}{% endblock %}
+
+{% block lms_content %}
+<div class="lms-card">
+  <div class="lms-card-body">
+    <div class="row g-3 align-items-center">
+      <div class="col-md-3">
+        <div class="text-muted" style="font-size:0.78rem;">Логин</div>
+        <div class="fw-bold">{{ student.user.username }}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-muted" style="font-size:0.78rem;">Группа</div>
+        <div class="fw-bold">{{ student.group|default:'—' }}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-muted" style="font-size:0.78rem;">Книга</div>
+        <div class="fw-bold">{{ student.book|default:'—' }} ({{ student.book_progress }}%)</div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-muted" style="font-size:0.78rem;">Статус оплаты</div>
+        {% if pay_status.0 == 'paid' %}
+          <span class="badge-ep badge-green mt-1"><i class="bi bi-check-circle"></i> Оплачено</span>
+        {% elif pay_status.0 == 'pending' %}
+          <span class="badge-ep badge-amber mt-1"><i class="bi bi-clock"></i> До {{ pay_status.1|date:"d.m.Y" }}</span>
+        {% else %}
+          <span class="badge-ep badge-red mt-1"><i class="bi bi-pause-circle"></i> Frozen — неоплата</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row g-3 mt-1">
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Телефон</div>
+        <div>{{ student.phone|default:'—' }}</div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Родитель</div>
+        <div>{{ student.parent|default:'—' }}</div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Средний балл</div>
+        <div class="fw-bold">{% with avg=student.average_grade %}{% if avg %}{{ avg }}/10{% else %}—{% endif %}{% endwith %}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-lg-6">
+    <!-- Оплата -->
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-cash-coin me-2 text-primary"></i> Зарегистрировать оплату</h2>
+      </div>
+      <div class="lms-card-body">
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="form" value="payment">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-lms">Месяц оплаты</label>
+              {{ payment_form.month }}
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-lms">Сумма</label>
+              {{ payment_form.amount }}
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-lms">Метод</label>
+              {{ payment_form.method }}
+            </div>
+            <div class="col-md-6 d-flex align-items-end">
+              <div class="form-check">
+                {{ payment_form.is_confirmed }}
+                <label class="form-check-label" for="{{ payment_form.is_confirmed.id_for_label }}">Подтверждена</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="form-label-lms">Примечание</label>
+              {{ payment_form.note }}
+            </div>
+          </div>
+          <button type="submit" class="btn-teal-ep mt-3">
+            <i class="bi bi-check2-circle me-2"></i> Принять оплату
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Отсрочка -->
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-alarm me-2 text-primary"></i> Отсрочка оплаты</h2>
+      </div>
+      <div class="lms-card-body">
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="form" value="extension">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-lms">Месяц</label>
+              {{ extension_form.month }}
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-lms">Новый срок оплаты</label>
+              {{ extension_form.new_due_date }}
+            </div>
+            <div class="col-12">
+              <label class="form-label-lms">Причина</label>
+              {{ extension_form.reason }}
+            </div>
+          </div>
+          <button type="submit" class="btn-outline-ep mt-3">
+            <i class="bi bi-alarm me-2"></i> Добавить отсрочку
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-clock-history me-2 text-primary"></i> История оплат</h2>
+      </div>
+      {% if payments %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead>
+            <tr><th>Месяц</th><th>Сумма</th><th>Дата</th><th>Метод</th></tr>
+          </thead>
+          <tbody>
+            {% for p in payments %}
+            <tr>
+              <td>{{ p.month|date:"m.Y" }}</td>
+              <td>{{ p.amount }} сом</td>
+              <td>{{ p.paid_at|date:"d.m.Y" }}</td>
+              <td>{{ p.get_method_display }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-wallet2"></i><p>Оплат пока нет.</p></div>{% endif %}
+    </div>
+
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-alarm me-2 text-primary"></i> Отсрочки</h2>
+      </div>
+      {% if extensions %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead>
+            <tr><th>Месяц</th><th>Новый срок</th><th>Причина</th></tr>
+          </thead>
+          <tbody>
+            {% for e in extensions %}
+            <tr>
+              <td>{{ e.month|date:"m.Y" }}</td>
+              <td>{{ e.new_due_date|date:"d.m.Y" }}</td>
+              <td>{{ e.reason|default:'—' }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-alarm"></i><p>Отсрочек пока нет.</p></div>{% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

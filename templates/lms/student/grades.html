@@ -1,0 +1,73 @@
+{% extends 'lms/base_lms.html' %}
+{% load static lms_extras %}
+
+{% block lms_title %}Оценки — {{ student }}{% endblock %}
+{% block lms_breadcrumb %}Ученик / Оценки{% endblock %}
+{% block lms_heading %}Мои оценки{% endblock %}
+
+{% block lms_content %}
+{% include 'lms/includes/_frozen_banner.html' %}
+
+{% if frozen %}
+<div class="empty-lms lms-card">
+  <i class="bi bi-lock"></i>
+  <p>Оценки скрыты до оплаты обучения.</p>
+</div>
+{% else %}
+<div class="lms-card">
+  <div class="lms-card-body">
+    <div class="text-center py-3">
+      <div class="text-muted" style="font-size:0.85rem;">Средний балл</div>
+      <div style="font-size:3rem;font-weight:800;line-height:1.1;">
+        {% if average %}{{ average }}{% else %}—{% endif %}
+        <span class="text-muted" style="font-size:1.2rem;">/ 10</span>
+      </div>
+      <div class="mt-2">
+        <span class="badge-ep badge-blue"><i class="bi bi-clipboard2-data"></i> Всего: {{ grades|length }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-clock-history me-2 text-primary"></i> История оценок</h2>
+  </div>
+  {% if grades %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Группа</th>
+          <th>Преподаватель</th>
+          <th class="num">Оценка</th>
+          <th>Комментарий</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for g in grades %}
+        <tr>
+          <td>{{ g.date|date:"d.m.Y" }}</td>
+          <td>{{ g.group }}</td>
+          <td>{{ g.teacher|default:'—' }}</td>
+          <td class="num">
+            <span class="grade-chip {{ g.value|grade_class }}">
+              {{ g.value }}
+            </span>
+          </td>
+          <td>{{ g.comment|default:'—' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-clipboard-x"></i>
+    <p>Оценок пока нет.</p>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

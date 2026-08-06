@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Контакты — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container text-center" data-aos="fade-up">
+    <h1>Связаться с нами</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb justify-content-center">
+        <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Contact details -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="contact-info-card">
+          <h3 style="font-weight:800;margin-bottom:1.5rem;">Наш офис в Оше</h3>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Адрес</div>
+              <div class="contact-item-value">{{ site_settings.address }}</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Телефоны</div>
+              <div class="contact-item-value">
+                <a href="tel:0551977778">0551 977 778</a> · <a href="tel:+996551977778">+996 551 977 778</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">💬</div>
+            <div>
+              <div class="contact-item-label">WhatsApp</div>
+              <div class="contact-item-value">
+                <a href="https://wa.me/{{ site_settings.whatsapp }}" target="_blank" style="color:#25D366;font-weight:700;">
+                  +{{ site_settings.whatsapp }}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">🕒</div>
+            <div>
+              <div class="contact-item-label">График работы</div>
+              <div class="contact-item-value">Пн - Сб: 09:00 - 19:00<br>Вс: Выходной</div>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem;">
+            <div class="contact-item-label" style="margin-bottom:0.75rem;">Мы в соцсетях</div>
+            <div class="footer-social" style="margin:0;">
+              {% if site_settings.instagram %}
+              <a href="{{ site_settings.instagram }}" target="_blank" style="background:var(--primary);color:white;border:none;"><i class="bi bi-instagram"></i></a>
+              {% endif %}
+              {% if site_settings.telegram %}
+              <a href="{{ site_settings.telegram }}" target="_blank" style="background:#0088cc;color:white;border:none;"><i class="bi bi-telegram"></i></a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="card-ep p-4 p-md-5">
+          <h3 style="font-weight:800;margin-bottom:0.5rem;">Напишите нам</h3>
+          <p style="color:var(--text-muted);margin-bottom:2rem;">Заполните форму, и наш менеджер свяжется с вами в течение 15 минут</p>
+
+          <form method="post" action="{% url 'core:contact' %}" class="form-ep" data-validate>
+            {% csrf_token %}
+            <div class="mb-3">
+              <label class="form-label">Ваше имя *</label>
+              <input type="text" name="name" class="form-control" placeholder="Асан Асанов" required>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Телефон *</label>
+                <input type="tel" name="phone" class="form-control" placeholder="+996 700 000 000" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email (необязательно)</label>
+                <input type="email" name="email" class="form-control" placeholder="example@gmail.com">
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label">Сообщение *</label>
+              <textarea name="message" rows="4" class="form-control" placeholder="Здравствуйте, я хочу узнать подробнее про курс..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-ep w-100 justify-content-center">
+              Отправить сообщение <i class="bi bi-send ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Map Embed -->
+    <div class="row mt-5" data-aos="fade-up">
+      <div class="col-12">
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3034.331201509172!2d72.80555631536785!3d40.51138897935402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bdad7a13c9e6c3%3A0x6b09b30c144fa5cf!2sOsh%2C%20Kyrgyzstan!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Кабинет ученика — {{ student }}{% endblock %}
+{% block lms_breadcrumb %}Ученик / Обзор{% endblock %}
+{% block lms_heading %}Здравствуйте, {{ user.first_name|default:user.username }}! 👋{% endblock %}
+
+{% block lms_content %}
+{% include 'lms/includes/_frozen_banner.html' %}
+
+<!-- Профиль -->
+<div class="lms-card">
+  <div class="lms-card-body">
+    <div class="row g-3">
+      <div class="col-md-3">
+        <div class="text-muted" style="font-size:0.78rem;">Имя</div>
+        <div class="fw-bold">{{ student.user.get_full_name|default:student.user.username }}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-muted" style="font-size:0.78rem;">Группа</div>
+        <div class="fw-bold">{{ student.group|default:'—' }}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-muted" style="font-size:0.78rem;">Преподаватель</div>
+        <div class="fw-bold">{{ student.teacher|default:'—' }}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="text-muted" style="font-size:0.78rem;">Текущая книга</div>
+        <div class="fw-bold">{{ student.book|default:'—' }}</div>
+      </div>
+    </div>
+    <hr class="my-3" style="border-color:var(--border);">
+    <div class="row g-3 align-items-center">
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Статус оплаты</div>
+        {% if pay_status.0 == 'paid' %}
+          <span class="badge-ep badge-green mt-1"><i class="bi bi-check-circle"></i> Оплачено ({{ pay_status.1|date:"d.m.Y" }})</span>
+        {% elif pay_status.0 == 'pending' %}
+          <span class="badge-ep badge-amber mt-1"><i class="bi bi-clock"></i> Ожидается до {{ pay_status.1|date:"d.m.Y" }}</span>
+        {% else %}
+          <span class="badge-ep badge-red mt-1"><i class="bi bi-x-circle"></i> Просрочено</span>
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Средний балл</div>
+        <div class="fw-bold" style="font-size:1.1rem;">
+          {% if average %}{{ average }}<span class="text-muted"> / 10</span>{% else %}—{% endif %}
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Посещаемость</div>
+        <div class="fw-bold" style="font-size:1.1rem;">
+          {% if attendance.percent is not None %}{{ attendance.percent }}%{% else %}—{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Статистика -->
+<div class="row g-3">
+  <div class="col-sm-6 col-xl-3">
+    <a href="{% url 'lms:student_grades' %}" class="text-decoration-none">
+      <div class="stat-card">
+        <div class="stat-icon blue"><i class="bi bi-clipboard2-data"></i></div>
+        <div>
+          <div class="stat-num">{{ student.grades.count }}</div>
+          <div class="stat-lbl">Оценок получено</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <a href="{% url 'lms:student_attendance' %}" class="text-decoration-none">
+      <div class="stat-card">
+        <div class="stat-icon teal"><i class="bi bi-calendar2-check"></i></div>
+        <div>
+          <div class="stat-num">{{ attendance.total }}</div>
+          <div class="stat-lbl">Занятий отмечено</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <a href="{% url 'lms:student_homework' %}" class="text-decoration-none">
+      <div class="stat-card">
+        <div class="stat-icon gold"><i class="bi bi-journal-text"></i></div>
+        <div>
+          <div class="stat-num">{{ student.group.homeworks.count|default:0 }}</div>
+          <div class="stat-lbl">Заданий в группе</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <a href="{% url 'lms:student_schedule' %}" class="text-decoration-none">
+      <div class="stat-card">
+        <div class="stat-icon red"><i class="bi bi-clock"></i></div>
+        <div>
+          <div class="stat-num">{{ student.group.time_display|default:'—' }}</div>
+          <div class="stat-lbl">Время занятий</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- Прогресс по книгам -->
+{% if student.book %}
+<div class="lms-card mt-4">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-book me-2 text-primary"></i> Прогресс по книгам</h2>
+    <span class="badge-ep badge-blue">{{ student.book.name }}</span>
+  </div>
+  <div class="lms-card-body">
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <div class="progress-ep flex-grow-1"><div style="width: {{ student.book_progress }}%;"></div></div>
+      <div class="fw-bold text-nowrap">{{ student.book_progress }}%</div>
+    </div>
+    <div class="row g-2">
+      {% for item in student.book_ladder %}
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="lms-card p-2 text-center mb-0"{% if item.state == 'locked' %} style="opacity:0.5;"{% endif %}>
+          {% if item.state == 'done' %}
+            <div style="font-size:1.3rem;">✅</div>
+          {% elif item.state == 'current' %}
+            <div style="font-size:1.3rem;">📖</div>
+          {% else %}
+            <div style="font-size:1.3rem;">🔒</div>
+          {% endif %}
+          <div class="small fw-bold mt-1">{{ item.book.name }}</div>
+          <div class="small text-muted">
+            {% if item.state == 'done' %}100%
+            {% elif item.state == 'current' %}{{ student.book_progress }}%
+            {% else %}Locked{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Английский язык и IELTS — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container text-center" data-aos="fade-up">
+    <div class="display-1 mb-2">🇬🇧</div>
+    <h1>Английский язык и IELTS</h1>
+    <p style="color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto;">
+      От начального уровня A1 до уверенного владения и сдачи международного экзамена IELTS 7.0+
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4 mb-5">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card-ep p-4 text-center">
+          <div class="fs-1 mb-2">🗣️</div>
+          <h4>Spoken English</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">Разговорный английский для путешествий, работы и свободного общения.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-ep p-4 text-center">
+          <div class="fs-1 mb-2">🎯</div>
+          <h4>IELTS Preparation</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">Интенсивная подготовка по всем 4 модулям: Listening, Reading, Writing, Speaking.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-ep p-4 text-center">
+          <div class="fs-1 mb-2">👶</div>
+          <h4>English for Teens & Kids</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">Интерактивная программа для школьников с игровыми методиками.</p>
+        </div>
+      </div>
+    </div>
+
+    {% if courses %}
+    <h3 class="fw-bold mb-4" data-aos="fade-up">Доступные курсы английского</h3>
+    <div class="row g-4">
+      {% for course in courses %}
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="course-card">
+          <div class="course-card-body">
+            <h4>{{ course.name }}</h4>
+            <p>{{ course.short_description }}</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-4 fw-bold text-primary-ep">{{ course.price|floatformat:0 }} сом/мес</span>
+              <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep" style="font-size:0.85rem;padding:0.5rem 1rem;">Записаться</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<section class="cta-section" data-aos="fade-up">
+  <div class="container text-center">
+    <h2>Готовы повысить свой уровень английского?</h2>
+    <p>Пройдите бесплатное тестирование и узнайте свой точный уровень!</p>
+    <a href="{% url 'applications:apply' %}" class="btn-cta-white">Пройти тест / Записаться</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}История действий — Edu Point{% endblock %}
+{% block lms_breadcrumb %}Ресепшен / История действий{% endblock %}
+{% block lms_heading %}История действий{% endblock %}
+
+{% block lms_content %}
+<div class="lms-card mb-3">
+  <div class="lms-card-body">
+    <form method="get" class="row g-2 align-items-center">
+      <div class="col-auto">
+        <input type="search" name="q" value="{{ q }}" class="form-control" placeholder="Поиск: действие, ученик...">
+      </div>
+      <div class="col-auto">
+        <button class="btn-primary-ep"><i class="bi bi-search"></i> Найти</button>
+      </div>
+      {% if q %}<div class="col-auto"><a href="{% url 'lms:activity_log' %}" class="btn btn-outline-secondary btn-sm">Сбросить</a></div>{% endif %}
+    </form>
+  </div>
+</div>
+
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-clock-history me-2 text-primary"></i> Последние 200 записей</h2>
+  </div>
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr><th>Время</th><th>Кто</th><th>Действие</th><th>Объект</th><th>Детали</th></tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td class="text-nowrap">{{ log.created_at|date:"d.m.Y H:i" }}</td>
+          <td class="fw-bold">{{ log.user.get_full_name|default:log.user.username }}</td>
+          <td><span class="badge-ep badge-blue">{{ log.action }}</span></td>
+          <td>{{ log.target }}</td>
+          <td class="text-muted small">{{ log.details }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5"><div class="empty-lms"><i class="bi bi-clock"></i><p>Записей пока нет.</p></div></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

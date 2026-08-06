@@ -1,0 +1,66 @@
+{% extends 'lms/base_lms.html' %}
+{% load static lms_extras %}
+
+{% block lms_title %}Журнал — {{ group.name }}{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:teacher_dashboard' %}">Учитель</a> / Журнал{% endblock %}
+{% block lms_heading %}Журнал: {{ group.name }}{% endblock %}
+
+{% block lms_content %}
+<form method="get" class="lms-card">
+  <div class="journal-toolbar">
+    <div class="d-flex align-items-center gap-3 flex-wrap">
+      <label class="fw-bold text-nowrap" style="font-size:0.9rem;"><i class="bi bi-calendar-event me-1"></i> Дата занятия:</label>
+      <input type="date" name="date" value="{{ date|date:'Y-m-d' }}" class="form-control" style="max-width:190px;">
+      <button type="submit" class="btn-primary-ep" style="padding:0.5rem 1.2rem;font-size:0.9rem;">
+        <i class="bi bi-arrow-repeat me-1"></i> Выбрать
+      </button>
+    </div>
+    <span class="text-muted small">{{ group.days_display }} · {{ group.time_display }} · {{ group.room|default:'' }}</span>
+  </div>
+</form>
+
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-clipboard-data me-2 text-primary"></i> Журнал на {{ date|date:"d.m.Y (l)" }}</h2>
+    <span class="text-muted small">Оценка 0–10 · посещение: присутствовал / отсутствовал / опоздал</span>
+  </div>
+
+  {% if students %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="table-responsive-ep">
+      <table class="table-ep">
+        <thead>
+          <tr>
+            <th>Ученик</th>
+            <th style="min-width:110px;">Оценка</th>
+            <th style="min-width:160px;">Посещение</th>
+            <th>Комментарий</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr>
+            <td class="fw-bold">{{ student.user.get_full_name|default:student.user.username }}</td>
+            <td>{{ form|get_field_value:student.id }}</td>
+            <td>{{ form|get_field_att:student.id }}</td>
+            <td>{{ form|get_field_comment:student.id }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="lms-card-body">
+      <button type="submit" class="btn-primary-ep">
+        <i class="bi bi-check2-circle me-2"></i> Сохранить журнал
+      </button>
+    </div>
+  </form>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-person-x"></i>
+    <p>В группе нет активных учеников.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

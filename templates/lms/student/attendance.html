@@ -1,0 +1,97 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Посещаемость — {{ student }}{% endblock %}
+{% block lms_breadcrumb %}Ученик / Посещаемость{% endblock %}
+{% block lms_heading %}Моя посещаемость{% endblock %}
+
+{% block lms_content %}
+{% include 'lms/includes/_frozen_banner.html' %}
+
+{% if frozen %}
+<div class="empty-lms lms-card">
+  <i class="bi bi-lock"></i>
+  <p>Посещаемость скрыта до оплаты обучения.</p>
+</div>
+{% else %}
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-calendar2-check"></i></div>
+      <div>
+        <div class="stat-num">{% if stats.percent is not None %}{{ stats.percent }}%{% else %}—{% endif %}</div>
+        <div class="stat-lbl">Процент посещения</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-check-circle"></i></div>
+      <div>
+        <div class="stat-num">{{ stats.present }}</div>
+        <div class="stat-lbl">Присутствовал</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="stat-card">
+      <div class="stat-icon gold"><i class="bi bi-alarm"></i></div>
+      <div>
+        <div class="stat-num">{{ stats.late }}</div>
+        <div class="stat-lbl">Опоздал</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="stat-card">
+      <div class="stat-icon red"><i class="bi bi-x-circle"></i></div>
+      <div>
+        <div class="stat-num">{{ stats.absent }}</div>
+        <div class="stat-lbl">Пропусков</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-clock-history me-2 text-primary"></i> История посещений</h2>
+  </div>
+  {% if records %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Группа</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in records %}
+        <tr>
+          <td>{{ r.date|date:"d.m.Y" }}</td>
+          <td>{{ r.group }}</td>
+          <td>
+            {% if r.status == 'present' %}
+              <span class="badge-ep badge-green"><i class="bi bi-check-circle"></i> Присутствовал</span>
+            {% elif r.status == 'late' %}
+              <span class="badge-ep badge-amber"><i class="bi bi-alarm"></i> Опоздал</span>
+            {% else %}
+              <span class="badge-ep badge-red"><i class="bi bi-x-circle"></i> Отсутствовал</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-calendar-x"></i>
+    <p>Отметок пока нет.</p>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

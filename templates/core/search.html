@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Результаты поиска: {{ query }} — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container text-center" data-aos="fade-up">
+    <h1>Поиск по сайту</h1>
+    <p style="color:var(--text-muted);">Результаты по запросу: «<strong>{{ query }}</strong>»</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="search-bar mb-5" data-aos="fade-up">
+      <form method="get" action="{% url 'core:search' %}">
+        <i class="bi bi-search search-icon"></i>
+        <input type="text" name="q" value="{{ query }}" placeholder="Поиск курсов, статей..." required>
+      </form>
+    </div>
+
+    {% if courses %}
+    <h3 class="mb-4" data-aos="fade-up">Найденные курсы ({{ courses|length }})</h3>
+    <div class="row g-4 mb-5">
+      {% for course in courses %}
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="course-card">
+          <div class="course-card-body">
+            <div class="course-badge">{{ course.category.flag_emoji }} {{ course.category.name }}</div>
+            <h4><a href="{{ course.get_absolute_url }}">{{ course.name }}</a></h4>
+            <p>{{ course.short_description }}</p>
+            <a href="{{ course.get_absolute_url }}" class="btn-outline-ep btn-sm mt-2">Подробнее</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if news %}
+    <h3 class="mb-4" data-aos="fade-up">Найденные новости и статьи ({{ news|length }})</h3>
+    <div class="row g-4">
+      {% for item in news %}
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="news-card">
+          <div class="news-card-body">
+            <div class="news-date">{{ item.published_at|date:"d.m.Y" }}</div>
+            <h4><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h4>
+            <p>{{ item.excerpt|default:item.content|striptags|truncatewords:15 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if not courses and not news %}
+    <div class="empty-state" data-aos="fade-up">
+      <div class="empty-state-icon">🔍</div>
+      <h4>Ничего не найдено</h4>
+      <p>Попробуйте изменить поисковый запрос или перейти в каталог курсов</p>
+      <a href="{% url 'courses:list' %}" class="btn-primary-ep mt-3">Все курсы</a>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

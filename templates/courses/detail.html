@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ course.name }} — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container" data-aos="fade-up">
+    <div class="course-badge mb-2">{{ course.category.flag_emoji }} {{ course.category.name }}</div>
+    <h1>{{ course.name }}</h1>
+    <p style="color:var(--text-muted);font-size:1.1rem;max-width:700px;">{{ course.short_description }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Course Content -->
+      <div class="col-lg-8" data-aos="fade-right">
+        {% if course.image %}
+        <img src="{{ course.image.url }}" alt="{{ course.name }}" style="width:100%;max-height:400px;object-fit:cover;border-radius:16px;margin-bottom:2rem;">
+        {% endif %}
+
+        <h3 class="fw-bold mb-3">О программе курса</h3>
+        <div style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);" class="mb-5">
+          {{ course.description|safe }}
+        </div>
+
+        {% if schedules %}
+        <h3 class="fw-bold mb-3">Расписание занятий</h3>
+        <div class="table-responsive mb-5">
+          <table class="table table-hover border">
+            <thead class="table-light">
+              <tr>
+                <th>День</th>
+                <th>Время</th>
+                <th>Аудитория</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for s in schedules %}
+              <tr>
+                <td><strong>{{ s.get_day_display }}</strong></td>
+                <td>{{ s.start_time|time:"H:i" }} - {{ s.end_time|time:"H:i" }}</td>
+                <td>{{ s.room|default:"Кабинет 302" }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+
+        {% if course.teacher %}
+        <h3 class="fw-bold mb-3">Преподаватель</h3>
+        <div class="teacher-card d-flex align-items-center gap-3 text-start p-3 mb-5">
+          {% if course.teacher.photo %}
+          <img src="{{ course.teacher.photo.url }}" alt="{{ course.teacher.name }}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;">
+          {% else %}
+          <div class="teacher-avatar-placeholder" style="width:80px;height:80px;font-size:2rem;">{{ course.teacher.name|first }}</div>
+          {% endif %}
+          <div>
+            <h4 class="m-0">{{ course.teacher.name }}</h4>
+            <div class="position">{{ course.teacher.position }}</div>
+            <p class="m-0 text-muted fs-6">{{ course.teacher.education }}</p>
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+
+      <!-- Sidebar Card -->
+      <div class="col-lg-4" data-aos="fade-left">
+        <div class="card-ep p-4 sticky-top" style="top:100px;">
+          <h4 class="fw-bold mb-3">Детали курса</h4>
+          <ul class="list-unstyled">
+            <li class="d-flex justify-content-between py-2 border-bottom">
+              <span class="text-muted">Уровень:</span>
+              <strong>{{ course.get_level_display }}</strong>
+            </li>
+            <li class="d-flex justify-content-between py-2 border-bottom">
+              <span class="text-muted">Длительность:</span>
+              <strong>{{ course.duration }}</strong>
+            </li>
+            <li class="d-flex justify-content-between py-2 border-bottom">
+              <span class="text-muted">Занятий в неделю:</span>
+              <strong>{{ course.lessons_per_week }}x</strong>
+            </li>
+            {% if course.price %}
+            <li class="d-flex justify-content-between py-3 border-bottom">
+              <span class="text-muted fs-5">Стоимость:</span>
+              <strong class="fs-4 text-primary-ep">{{ course.price|floatformat:0 }} сом/мес</strong>
+            </li>
+            {% endif %}
+          </ul>
+
+          <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep w-100 justify-content-center mt-3">
+            <i class="bi bi-pencil-square"></i> Записаться на этот курс
+          </a>
+          {% if site_settings.whatsapp %}
+          <a href="https://wa.me/{{ site_settings.whatsapp }}?text=Здравствуйте!%20Меня%20интересует%20курс%20{{ course.name }}" target="_blank" class="btn-outline-ep w-100 justify-content-center mt-2" style="color:#25D366;border-color:#25D366;">
+            <i class="bi bi-whatsapp"></i> Спросить в WhatsApp
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

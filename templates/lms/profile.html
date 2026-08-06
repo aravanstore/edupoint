@@ -1,0 +1,88 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Мой профиль — Edu Point{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:profile' %}">Профиль</a>{% endblock %}
+{% block lms_heading %}Мой профиль{% endblock %}
+
+{% block lms_content %}
+<div class="row g-4">
+  <div class="col-lg-6">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-person me-2 text-primary"></i> Личные данные</h2>
+      </div>
+      <div class="lms-card-body">
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="profile">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-lms">Имя</label>
+              {{ form.first_name }}
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-lms">Фамилия</label>
+              {{ form.last_name }}
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-lms">Email</label>
+              {{ form.email }}
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-lms">Телефон</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <button type="submit" class="btn-primary-ep mt-3">
+            <i class="bi bi-check2 me-2"></i> Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-shield-lock me-2 text-primary"></i> Смена пароля</h2>
+      </div>
+      <div class="lms-card-body">
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="password">
+          <div class="mb-3">
+            <label class="form-label-lms">Текущий пароль</label>
+            <input type="password" name="old_password" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label-lms">Новый пароль</label>
+            <input type="password" name="new_password1" class="form-control" required minlength="8">
+            <small class="text-muted">Не короче 8 символов.</small>
+          </div>
+          <div class="mb-3">
+            <label class="form-label-lms">Повторите новый пароль</label>
+            <input type="password" name="new_password2" class="form-control" required minlength="8">
+          </div>
+          <button type="submit" class="btn-outline-ep">
+            <i class="bi bi-arrow-repeat me-2"></i> Изменить пароль
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="lms-card">
+      <div class="lms-card-body d-flex align-items-center gap-3">
+        <div class="stat-icon blue"><i class="bi bi-person-badge"></i></div>
+        <div>
+          <div class="text-muted" style="font-size:0.8rem;">Роль в системе</div>
+          <div class="fw-bold">{{ user.profile.get_role_display|default:'Пользователь' }}</div>
+        </div>
+        <div class="ms-auto text-muted small">
+          Логин: <strong>{{ user.username }}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

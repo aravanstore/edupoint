@@ -1,0 +1,28 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Объявления — {{ student }}{% endblock %}
+{% block lms_breadcrumb %}Ученик / Объявления{% endblock %}
+{% block lms_heading %}Объявления{% endblock %}
+
+{% block lms_content %}
+{% if announcements %}
+  {% for a in announcements %}
+  <div class="ann-card">
+    <div class="d-flex justify-content-between align-items-start gap-2">
+      <div class="ann-title">{{ a.title }}</div>
+      {% if a.group %}<span class="badge-ep badge-blue text-nowrap">{{ a.group }}</span>{% endif %}
+    </div>
+    <div style="white-space:pre-line;">{{ a.text }}</div>
+    <div class="ann-date mt-2">
+      <i class="bi bi-clock me-1"></i>{{ a.created_at|date:"d.m.Y H:i" }}
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+<div class="empty-lms lms-card">
+  <i class="bi bi-megaphone"></i>
+  <p>Объявлений пока нет.</p>
+</div>
+{% endif %}
+{% endblock %}

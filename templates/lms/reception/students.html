@@ -1,0 +1,74 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Ученики — ресепшен{% endblock %}
+{% block lms_breadcrumb %}Ресепшен / Ученики{% endblock %}
+{% block lms_heading %}Ученики{% endblock %}
+
+{% block lms_content %}
+<div class="lms-card">
+  <div class="journal-toolbar">
+    <form method="get" class="d-flex gap-2 flex-grow-1" style="max-width:420px;">
+      <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Поиск по имени, телефону или логину...">
+      <button type="submit" class="btn-primary-ep" style="padding:0.5rem 1.2rem;"><i class="bi bi-search"></i></button>
+    </form>
+    <a href="{% url 'lms:reception_student_add' %}" class="btn-teal-ep text-nowrap">
+      <i class="bi bi-person-plus me-1"></i> Добавить ученика
+    </a>
+  </div>
+
+  {% if students %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>Ученик</th>
+          <th>Логин</th>
+          <th>Группа</th>
+          <th>Книга</th>
+          <th>Телефон</th>
+          <th>Оплата</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in students %}
+        <tr style="cursor:pointer;" onclick="location.href='{% url 'lms:reception_student_detail' s.pk %}'">
+          <td class="fw-bold">{{ s }}</td>
+          <td class="text-muted small">{{ s.user.username }}</td>
+          <td>
+            {{ s.group|default:'—' }}
+            {% if s.group and s.group.capacity %}
+              <span class="text-muted small" style="white-space:nowrap;">
+                ({{ s.group_student_count }}/{{ s.group.capacity }})
+                {% if s.group_student_count >= s.group.capacity %}<span class="badge-ep badge-red ms-1">полная</span>{% endif %}
+              </span>
+            {% endif %}
+          </td>
+          <td>{{ s.book|default:'—' }}</td>
+          <td>{{ s.phone|default:'—' }}</td>
+          <td>
+            {% if s.is_frozen %}
+              <span class="badge-ep badge-red"><i class="bi bi-pause-circle"></i> Frozen</span>
+            {% else %}
+              {% with st=s.payment_status %}
+              {% if st.0 == 'paid' %}
+                <span class="badge-ep badge-green"><i class="bi bi-check-circle"></i> Оплачено</span>
+              {% else %}
+                <span class="badge-ep badge-amber"><i class="bi bi-clock"></i> До {{ st.1|date:"d.m" }}</span>
+              {% endif %}
+              {% endwith %}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-people"></i>
+    <p>Ученики не найдены.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

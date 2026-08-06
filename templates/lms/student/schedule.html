@@ -1,0 +1,55 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Расписание — {{ student }}{% endblock %}
+{% block lms_breadcrumb %}Ученик / Расписание{% endblock %}
+{% block lms_heading %}Расписание занятий{% endblock %}
+
+{% block lms_content %}
+{% if group %}
+<div class="lms-card mb-4">
+  <div class="lms-card-body">
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Группа</div>
+        <div class="fw-bold">{{ group.name }}</div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Время</div>
+        <div class="fw-bold">{{ group.time_display }}</div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Преподаватель</div>
+        <div class="fw-bold">{{ group.teacher|default:'—' }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-calendar-week me-2 text-primary"></i> Неделя</h2>
+  </div>
+  <div class="lms-card-body">
+    {% for d in days %}
+    <div class="schedule-day {% if not d.active %}inactive{% endif %}">
+      <div class="day-name">
+        <span style="width:10px;height:10px;border-radius:50%;display:inline-block;background:{% if d.active %}var(--teal){% else %}var(--gray-300){% endif %};"></span>
+        {{ d.label }}
+      </div>
+      {% if d.active %}
+        <div class="day-time">{{ d.group.time_display }}</div>
+      {% else %}
+        <div class="text-muted small">Выходной</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% else %}
+<div class="empty-lms lms-card">
+  <i class="bi bi-calendar-x"></i>
+  <p>Вы не прикреплены к группе. Обратитесь на ресепшен учебного центра.</p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'lms/base_lms.html' %}
+{% load static lms_extras %}
+
+{% block lms_title %}Домашние задания — {{ student }}{% endblock %}
+{% block lms_breadcrumb %}Ученик / Домашние задания{% endblock %}
+{% block lms_heading %}Домашние задания{% endblock %}
+
+{% block lms_content %}
+{% include 'lms/includes/_frozen_banner.html' %}
+
+{% if frozen %}
+<div class="empty-lms lms-card">
+  <i class="bi bi-lock"></i>
+  <p>Домашние задания скрыты до оплаты обучения.</p>
+</div>
+{% else %}
+{% if homeworks %}
+  {% for hw in homeworks %}
+  <div class="hw-card {% if hw.id in submissions %}hw-done{% endif %}">
+    <div class="d-flex flex-wrap justify-content-between gap-2 align-items-start">
+      <div>
+        <div class="hw-title">{{ hw.title }}</div>
+        <div class="hw-meta">
+          {{ hw.group }} · {{ hw.created_at|date:"d.m.Y" }}
+          {% if hw.due_date %} · Срок: {{ hw.due_date|date:"d.m.Y" }}{% endif %}
+        </div>
+      </div>
+      {% if hw.id in submissions %}
+        <span class="badge-ep badge-green"><i class="bi bi-check2-circle"></i> Отправлено</span>
+      {% else %}
+        <span class="badge-ep badge-amber"><i class="bi bi-clock"></i> Не сдано</span>
+      {% endif %}
+    </div>
+
+    {% if hw.description %}
+    <div class="mt-2" style="white-space:pre-line;">{{ hw.description }}</div>
+    {% endif %}
+
+    {% if hw.photo or hw.video or hw.file %}
+    <div class="hw-media">
+      {% if hw.photo %}<a href="{{ hw.photo.url }}" target="_blank"><img src="{{ hw.photo.url }}" alt="Фото задания" style="max-height:200px;"></a>{% endif %}
+      {% if hw.video %}
+        <a class="hw-file" href="{{ hw.video }}" target="_blank"><i class="bi bi-play-circle"></i> Видео</a>
+      {% endif %}
+      {% if hw.file %}
+        <a class="hw-file" href="{{ hw.file.url }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> {{ hw.file.name|cut:"homeworks/" }}</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="{% url 'lms:student_homework_submit' hw.pk %}" class="btn-primary-ep" style="padding:0.5rem 1.2rem;font-size:0.9rem;">
+        <i class="bi bi-send me-2"></i> {% if hw.id in submissions %}Изменить ответ{% else %}Отправить ответ{% endif %}
+      </a>
+      {% with sub=submissions|get_item:hw.id %}
+      {% if sub %}
+        <span class="text-muted small">Отправлено: {{ sub.submitted_at|date:"d.m.Y H:i" }}</span>
+      {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+<div class="empty-lms lms-card">
+  <i class="bi bi-journal-x"></i>
+  <p>Заданий пока нет.</p>
+</div>
+{% endif %}
+{% endif %}
+{% endblock %}

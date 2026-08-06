@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load lms_extras %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/lms.css' %}?v=20260807-lms">
+{% endblock %}
+
+{% block title %}{% block lms_title %}Кабинет — Edu Point{% endblock %}{% endblock %}
+
+{% block content %}
+<div class="lms-shell">
+  <div class="lms-scrim" id="lmsScrim"></div>
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="lms-sidebar" id="lmsSidebar">
+    <div class="user-chip">
+      <div class="user-avatar">{{ user.first_name|default:user.username|slice:":1"|upper }}{{ user.last_name|slice:":1"|upper }}</div>
+      <div class="min-width-0">
+        <div class="user-chip-name">{{ user.get_full_name|default:user.username }}</div>
+        <div class="user-chip-role">{{ user.profile.get_role_display|default:'Пользователь' }}</div>
+      </div>
+    </div>
+
+    <nav class="lms-nav">
+      {% if user.profile.role == 'student' %}
+        <div class="lms-nav-label">Мой кабинет</div>
+        <a href="{% url 'lms:student_dashboard' %}" class="{% if active_section == 'overview' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> Обзор</a>
+        <a href="{% url 'lms:student_grades' %}" class="{% if active_section == 'grades' %}active{% endif %}"><i class="bi bi-clipboard2-data"></i> Оценки</a>
+        <a href="{% url 'lms:student_attendance' %}" class="{% if active_section == 'attendance' %}active{% endif %}"><i class="bi bi-calendar2-check"></i> Посещаемость</a>
+        <a href="{% url 'lms:student_homework' %}" class="{% if active_section == 'homework' %}active{% endif %}"><i class="bi bi-journal-text"></i> Домашние задания</a>
+        <a href="{% url 'lms:student_schedule' %}" class="{% if active_section == 'schedule' %}active{% endif %}"><i class="bi bi-clock"></i> Расписание</a>
+        <a href="{% url 'lms:student_announcements' %}" class="{% if active_section == 'announcements' %}active{% endif %}"><i class="bi bi-megaphone"></i> Объявления</a>
+      {% elif user.profile.role == 'parent' %}
+        <div class="lms-nav-label">Мой кабинет</div>
+        <a href="{% url 'lms:parent_dashboard' %}" class="{% if active_section == 'overview' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> Мои дети</a>
+      {% elif user.profile.role == 'teacher' %}
+        <div class="lms-nav-label">Преподавание</div>
+        <a href="{% url 'lms:teacher_dashboard' %}" class="{% if active_section == 'overview' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> Обзор</a>
+        <a href="{% url 'lms:teacher_homework' %}" class="{% if active_section == 'homework' %}active{% endif %}"><i class="bi bi-journal-text"></i> Домашние задания</a>
+        <a href="{% url 'lms:teacher_announcements' %}" class="{% if active_section == 'announcements' %}active{% endif %}"><i class="bi bi-megaphone"></i> Объявления</a>
+      {% elif user.profile.role == 'reception' or user.profile.role == 'admin' %}
+        <div class="lms-nav-label">Управление</div>
+        <a href="{% url 'lms:reception_dashboard' %}" class="{% if active_section == 'overview' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> Обзор</a>
+        <a href="{% url 'lms:reception_students' %}" class="{% if active_section == 'students' %}active{% endif %}"><i class="bi bi-people"></i> Ученики</a>
+        <a href="{% url 'lms:reception_announcements' %}" class="{% if active_section == 'announcements' %}active{% endif %}"><i class="bi bi-megaphone"></i> Объявления</a>
+        <a href="{% url 'lms:admin_analytics' %}" class="{% if active_section == 'analytics' %}active{% endif %}"><i class="bi bi-graph-up"></i> Аналитика</a>
+        <a href="{% url 'lms:activity_log' %}" class="{% if active_section == 'activity' %}active{% endif %}"><i class="bi bi-clock-history"></i> История действий</a>
+        {% if user.is_superuser %}
+          <div class="lms-nav-label">Разработчик</div>
+          <a href="/admin/"><i class="bi bi-gear"></i> Django Admin</a>
+        {% endif %}
+      {% endif %}
+
+      <div class="lms-nav-label">Аккаунт</div>
+      <a href="{% url 'lms:profile' %}" class="{% if active_section == 'profile' %}active{% endif %}"><i class="bi bi-person"></i> Мой профиль</a>
+      <a href="{% url 'lms:logout' %}" class="nav-logout"><i class="bi bi-box-arrow-right"></i> Выйти</a>
+    </nav>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <div class="lms-main">
+    <div class="lms-topbar">
+      <div>
+        <div class="breadcrumbs">Кабинет / {% block lms_breadcrumb %}{% endblock %}</div>
+        <h1>{% block lms_heading %}{% endblock %}</h1>
+      </div>
+      <div class="lms-topbar-actions">
+        <a href="{% url 'lms:notifications' %}" class="lms-notif-btn" aria-label="Уведомления">
+          <i class="bi bi-bell"></i>
+          {% unread_notifications as unread %}
+          {% if unread %}<span class="lms-notif-badge">{{ unread }}</span>{% endif %}
+        </a>
+        <button class="lms-sidebar-toggle" id="lmsSidebarToggle" aria-label="Меню"><i class="bi bi-list"></i></button>
+      </div>
+    </div>
+
+    {% block lms_content %}{% endblock %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  (function () {
+    const sidebar = document.getElementById('lmsSidebar');
+    const scrim = document.getElementById('lmsScrim');
+    const toggle = document.getElementById('lmsSidebarToggle');
+    function close() {
+      sidebar.classList.remove('open');
+      if (scrim) scrim.classList.remove('show');
+    }
+    if (toggle) toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      if (scrim) scrim.classList.toggle('show');
+    });
+    if (scrim) scrim.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}500 — Ошибка сервера — Edu Point{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/lms.css' %}?v=20260807-lms">
+{% endblock %}
+
+{% block content %}
+<section class="auth-page">
+  <div class="auth-card text-center">
+    <div style="font-size:4rem;font-weight:900;line-height:1;color:var(--danger,#ef4444);">500</div>
+    <h1 class="mt-2">Что-то пошло не так</h1>
+    <p class="auth-sub">На сервере произошла ошибка. Попробуйте обновить страницу или зайдите позже.</p>
+    <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
+      <a href="{% url 'core:home' %}" class="btn-primary-ep"><i class="bi bi-house me-1"></i> На главную</a>
+      <a href="{% url 'lms:dashboard' %}" class="btn-outline-ep"><i class="bi bi-speedometer2 me-1"></i> В кабинет</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

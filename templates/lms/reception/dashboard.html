@@ -1,0 +1,104 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Кабинет ресепшена{% endblock %}
+{% block lms_breadcrumb %}Ресепшен / Обзор{% endblock %}
+{% block lms_heading %}Кабинет ресепшена{% endblock %}
+
+{% block lms_content %}
+<div class="row g-3">
+  <div class="col-sm-6 col-xl-3">
+    <a href="{% url 'lms:reception_students' %}" class="text-decoration-none">
+      <div class="stat-card">
+        <div class="stat-icon blue"><i class="bi bi-people"></i></div>
+        <div>
+          <div class="stat-num">{{ total }}</div>
+          <div class="stat-lbl">Всего учеников</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-person-check"></i></div>
+      <div>
+        <div class="stat-num">{{ active }}</div>
+        <div class="stat-lbl">Активных</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon red"><i class="bi bi-pause-circle"></i></div>
+      <div>
+        <div class="stat-num">{{ overdue }}</div>
+        <div class="stat-lbl">Заморожено (неоплата)</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <a href="{% url 'lms:reception_student_add' %}" class="text-decoration-none">
+      <div class="stat-card" style="border-style:dashed;border-color:var(--primary);background:var(--primary-bg);">
+        <div class="stat-icon blue"><i class="bi bi-person-plus"></i></div>
+        <div>
+          <div class="stat-num">+</div>
+          <div class="stat-lbl">Новый ученик</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="row g-4 mt-0">
+  <div class="col-lg-7">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-clock-history me-2 text-primary"></i> Последние оплаты</h2>
+        <a href="{% url 'lms:reception_students' %}" class="small">Все ученики →</a>
+      </div>
+      {% if recent_payments %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead>
+            <tr><th>Ученик</th><th>Месяц</th><th>Сумма</th><th>Дата</th></tr>
+          </thead>
+          <tbody>
+            {% for p in recent_payments %}
+            <tr>
+              <td class="fw-bold">{{ p.student }}</td>
+              <td>{{ p.month|date:"m.Y" }}</td>
+              <td>{{ p.amount }} сом</td>
+              <td>{{ p.paid_at|date:"d.m.Y H:i" }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-wallet2"></i><p>Оплат пока нет.</p></div>{% endif %}
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-exclamation-triangle me-2 text-primary"></i> Требуют внимания</h2>
+      </div>
+      <div class="lms-card-body">
+        {% if frozen_count %}
+        <div class="text-muted small mb-2">{{ frozen_count }} учеников с просроченной оплатой</div>
+        {% for s in students %}
+          {% if s.is_frozen %}
+          <a href="{% url 'lms:reception_student_detail' s.pk %}" class="d-flex justify-content-between align-items-center p-2 rounded mb-1 text-decoration-none" style="background:rgba(239,68,68,0.06);">
+            <span class="fw-bold" style="color:var(--text-primary);">{{ s }}</span>
+            <span class="badge-ep badge-red text-nowrap">Frozen</span>
+          </a>
+          {% endif %}
+        {% endfor %}
+        {% else %}
+        <div class="empty-lms"><i class="bi bi-emoji-smile"></i><p>Все оплаты в порядке.</p></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

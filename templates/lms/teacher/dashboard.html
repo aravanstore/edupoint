@@ -1,0 +1,94 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Кабинет учителя{% endblock %}
+{% block lms_breadcrumb %}Учитель / Обзор{% endblock %}
+{% block lms_heading %}Здравствуйте, {{ user.first_name|default:user.username }}! 👋{% endblock %}
+
+{% block lms_content %}
+<div class="row g-3">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-people"></i></div>
+      <div>
+        <div class="stat-num">{{ groups|length }}</div>
+        <div class="stat-lbl">Моих групп</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-person-video3"></i></div>
+      <div>
+        <div class="stat-num">{{ tp.teacher.name }}</div>
+        <div class="stat-lbl">Преподаватель</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon gold"><i class="bi bi-journal-text"></i></div>
+      <div>
+        <div class="stat-num">{{ tp.teacher.lms_homeworks.count }}</div>
+        <div class="stat-lbl">Заданий выдано</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon red"><i class="bi bi-calendar-day"></i></div>
+      <div>
+        <div class="stat-num">{{ today|date:"d.m" }}</div>
+        <div class="stat-lbl">Сегодня</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card mt-4">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-people me-2 text-primary"></i> Мои группы</h2>
+  </div>
+  {% if groups %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>Группа</th>
+          <th>Курс</th>
+          <th>Книга</th>
+          <th>Время / Дни</th>
+          <th>Учеников</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for g in groups %}
+        <tr>
+          <td class="fw-bold">{{ g.name }}</td>
+          <td>{{ g.course.name }}</td>
+          <td>{{ g.book|default:'—' }}</td>
+          <td class="text-nowrap">{{ g.time_display }}<br><span class="text-muted small">{{ g.days_display }}</span></td>
+          <td>
+            <span class="badge-ep badge-blue">{{ g.student_count }}</span>
+            {% if g.capacity %}<span class="text-muted small">/ {{ g.capacity }}</span>{% endif %}
+            {% if g.capacity and g.student_count >= g.capacity %}<span class="badge-ep badge-red ms-1">полная</span>{% endif %}
+          </td>
+          <td>
+            <a href="{% url 'lms:teacher_journal' g.pk %}" class="btn-primary-ep" style="padding:0.45rem 1rem;font-size:0.85rem;">
+              <i class="bi bi-journal-plus me-1"></i> Журнал
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-people"></i>
+    <p>Вам пока не назначены группы.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

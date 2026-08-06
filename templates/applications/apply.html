@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Онлайн запись на курс — Edu Point{% endblock %}
+
+{% block content %}
+<section class="apply-hero">
+  <div class="container text-center" data-aos="fade-up">
+    <h1>Запись на курсы Edu Point</h1>
+    <p style="color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto;">
+      Заполните форму ниже. Наш менеджер свяжется с вами и подберёт удобное расписание!
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5 justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up">
+        <div class="apply-card">
+          <!-- Step indicator -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-4">
+              <div class="apply-step m-0">
+                <div class="apply-step-num">1</div>
+                <div class="apply-step-text"><strong>Заявка</strong> Заполните форму</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="apply-step m-0">
+                <div class="apply-step-num">2</div>
+                <div class="apply-step-text"><strong>Звонок</strong> Подбор группы</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="apply-step m-0">
+                <div class="apply-step-num">3</div>
+                <div class="apply-step-text"><strong>Старт</strong> Первое занятие</div>
+              </div>
+            </div>
+          </div>
+
+          <form method="post" action="{% url 'applications:apply' %}" class="form-ep" data-validate>
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label class="form-label">Ваше полное имя *</label>
+              <input type="text" name="name" class="form-control" placeholder="Например: Асан Асанов" required>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Номер телефона (WhatsApp) *</label>
+                <input type="tel" name="phone" class="form-control" placeholder="+996 700 000 000" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Возраст</label>
+                <input type="number" name="age" class="form-control" placeholder="Например: 18" min="7" max="80">
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Выбор курса</label>
+                <select name="course" class="form-select">
+                  <option value="">-- Выберите курс --</option>
+                  {% for course in courses %}
+                  <option value="{{ course.id }}" {% if selected_course_id == course.id|stringformat:"s" %}selected{% endif %}>
+                    {{ course.category.flag_emoji }} {{ course.name }}
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Ваш текущий уровень языка</label>
+                <select name="language_level" class="form-select">
+                  <option value="zero">С нуля (Никогда не изучал)</option>
+                  <option value="beginner">Начальный (Знаю алфавит/слова)</option>
+                  <option value="elementary">Элементарный (A2)</option>
+                  <option value="intermediate">Средний (B1-B2)</option>
+                  <option value="advanced">Продвинутый (C1)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label">Дополнительный комментарий / Вопрос</label>
+              <textarea name="comment" rows="3" class="form-control" placeholder="Например: Удобно заниматься вечером после 18:00..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-ep w-100 justify-content-center py-3 fs-5">
+              <i class="bi bi-send-fill me-2"></i> Записаться на курс
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

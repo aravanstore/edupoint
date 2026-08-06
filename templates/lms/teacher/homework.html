@@ -1,0 +1,88 @@
+{% extends 'lms/base_lms.html' %}
+{% load static lms_extras %}
+
+{% block lms_title %}Домашние задания — учитель{% endblock %}
+{% block lms_breadcrumb %}Учитель / Домашние задания{% endblock %}
+{% block lms_heading %}Домашние задания{% endblock %}
+
+{% block lms_content %}
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-plus-circle me-2 text-primary"></i> Новое задание</h2>
+  </div>
+  <div class="lms-card-body">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label-lms">Группа</label>
+          {{ form.group }}
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Заголовок</label>
+          {{ form.title }}
+        </div>
+        <div class="col-12">
+          <label class="form-label-lms">Задание (текст)</label>
+          {{ form.description }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Фото</label>
+          {{ form.photo }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Видео (ссылка)</label>
+          {{ form.video }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Файл (PDF и др.)</label>
+          {{ form.file }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Срок сдачи</label>
+          {{ form.due_date }}
+        </div>
+      </div>
+      <button type="submit" class="btn-primary-ep mt-3">
+        <i class="bi bi-check2 me-2"></i> Опубликовать задание
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-journal-text me-2 text-primary"></i> Выданные задания</h2>
+  </div>
+  {% if homeworks %}
+  <div class="lms-card-body">
+    {% for hw in homeworks %}
+    <div class="hw-card">
+      <div class="d-flex flex-wrap justify-content-between gap-2">
+        <div class="hw-title">{{ hw.title }}</div>
+        <span class="badge-ep badge-blue text-nowrap">{{ hw.group }}</span>
+      </div>
+      {% if hw.description %}<div class="mt-1" style="white-space:pre-line;">{{ hw.description }}</div>{% endif %}
+      <div class="hw-meta mt-2">
+        {{ hw.created_at|date:"d.m.Y" }}
+        {% if hw.due_date %} · Срок: {{ hw.due_date|date:"d.m.Y" }}{% endif %}
+        · Ответов: {{ hw.submissions.count }}
+      </div>
+      {% if hw.submissions.count %}
+      <div class="mt-2">
+        {% for s in hw.submissions.all %}
+        <span class="badge-ep badge-green me-1"><i class="bi bi-person-check"></i> {{ s.student }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-journal-x"></i>
+    <p>Заданий пока нет.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

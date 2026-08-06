@@ -1,0 +1,69 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Ответ: {{ homework.title }}{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:student_homework' %}">Домашние задания</a> / Ответ{% endblock %}
+{% block lms_heading %}Отправка ответа{% endblock %}
+
+{% block lms_content %}
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2>{{ homework.title }}</h2>
+    <span class="badge-ep badge-blue">{{ homework.group }}</span>
+  </div>
+  <div class="lms-card-body">
+    {% if homework.description %}
+    <div style="white-space:pre-line;" class="mb-3">{{ homework.description }}</div>
+    {% endif %}
+
+    {% if homework.photo or homework.video or homework.file %}
+    <div class="hw-media">
+      {% if homework.photo %}<a href="{{ homework.photo.url }}" target="_blank"><img src="{{ homework.photo.url }}" alt="Фото задания" style="max-height:260px;"></a>{% endif %}
+      {% if homework.video %}<a class="hw-file" href="{{ homework.video }}" target="_blank"><i class="bi bi-play-circle"></i> Видео</a>{% endif %}
+      {% if homework.file %}<a class="hw-file" href="{{ homework.file.url }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> {{ homework.file.name|cut:"homeworks/" }}</a>{% endif %}
+    </div>
+    {% endif %}
+
+    {% if homework.due_date %}
+    <div class="mt-2 small text-muted">
+      <i class="bi bi-calendar-event me-1"></i> Срок сдачи: {{ homework.due_date|date:"d.m.Y" }}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-send me-2 text-primary"></i> {% if existing %}Ваш ответ (изменить){% else %}Ваш ответ{% endif %}</h2>
+  </div>
+  <div class="lms-card-body">
+    {% if existing %}
+    <div class="mb-3 p-3 rounded" style="background:var(--primary-bg);border:1px solid var(--primary-border);">
+      <div class="small text-muted mb-1">Отправлено: {{ existing.submitted_at|date:"d.m.Y H:i" }}
+        {% if existing.is_late %}<span class="badge-ep badge-red ms-2">просрочено</span>{% endif %}
+      </div>
+      {% if existing.photo %}<img src="{{ existing.photo.url }}" alt="Ответ" style="max-height:180px;" class="mb-2">{% endif %}
+      {% if existing.text %}<div style="white-space:pre-line;">{{ existing.text }}</div>{% endif %}
+    </div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label-lms">Текст ответа</label>
+        {{ form.text }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label-lms">Фото ответа</label>
+        {{ form.photo }}
+      </div>
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn-primary-ep">
+          <i class="bi bi-send me-2"></i> Отправить
+        </button>
+        <a href="{% url 'lms:student_homework' %}" class="btn-outline-ep">Назад</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

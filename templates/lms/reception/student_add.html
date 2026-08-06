@@ -1,0 +1,74 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Новый ученик — ресепшен{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_students' %}">Ученики</a> / Новый{% endblock %}
+{% block lms_heading %}Новый ученик{% endblock %}
+
+{% block lms_content %}
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-person-plus me-2 text-primary"></i> Запись ученика</h2>
+    <span class="text-muted small">Логин и пароль будут сгенерированы автоматически (если пароль не задан)</span>
+  </div>
+  <div class="lms-card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label-lms">Имя *</label>
+          {{ form.first_name }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Фамилия</label>
+          {{ form.last_name }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Пароль (если пусто — сгенерируем)</label>
+          {{ form.password }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Телефон</label>
+          {{ form.phone }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Дата рождения</label>
+          {{ form.birth_date }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Группа</label>
+          {{ form.group }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Книга</label>
+          {{ form.book }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Прогресс книги (%)</label>
+          {{ form.book_progress }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Родитель</label>
+          {{ form.parent }}
+        </div>
+        <div class="col-12">
+          <label class="form-label-lms">Заметки</label>
+          {{ form.notes }}
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            {{ form.is_active }}
+            <label class="form-check-label" for="{{ form.is_active.id_for_label }}">Ученик активен</label>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex gap-2 mt-4">
+        <button type="submit" class="btn-primary-ep">
+          <i class="bi bi-person-plus me-2"></i> Создать ученика
+        </button>
+        <a href="{% url 'lms:reception_students' %}" class="btn-outline-ep">Отмена</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

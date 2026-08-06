@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Выбор комнаты — {{ game.title }} | Edu Point{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/games.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Game Room Selection Header -->
+<section class="section py-4 border-bottom bg-alt">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+      <div>
+        <a href="{% url 'games:index' %}" class="btn btn-sm btn-outline-ep mb-2">
+          <i class="bi bi-arrow-left"></i> Назад в Игровой Центр
+        </a>
+        <h2 class="fw-bold mb-1">{{ game.icon }} {{ game.title }}</h2>
+        <p class="text-muted mb-0">{{ game.subtitle }}</p>
+      </div>
+
+      <div class="d-flex gap-2">
+        <span class="badge bg-primary fs-6 px-3 py-2">4 Комнаты доступны</span>
+        <span class="badge bg-success fs-6 px-3 py-2">Хост регулирует раунды</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rooms Grid (1 to 4) -->
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Rooms Col -->
+      <div class="col-lg-8">
+        <h4 class="fw-bold mb-3">Выберите комнатный сервер (1-4):</h4>
+        
+        <div class="row g-4">
+          {% for room in rooms %}
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+            <div class="room-card {% if room.is_occupied %}occupied{% endif %}">
+              <span class="room-badge {% if room.is_occupied %}active{% else %}free{% endif %}">
+                {% if room.is_occupied %}🔴 Занята (Идёт подготовка){% else %}🟢 Свободна{% endif %}
+              </span>
+
+              <h3 class="fw-bold mb-2">Комната #{{ room.room_number }}</h3>
+              
+              <div class="host-avatar-box">
+                <span class="host-crown">👑</span>
+                <div>
+                  <small class="text-muted d-block" style="font-size:0.75rem;">Хост комнаты:</style>
+                  <strong class="text-primary">{{ room.host_name }}</strong>
+                </div>
+              </div>
+
+              <ul class="list-unstyled text-muted small mb-4">
+                <li><i class="bi bi-translate text-primary me-2"></i>Язык: <strong class="text-dark">{{ room.get_target_language_display }}</strong></li>
+                <li><i class="bi bi-people-fill text-primary me-2"></i>Макс. игроков: <strong class="text-dark">{{ room.max_players }} человек</strong></li>
+                <li><i class="bi bi-sliders text-primary me-2"></i>Сложность: <strong>{{ room.get_difficulty_display }}</strong></li>
+                <li><i class="bi bi-arrow-repeat text-primary me-2"></i>Длина матча: <strong>{{ room.max_rounds }} раундов</strong></li>
+                <li><i class="bi bi-stopwatch text-primary me-2"></i>Время на ход: <strong>{{ room.round_time_sec }} сек</strong></li>
+              </ul>
+
+              <button class="btn-primary-ep w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#joinRoomModal_{{ room.room_number }}">
+                <i class="bi bi-box-arrow-in-right"></i> Войти в Комнату #{{ room.room_number }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Join / Host Modal for Room -->
+          <div class="modal fade" id="joinRoomModal_{{ room.room_number }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                  <h5 class="modal-title fw-bold">{{ game.icon }} Комната #{{ room.room_number }} — Вход</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="{% url 'games:room_select' game.slug %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="room_number" value="{{ room.room_number }}">
+                  <div class="modal-body">
+                    
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">Ваше имя или никнейм:</label>
+                      <input type="text" name="player_name" class="form-control form-control-lg" placeholder="Например: Азамат" required value="{{ request.session.player_name|default:'' }}">
+                    </div>
+
+                    {% if not room.is_occupied or room.host_name == 'Свободна (нажмите стать хостом)' %}
+                    <div class="alert alert-info py-2 rounded-3 small mb-3">
+                      👑 <strong>Вы заходите первым!</strong> Вы станете <strong>Хостом</strong> и можете настроить параметры игры.
+                    </div>
+
+                    <div class="border rounded-3 p-3 bg-light mb-3">
+                      <h6 class="fw-bold mb-3 text-primary"><i class="bi bi-gear-fill"></i> Настройки Хоста:</h6>
+                      
+                      <div class="mb-2">
+                        <label class="form-label small mb-1">Язык обучения:</label>
+                        <select name="target_language" class="form-select form-select-sm fw-bold">
+                          <option value="korean" selected>🇰🇷 Корейский</option>
+                          <option value="english">🇬🇧 Английский</option>
+                          <option value="german">🇩🇪 Немецкий</option>
+                          <option value="chinese">🇨🇳 Китайский</option>
+                          <option value="all">🌐 Все языки / Русский (Начинающим)</option>
+                        </select>
+                      </div>
+
+                      <div class="mb-2">
+                        <label class="form-label small mb-1">Максимум игроков в Лобби:</label>
+                        <select name="max_players" class="form-select form-select-sm">
+                          <option value="2">2 игрока (Дуэль)</option>
+                          <option value="4" selected>4 игрока (Стандартное Лобби)</option>
+                          <option value="6">6 игроков (Команда)</option>
+                          <option value="8">8 игроков (Турнир)</option>
+                        </select>
+                      </div>
+
+                      <div class="mb-2">
+                        <label class="form-label small mb-1">Сложность знаний:</label>
+                        <select name="difficulty" class="form-select form-select-sm">
+                          <option value="easy" selected>🌱 Начинающий (A1-A2)</option>
+                          <option value="medium">📈 Средний (B1-B2)</option>
+                          <option value="hard">🔥 Продвинутый (C1-C2)</option>
+                          <option value="mixed">🌐 Смешанный</option>
+                        </select>
+                      </div>
+
+                      <div class="mb-2">
+                        <label class="form-label small mb-1">Количество раундов (длина матча):</label>
+                        <select name="max_rounds" class="form-select form-select-sm">
+                          <option value="5">5 раундов (Быстрый матч)</option>
+                          <option value="10" selected>10 раундов (Стандарт)</option>
+                          <option value="15">15 раундов (Длинный турнир)</option>
+                          <option value="20">20 раундов (Марафон)</option>
+                        </select>
+                      </div>
+
+                      <div class="mb-2">
+                        <label class="form-label small mb-1">Время на ход (секунд):</label>
+                        <select name="round_time_sec" class="form-select form-select-sm">
+                          <option value="15">15 секунд (Скоростной)</option>
+                          <option value="20" selected>20 секунд (Оптимально)</option>
+                          <option value="30">30 секунд (Раздумье)</option>
+                          <option value="45">45 секунд (Максимум)</option>
+                        </select>
+                      </div>
+                    </div>
+                    {% endif %}
+
+                  </div>
+                  <div class="modal-footer border-0 pt-0">
+                    <button type="submit" name="action" value="join" class="btn-primary-ep w-100 justify-content-center">
+                      <i class="bi bi-controller"></i> Начать игру в Комнате #{{ room.room_number }}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Leaderboard Sidebar Col -->
+      <div class="col-lg-4">
+        <div class="card-ep p-4 sticky-top" style="top: 90px;">
+          <h4 class="fw-bold mb-3 text-primary"><i class="bi bi-trophy-fill text-warning"></i> Топ Игроков:</h4>
+          
+          <div class="list-group list-group-flush">
+            {% for res in top_results %}
+            <div class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-center">
+              <div>
+                <strong class="d-block">{{ forloop.counter }}. {{ res.player_name }}</strong>
+                <small class="text-muted">Рекорд: {{ res.best_score }} pts</small>
+              </div>
+              <span class="badge bg-warning text-dark rounded-pill fs-6">🏆 {{ res.wins_count }} Побед</span>
+            </div>
+            {% empty %}
+            <p class="text-muted small">Пока нет сохранённых рекордов. Станьте первым на Подиуме!</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

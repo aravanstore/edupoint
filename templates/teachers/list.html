@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Преподаватели — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container text-center" data-aos="fade-up">
+    <h1>Наши преподаватели</h1>
+    <p style="color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto;">
+      Команда квалифицированных преподавателей с опытом стажировки за рубежом
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for teacher in teachers %}
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="teacher-card h-100 d-flex flex-column align-items-center">
+          {% if teacher.photo %}
+          <img src="{{ teacher.photo.url }}" alt="{{ teacher.name }}" class="teacher-avatar mb-3">
+          {% else %}
+          <div class="teacher-avatar-placeholder mb-3">{{ teacher.name|first }}</div>
+          {% endif %}
+          <h4 class="fw-bold mb-1">{{ teacher.name }}</h4>
+          <div class="position text-primary fw-semibold mb-2">{{ teacher.position }}</div>
+          <div class="badge bg-light text-dark border mb-3">{{ teacher.languages }}</div>
+
+          {% if teacher.bio %}
+          <p class="text-muted fs-6 mb-3" style="line-height:1.6;">{{ teacher.bio }}</p>
+          {% endif %}
+
+          <div class="mt-auto">
+            <span class="experience">{{ teacher.experience_years }} лет стажа</span>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <!-- Static showcase if empty -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="teacher-card">
+          <div class="teacher-avatar-placeholder mb-3">K</div>
+          <h4 class="fw-bold">Ким Мин Сон</h4>
+          <div class="position text-primary">Преподаватель корейского языка</div>
+          <p class="text-muted fs-6 mt-2">Носитель языка, эксперт по подготовке к TOPIK I & II.</p>
+          <span class="experience">7 лет стажа</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="teacher-card">
+          <div class="teacher-avatar-placeholder mb-3">A</div>
+          <h4 class="fw-bold">Алина Сергеева</h4>
+          <div class="position text-primary">Преподаватель английского (IELTS 8.5)</div>
+          <p class="text-muted fs-6 mt-2">Сертифицированный CELTA преподаватель.</p>
+          <span class="experience">5 лет стажа</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="teacher-card">
+          <div class="teacher-avatar-placeholder mb-3">M</div>
+          <h4 class="fw-bold">Максим Шмидт</h4>
+          <div class="position text-primary">Преподаватель немецкого языка (C1)</div>
+          <p class="text-muted fs-6 mt-2">Выпускник немецкого университета, эксперт по Ausbildung.</p>
+          <span class="experience">6 лет стажа</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

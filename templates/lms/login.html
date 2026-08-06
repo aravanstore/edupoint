@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Вход — Edu Point{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/lms.css' %}?v=20260807-lms">
+{% endblock %}
+
+{% block content %}
+<section class="auth-page">
+  <div class="auth-card">
+    <img src="{% static 'images/edu_logo.png' %}" alt="Edu Point" class="auth-logo">
+    <h1>Вход в личный кабинет</h1>
+    <p class="auth-sub">Edu Point — образовательная платформа</p>
+
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}">
+      <div class="mb-3">
+        <label class="form-label-lms">Логин</label>
+        {{ form.username }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label-lms">Пароль</label>
+        {{ form.password }}
+      </div>
+      <div class="form-check mb-3 d-flex align-items-center gap-2">
+        {{ form.remember }}
+        <label class="form-check-label lms-muted" for="{{ form.remember.id_for_label }}">
+          Запомнить меня на 30 дней
+        </label>
+      </div>
+      <button type="submit" class="btn-primary-ep w-100 justify-content-center py-2">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Войти
+      </button>
+    </form>
+
+    <div class="auth-links">
+      <a href="{% url 'lms:password_reset' %}">Забыли пароль?</a>
+      <a href="{% url 'core:home' %}"><i class="bi bi-arrow-left"></i> На сайт</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

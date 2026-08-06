@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}🎮 Игровой Центр — Изучай языки играя | Edu Point{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/games.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Games Hero -->
+<section class="games-hero text-center">
+  <div class="container position-relative">
+    <span class="games-category-badge">🏆 Интерактивное обучение</span>
+    <h1 class="mb-3">Игровой <span class="text-warning">Центр</span> Edu Point</h1>
+    <p class="lead opacity-90 mx-auto" style="max-width: 650px;">
+      10 увлекательных языковых мини-игр! Выбирайте комнатный режим, соревнуйтесь в подиуме лучших знатоков корейского, английского, немецкого и китайского языков.
+    </p>
+  </div>
+</section>
+
+<!-- Category Tabs & Games Hub -->
+<section class="section">
+  <div class="container">
+
+    <!-- Category Tabs -->
+    <div class="game-tabs" data-aos="fade-up">
+      {% for cat_key, cat_name in categories %}
+      <button class="game-tab-btn {% if forloop.first %}active{% endif %}" onclick="filterGames('{{ cat_key }}', this)">
+        {{ cat_name }}
+      </button>
+      {% endfor %}
+    </div>
+
+    <!-- Games Grid (10 Games) -->
+    <div class="row g-4" id="gamesGrid">
+      {% for game in games %}
+      <div class="col-lg-4 col-md-6 game-item-card" data-category="{{ game.category }}" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0 }}00">
+        <div class="game-card">
+          <div>
+            <div class="game-card-icon">
+              <span>{{ game.icon }}</span>
+            </div>
+            <h3>{{ game.title }}</h3>
+            <p>{{ game.subtitle|default:game.description|truncatewords:15 }}</p>
+          </div>
+
+          <div>
+            <div class="game-card-meta">
+              <span><i class="bi bi-door-open"></i> 4 Комнаты</span>
+              <span><i class="bi bi-clock-history"></i> {{ game.default_time_sec }} сек/ход</span>
+              <span><i class="bi bi-flag"></i> Все уровни</span>
+            </div>
+
+            <a href="{% url 'games:room_select' game.slug %}" class="btn-primary-ep w-100 justify-content-center">
+              <i class="bi bi-play-circle-fill"></i> Играть & Выбор комнаты
+            </a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5">
+        <h4 class="text-muted">Игры загружаются...</h4>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- Features Banner -->
+<section class="section-alt section">
+  <div class="container text-center">
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card-ep p-4 h-100">
+          <span class="fs-1 text-primary">👑</span>
+          <h4 class="mt-3">Стань Хостом Комнаты</h4>
+          <p class="text-muted">Первый вошедший в комнату становится её Хостом и настраивает сложность, раунды и время на ход.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-ep p-4 h-100">
+          <span class="fs-1 text-warning">🥇</span>
+          <h4 class="mt-3">Подиум Победителей</h4>
+          <p class="text-muted">Зарабатывайте очки, попадайте на Подиум 1, 2 и 3 мест и докажите своё первенство!</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-ep p-4 h-100">
+          <span class="fs-1 text-info">🔊</span>
+          <h4 class="mt-3">Звук & Анимации</h4>
+          <p class="text-muted">Живой озвучиваемый интерфейс с эффектными анимациями для максимального погружения.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function filterGames(category, btn) {
+  document.querySelectorAll('.game-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.game-item-card');
+  cards.forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+{% endblock %}
