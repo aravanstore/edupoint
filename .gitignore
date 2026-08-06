@@ -15,6 +15,10 @@ db.sqlite3
 staticfiles/
 data_fixture.json
 
+# Local self-hosted deployment
+deploy.env
+start_site.ps1
+
 # Secrets / env
 .env
 .env.local
