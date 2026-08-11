@@ -9,6 +9,7 @@ from django.utils import timezone
 
 from lms.models import StudentProfile, Group, Grade, Attendance, Payment, Book
 from lms.views import role_required
+from lms.utils import bulk_frozen_student_ids
 from courses.models import Course
 from teachers.models import Teacher
 from reviews.models import Review
@@ -326,9 +327,13 @@ def analytics_financial(request):
     revenue_by_month = _revenue_by_month(12)
 
     all_students = list(StudentProfile.objects.select_related('book').all())
-    frozen = [s for s in all_students if s.is_frozen()]
-    debts = sum(s.debt_amount() for s in frozen)
-    pending = [s for s in all_students if s.payment_status()[0] == 'pending']
+    frozen_ids = bulk_frozen_student_ids(all_students)
+    frozen = [s for s in all_students if s.id in frozen_ids]
+    debts = sum(s.book.price_per_month if s.book else 2500 for s in frozen)
+    paid_ids = set(Payment.objects.filter(
+        month__year=month_start.year, month__month=month_start.month, is_confirmed=True
+    ).values_list('student_id', flat=True))
+    pending = [s for s in all_students if s.id not in frozen_ids and s.id not in paid_ids]
     expected = sum(s.book.price_per_month if s.book else 2500 for s in pending)
 
     paid = Payment.objects.filter(is_confirmed=True)
@@ -529,13 +534,18 @@ def _build_export(section):
 
     if section == 'financial':
         all_students = list(StudentProfile.objects.select_related('book').all())
-        frozen = [s for s in all_students if s.is_frozen()]
-        pending = [s for s in all_students if s.payment_status()[0] == 'pending']
+        frozen_ids = bulk_frozen_student_ids(all_students)
+        frozen = [s for s in all_students if s.id in frozen_ids]
+        month_start = today.replace(day=1)
+        paid_ids = set(Payment.objects.filter(
+            month__year=month_start.year, month__month=month_start.month, is_confirmed=True
+        ).values_list('student_id', flat=True))
+        pending = [s for s in all_students if s.id not in frozen_ids and s.id not in paid_ids]
         paid = Payment.objects.filter(is_confirmed=True)
         headers = ['Показатель', 'Значение']
         rows = [
             ['Общая выручка', int(paid.aggregate(t=Sum('amount'))['t'] or 0)],
-            ['Задолженности (сом)', sum(s.debt_amount() for s in frozen)],
+            ['Задолженности (сом)', sum(s.book.price_per_month if s.book else 2500 for s in frozen)],
             ['Учеников с задолженностью', len(frozen)],
             ['Ожидаемые платежи (сом)', sum(s.book.price_per_month if s.book else 2500 for s in pending)],
             ['Ожидают оплаты', len(pending)],

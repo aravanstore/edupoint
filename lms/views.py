@@ -24,7 +24,7 @@ from .forms import (
     LoginForm, StudentForm, HomeworkForm, SubmissionForm, PaymentForm,
     ExtensionForm, AnnouncementForm, GradeAttendanceForm, ProfileForm,
 )
-from .utils import log_request_activity, notify_student, notify_user
+from .utils import log_request_activity, notify_student, notify_user, bulk_frozen_student_ids
 
 DAY_ORDER = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 DAY_LABELS = {
@@ -594,7 +594,8 @@ def reception_dashboard(request):
     students = StudentProfile.objects.select_related('user', 'group', 'book')
     total = students.count()
     active = students.filter(is_active=True).count()
-    frozen = [s for s in students if s.is_frozen()]
+    frozen_ids = bulk_frozen_student_ids(students)
+    frozen = [s for s in students if s.id in frozen_ids]
     overdue = len(frozen)
     today = timezone.localdate()
     recent_payments = Payment.objects.order_by('-paid_at').select_related('student__user')[:10]
@@ -804,7 +805,8 @@ def admin_analytics(request):
     payments_month_count = Payment.objects.filter(is_confirmed=True, month__year=today.year,
                                                   month__month=today.month).count()
 
-    frozen = [s for s in students if s.is_frozen()]
+    frozen_ids = bulk_frozen_student_ids(students)
+    frozen = [s for s in students if s.id in frozen_ids]
 
     groups_stats = Group.objects.annotate(s_count=Count('students'), avg_grade=Avg('grades__value'))
     overall_avg = Grade.objects.aggregate(a=Avg('value'))['a']
