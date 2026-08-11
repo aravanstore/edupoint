@@ -12,7 +12,7 @@
   <div class="journal-toolbar">
     <span class="small text-muted"><i class="bi bi-diagram-3 me-1"></i> Удержание и отсев учеников по курсам</span>
     <div class="flex-grow-1"></div>
-    <span class="badge-ep badge-green">Доход всего: {{ total_revenue|floatformat:0 }} ₸</span>
+    <span class="badge-ep badge-green">Доход всего: {{ total_revenue|floatformat:0 }} сом</span>
   </div>
   {% if rows %}
   <div class="table-responsive-ep">
@@ -45,7 +45,7 @@
           </td>
           <td>{% if r.total %}<span class="badge-ep badge-gray">{{ r.dropout }}%</span>{% else %}—{% endif %}</td>
           <td>{% if r.rating %}{{ r.rating }} <i class="bi bi-star-fill text-warning small"></i> ({{ r.reviews }}){% else %}—{% endif %}</td>
-          <td>{{ r.revenue|floatformat:0 }} ₸</td>
+          <td>{{ r.revenue|floatformat:0 }} сом</td>
         </tr>
         {% endfor %}
       </tbody>

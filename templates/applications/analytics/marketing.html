@@ -18,13 +18,13 @@
   <div class="col-sm-6 col-xl-3">
     <div class="stat-card">
       <div class="stat-icon red"><i class="bi bi-cash-stack"></i></div>
-      <div><div class="stat-num">{{ total_spend }} ₸</div><div class="stat-lbl">Расходы на рекламу</div></div>
+      <div><div class="stat-num"> {{ total_spend }} сом</div><div class="stat-lbl">Расходы на рекламу</div></div>
     </div>
   </div>
   <div class="col-sm-6 col-xl-3">
     <div class="stat-card">
       <div class="stat-icon teal"><i class="bi bi-person-plus"></i></div>
-      <div><div class="stat-num">{{ total_revenue|floatformat:0 }} ₸</div><div class="stat-lbl">Доход от лидов</div></div>
+      <div><div class="stat-num"> {{ total_revenue|floatformat:0 }} сом</div><div class="stat-lbl">Доход от лидов</div></div>
     </div>
   </div>
 </div>
@@ -48,9 +48,9 @@
           <td>
             <span class="badge-ep {% if r.conv >= 30 %}badge-green{% elif r.conv >= 10 %}badge-amber{% else %}badge-gray{% endif %}">{{ r.conv }}%</span>
           </td>
-          <td>{{ r.spend|floatformat:0 }} ₸</td>
-          <td>{% if r.cpl is not None %}{{ r.cpl }} ₸{% else %}—{% endif %}</td>
-          <td>{{ r.revenue|floatformat:0 }} ₸</td>
+          <td>{{ r.spend|floatformat:0 }} сом</td>
+          <td>{% if r.cpl is not None %}{{ r.cpl }} сом{% else %}—{% endif %}</td>
+          <td>{{ r.revenue|floatformat:0 }} сом</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -74,7 +74,7 @@
         <tr>
           <td>{{ e.month|date:"m.Y" }}</td>
           <td>{{ e.get_source_display }}</td>
-          <td>{{ e.amount }} ₸</td>
+          <td>{{ e.amount }} сом</td>
           <td>{{ e.note|default:'—' }}</td>
         </tr>
         {% endfor %}

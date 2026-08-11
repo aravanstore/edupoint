@@ -344,9 +344,10 @@ def analytics_financial(request):
             .aggregate(t=Sum('amount'))['t'] or 0
         by_branch.append({'name': br.name, 'revenue': int(rev), 'students': len(ids)})
     ids = list(StudentProfile.objects.filter(group__branch__isnull=True).values_list('id', flat=True))
-    rev = Payment.objects.filter(is_confirmed=True, student_id__in=ids) \
-        .aggregate(t=Sum('amount'))['t'] or 0
-    by_branch.append({'name': 'Без филиала', 'revenue': int(rev), 'students': len(ids)})
+    if ids:
+        rev = Payment.objects.filter(is_confirmed=True, student_id__in=ids) \
+            .aggregate(t=Sum('amount'))['t'] or 0
+        by_branch.append({'name': 'Без филиала', 'revenue': int(rev), 'students': len(ids)})
 
     by_course = []
     for course in Course.objects.filter(is_active=True):

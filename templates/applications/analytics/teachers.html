@@ -43,7 +43,7 @@
           <td>{{ r.reviews }}</td>
           <td>{% if r.rating %}{{ r.rating }} <i class="bi bi-star-fill text-warning small"></i>{% else %}—{% endif %}</td>
           <td><span class="badge-ep badge-green">{{ r.success }}%</span></td>
-          <td>{{ r.revenue|floatformat:0 }} ₸</td>
+          <td>{{ r.revenue|floatformat:0 }} сом</td>
         </tr>
         {% endfor %}
       </tbody>

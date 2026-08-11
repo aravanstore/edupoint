@@ -12,19 +12,19 @@
   <div class="col-sm-6 col-xl-3">
     <div class="stat-card">
       <div class="stat-icon green"><i class="bi bi-cash-stack"></i></div>
-      <div><div class="stat-num">{{ revenue_total|floatformat:0 }} ₸</div><div class="stat-lbl">Общая выручка</div></div>
+      <div><div class="stat-num"> {{ revenue_total|floatformat:0 }} сом</div><div class="stat-lbl">Общая выручка</div></div>
     </div>
   </div>
   <div class="col-sm-6 col-xl-3">
     <div class="stat-card">
       <div class="stat-icon red"><i class="bi bi-exclamation-octagon"></i></div>
-      <div><div class="stat-num">{{ debts|floatformat:0 }} ₸</div><div class="stat-lbl">Задолженности ({{ frozen_count }})</div></div>
+      <div><div class="stat-num"> {{ debts|floatformat:0 }} сом</div><div class="stat-lbl">Задолженности ({{ frozen_count }})</div></div>
     </div>
   </div>
   <div class="col-sm-6 col-xl-3">
     <div class="stat-card">
       <div class="stat-icon amber"><i class="bi bi-hourglass-split"></i></div>
-      <div><div class="stat-num">{{ expected|floatformat:0 }} ₸</div><div class="stat-lbl">Ожидаем оплаты ({{ pending_count }})</div></div>
+      <div><div class="stat-num"> {{ expected|floatformat:0 }} сом</div><div class="stat-lbl">Ожидаем оплаты ({{ pending_count }})</div></div>
     </div>
   </div>
   <div class="col-sm-6 col-xl-3">
@@ -36,13 +36,13 @@
   <div class="col-sm-6 col-xl-3">
     <div class="stat-card">
       <div class="stat-icon teal"><i class="bi bi-cash-coin"></i></div>
-      <div><div class="stat-num">{{ avg_check|floatformat:0 }} ₸</div><div class="stat-lbl">Средний чек</div></div>
+      <div><div class="stat-num"> {{ avg_check|floatformat:0 }} сом</div><div class="stat-lbl">Средний чек</div></div>
     </div>
   </div>
   <div class="col-sm-6 col-xl-3">
     <div class="stat-card">
       <div class="stat-icon purple"><i class="bi bi-graph-up-arrow"></i></div>
-      <div><div class="stat-num">{{ ltv|floatformat:0 }} ₸</div><div class="stat-lbl">LTV ученика</div></div>
+      <div><div class="stat-num"> {{ ltv|floatformat:0 }} сом</div><div class="stat-lbl">LTV ученика</div></div>
     </div>
   </div>
 </div>
@@ -72,7 +72,7 @@
             <tr>
               <td class="fw-bold">{{ b.name }}</td>
               <td>{{ b.students }}</td>
-              <td>{{ b.revenue|floatformat:0 }} ₸</td>
+              <td> {{ b.revenue|floatformat:0 }} сом</td>
             </tr>
             {% endfor %}
           </tbody>
@@ -98,7 +98,7 @@
             <tr>
               <td class="fw-bold">{{ c.name }}</td>
               <td>{{ c.students }}</td>
-              <td>{{ c.revenue|floatformat:0 }} ₸</td>
+              <td> {{ c.revenue|floatformat:0 }} сом</td>
             </tr>
             {% endfor %}
           </tbody>
@@ -121,7 +121,7 @@
             <tr>
               <td class="fw-bold">{{ t.name }}</td>
               <td>{{ t.students }}</td>
-              <td>{{ t.revenue|floatformat:0 }} ₸</td>
+              <td> {{ t.revenue|floatformat:0 }} сом</td>
             </tr>
             {% endfor %}
           </tbody>
