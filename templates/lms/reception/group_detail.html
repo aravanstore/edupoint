@@ -1,0 +1,97 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Группа: {{ group.name }}{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_groups' %}">Группы</a> / {{ group.name }}{% endblock %}
+{% block lms_heading %}{{ group.name }}{% endblock %}
+
+{% block lms_content %}
+<div class="row g-3">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-people"></i></div>
+      <div><div class="stat-num">{{ students|length }}{% if group.capacity %}/{{ group.capacity }}{% endif %}</div><div class="stat-lbl">Учеников</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-person-badge"></i></div>
+      <div><div class="stat-num" style="font-size:1.1rem;">{{ group.teacher.name|default:'—' }}</div><div class="stat-lbl">Преподаватель</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon amber"><i class="bi bi-clock"></i></div>
+      <div><div class="stat-num" style="font-size:1.1rem;">{{ group.days_display|default:'—' }} {{ group.time_display }}</div><div class="stat-lbl">Расписание</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon purple"><i class="bi bi-door-open"></i></div>
+      <div><div class="stat-num" style="font-size:1.1rem;">{{ group.room|default:'—' }}</div><div class="stat-lbl">Аудитория</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card mt-3">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-info-circle me-2 text-primary"></i> Информация</h2>
+  </div>
+  <div class="lms-card-body">
+    <div class="row g-2 small">
+      <div class="col-md-4"><strong>Курс:</strong> {{ group.course.name }}</div>
+      <div class="col-md-4"><strong>Книга:</strong> {{ group.book|default:'—' }}</div>
+      <div class="col-md-4"><strong>Филиал:</strong> {{ group.branch.name|default:'—' }}</div>
+      <div class="col-md-4"><strong>Статус:</strong>
+        {% if group.status == 'active' %}<span class="badge-ep badge-green">Активна</span>
+        {% else %}<span class="badge-ep badge-gray">Закрыта</span>{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card mt-3">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-people me-2 text-primary"></i> Состав группы ({{ students|length }})</h2>
+  </div>
+  {% if students %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>Ученик</th>
+          <th>Логин</th>
+          <th>Телефон</th>
+          <th>Оплата</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in students %}
+        <tr style="cursor:pointer;" onclick="location.href='{% url 'lms:reception_student_detail' s.pk %}'">
+          <td class="fw-bold">{{ s }}</td>
+          <td class="text-muted small">{{ s.user.username }}</td>
+          <td>{{ s.phone|default:'—' }}</td>
+          <td>
+            {% with st=s.payment_status_cached %}
+            {% if st.0 == 'frozen' %}
+              <span class="badge-ep badge-red"><i class="bi bi-pause-circle"></i> Frozen</span>
+            {% elif st.0 == 'paid' %}
+              <span class="badge-ep badge-green"><i class="bi bi-check-circle"></i> Оплачено</span>
+            {% else %}
+              <span class="badge-ep badge-amber"><i class="bi bi-clock"></i> До {{ st.1|date:"d.m" }}</span>
+            {% endif %}
+            {% endwith %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-people"></i>
+    <p>В группе пока нет учеников.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

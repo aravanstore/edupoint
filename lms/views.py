@@ -614,6 +614,41 @@ def reception_dashboard(request):
 
 @login_required
 @role_required('reception', 'admin')
+def reception_groups(request):
+    groups = Group.objects.select_related('course', 'teacher', 'book', 'branch').annotate(
+        s_count=Count('students')
+    ).order_by('course__category__order', 'course__name', 'name')
+    q = request.GET.get('q', '').strip()
+    if q:
+        groups = groups.filter(Q(name__icontains=q) | Q(teacher__name__icontains=q))
+    return render(request, 'lms/reception/groups.html', {
+        'groups': groups,
+        'q': q,
+        'active_section': 'groups',
+        'page_title': 'Группы — Edu Point',
+    })
+
+
+@login_required
+@role_required('reception', 'admin')
+def reception_group_detail(request, pk):
+    group = get_object_or_404(
+        Group.objects.select_related('course', 'teacher', 'book', 'branch'), pk=pk
+    )
+    students = list(group.students.select_related('user', 'parent').order_by('user__last_name', 'user__first_name'))
+    status_map = bulk_payment_status(students)
+    for s in students:
+        s.payment_status_cached = status_map.get(s.id, ('frozen', timezone.localdate().replace(day=1)))
+    return render(request, 'lms/reception/group_detail.html', {
+        'group': group,
+        'students': students,
+        'active_section': 'groups',
+        'page_title': f'{group.name} — Edu Point',
+    })
+
+
+@login_required
+@role_required('reception', 'admin')
 def reception_students(request):
     students = StudentProfile.objects.select_related('user', 'group', 'book', 'parent').annotate(
         group_student_count=Count('group__students')

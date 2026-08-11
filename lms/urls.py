@@ -52,6 +52,8 @@ urlpatterns = [
 
     # Ресепшен
     path('reception/', views.reception_dashboard, name='reception_dashboard'),
+    path('reception/groups/', views.reception_groups, name='reception_groups'),
+    path('reception/groups/<int:pk>/', views.reception_group_detail, name='reception_group_detail'),
     path('reception/students/', views.reception_students, name='reception_students'),
     path('reception/students/add/', views.reception_student_add, name='reception_student_add'),
     path('reception/students/<int:pk>/', views.reception_student_detail, name='reception_student_detail'),

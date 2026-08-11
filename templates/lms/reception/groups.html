@@ -1,0 +1,61 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Группы — ресепшен{% endblock %}
+{% block lms_breadcrumb %}Ресепшен / Группы{% endblock %}
+{% block lms_heading %}Группы{% endblock %}
+
+{% block lms_content %}
+<div class="lms-card">
+  <div class="journal-toolbar">
+    <form method="get" class="d-flex gap-2 flex-grow-1" style="max-width:420px;">
+      <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Поиск по названию или преподавателю...">
+      <button type="submit" class="btn-primary-ep" style="padding:0.5rem 1.2rem;"><i class="bi bi-search"></i></button>
+    </form>
+  </div>
+
+  {% if groups %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>Группа</th>
+          <th>Курс</th>
+          <th>Преподаватель</th>
+          <th>Книга</th>
+          <th>Расписание</th>
+          <th>Аудитория</th>
+          <th>Учеников</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for g in groups %}
+        <tr style="cursor:pointer;" onclick="location.href='{% url 'lms:reception_group_detail' g.pk %}'">
+          <td class="fw-bold">{{ g.name }}</td>
+          <td>{{ g.course.name }}</td>
+          <td>{{ g.teacher.name|default:'—' }}</td>
+          <td>{{ g.book|default:'—' }}</td>
+          <td>{{ g.days_display|default:'—' }} {{ g.time_display }}</td>
+          <td>{{ g.room|default:'—' }}</td>
+          <td>
+            {{ g.s_count }}{% if g.capacity %}/{{ g.capacity }}{% endif %}
+            {% if g.capacity and g.s_count >= g.capacity %}<span class="badge-ep badge-red ms-1">полная</span>{% endif %}
+          </td>
+          <td>
+            {% if g.status == 'active' %}<span class="badge-ep badge-green">Активна</span>
+            {% else %}<span class="badge-ep badge-gray">Закрыта</span>{% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-people"></i>
+    <p>Групп не найдено.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

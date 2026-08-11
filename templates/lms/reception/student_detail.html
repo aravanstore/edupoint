@@ -15,7 +15,11 @@
       </div>
       <div class="col-md-3">
         <div class="text-muted" style="font-size:0.78rem;">Группа</div>
-        <div class="fw-bold">{{ student.group|default:'—' }}</div>
+        <div class="fw-bold">
+          {% if student.group %}
+            <a href="{% url 'lms:reception_group_detail' student.group.pk %}">{{ student.group }}</a>
+          {% else %}—{% endif %}
+        </div>
       </div>
       <div class="col-md-3">
         <div class="text-muted" style="font-size:0.78rem;">Книга</div>

@@ -42,6 +42,7 @@
       {% elif user.profile.role == 'reception' or user.profile.role == 'admin' %}
         <div class="lms-nav-label">Управление</div>
         <a href="{% url 'lms:reception_dashboard' %}" class="{% if active_section == 'overview' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> Обзор</a>
+        <a href="{% url 'lms:reception_groups' %}" class="{% if active_section == 'groups' %}active{% endif %}"><i class="bi bi-diagram-3"></i> Группы</a>
         <a href="{% url 'applications:set_list' %}" class="{% if active_section == 'sets' %}active{% endif %}"><i class="bi bi-inboxes"></i> Наборы</a>
         <a href="{% url 'applications:application_list' %}" class="{% if active_section == 'applications' %}active{% endif %}"><i class="bi bi-funnel"></i> Заявки</a>
         <a href="{% url 'applications:waitlist_list' %}" class="{% if active_section == 'waitlist' %}active{% endif %}"><i class="bi bi-hourglass-split"></i> Лист ожидания</a>
