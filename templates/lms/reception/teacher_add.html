@@ -1,0 +1,68 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Новый преподаватель — ресепшен{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_groups' %}">Группы</a> / Новый преподаватель{% endblock %}
+{% block lms_heading %}Новый преподаватель{% endblock %}
+
+{% block lms_content %}
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-person-badge me-2 text-primary"></i> Карточка преподавателя</h2>
+    <span class="text-muted small">Появится на публичном сайте сразу после сохранения</span>
+  </div>
+  <div class="lms-card-body">
+    {% if form.errors %}
+    <div class="alert alert-danger">Проверьте поля формы ниже.</div>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label-lms">Имя *</label>
+          {{ form.name }}
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Должность</label>
+          {{ form.position }}
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Языки преподавания</label>
+          {{ form.languages }}
+        </div>
+        <div class="col-md-3">
+          <label class="form-label-lms">Опыт (лет)</label>
+          {{ form.experience_years }}
+        </div>
+        <div class="col-md-3">
+          <label class="form-label-lms">Образование</label>
+          {{ form.education }}
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Instagram</label>
+          {{ form.instagram }}
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Telegram</label>
+          {{ form.telegram }}
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Фото</label>
+          {{ form.photo }}
+        </div>
+        <div class="col-12">
+          <label class="form-label-lms">О себе</label>
+          {{ form.bio }}
+        </div>
+        <div class="col-12 d-flex align-items-center gap-2">
+          {{ form.is_active }}
+          <label class="form-label-lms mb-0">Активен (показывать на сайте)</label>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary-ep mt-4">
+        <i class="bi bi-check-lg me-1"></i> Сохранить преподавателя
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

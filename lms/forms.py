@@ -2,6 +2,31 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.utils import timezone
+from teachers.models import Teacher
+
+
+class TeacherForm(forms.ModelForm):
+    class Meta:
+        model = Teacher
+        fields = ['name', 'position', 'photo', 'bio', 'experience_years', 'education',
+                  'languages', 'instagram', 'telegram', 'is_active']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'position': forms.TextInput(attrs={'class': 'form-control'}),
+            'photo': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'bio': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'experience_years': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
+            'education': forms.TextInput(attrs={'class': 'form-control'}),
+            'languages': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Корейский, английский'}),
+            'instagram': forms.URLInput(attrs={'class': 'form-control'}),
+            'telegram': forms.URLInput(attrs={'class': 'form-control'}),
+            'is_active': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for f in ('bio', 'education', 'instagram', 'telegram', 'photo'):
+            self.fields[f].required = False
 
 from .models import (
     Group, Homework, HomeworkSubmission, Payment, PaymentExtension,

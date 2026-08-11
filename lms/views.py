@@ -22,7 +22,7 @@ from .models import (
 )
 from .forms import (
     LoginForm, StudentForm, HomeworkForm, SubmissionForm, PaymentForm,
-    ExtensionForm, AnnouncementForm, GradeAttendanceForm, ProfileForm,
+    ExtensionForm, AnnouncementForm, GradeAttendanceForm, ProfileForm, TeacherForm,
 )
 from .utils import log_request_activity, notify_student, notify_user, bulk_frozen_student_ids, bulk_payment_status
 
@@ -644,6 +644,28 @@ def reception_group_detail(request, pk):
         'students': students,
         'active_section': 'groups',
         'page_title': f'{group.name} — Edu Point',
+    })
+
+
+@login_required
+@role_required('reception', 'admin')
+def reception_teacher_add(request):
+    if request.method == 'POST':
+        form = TeacherForm(request.POST, request.FILES)
+        if form.is_valid():
+            teacher = form.save(commit=False)
+            teacher.order = Teacher.objects.count()
+            teacher.save()
+            log_request_activity(request, 'Добавил преподавателя', target=teacher.name)
+            messages.success(request, f'Преподаватель «{teacher.name}» добавлен и уже виден на публичном сайте.')
+            return redirect('lms:reception_groups')
+        messages.error(request, 'Проверьте форму.')
+    else:
+        form = TeacherForm()
+    return render(request, 'lms/reception/teacher_add.html', {
+        'form': form,
+        'active_section': 'groups',
+        'page_title': 'Новый преподаватель — Edu Point',
     })
 
 
