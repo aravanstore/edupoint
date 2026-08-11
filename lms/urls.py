@@ -48,7 +48,10 @@ urlpatterns = [
     path('teacher/', views.teacher_dashboard, name='teacher_dashboard'),
     path('teacher/journal/<int:group_pk>/', views.teacher_journal, name='teacher_journal'),
     path('teacher/homework/', views.teacher_homework, name='teacher_homework'),
+    path('teacher/homework/<int:pk>/edit/', views.teacher_homework_edit, name='teacher_homework_edit'),
+    path('teacher/homework/<int:pk>/delete/', views.teacher_homework_delete, name='teacher_homework_delete'),
     path('teacher/announcements/', views.teacher_announcements, name='teacher_announcements'),
+    path('teacher/announcements/<int:pk>/delete/', views.teacher_announcement_delete, name='teacher_announcement_delete'),
 
     # Ресепшен
     path('reception/', views.reception_dashboard, name='reception_dashboard'),
@@ -58,5 +61,7 @@ urlpatterns = [
     path('reception/students/', views.reception_students, name='reception_students'),
     path('reception/students/add/', views.reception_student_add, name='reception_student_add'),
     path('reception/students/<int:pk>/', views.reception_student_detail, name='reception_student_detail'),
+    path('reception/students/<int:pk>/delete/', views.reception_student_delete, name='reception_student_delete'),
     path('reception/announcements/', views.reception_announcements, name='reception_announcements'),
+    path('reception/announcements/<int:pk>/delete/', views.reception_announcement_delete, name='reception_announcement_delete'),
 ]

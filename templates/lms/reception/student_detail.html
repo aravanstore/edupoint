@@ -6,6 +6,15 @@
 {% block lms_heading %}{{ student }}{% endblock %}
 
 {% block lms_content %}
+<div class="d-flex justify-content-end mb-2">
+  <form method="post" action="{% url 'lms:reception_student_delete' student.pk %}"
+        onsubmit="return confirm('Удалить ученика «{{ student }}»? Это удалит его аккаунт и все данные безвозвратно.');">
+    {% csrf_token %}
+    <button type="submit" class="btn-outline-ep btn-sm-ep" style="color:var(--danger,#ef4444);border-color:var(--danger,#ef4444);">
+      <i class="bi bi-trash me-1"></i> Удалить ученика
+    </button>
+  </form>
+</div>
 <div class="lms-card">
   <div class="lms-card-body">
     <div class="row g-3 align-items-center">

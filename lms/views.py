@@ -546,6 +546,52 @@ def teacher_homework(request):
 
 @login_required
 @role_required('teacher')
+def teacher_homework_edit(request, pk):
+    tp = _get_teacher_or_redirect(request)
+    if not tp:
+        return redirect('lms:dashboard')
+    hw = get_object_or_404(Homework, pk=pk, group__teacher=tp.teacher)
+    groups = Group.objects.filter(teacher=tp.teacher)
+
+    if request.method == 'POST':
+        form = HomeworkForm(request.POST, request.FILES, instance=hw)
+        form.fields['group'].queryset = groups
+        if form.is_valid():
+            form.save()
+            log_request_activity(request, 'Изменил задание', target=hw.title)
+            messages.success(request, 'Домашнее задание обновлено.')
+            return redirect('lms:teacher_homework')
+        messages.error(request, 'Проверьте форму.')
+    else:
+        form = HomeworkForm(instance=hw)
+        form.fields['group'].queryset = groups
+
+    return render(request, 'lms/teacher/homework.html', {
+        'tp': tp,
+        'groups': groups,
+        'homeworks': Homework.objects.filter(group__teacher=tp.teacher).select_related('group'),
+        'form': form,
+        'editing': hw,
+        'active_section': 'homework',
+        'page_title': 'Изменить задание — Edu Point',
+    })
+
+
+@login_required
+@role_required('teacher')
+@require_POST
+def teacher_homework_delete(request, pk):
+    tp = _get_teacher_or_redirect(request)
+    if not tp:
+        return redirect('lms:dashboard')
+    hw = get_object_or_404(Homework, pk=pk, group__teacher=tp.teacher)
+    hw.delete()
+    messages.success(request, 'Домашнее задание удалено.')
+    return redirect('lms:teacher_homework')
+
+
+@login_required
+@role_required('teacher')
 def teacher_announcements(request):
     tp = _get_teacher_or_redirect(request)
     if not tp:
@@ -583,6 +629,19 @@ def teacher_announcements(request):
         'active_section': 'announcements',
         'page_title': 'Объявления — Edu Point',
     })
+
+
+@login_required
+@role_required('teacher')
+@require_POST
+def teacher_announcement_delete(request, pk):
+    tp = _get_teacher_or_redirect(request)
+    if not tp:
+        return redirect('lms:dashboard')
+    ann = get_object_or_404(Announcement, pk=pk, author=request.user)
+    ann.delete()
+    messages.success(request, 'Объявление удалено.')
+    return redirect('lms:teacher_announcements')
 
 
 # ---------------------------------------------------------------------------
@@ -846,6 +905,19 @@ def reception_student_detail(request, pk):
     })
 
 
+@login_required
+@role_required('reception', 'admin')
+@require_POST
+def reception_student_delete(request, pk):
+    student = get_object_or_404(StudentProfile, pk=pk)
+    name = str(student)
+    user = student.user
+    log_request_activity(request, 'Удалил ученика', target=name)
+    user.delete()  # каскадом удалит StudentProfile/UserProfile — это и есть аккаунт ученика
+    messages.success(request, f'Ученик «{name}» удалён.')
+    return redirect('lms:reception_students')
+
+
 # ---------------------------------------------------------------------------
 # Уведомления, журнал действий, аналитика
 # ---------------------------------------------------------------------------
@@ -966,3 +1038,14 @@ def reception_announcements(request):
         'active_section': 'announcements',
         'page_title': 'Объявления — Edu Point',
     })
+
+
+@login_required
+@role_required('reception', 'admin')
+@require_POST
+def reception_announcement_delete(request, pk):
+    ann = get_object_or_404(Announcement, pk=pk)
+    log_request_activity(request, 'Удалил объявление', target=ann.title)
+    ann.delete()
+    messages.success(request, 'Объявление удалено.')
+    return redirect('lms:reception_announcements')
