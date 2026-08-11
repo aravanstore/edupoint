@@ -1084,6 +1084,7 @@ a:hover { color: var(--primary-dark); }
 
 /* ---------- FOOTER ---------- */
 .footer {
+  position: relative;
   background: linear-gradient(135deg, #0C1A2E, #0F2337);
   color: rgba(255,255,255,0.7);
   padding: 4rem 0 1.5rem;
@@ -1094,9 +1095,13 @@ a:hover { color: var(--primary-dark); }
   max-width: 180px;
   object-fit: contain;
   background: white;
-  padding: 6px 14px;
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 0 24px rgba(255,255,255,0.4);
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  filter: invert(1) brightness(1.6);
 }
 
 .footer h5 {
@@ -1747,4 +1752,86 @@ html, body {
   .cta-section h2 { font-size: 1.75rem; }
   .cta-section p { font-size: 0.98rem; margin: 0.8rem 0 1.5rem; }
   .cta-section .btn-cta-white { width: 100%; justify-content: center; min-height: 48px; }
+}
+
+/* ============================================================
+   EASTER EGGS
+   ============================================================ */
+.easter-egg {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background: radial-gradient(circle at 30% 30%, #ffe9a8, #f6b93b 65%, #e08e0b);
+  box-shadow: 0 0 0 rgba(246, 185, 59, 0.6);
+  animation: eggPulse 2.4s ease-in-out infinite;
+  z-index: 5;
+  opacity: 0.88;
+  transition: transform 0.2s;
+  user-select: none;
+}
+.easter-egg:hover { transform: scale(1.18) rotate(-6deg); opacity: 1; }
+.easter-egg.found {
+  animation: none;
+  background: radial-gradient(circle at 30% 30%, #b9f6ca, #22c55e 65%, #15803d);
+  cursor: default;
+  opacity: 0.55;
+  pointer-events: none;
+}
+@keyframes eggPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(246, 185, 59, 0.55); }
+  50% { box-shadow: 0 0 0 10px rgba(246, 185, 59, 0); }
+}
+
+.egg-toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: linear-gradient(135deg, #f6b93b, #e08e0b);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(224, 142, 11, 0.45);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  white-space: nowrap;
+}
+.egg-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.egg-counter {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(20, 20, 30, 0.75);
+  backdrop-filter: blur(6px);
+  color: #ffe9a8;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  border: 1px solid rgba(246, 185, 59, 0.3);
+  transition: transform 0.2s;
+}
+.egg-counter:hover { transform: scale(1.05); }
+.egg-counter.egg-counter-complete {
+  background: linear-gradient(135deg, #f6b93b, #e08e0b);
+  color: #fff;
+  border-color: transparent;
+}
+@media (max-width: 767px) {
+  .egg-counter { bottom: 78px; font-size: 0.72rem; padding: 0.4rem 0.7rem; }
 }

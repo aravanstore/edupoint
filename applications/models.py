@@ -189,7 +189,7 @@ class StudentApplication(models.Model):
     student = models.ForeignKey('lms.StudentProfile', on_delete=models.SET_NULL,
                                 null=True, blank=True, related_name='applications',
                                 verbose_name='Созданный ученик')
-    status = models.CharField('Статус', max_length=20, choices=STATUS_CHOICES, default='new')
+    status = models.CharField('Статус', max_length=20, choices=STATUS_CHOICES, default='new', db_index=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL,
                                    null=True, blank=True, related_name='applications_created',
                                    verbose_name='Кто создал')

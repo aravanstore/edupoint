@@ -6,6 +6,7 @@
 
 {% block content %}
 <section class="page-header">
+  {% include 'includes/easter_egg.html' with egg_id='courses' egg_style='top:15%;right:10%;' %}
   <div class="container text-center" data-aos="fade-up">
     <h1>{% trans "Курсы иностранных языков" %}</h1>
     <p style="color:var(--text-muted);">{% trans "Выберите язык и программу обучения" %}</p>

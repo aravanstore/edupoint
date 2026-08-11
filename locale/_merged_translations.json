@@ -1,2321 +1,2785 @@
 {
   ", а также группы выходного дня. Расписание согласуется при записи, чтобы не мешать вашей учёбе или работе.": {
     "de": ", sowie Wochenendgruppen. Der Stundenplan wird bei der Anmeldung so abgestimmt, dass er Ihre Schule oder Arbeit nicht beeinträchtigt.",
+    "en": ", as well as weekend groups. The schedule is arranged at enrollment so it doesn't interfere with your studies or work.",
     "ko": ", 주말반도 마련되어 있습니다. 시간표는 등록 시 학업이나 업무에 지장이 없도록 조율해 드립니다.",
     "zh-hans": ",还设有周末班。报名时可协商课程时间,确保不影响你的学习或工作。"
   },
   ", подтверждающий освоение уровня. Полная программа по языку — 6 курсов (12 месяцев).": {
     "de": ", der den erreichten Kenntnisstand bestätigt. Das vollständige Sprachprogramm umfasst 6 Kurse (12 Monate).",
+    "en": ", confirming that you have mastered the level. The full language program consists of 6 courses (12 months).",
     "ko": ", 이를 통해 해당 레벨의 습득을 확인합니다. 전체 언어 프로그램은 6개 과정(12개월)으로 구성됩니다.",
     "zh-hans": ",以确认该阶段的掌握程度。完整的语言课程体系共6期(12个月)。"
   },
   ". После прохождения курсов и сдачи TOPIK мы помогаем с подачей документов, получением студенческой визы и переездом в Корею. Консультация —": {
     "de": ". Nach Abschluss der Kurse und dem Bestehen von TOPIK helfen wir bei der Einreichung der Unterlagen, der Beantragung des Studentenvisums und dem Umzug nach Korea. Die Beratung ist —",
+    "en": ". After completing the courses and passing TOPIK, we help you with document submission, obtaining a student visa, and moving to Korea. Consultation is —",
     "ko": "의 공식 파트너입니다. 과정을 마치고 TOPIK에 합격하면 서류 제출, 학생 비자 발급, 한국 이주까지 도와드립니다. 상담은 —",
     "zh-hans": "的官方合作院校。完成课程并通过TOPIK考试后,我们将协助你准备申请材料、办理学生签证并顺利赴韩。咨询——"
   },
   ". Программа разработана так, что даже полный новичок начинает с самых основ и шаг за шагом доходит до продвинутого уровня. Главное — желание учиться!": {
     "de": ". Das Programm ist so aufgebaut, dass selbst ein absoluter Anfänger bei den Grundlagen beginnt und Schritt für Schritt bis zum fortgeschrittenen Niveau gelangt. Wichtig ist nur der Wille zu lernen!",
+    "en": ". The program is designed so that even a complete beginner starts from the very basics and progresses step by step to an advanced level. All you need is the desire to learn!",
     "ko": "받고 있습니다. 프로그램은 완전 초보자도 기초부터 시작해 한 단계씩 고급 수준까지 도달할 수 있도록 설계되었습니다. 가장 중요한 것은 배우고자 하는 의지입니다!",
     "zh-hans": "。课程设计确保即使是完全零基础的学员,也能从最基础的内容开始,循序渐进达到高级水平。最重要的是你想学习的意愿!"
   },
   "2 500 сом / мес": {
     "de": "2.500 Som / Monat",
+    "en": "2,500 som / month",
     "ko": "월 2,500솜",
     "zh-hans": "2500索姆/月"
   },
   "2 500 сом в месяц": {
     "de": "2.500 Som pro Monat",
+    "en": "2,500 som per month",
     "ko": "월 2,500솜",
     "zh-hans": "每月2500索姆"
   },
   "2 месяца": {
     "de": "2 Monate",
+    "en": "2 months",
     "ko": "2개월",
     "zh-hans": "2个月"
   },
   "20 лет": {
     "de": "20 Jahre",
+    "en": "20 years",
     "ko": "20년",
     "zh-hans": "20年"
   },
   "20 лет опыта в сфере языкового образования в Оше": {
     "de": "20 Jahre Erfahrung in der Sprachausbildung in Osch",
+    "en": "20 years of experience in language education in Osh",
     "ko": "오시에서 20년간 쌓아온 어학 교육 경험",
     "zh-hans": "在奥什拥有20年语言教育经验"
   },
   "20 лет стажа": {
     "de": "20 Jahre Erfahrung",
+    "en": "20 years of experience",
     "ko": "20년의 경력",
     "zh-hans": "20年经验"
   },
   "3 раза в неделю": {
     "de": "3 Mal pro Woche",
+    "en": "3 times a week",
     "ko": "주 3회",
     "zh-hans": "每周3次"
   },
   "500+ Студентов": {
     "de": "500+ Studenten",
+    "en": "500+ Students",
     "ko": "500+ 학생",
     "zh-hans": "500+ 名学生"
   },
   "6 курсов": {
     "de": "6 Kurse",
+    "en": "6 courses",
     "ko": "6개 과정",
     "zh-hans": "6个课程"
   },
   "6 курсов по 2 мес.": {
     "de": "6 Kurse à 2 Monate",
+    "en": "6 courses of 2 months each",
     "ko": "2개월씩 6개 과정",
     "zh-hans": "6期课程,每期2个月"
   },
   "6 курсов по 2 месяца": {
     "de": "6 Kursen à 2 Monate",
+    "en": "into 6 courses of 2 months each",
     "ko": "2개월씩 6개 과정으로",
     "zh-hans": "6期课程,每期2个月"
   },
   "Ausbildung & Работа": {
     "de": "Ausbildung & Arbeit",
+    "en": "Ausbildung & Work",
     "ko": "Ausbildung(직업교육) & 취업",
     "zh-hans": "职业培训（Ausbildung）与工作"
   },
   "Edu Point является официальным партнёром": {
     "de": "Edu Point ist offizieller Partner von",
+    "en": "Edu Point is the official partner of",
     "ko": "Edu Point는",
     "zh-hans": "Edu Point是"
   },
   "Edu Point — Языковой центр в Оше": {
     "de": "Edu Point — Sprachzentrum in Osch",
+    "en": "Edu Point — Language Center in Osh",
     "ko": "Edu Point — 오쉬의 어학원",
     "zh-hans": "Edu Point — 奥什语言中心"
   },
   "Edu Point — ваш путь к международным возможностям. Корейский, английский, немецкий и китайский язык. Подготовка к TOPIK, IELTS, GOETHE.": {
     "de": "Edu Point — Ihr Weg zu internationalen Möglichkeiten. Koreanisch, Englisch, Deutsch und Chinesisch. Vorbereitung auf TOPIK, IELTS, GOETHE.",
+    "en": "Edu Point — your path to international opportunities. Korean, English, German, and Chinese. Preparation for TOPIK, IELTS, GOETHE.",
     "ko": "Edu Point — 국제적인 기회로 향하는 당신의 길입니다. 한국어, 영어, 독일어, 중국어 과정을 제공하며 TOPIK, IELTS, GOETHE 시험 대비반도 운영합니다.",
     "zh-hans": "Edu Point——通往国际机遇之路。开设韩语、英语、德语和汉语课程,并提供TOPIK、IELTS、GOETHE考试培训。"
   },
   "Email (необязательно)": {
     "de": "E-Mail (optional)",
+    "en": "Email (optional)",
     "ko": "이메일 (선택)",
     "zh-hans": "电子邮箱(选填)"
   },
   "Goethe-Zertifikat — признанный во всём мире сертификат знания немецкого языка": {
     "de": "Goethe-Zertifikat – weltweit anerkanntes Zertifikat für Deutschkenntnisse",
+    "en": "Goethe-Zertifikat — a globally recognized certificate of German language proficiency",
     "ko": "Goethe-Zertifikat — 전 세계적으로 인정받는 독일어 능력 인증서",
     "zh-hans": "Goethe-Zertifikat——全球认可的德语能力证书"
   },
   "International English Language Testing System — открывает двери в мировые университеты": {
     "de": "International English Language Testing System – öffnet Ihnen die Türen zu Universitäten weltweit",
+    "en": "International English Language Testing System — opens the doors to universities worldwide",
     "ko": "International English Language Testing System — 전 세계 대학의 문을 열어주는 시험",
     "zh-hans": "International English Language Testing System——开启通往世界名校的大门"
   },
   "K-pop, K-drama, традиции": {
     "de": "K-Pop, K-Drama, Traditionen",
+    "en": "K-pop, K-drama, traditions",
     "ko": "K-팝, K-드라마, 전통",
     "zh-hans": "K-pop、韩剧、传统文化"
   },
   "Songho University Корея": {
     "de": "Songho University Korea",
+    "en": "Songho University Korea",
     "ko": "Songho University 한국",
     "zh-hans": "Songho University 韩国"
   },
   "TOPIK I и TOPIK II": {
     "de": "TOPIK I und TOPIK II",
+    "en": "TOPIK I and TOPIK II",
     "ko": "TOPIK I 및 TOPIK II",
     "zh-hans": "TOPIK I 和 TOPIK II"
   },
   "TOPIK Сертификат": {
     "de": "TOPIK-Zertifikat",
+    "en": "TOPIK Certificate",
     "ko": "TOPIK 자격증",
     "zh-hans": "TOPIK证书"
   },
   "Test of Proficiency in Korean — официальный экзамен на знание корейского языка": {
     "de": "Test of Proficiency in Korean – die offizielle Prüfung zum Nachweis der Koreanischkenntnisse",
+    "en": "Test of Proficiency in Korean — the official exam for certifying Korean language proficiency",
     "ko": "Test of Proficiency in Korean — 한국어 실력을 공식적으로 증명하는 시험",
     "zh-hans": "Test of Proficiency in Korean——官方韩语能力认证考试"
   },
   "x в неделю": {
     "de": "x pro Woche",
+    "en": "x per week",
     "ko": "회/주",
     "zh-hans": "次/周"
   },
   "Адрес": {
     "de": "Adresse",
+    "en": "Address",
     "ko": "주소",
     "zh-hans": "地址"
   },
   "Актуальные события, наборы в группы и анонсы": {
     "de": "Aktuelle Ereignisse, Gruppenanmeldungen und Ankündigungen",
+    "en": "Latest events, group enrollments, and announcements",
     "ko": "최신 소식, 그룹 모집 및 공지사항",
     "zh-hans": "最新动态、班级招生和公告"
   },
   "Английский": {
     "de": "Englisch",
+    "en": "English",
     "ko": "영어",
     "zh-hans": "英语"
   },
   "Английский язык и IELTS": {
     "de": "Englisch und IELTS",
+    "en": "English and IELTS",
     "ko": "영어와 IELTS",
     "zh-hans": "英语与雅思（IELTS）"
   },
   "Асан Асанов": {
     "de": "Asan Asanov",
+    "en": "Asan Asanov",
     "ko": "Asan Asanov",
     "zh-hans": "Asan Asanov"
   },
   "Аудитория": {
     "de": "Raum",
+    "en": "Classroom",
     "ko": "강의실",
     "zh-hans": "教室"
   },
   "Базовый курс грамматики и бытовой лексики для воссоединения семьи и Au-Pair.": {
     "de": "Grundkurs für Grammatik und Alltagswortschatz für Familienzusammenführung und Au-Pair.",
+    "en": "A basic course in grammar and everyday vocabulary for family reunification and Au-Pair.",
     "ko": "가족 재결합과 오페어(Au-Pair)를 위한 기초 문법 및 생활 어휘 강좌.",
     "zh-hans": "面向家庭团聚和互惠生（Au-Pair）的基础语法与生活词汇课程。"
   },
   "Бизнес-китайский": {
     "de": "Wirtschaftschinesisch",
+    "en": "Business Chinese",
     "ko": "비즈니스 중국어",
     "zh-hans": "商务汉语"
   },
   "Блог": {
     "de": "Blog",
+    "en": "Blog",
     "ko": "블로그",
     "zh-hans": "博客"
   },
   "Блог об изучении языков": {
     "de": "Blog über das Sprachenlernen",
+    "en": "Blog about language learning",
     "ko": "언어 학습 블로그",
     "zh-hans": "语言学习博客"
   },
   "Более 500 студентов, успешные миграционные и студенческие визы, партнерства с вузами Южной Кореи.": {
     "de": "Über 500 Studierende, erfolgreiche Migrations- und Studentenvisa, Partnerschaften mit Hochschulen in Südkorea.",
+    "en": "Over 500 students, successful migration and student visas, partnerships with universities in South Korea.",
     "ko": "500명 이상의 학생, 성공적인 이주 및 학생 비자 취득, 한국 대학들과의 파트너십.",
     "zh-hans": "超过500名学员,成功办理移民及留学签证,与韩国多所高校建立合作关系。"
   },
   "В кабинет": {
     "de": "Zum Konto",
+    "en": "To Account",
     "ko": "계정으로",
     "zh-hans": "进入账户"
   },
   "В этой категории пока нет курсов": {
     "de": "In dieser Kategorie gibt es noch keine Kurse",
+    "en": "There are no courses in this category yet",
     "ko": "이 카테고리에는 아직 강좌가 없습니다",
     "zh-hans": "该分类下暂时没有课程"
   },
   "Ваш вопрос...": {
     "de": "Ihre Frage...",
+    "en": "Your question...",
     "ko": "질문을 입력하세요...",
     "zh-hans": "请输入您的问题……"
   },
   "Ваш опыт важен — помогите другим студентам сделать правильный выбор. Отзыв публикуется после проверки модератором.": {
     "de": "Ihre Erfahrung zählt – helfen Sie anderen Studenten bei ihrer Entscheidung. Bewertungen werden nach Prüfung durch einen Moderator veröffentlicht.",
+    "en": "Your experience matters — help other students make the right choice. Reviews are published after moderator approval.",
     "ko": "여러분의 경험이 중요합니다 — 다른 학생들이 올바른 선택을 하도록 도와주세요. 후기는 관리자 검토 후 게시됩니다.",
     "zh-hans": "你的经验很重要——帮助其他学员做出正确选择。评价将在管理员审核后发布。"
   },
   "Ваш отзыв будет опубликован сразу после проверки модератором.": {
     "de": "Ihre Bewertung wird sofort nach der Prüfung durch einen Moderator veröffentlicht.",
+    "en": "Your review will be published as soon as it's approved by a moderator.",
     "ko": "귀하의 후기는 관리자 검토 후 바로 게시됩니다.",
     "zh-hans": "您的评价将在管理员审核后立即发布。"
   },
   "Ваш текущий уровень языка": {
     "de": "Ihr aktuelles Sprachniveau",
+    "en": "Your current language level",
     "ko": "현재 언어 수준",
     "zh-hans": "您当前的语言水平"
   },
   "Ваша оценка": {
     "de": "Ihre Bewertung",
+    "en": "Your rating",
     "ko": "평점",
     "zh-hans": "您的评分"
   },
   "Ваше имя": {
     "de": "Ihr Name",
+    "en": "Your name",
     "ko": "이름",
     "zh-hans": "您的姓名"
   },
   "Ваше имя *": {
     "de": "Ihr Name *",
+    "en": "Your name *",
     "ko": "이름 *",
     "zh-hans": "您的姓名 *"
   },
   "Ваше полное имя *": {
     "de": "Ihr vollständiger Name *",
+    "en": "Your full name *",
     "ko": "성함 (전체) *",
     "zh-hans": "您的全名 *"
   },
   "Возраст": {
     "de": "Alter",
+    "en": "Age",
     "ko": "나이",
     "zh-hans": "年龄"
   },
   "Войти": {
     "de": "Login",
+    "en": "Log in",
     "ko": "로그인",
     "zh-hans": "登录"
   },
   "Войти в кабинет": {
     "de": "Zum Konto anmelden",
+    "en": "Log in to your account",
     "ko": "계정 로그인",
     "zh-hans": "登录账户"
   },
   "Время": {
     "de": "Uhrzeit",
+    "en": "Time",
     "ko": "시간",
     "zh-hans": "时间"
   },
   "Вс: Выходной": {
     "de": "So: Geschlossen",
+    "en": "Sun: Closed",
     "ko": "일요일: 휴무",
     "zh-hans": "周日:休息"
   },
   "Все курсы": {
     "de": "Alle Kurse",
+    "en": "All Courses",
     "ko": "전체 코스",
     "zh-hans": "全部课程"
   },
   "Все новости": {
     "de": "Alle Neuigkeiten",
+    "en": "All News",
     "ko": "전체 소식",
     "zh-hans": "全部新闻"
   },
   "Все о TOPIK": {
     "de": "Alles über TOPIK",
+    "en": "Everything about TOPIK",
     "ko": "TOPIK 안내",
     "zh-hans": "关于TOPIK的一切"
   },
   "Все отзывы": {
     "de": "Alle Bewertungen",
+    "en": "All Reviews",
     "ko": "전체 후기",
     "zh-hans": "全部评价"
   },
   "Все права защищены.": {
     "de": "Alle Rechte vorbehalten.",
+    "en": "All rights reserved.",
     "ko": "모든 권리 보유.",
     "zh-hans": "版权所有。"
   },
   "Все преподаватели": {
     "de": "Alle Lehrkräfte",
+    "en": "All Teachers",
     "ko": "전체 강사진",
     "zh-hans": "全部教师"
   },
   "Все статьи": {
     "de": "Alle Artikel",
+    "en": "All Articles",
     "ko": "모든 게시글",
     "zh-hans": "全部文章"
   },
   "Все статьи блога": {
     "de": "Alle Blogartikel",
+    "en": "All Blog Articles",
     "ko": "모든 블로그 게시글",
     "zh-hans": "所有博客文章"
   },
   "Все уровни": {
     "de": "Alle Niveaus",
+    "en": "All Levels",
     "ko": "전 레벨",
     "zh-hans": "各级别"
   },
   "Все фото": {
     "de": "Alle Fotos",
+    "en": "All Photos",
     "ko": "전체 사진",
     "zh-hans": "全部照片"
   },
   "Все языки": {
     "de": "Alle Sprachen",
+    "en": "All Languages",
     "ko": "모든 언어",
     "zh-hans": "所有语言"
   },
   "Вы записываетесь на": {
     "de": "Sie melden sich an für",
+    "en": "You are enrolling in",
     "ko": "다음 과정에 등록합니다:",
     "zh-hans": "您正在报名:"
   },
   "Выбери свой": {
     "de": "Wähle deine",
+    "en": "Choose your",
     "ko": "당신의",
     "zh-hans": "选择你的"
   },
   "Выберите группу": {
     "de": "Gruppe auswählen",
+    "en": "Select a group",
     "ko": "그룹 선택",
     "zh-hans": "选择班级"
   },
   "Выберите курс (необязательно)": {
     "de": "Kurs auswählen (optional)",
+    "en": "Select a course (optional)",
     "ko": "과정 선택 (선택 사항)",
     "zh-hans": "选择课程(可选)"
   },
   "Выберите открытый набор": {
     "de": "Wählen Sie eine offene Gruppe",
+    "en": "Select an open enrollment group",
     "ko": "모집 중인 그룹 선택",
     "zh-hans": "选择正在招生的班级"
   },
   "Выберите открытый набор — мы покажем расписание, преподавателя и свободные места.": {
     "de": "Wählen Sie eine offene Gruppe — wir zeigen Ihnen den Stundenplan, die Lehrkraft und die freien Plätze.",
+    "en": "Select an open enrollment group — we'll show you the schedule, teacher, and available spots.",
     "ko": "모집 중인 그룹을 선택하세요 — 시간표, 담당 강사, 남은 자리를 확인하실 수 있습니다.",
     "zh-hans": "选择一个正在招生的班级——我们将为您展示课程时间表、授课教师和剩余名额。"
   },
   "Выберите подходящий курс и начните свой путь к успеху": {
     "de": "Wählen Sie den passenden Kurs und starten Sie Ihren Weg zum Erfolg",
+    "en": "Choose the right course and start your path to success",
     "ko": "나에게 맞는 과정을 선택하고 성공을 향한 첫걸음을 내딛으세요",
     "zh-hans": "选择适合你的课程,开启成功之路"
   },
   "Выберите язык и программу обучения": {
     "de": "Wählen Sie eine Sprache und ein Lernprogramm",
+    "en": "Choose a language and study program",
     "ko": "언어와 학습 프로그램을 선택하세요",
     "zh-hans": "请选择语言和学习课程"
   },
   "Выдача сертификатов": {
     "de": "Zertifikatsverleihung",
+    "en": "Certificate Ceremony",
     "ko": "수료증 수여식",
     "zh-hans": "颁发证书"
   },
   "Выпускник немецкого университета, эксперт по Ausbildung.": {
     "de": "Absolvent einer deutschen Universität, Experte für Ausbildung.",
+    "en": "Graduate of a German university, Ausbildung expert.",
     "ko": "독일 대학교 졸업, Ausbildung(직업교육) 전문가.",
     "zh-hans": "德国大学毕业,Ausbildung(德国职业教育)专家。"
   },
   "Галерея": {
     "de": "Galerie",
+    "en": "Gallery",
     "ko": "갤러리",
     "zh-hans": "相册"
   },
   "Галерея учебного центра": {
     "de": "Galerie des Bildungszentrums",
+    "en": "Learning Center Gallery",
     "ko": "교육 센터 갤러리",
     "zh-hans": "教育中心图库"
   },
   "Где вы находитесь?": {
     "de": "Wo befinden Sie sich?",
+    "en": "Where are you located?",
     "ko": "위치가 어디인가요?",
     "zh-hans": "你们在哪里?"
   },
   "Главная": {
     "de": "Startseite",
+    "en": "Home",
     "ko": "홈",
     "zh-hans": "首页"
   },
   "Главное направление": {
     "de": "Hauptrichtung",
+    "en": "Main Focus",
     "ko": "핵심 과정",
     "zh-hans": "主打方向"
   },
   "Главный курс": {
     "de": "Hauptkurs",
+    "en": "Main Course",
     "ko": "대표 과정",
     "zh-hans": "主打课程"
   },
   "Глобальное мышление": {
     "de": "Globales Denken",
+    "en": "Global Mindset",
     "ko": "글로벌 사고",
     "zh-hans": "全球化思维"
   },
   "Готовим к": {
     "de": "Vorbereitung auf",
+    "en": "Preparing for",
     "ko": "완벽 대비하는",
     "zh-hans": "备考"
   },
   "Готовы начать своё путешествие?": {
     "de": "Bereit, Ihre Reise zu beginnen?",
+    "en": "Ready to start your journey?",
     "ko": "여정을 시작할 준비가 되셨나요?",
     "zh-hans": "准备好开启你的旅程了吗?"
   },
   "Готовы повысить свой уровень английского?": {
     "de": "Bereit, Ihr Englischniveau zu verbessern?",
+    "en": "Ready to level up your English?",
     "ko": "영어 실력을 향상시킬 준비가 되셨나요?",
     "zh-hans": "准备好提升您的英语水平了吗？"
   },
   "Гранты": {
     "de": "Stipendien",
+    "en": "Scholarships",
     "ko": "장학금",
     "zh-hans": "奖学金"
   },
   "График работы": {
     "de": "Öffnungszeiten",
+    "en": "Working Hours",
     "ko": "운영 시간",
     "zh-hans": "营业时间"
   },
   "День": {
     "de": "Tag",
+    "en": "Day",
     "ko": "요일",
     "zh-hans": "日期"
   },
   "Детали курса": {
     "de": "Kursdetails",
+    "en": "Course Details",
     "ko": "강좌 상세정보",
     "zh-hans": "课程详情"
   },
   "Длительность": {
     "de": "Die Dauer",
+    "en": "The duration is",
     "ko": "기간은",
     "zh-hans": "时长为"
   },
   "Длительность 1 курса": {
     "de": "Dauer eines Kurses",
+    "en": "Duration of 1 course",
     "ko": "1개 과정 기간",
     "zh-hans": "单个课程时长"
   },
   "Длительность:": {
     "de": "Dauer:",
+    "en": "Duration:",
     "ko": "기간:",
     "zh-hans": "课程时长："
   },
   "Добавление Английского, Немецкого и Китайского языков": {
     "de": "Einführung von Englisch, Deutsch und Chinesisch",
+    "en": "Addition of English, German, and Chinese courses",
     "ko": "영어, 독일어, 중국어 과정 추가",
     "zh-hans": "新增英语、德语和汉语课程"
   },
   "Дополнительный комментарий / Вопрос": {
     "de": "Zusätzlicher Kommentar / Frage",
+    "en": "Additional comment / Question",
     "ko": "추가 의견 / 질문",
     "zh-hans": "补充说明 / 问题"
   },
   "Доступ запрещён": {
     "de": "Zugriff verweigert",
+    "en": "Access Denied",
     "ko": "접근이 거부되었습니다",
     "zh-hans": "访问被拒绝"
   },
   "Доступная ежемесячная стоимость обучения": {
     "de": "Erschwingliche monatliche Kursgebühr",
+    "en": "Affordable monthly tuition",
     "ko": "합리적인 월 수강료",
     "zh-hans": "亲民的月度学费"
   },
   "Доступны": {
     "de": "Verfügbar",
+    "en": "Available",
     "ko": "제공",
     "zh-hans": "可申请"
   },
   "Доступные группы": {
     "de": "Verfügbare Gruppen für",
+    "en": "Available Groups for",
     "ko": "개설 중인",
     "zh-hans": "现有班级 —"
   },
   "Доступные курсы английского": {
     "de": "Verfügbare Englischkurse",
+    "en": "Available English Courses",
     "ko": "개설 중인 영어 강좌",
     "zh-hans": "现有英语课程"
   },
   "Другие новости": {
     "de": "Weitere Neuigkeiten",
+    "en": "Other News",
     "ko": "다른 소식",
     "zh-hans": "其他新闻"
   },
   "Другое": {
     "de": "Sonstiges",
+    "en": "Other",
     "ko": "기타",
     "zh-hans": "其他"
   },
   "Ежемесячная оплата": {
     "de": "Monatliche Zahlung",
+    "en": "Monthly Payment",
     "ko": "월 수강료",
     "zh-hans": "月付费用"
   },
   "Ежемесячная стоимость обучения составляет": {
     "de": "Die monatliche Kursgebühr beträgt",
+    "en": "The monthly tuition fee is",
     "ko": "월 수강료는",
     "zh-hans": "月度学费为"
   },
   "Задать вопрос": {
     "de": "Frage stellen",
+    "en": "Ask a Question",
     "ko": "질문하기",
     "zh-hans": "提问咨询"
   },
   "Занятий в неделю:": {
     "de": "Unterrichtseinheiten pro Woche:",
+    "en": "Classes per week:",
     "ko": "주당 수업 횟수:",
     "zh-hans": "每周课时："
   },
   "Занятия проводятся": {
     "de": "Der Unterricht findet statt",
+    "en": "Classes are held",
     "ko": "수업은",
     "zh-hans": "课程安排为"
   },
   "Записаться": {
     "de": "Anmelden",
+    "en": "Enroll",
     "ko": "신청하기",
     "zh-hans": "立即报名"
   },
   "Записаться бесплатно": {
     "de": "Kostenlos anmelden",
+    "en": "Enroll for free",
     "ko": "무료로 신청하기",
     "zh-hans": "免费预约"
   },
   "Записаться на корейский": {
     "de": "Für Koreanisch anmelden",
+    "en": "Enroll in Korean",
     "ko": "한국어 강좌 신청하기",
     "zh-hans": "报名学习韩语"
   },
   "Записаться на курс": {
     "de": "Für einen Kurs anmelden",
+    "en": "Enroll in a Course",
     "ko": "코스 신청하기",
     "zh-hans": "立即报名课程"
   },
   "Записаться на этот курс": {
     "de": "Für diesen Kurs anmelden",
+    "en": "Enroll in this course",
     "ko": "이 강좌 신청하기",
     "zh-hans": "报名参加此课程"
   },
   "Запись на курсы Edu Point": {
     "de": "Anmeldung zu Edu Point-Kursen",
+    "en": "Enrollment for Edu Point Courses",
     "ko": "Edu Point 강좌 신청",
     "zh-hans": "Edu Point 课程报名"
   },
   "Запишитесь на бесплатную пробную консультацию и узнайте, какой курс подходит именно вам": {
     "de": "Vereinbaren Sie eine kostenlose Probeberatung und finden Sie heraus, welcher Kurs am besten zu Ihnen passt",
+    "en": "Sign up for a free trial consultation and find out which course is right for you",
     "ko": "무료 체험 상담을 신청하고 나에게 딱 맞는 과정을 알아보세요",
     "zh-hans": "预约免费试听咨询,找到最适合你的课程"
   },
   "Запишитесь на первое занятие и ощутите разницу в преподавании": {
     "de": "Melden Sie sich zur ersten Unterrichtsstunde an und spüren Sie den Unterschied in der Lehre",
+    "en": "Sign up for your first lesson and feel the difference in teaching",
     "ko": "첫 수업을 신청하고 차별화된 교육을 경험해 보세요",
     "zh-hans": "预约首节课程,感受与众不同的教学体验"
   },
   "Заполните форму, и наш менеджер свяжется с вами в течение 15 минут": {
     "de": "Füllen Sie das Formular aus, und unser Mitarbeiter meldet sich innerhalb von 15 Minuten bei Ihnen",
+    "en": "Fill out the form, and our manager will contact you within 15 minutes",
     "ko": "양식을 작성해 주시면 담당자가 15분 이내에 연락드립니다",
     "zh-hans": "填写表单,我们的顾问将在15分钟内与您联系"
   },
   "Запрашиваемая страница не существует или была перемещена.": {
     "de": "Die angeforderte Seite existiert nicht oder wurde verschoben.",
+    "en": "The page you requested does not exist or has been moved.",
     "ko": "요청하신 페이지가 존재하지 않거나 이동되었습니다.",
     "zh-hans": "您请求的页面不存在或已被移动。"
   },
   "Запуск первых курсов подготовки студентов к обучению в Южной Корее.": {
     "de": "Start der ersten Kurse zur Vorbereitung von Studierenden auf ein Studium in Südkorea.",
+    "en": "Launch of the first courses preparing students to study in South Korea.",
     "ko": "한국 유학 준비를 위한 첫 강좌 개설.",
     "zh-hans": "启动首批赴韩留学预备课程。"
   },
   "Запуск подготовки к IELTS и GOETHE. Переезд в новый современный офис в ТЦ Корона.": {
     "de": "Start der Vorbereitung auf IELTS und GOETHE. Umzug in ein neues modernes Büro im Einkaufszentrum Corona.",
+    "en": "Launch of IELTS and GOETHE preparation courses. Moved to a new, modern office in the Corona Mall.",
     "ko": "IELTS 및 GOETHE 시험 준비 과정 개설. Corona 쇼핑몰 내 새로운 현대식 사무실로 이전.",
     "zh-hans": "启动IELTS和GOETHE备考课程,迁至Corona购物中心的现代化新办公区。"
   },
   "Звонок": {
     "de": "Anruf",
+    "en": "Call",
     "ko": "전화 상담",
     "zh-hans": "电话确认"
   },
   "Здесь собраны ответы на самые популярные вопросы о наших курсах, стоимости, расписании и поступлении в Корею.": {
     "de": "Hier finden Sie Antworten auf die häufigsten Fragen zu unseren Kursen, Preisen, dem Stundenplan und dem Studium in Korea.",
+    "en": "Here you'll find answers to the most common questions about our courses, prices, schedule, and admission to Korea.",
     "ko": "과정, 수강료, 시간표, 한국 유학에 관해 가장 자주 묻는 질문에 대한 답변을 모아두었습니다.",
     "zh-hans": "这里汇总了关于课程、费用、时间安排以及赴韩留学等最常见问题的解答。"
   },
   "Здравствуйте! Меня интересует курс": {
     "de": "Hallo! Ich interessiere mich für den Kurs",
+    "en": "Hello! I'm interested in the course",
     "ko": "안녕하세요! 저는 이 강좌에 관심이 있습니다",
     "zh-hans": "您好！我对这门课程感兴趣："
   },
   "Здравствуйте, я хочу узнать подробнее про курс...": {
     "de": "Hallo, ich möchte mehr über den Kurs erfahren...",
+    "en": "Hello, I'd like to learn more about the course...",
     "ko": "안녕하세요, 강좌에 대해 자세히 알고 싶습니다...",
     "zh-hans": "您好,我想详细了解一下课程……"
   },
   "Игры": {
     "de": "Spiele",
+    "en": "Games",
     "ko": "게임",
     "zh-hans": "游戏"
   },
   "Изучайте корейский, английский, немецкий и китайский языки в Edu Point. Подготовка к TOPIK, IELTS, GOETHE. Ош, Кыргызстан.": {
     "de": "Lernen Sie Koreanisch, Englisch, Deutsch und Chinesisch bei Edu Point. Vorbereitung auf TOPIK, IELTS und GOETHE. Osch, Kirgisistan.",
+    "en": "Learn Korean, English, German, and Chinese at Edu Point. TOPIK, IELTS, and GOETHE exam preparation. Osh, Kyrgyzstan.",
     "ko": "Edu Point에서 한국어, 영어, 독일어, 중국어를 배우세요. TOPIK, IELTS, GOETHE 시험 대비 과정. 키르기스스탄 오쉬.",
     "zh-hans": "在 Edu Point 学习韩语、英语、德语和中文。TOPIK、雅思(IELTS)、歌德(GOETHE)考试培训。吉尔吉斯斯坦奥什市。"
   },
   "Изучение 4 тонов, произношения Пиньинь и бакалаврской иероглифики.": {
     "de": "Erlernen der 4 Töne, der Pinyin-Aussprache und grundlegender Schriftzeichen.",
+    "en": "Learning the 4 tones, Pinyin pronunciation, and basic characters.",
     "ko": "4성조, 병음 발음, 기초 한자를 학습합니다.",
     "zh-hans": "学习四声、拼音发音和基础汉字。"
   },
   "Изучение алфавита Хангыль (한글), произношения и бакалаврской грамматики в легкой и понятной форме.": {
     "de": "Erlernen des Hangeul-Alphabets (한글), der Aussprache und grundlegender Grammatik in leicht verständlicher Form.",
+    "en": "Learning the Hangeul alphabet (한글), pronunciation, and basic grammar in a simple and easy-to-understand way.",
     "ko": "한글(한글) 알파벳, 발음, 기초 문법을 쉽고 이해하기 편한 방식으로 배웁니다.",
     "zh-hans": "以简单易懂的方式学习韩文字母（한글）、发音和基础语法。"
   },
   "Изучение языка — это первая ступень к учебе, работе и карьере в международных компаниях.": {
     "de": "Sprachenlernen ist die erste Stufe auf dem Weg zu Studium, Arbeit und Karriere in internationalen Unternehmen.",
+    "en": "Learning a language is the first step toward studying, working, and building a career at international companies.",
     "ko": "언어 학습은 유학, 취업, 그리고 글로벌 기업에서의 커리어로 나아가는 첫걸음입니다.",
     "zh-hans": "语言学习是通往留学、就业以及在国际企业发展事业的第一步。"
   },
   "Инновационные методики": {
     "de": "Innovative Methoden",
+    "en": "Innovative Methods",
     "ko": "혁신적인 교수법",
     "zh-hans": "创新教学方法"
   },
   "Интенсивная подготовка по всем 4 модулям: Listening, Reading, Writing, Speaking.": {
     "de": "Intensive Vorbereitung in allen 4 Modulen: Listening, Reading, Writing, Speaking.",
+    "en": "Intensive preparation across all 4 modules: Listening, Reading, Writing, Speaking.",
     "ko": "Listening, Reading, Writing, Speaking 4개 영역 집중 대비.",
     "zh-hans": "听力、阅读、写作、口语四大模块的强化训练。"
   },
   "Интенсивные тренинги с разбором типовых экзаменационных моделей Гёте-Института.": {
     "de": "Intensivtrainings mit Analyse typischer Prüfungsmodelle des Goethe-Instituts.",
+    "en": "Intensive training sessions analyzing typical Goethe-Institut exam models.",
     "ko": "괴테 인스티투트 표준 시험 유형 분석을 포함한 집중 훈련.",
     "zh-hans": "针对歌德学院典型考试模型进行强化训练。"
   },
   "Интерактивная программа для школьников с игровыми методиками.": {
     "de": "Interaktives Programm für Schüler mit spielerischen Methoden.",
+    "en": "An interactive program for schoolchildren using game-based methods.",
     "ko": "게임형 학습법을 활용한 학생 대상 인터랙티브 프로그램.",
     "zh-hans": "面向中小学生的互动式课程，采用游戏化教学方法。"
   },
   "История успеха и впечатления от обучения в": {
     "de": "Erfolgsgeschichten und Eindrücke vom Lernen bei",
+    "en": "Success story and impressions of studying at",
     "ko": "학습 성공 사례와 소감 -",
     "zh-hans": "在这里学习的成功故事与感受 —"
   },
   "Кабинет": {
     "de": "Konto",
+    "en": "Account",
     "ko": "마이페이지",
     "zh-hans": "中心"
   },
   "Кабинет 302": {
     "de": "Raum 302",
+    "en": "Room 302",
     "ko": "302호",
     "zh-hans": "302教室"
   },
   "Как попасть на учёбу в Корею через Edu Point?": {
     "de": "Wie kann ich über Edu Point in Korea studieren?",
+    "en": "How can I study in Korea through Edu Point?",
     "ko": "Edu Point를 통해 한국 유학을 가려면 어떻게 해야 하나요?",
     "zh-hans": "如何通过Edu Point赴韩留学?"
   },
   "Какое расписание занятий?": {
     "de": "Wie sieht der Stundenplan aus?",
+    "en": "What is the class schedule?",
     "ko": "수업 시간표는 어떻게 되나요?",
     "zh-hans": "上课时间是怎样安排的?"
   },
   "Карта сайта": {
     "de": "Sitemap",
+    "en": "Sitemap",
     "ko": "사이트맵",
     "zh-hans": "网站地图"
   },
   "Каталог курсов": {
     "de": "Kurskatalog",
+    "en": "Course Catalog",
     "ko": "강좌 카탈로그",
     "zh-hans": "课程目录"
   },
   "Качественное образование — путь к вашему": {
     "de": "Qualitativ hochwertige Bildung — der Weg in Ihre",
+    "en": "Quality education — the path to your",
     "ko": "수준 높은 교육, 당신의",
     "zh-hans": "优质教育——通往您的"
   },
   "Китайский": {
     "de": "Chinesisch",
+    "en": "Chinese",
     "ko": "중국어",
     "zh-hans": "汉语"
   },
   "Китайский курс": {
     "de": "Chinesischkurs",
+    "en": "Chinese Course",
     "ko": "중국어 과정",
     "zh-hans": "汉语课程"
   },
   "Китайский с нуля": {
     "de": "Chinesisch von Grund auf",
+    "en": "Chinese from Scratch",
     "ko": "기초 중국어",
     "zh-hans": "零基础中文"
   },
   "Китайский язык": {
     "de": "Chinesisch",
+    "en": "Chinese",
     "ko": "중국어",
     "zh-hans": "中文课程"
   },
   "Китайский язык (Мандарин)": {
     "de": "Chinesisch (Mandarin)",
+    "en": "Chinese (Mandarin)",
     "ko": "중국어(만다린)",
     "zh-hans": "中文（普通话）"
   },
   "Команда": {
     "de": "Team",
+    "en": "Team",
     "ko": "강사진",
     "zh-hans": "教师团队"
   },
   "Команда квалифицированных преподавателей с опытом стажировки за рубежом": {
     "de": "Ein Team qualifizierter Lehrkräfte mit Auslandserfahrung",
+    "en": "A team of qualified teachers with experience studying abroad",
     "ko": "해외 연수 경험을 갖춘 전문 강사진",
     "zh-hans": "拥有海外深造经验的专业教师团队"
   },
   "Консультации и сбор документов для вузов Кореи": {
     "de": "Beratung und Unterlagenzusammenstellung für koreanische Hochschulen",
+    "en": "Consultations and document preparation for Korean universities",
     "ko": "한국 대학 진학을 위한 상담 및 서류 준비 지원",
     "zh-hans": "为申请韩国高校提供咨询及材料准备协助"
   },
   "Консультации по Учёбе в Корее": {
     "de": "Beratung zum Studium in Korea",
+    "en": "Consultations on Studying in Korea",
     "ko": "한국 유학 상담",
     "zh-hans": "韩国留学咨询"
   },
   "Контакты": {
     "de": "Kontakt",
+    "en": "Contacts",
     "ko": "연락처",
     "zh-hans": "联系方式"
   },
   "Корейская Грамматика и Алфавит": {
     "de": "Koreanische Grammatik und Alphabet",
+    "en": "Korean Grammar and Alphabet",
     "ko": "한국어 문법과 한글",
     "zh-hans": "韩语语法与字母"
   },
   "Корейский": {
     "de": "Koreanisch",
+    "en": "Korean",
     "ko": "한국어",
     "zh-hans": "韩语"
   },
   "Корейский курс": {
     "de": "Koreanischkurs",
+    "en": "Korean Course",
     "ko": "한국어 과정",
     "zh-hans": "韩语课程"
   },
   "Корейский с нуля": {
     "de": "Koreanisch ab null",
+    "en": "Korean from Scratch",
     "ko": "왕초보 한국어",
     "zh-hans": "零基础韩语"
   },
   "Корейский язык": {
     "de": "Koreanisch",
+    "en": "Korean",
     "ko": "한국어",
     "zh-hans": "韩语"
   },
   "Корейский язык в Оше": {
     "de": "Koreanisch in Osch",
+    "en": "Korean Language in Osh",
     "ko": "오쉬의 한국어",
     "zh-hans": "奥什韩语课程"
   },
   "Корейский язык с нуля и подготовка к TOPIK": {
     "de": "Koreanisch von Grund auf und TOPIK-Vorbereitung",
+    "en": "Korean from Scratch and TOPIK Preparation",
     "ko": "기초부터 배우는 한국어와 TOPIK 대비",
     "zh-hans": "韩语零基础课程及TOPIK备考"
   },
   "Корейский язык —": {
     "de": "Koreanisch —",
+    "en": "Korean —",
     "ko": "한국어 —",
     "zh-hans": "韩语——"
   },
   "Культура Кореи": {
     "de": "Koreanische Kultur",
+    "en": "Korean Culture",
     "ko": "한국 문화",
     "zh-hans": "韩国文化"
   },
   "Культурная Подготовка": {
     "de": "Kulturelle Vorbereitung",
+    "en": "Cultural Preparation",
     "ko": "문화 교육",
     "zh-hans": "文化预备课程"
   },
   "Курс, который вы проходили": {
     "de": "Kurs, den Sie besucht haben",
+    "en": "The course you attended",
     "ko": "수강한 과정",
     "zh-hans": "您所学习的课程"
   },
   "Курсов в программе": {
     "de": "Kurse im Programm",
+    "en": "Courses in the program",
     "ko": "프로그램 과정 수",
     "zh-hans": "课程数量"
   },
   "Курсы": {
     "de": "Kurse",
+    "en": "Courses",
     "ko": "코스",
     "zh-hans": "课程"
   },
   "Курсы иностранных языков": {
     "de": "Fremdsprachenkurse",
+    "en": "Foreign Language Courses",
     "ko": "외국어 강좌",
     "zh-hans": "外语课程"
   },
   "Курсы китайского языка": {
     "de": "Chinesischkurse",
+    "en": "Chinese Language Courses",
     "ko": "중국어 강좌",
     "zh-hans": "中文课程"
   },
   "Курсы немецкого языка": {
     "de": "Deutschkurse",
+    "en": "German Language Courses",
     "ko": "독일어 강좌",
     "zh-hans": "德语课程"
   },
   "Лет": {
     "de": "Jahre",
+    "en": "Years",
     "ko": "년",
     "zh-hans": "年"
   },
   "Лет стажа": {
     "de": "Jahre Erfahrung",
+    "en": "Years of Experience",
     "ko": "년의 경력",
     "zh-hans": "年经验"
   },
   "Лидирующий языковой центр Оша": {
     "de": "Führendes Sprachzentrum in Osch",
+    "en": "Leading Language Center in Osh",
     "ko": "오시(Osh) 최고의 어학 센터",
     "zh-hans": "奥什市领先的语言中心"
   },
   "Личный кабинет": {
     "de": "Mein Konto",
+    "en": "My Account",
     "ko": "마이페이지",
     "zh-hans": "个人中心"
   },
   "Мандаринский диалект, иероглифы, разговорный уровень.": {
     "de": "Hochchinesisch, Schriftzeichen, Konversationsniveau.",
+    "en": "Mandarin Chinese, characters, conversational level.",
     "ko": "표준 중국어, 한자, 회화 수준까지.",
     "zh-hans": "普通话、汉字、口语水平。"
   },
   "Мандаринский диалект. Иероглифы": {
     "de": "Hochchinesisch (Mandarin). Schriftzeichen",
+    "en": "Mandarin Chinese. Characters",
     "ko": "표준 중국어(만다린). 한자",
     "zh-hans": "普通话。汉字"
   },
   "Международные экзамены": {
     "de": "Internationale Prüfungen",
+    "en": "International Exams",
     "ko": "국제 공인 시험",
     "zh-hans": "国际考试"
   },
   "Международный экзамен английского языка.": {
     "de": "Internationale Englischprüfung.",
+    "en": "International English exam.",
     "ko": "국제 영어 시험.",
     "zh-hans": "国际英语考试。"
   },
   "Меню": {
     "de": "Menü",
+    "en": "Menu",
     "ko": "메뉴",
     "zh-hans": "菜单"
   },
   "Мероприятия & Выдача сертификатов": {
     "de": "Veranstaltungen & Zertifikatsverleihung",
+    "en": "Events & Certificate Ceremonies",
     "ko": "행사 & 수료증 수여식",
     "zh-hans": "活动与颁证仪式"
   },
   "Мест достаточно": {
     "de": "Ausreichend Plätze",
+    "en": "Seats Available",
     "ko": "좌석 충분",
     "zh-hans": "名额充足"
   },
   "Мечтаете поступить в корейский университет или получить визу для работы в Южной Корее? Наш специализированный курс подготовит вас с нуля до сдачи TOPIK I & II!": {
     "de": "Träumen Sie davon, an einer koreanischen Universität zu studieren oder ein Arbeitsvisum für Südkorea zu erhalten? Unser spezialisierter Kurs bereitet Sie von Grund auf bis zur TOPIK I & II Prüfung vor!",
+    "en": "Dreaming of getting into a Korean university or securing a work visa for South Korea? Our specialized course will take you from zero to passing TOPIK I & II!",
     "ko": "한국 대학 진학이나 한국 취업 비자를 꿈꾸시나요? 저희 전문 강좌가 기초부터 TOPIK I & II 시험 합격까지 준비해 드립니다!",
     "zh-hans": "梦想考入韩国大学或获得赴韩工作签证吗？我们的专业课程将带您从零基础一直学到通过TOPIK I & II考试！"
   },
   "Мечтаете учиться или работать в Корее? Edu Point — ваш лучший старт. Мы специализируемся на корейском языке и предлагаем полный путь: от нулевого уровня до сдачи TOPIK и поступления в корейские университеты.": {
     "de": "Träumen Sie davon, in Korea zu studieren oder zu arbeiten? Edu Point ist Ihr bester Start. Wir haben uns auf die koreanische Sprache spezialisiert und bieten den kompletten Weg: vom absoluten Anfängerniveau bis zum TOPIK-Abschluss und der Aufnahme an koreanischen Universitäten.",
+    "en": "Dreaming of studying or working in Korea? Edu Point is your best starting point. We specialize in the Korean language and offer a complete path: from zero level to passing TOPIK and admission to Korean universities.",
     "ko": "한국에서 공부하거나 일하는 꿈을 꾸고 계신가요? Edu Point가 최고의 출발점이 되어드립니다. 저희는 한국어 교육을 전문으로 하며, 왕초보 단계부터 TOPIK 합격, 나아가 한국 대학 진학까지 전 과정을 함께합니다.",
     "zh-hans": "梦想赴韩留学或工作?Edu Point是你最好的起点。我们专注于韩语教学,提供从零基础到通过TOPIK考试、直至考入韩国大学的完整学习路径。"
   },
   "Мечтаешь о студенческой жизни в Южной Корее?": {
     "de": "Träumst du vom Studentenleben in Südkorea?",
+    "en": "Dreaming of student life in South Korea?",
     "ko": "한국에서의 유학 생활을 꿈꾸시나요?",
     "zh-hans": "梦想在韩国体验大学生活吗？"
   },
   "Мы в": {
     "de": "Wir bei",
+    "en": "We're on",
     "ko": "우리의",
     "zh-hans": "我们的"
   },
   "Мы в соцсетях": {
     "de": "Wir in sozialen Netzwerken",
+    "en": "We're on Social Media",
     "ko": "소셜 미디어",
     "zh-hans": "关注我们的社交媒体"
   },
   "Мы гордимся тем, что на протяжении многих лет являемся ведущим центром в сфере подготовки студентов к учебе в Южной Корее, а также сдачи международных языковых экзаменов TOPIK, IELTS и GOETHE.": {
     "de": "Wir sind stolz darauf, seit vielen Jahren das führende Zentrum für die Vorbereitung von Studierenden auf ein Studium in Südkorea sowie auf die internationalen Sprachprüfungen TOPIK, IELTS und GOETHE zu sein.",
+    "en": "We are proud to have been, for many years, the leading center for preparing students to study in South Korea, as well as for the international language exams TOPIK, IELTS, and GOETHE.",
     "ko": "저희는 수년간 학생들의 한국 유학 준비는 물론 TOPIK, IELTS, GOETHE와 같은 국제 어학 시험 준비를 지원하는 선도적인 센터로 자리매김해 온 것을 자랑스럽게 생각합니다.",
     "zh-hans": "多年来,我们一直自豪地作为领先中心,帮助学生备战赴韩留学以及TOPIK、IELTS和GOETHE等国际语言考试。"
   },
   "Мы находимся по адресу:": {
     "de": "Unsere Adresse lautet:",
+    "en": "Our address:",
     "ko": "저희 주소는",
     "zh-hans": "我们的地址是:"
   },
   "Мы не просто учебный центр — мы ваш проводник в мир международных возможностей. Каждый студент получает индивидуальный подход и реальный результат.": {
     "de": "Wir sind nicht einfach nur ein Bildungszentrum – wir sind Ihr Wegweiser in die Welt internationaler Möglichkeiten. Jeder Student erhält einen individuellen Ansatz und echte Ergebnisse.",
+    "en": "We are not just an educational center — we are your guide to a world of international opportunities. Every student receives a personalized approach and real results.",
     "ko": "저희는 단순한 학원이 아니라 국제적인 기회로 향하는 여러분의 안내자입니다. 모든 학생은 맞춤형 지도와 실질적인 성과를 경험합니다.",
     "zh-hans": "我们不仅仅是一所教育中心——更是你通往国际机遇世界的引路人。每位学员都能获得个性化指导和切实的学习成果。"
   },
   "Мы помогаем каждому студенту сформулировать четкую цель и прийти к конкретному результату.": {
     "de": "Wir helfen jedem Studierenden, sich ein klares Ziel zu setzen und ein konkretes Ergebnis zu erreichen.",
+    "en": "We help every student set a clear goal and achieve a concrete result.",
     "ko": "저희는 모든 학생이 명확한 목표를 세우고 구체적인 성과를 이루도록 돕습니다.",
     "zh-hans": "我们帮助每一位学员明确目标,取得实实在在的成果。"
   },
   "Мы принимаем студентов": {
     "de": "Wir nehmen Studenten auf",
+    "en": "We accept students",
     "ko": "저희는",
     "zh-hans": "我们接收"
   },
   "Мы скоро опубликуем первые полезные гайды!": {
     "de": "Wir veröffentlichen bald die ersten hilfreichen Leitfäden!",
+    "en": "We'll soon be publishing our first helpful guides!",
     "ko": "곧 첫 번째 유용한 가이드를 게시할 예정입니다!",
     "zh-hans": "我们即将发布首批实用指南!"
   },
   "На главную": {
     "de": "Zur Startseite",
+    "en": "Back to Home",
     "ko": "홈으로",
     "zh-hans": "返回首页"
   },
   "На сервере произошла ошибка. Попробуйте обновить страницу или зайдите позже.": {
     "de": "Auf dem Server ist ein Fehler aufgetreten. Bitte laden Sie die Seite neu oder versuchen Sie es später erneut.",
+    "en": "A server error has occurred. Please try refreshing the page or come back later.",
     "ko": "서버에서 오류가 발생했습니다. 페이지를 새로고침하거나 나중에 다시 시도해 주세요.",
     "zh-hans": "服务器发生错误。请刷新页面或稍后再试。"
   },
   "Набор": {
     "de": "Gruppe",
+    "en": "Group",
     "ko": "그룹",
     "zh-hans": "班级"
   },
   "Набор в группы продолжается": {
     "de": "Die Anmeldung für neue Gruppen läuft",
+    "en": "Group enrollment is ongoing",
     "ko": "그룹 모집이 진행 중입니다",
     "zh-hans": "班级招生进行中"
   },
   "Наверх": {
     "de": "Nach oben",
+    "en": "Back to Top",
     "ko": "위로",
     "zh-hans": "返回顶部"
   },
   "Назад к новостям": {
     "de": "Zurück zu den Neuigkeiten",
+    "en": "Back to News",
     "ko": "뉴스로 돌아가기",
     "zh-hans": "返回新闻列表"
   },
   "Найденные курсы": {
     "de": "Gefundene Kurse",
+    "en": "Courses Found",
     "ko": "검색된 강좌",
     "zh-hans": "找到的课程"
   },
   "Найденные новости и статьи": {
     "de": "Gefundene Neuigkeiten und Artikel",
+    "en": "News and Articles Found",
     "ko": "검색된 뉴스 및 게시글",
     "zh-hans": "找到的新闻与文章"
   },
   "Напишите нам": {
     "de": "Schreiben Sie uns",
+    "en": "Write to Us",
     "ko": "메시지 보내기",
     "zh-hans": "给我们留言"
   },
   "Направления": {
     "de": "Sprachrichtungen",
+    "en": "Language Directions",
     "ko": "언어 과정",
     "zh-hans": "语言方向"
   },
   "Например: 18": {
     "de": "Zum Beispiel: 18",
+    "en": "For example: 18",
     "ko": "예: 18",
     "zh-hans": "例如:18"
   },
   "Например: Асан Асанов": {
     "de": "Zum Beispiel: Asan Asanov",
+    "en": "For example: Asan Asanov",
     "ko": "예: Asan Asanov",
     "zh-hans": "例如:Asan Asanov"
   },
   "Начальный (Знаю алфавит/слова)": {
     "de": "Anfänger (kenne Alphabet/Wörter)",
+    "en": "Beginner (I know the alphabet/some words)",
     "ko": "기초 (알파벳/단어를 알고 있음)",
     "zh-hans": "初级(认识字母/单词)"
   },
   "Начните изучать уже сегодня с профессиональными преподавателями.": {
     "de": "Beginnen Sie noch heute mit professionellen Lehrkräften.",
+    "en": "Start learning today with professional teachers.",
     "ko": "전문 강사와 함께 오늘 바로 시작하세요.",
     "zh-hans": "今天就跟专业教师一起开始学习吧。"
   },
   "Наш офис в Оше": {
     "de": "Unser Büro in Osch",
+    "en": "Our Office in Osh",
     "ko": "오시(Osh) 사무실",
     "zh-hans": "我们在奥什的办公室"
   },
   "Наша история": {
     "de": "Unsere Geschichte",
+    "en": "Our History",
     "ko": "우리의 역사",
     "zh-hans": "我们的历史"
   },
   "Наша миссия и": {
     "de": "Unsere Mission und",
+    "en": "Our Mission and",
     "ko": "우리의 사명과",
     "zh-hans": "我们的使命与"
   },
   "Наши": {
     "de": "Unsere",
+    "en": "Our",
     "ko": "우리의",
     "zh-hans": "我们的"
   },
   "Наши преимущества": {
     "de": "Unsere Vorteile",
+    "en": "Our Advantages",
     "ko": "우리의 강점",
     "zh-hans": "我们的优势"
   },
   "Наши преподаватели": {
     "de": "Unsere Lehrkräfte",
+    "en": "Our Teachers",
     "ko": "우리 강사진",
     "zh-hans": "我们的教师团队"
   },
   "Наши студенты": {
     "de": "Unsere Studenten",
+    "en": "Our Students",
     "ko": "우리 학생들",
     "zh-hans": "我们的学生"
   },
   "Наши студенты поступают в ведущие вузы Южной Кореи благодаря официальному партнёрству": {
     "de": "Dank offizieller Partnerschaften werden unsere Studenten an führenden Hochschulen Südkoreas aufgenommen",
+    "en": "Thanks to our official partnership, our students are admitted to leading universities in South Korea",
     "ko": "공식 파트너십을 통해 저희 학생들은 대한민국의 명문 대학에 진학하고 있습니다",
     "zh-hans": "凭借官方合作关系,我们的学生成功考入韩国顶尖高校"
   },
   "Наши студенты поступают в ведущие университеты Кореи": {
     "de": "Unsere Studenten werden an führenden Universitäten Koreas aufgenommen",
+    "en": "Our students are admitted to leading universities in Korea",
     "ko": "저희 학생들은 한국의 명문 대학에 진학하고 있습니다",
     "zh-hans": "我们的学生成功考入韩国顶尖大学"
   },
   "Наших студентов": {
     "de": "Unserer Studenten",
+    "en": "Our Students",
     "ko": "우리 학생",
     "zh-hans": "我们的学生"
   },
   "Немецкий": {
     "de": "Deutsch",
+    "en": "German",
     "ko": "독일어",
     "zh-hans": "德语"
   },
   "Немецкий A1-A2": {
     "de": "Deutsch A1-A2",
+    "en": "German A1-A2",
     "ko": "독일어 A1-A2",
     "zh-hans": "德语A1-A2"
   },
   "Немецкий язык и GOETHE": {
     "de": "Deutsch und GOETHE",
+    "en": "German Language and GOETHE",
     "ko": "독일어와 GOETHE",
     "zh-hans": "德语与GOETHE"
   },
   "Немецкий язык и Goethe-Zertifikat": {
     "de": "Deutsch und Goethe-Zertifikat",
+    "en": "German Language and the Goethe-Zertifikat",
     "ko": "독일어와 Goethe-Zertifikat",
     "zh-hans": "德语与歌德证书（Goethe-Zertifikat）"
   },
   "Нет!": {
     "de": "Nein!",
+    "en": "No!",
     "ko": "아니요!",
     "zh-hans": "不需要!"
   },
   "Ничего не найдено": {
     "de": "Nichts gefunden",
+    "en": "Nothing Found",
     "ko": "검색 결과가 없습니다",
     "zh-hans": "未找到相关内容"
   },
   "Новостей пока нет": {
     "de": "Noch keine Neuigkeiten",
+    "en": "No News Yet",
     "ko": "아직 소식이 없습니다",
     "zh-hans": "暂无新闻"
   },
   "Новости": {
     "de": "Neuigkeiten",
+    "en": "News",
     "ko": "소식",
     "zh-hans": "新闻"
   },
   "Новости учебного центра": {
     "de": "Neuigkeiten des Bildungszentrums",
+    "en": "Education Center News",
     "ko": "교육센터 소식",
     "zh-hans": "教育中心新闻"
   },
   "Новые наборы открываются регулярно. Оставьте свои контакты в Telegram-канале Edu Point, и мы сообщим о старте.": {
     "de": "Neue Gruppen werden regelmäßig eröffnet. Hinterlassen Sie Ihre Kontaktdaten im Telegram-Kanal von Edu Point, und wir informieren Sie über den Start.",
+    "en": "New groups open regularly. Leave your contact details in the Edu Point Telegram channel, and we'll let you know when they start.",
     "ko": "새로운 그룹이 정기적으로 개설됩니다. Edu Point 텔레그램 채널에 연락처를 남겨주시면 개강 소식을 안내해 드리겠습니다.",
     "zh-hans": "我们会定期开设新班。请在Edu Point的Telegram频道留下您的联系方式,我们会通知您开课信息。"
   },
   "Новый": {
     "de": "Neu",
+    "en": "New",
     "ko": "신규",
     "zh-hans": "新"
   },
   "Новый курс": {
     "de": "Neuer Kurs",
+    "en": "New Course",
     "ko": "신규 과정",
     "zh-hans": "新课程"
   },
   "Новый партнёр": {
     "de": "Neuer Partner",
+    "en": "New Partner",
     "ko": "신규 파트너",
     "zh-hans": "新合作院校"
   },
   "Номер телефона (WhatsApp) *": {
     "de": "Telefonnummer (WhatsApp) *",
+    "en": "Phone Number (WhatsApp) *",
     "ko": "전화번호 (WhatsApp) *",
     "zh-hans": "电话号码(WhatsApp)*"
   },
   "Носитель языка, эксперт по подготовке к TOPIK I & II.": {
     "de": "Muttersprachlerin, Expertin für die Vorbereitung auf TOPIK I & II.",
+    "en": "Native speaker, expert in TOPIK I & II preparation.",
     "ko": "원어민 강사, TOPIK I·II 대비 전문가.",
     "zh-hans": "母语教师,TOPIK I&II备考专家。"
   },
   "Нужны ли предварительные знания языка?": {
     "de": "Braucht man Vorkenntnisse der Sprache?",
+    "en": "Do I need prior knowledge of the language?",
     "ko": "사전 언어 지식이 필요한가요?",
     "zh-hans": "需要有语言基础吗?"
   },
   "О TOPIK": {
     "de": "Über TOPIK",
+    "en": "About TOPIK",
     "ko": "TOPIK 안내",
     "zh-hans": "关于TOPIK"
   },
   "О нас": {
     "de": "Über uns",
+    "en": "About Us",
     "ko": "회사 소개",
     "zh-hans": "关于我们"
   },
   "О нас подробнее": {
     "de": "Mehr über uns",
+    "en": "More About Us",
     "ko": "회사 소개 더보기",
     "zh-hans": "了解更多关于我们"
   },
   "О нашем центре": {
     "de": "Über unser Zentrum",
+    "en": "About Our Center",
     "ko": "우리 센터 소개",
     "zh-hans": "关于我们中心"
   },
   "О партнёрстве подробнее": {
     "de": "Mehr über die Partnerschaft",
+    "en": "More About the Partnership",
     "ko": "파트너십 자세히 보기",
     "zh-hans": "了解更多合作详情"
   },
   "О преподавателе": {
     "de": "Über die Lehrkraft",
+    "en": "About the Teacher",
     "ko": "강사 소개",
     "zh-hans": "教师简介"
   },
   "О программе курса": {
     "de": "Über das Kursprogramm",
+    "en": "About the Course Program",
     "ko": "강좌 프로그램 소개",
     "zh-hans": "课程介绍"
   },
   "О структуре экзамена": {
     "de": "Über den Aufbau der Prüfung",
+    "en": "About the Exam Structure",
     "ko": "시험 구성 안내:",
     "zh-hans": "考试结构介绍"
   },
   "Обучение в классах": {
     "de": "Unterricht im Klassenzimmer",
+    "en": "Classroom Learning",
     "ko": "교실 수업",
     "zh-hans": "课堂教学"
   },
   "Один из старейших и престижных университетов Кореи в г. Тэджон. Официальный партнёр Edu Point с 2025 года.": {
     "de": "Eine der ältesten und angesehensten Universitäten Koreas in der Stadt Daejeon. Offizieller Partner von Edu Point seit 2025.",
+    "en": "One of the oldest and most prestigious universities in Korea, located in Daejeon. Official partner of Edu Point since 2025.",
     "ko": "대전에 위치한 한국의 유서 깊고 명망 있는 대학 중 하나입니다. 2025년부터 Edu Point의 공식 파트너입니다.",
     "zh-hans": "位于韩国大田市的历史悠久、声誉卓著的大学之一。自2025年起成为Edu Point的官方合作院校。"
   },
   "Онлайн запись на курс": {
     "de": "Online-Anmeldung zum Kurs",
+    "en": "Online Course Registration",
     "ko": "온라인 강좌 신청",
     "zh-hans": "在线课程报名"
   },
   "Опытные специалисты с международными сертификатами": {
     "de": "Erfahrene Fachkräfte mit internationalen Zertifikaten",
+    "en": "Experienced specialists with international certificates",
     "ko": "국제 자격증을 보유한 경험 많은 전문 강사진",
     "zh-hans": "拥有国际证书的资深专业教师"
   },
   "Освойте самый перспективный язык бизнеса, иероглифику и фонетику Пиньинь с нуля.": {
     "de": "Beherrschen Sie von Grund auf die zukunftsträchtigste Geschäftssprache, Schriftzeichen und Pinyin-Aussprache.",
+    "en": "Master the most promising business language, its characters, and Pinyin phonetics from scratch.",
     "ko": "가장 유망한 비즈니스 언어인 중국어, 한자와 병음(Pinyin) 발음을 기초부터 배워보세요.",
     "zh-hans": "从零开始掌握最具发展前景的商务语言、汉字书写与拼音发音。"
   },
   "Основание": {
     "de": "Gründung",
+    "en": "Founded",
     "ko": "설립",
     "zh-hans": "成立"
   },
   "Особенности программы": {
     "de": "Besonderheiten des Programms",
+    "en": "Program Features",
     "ko": "프로그램 특징",
     "zh-hans": "课程特色"
   },
   "Оставить заявку": {
     "de": "Anfrage senden",
+    "en": "Submit a Request",
     "ko": "신청하기",
     "zh-hans": "提交申请"
   },
   "Оставить отзыв": {
     "de": "Bewertung hinterlassen",
+    "en": "Leave a Review",
     "ko": "후기 남기기",
     "zh-hans": "发表评价"
   },
   "Оставить отзыв об": {
     "de": "Bewertung abgeben zu",
+    "en": "Leave a Review for",
     "ko": "후기 남기기 -",
     "zh-hans": "发表评价 -"
   },
   "Оставьте заявку, чтобы получить консультацию расписания": {
     "de": "Hinterlassen Sie eine Anfrage, um eine Beratung zum Stundenplan zu erhalten",
+    "en": "Submit a request to get a schedule consultation",
     "ko": "일정 상담을 받으려면 신청서를 남겨주세요",
     "zh-hans": "请留下申请以获取课程时间咨询"
   },
   "От начального уровня A1 до уверенного владения и сдачи международного экзамена IELTS 7.0+": {
     "de": "Vom Anfängerniveau A1 bis zu sicherer Sprachbeherrschung und dem internationalen IELTS-Examen mit 7.0+",
+    "en": "From beginner level A1 to confident fluency and an international IELTS score of 7.0+",
     "ko": "초급 A1부터 자신감 있는 실력과 국제 IELTS 시험 7.0+ 취득까지",
     "zh-hans": "从A1初级水平到熟练掌握，并通过国际雅思（IELTS）考试7.0+"
   },
   "Отзыв будет опубликован после проверки модератором.": {
     "de": "Die Bewertung wird nach Prüfung durch einen Moderator veröffentlicht.",
+    "en": "The review will be published after moderator approval.",
     "ko": "리뷰는 관리자 검토 후 게시됩니다.",
     "zh-hans": "评价将在管理员审核后发布。"
   },
   "Отзыв о преподавателе": {
     "de": "Bewertung für die Lehrkraft",
+    "en": "Review of the Teacher",
     "ko": "강사에 대한 리뷰",
     "zh-hans": "对教师的评价"
   },
   "Отзывы": {
     "de": "Bewertungen",
+    "en": "Reviews",
     "ko": "후기",
     "zh-hans": "评价"
   },
   "Отзывы наших студентов": {
     "de": "Bewertungen unserer Studenten",
+    "en": "Reviews from Our Students",
     "ko": "우리 학생들의 후기",
     "zh-hans": "我们学员的评价"
   },
   "Отзывы студентов": {
     "de": "Bewertungen der Studenten",
+    "en": "Student Reviews",
     "ko": "학생 후기",
     "zh-hans": "学员评价"
   },
   "Открой мир": {
     "de": "Entdecke die Welt",
+    "en": "Open Up the World",
     "ko": "세상을 향해 문을 열다",
     "zh-hans": "开启世界之门"
   },
   "Открытие первого класса корейского языка": {
     "de": "Eröffnung der ersten Koreanischklasse",
+    "en": "Opening of Our First Korean Language Class",
     "ko": "첫 한국어 수업 개설",
     "zh-hans": "开设首个韩语班"
   },
   "Открытые": {
     "de": "Offene",
+    "en": "Open",
     "ko": "진행 중인",
     "zh-hans": "开放"
   },
   "Откуда вы узнали о нас?": {
     "de": "Wie haben Sie von uns erfahren?",
+    "en": "How did you hear about us?",
     "ko": "저희를 어떻게 알게 되셨나요?",
     "zh-hans": "您是如何了解到我们的?"
   },
   "Отлично": {
     "de": "Ausgezeichnet",
+    "en": "Excellent",
     "ko": "매우 좋음",
     "zh-hans": "优秀"
   },
   "Отправить заявку": {
     "de": "Anmeldung absenden",
+    "en": "Submit Application",
     "ko": "신청서 제출",
     "zh-hans": "提交申请"
   },
   "Отправить отзыв": {
     "de": "Bewertung absenden",
+    "en": "Submit Review",
     "ko": "후기 보내기",
     "zh-hans": "提交评价"
   },
   "Отправить сообщение": {
     "de": "Nachricht senden",
+    "en": "Send Message",
     "ko": "메시지 보내기",
     "zh-hans": "发送留言"
   },
   "Официальный корейский экзамен для учебы в Корее.": {
     "de": "Offizielle koreanische Sprachprüfung für ein Studium in Korea.",
+    "en": "The official Korean exam for studying in Korea.",
     "ko": "한국 유학을 위한 공인 한국어 시험.",
     "zh-hans": "赴韩留学官方韩语考试。"
   },
   "Официальный партнёр": {
     "de": "Offizieller Partner",
+    "en": "Official Partner",
     "ko": "공식 파트너",
     "zh-hans": "官方合作伙伴"
   },
   "Официальный сертификат по окончанию каждого уровня (A1 до C1).": {
     "de": "Offizielles Zertifikat nach Abschluss jeder Stufe (A1 bis C1).",
+    "en": "Official certificate upon completion of each level (A1 to C1).",
     "ko": "각 레벨(A1~C1) 수료 시 공식 수료증을 드립니다.",
     "zh-hans": "每完成一个级别（A1至C1）均可获得官方证书。"
   },
   "Очень плохо": {
     "de": "Sehr schlecht",
+    "en": "Very Poor",
     "ko": "매우 나쁨",
     "zh-hans": "很差"
   },
   "Партнёр": {
     "de": "Partner",
+    "en": "Partner",
     "ko": "파트너",
     "zh-hans": "合作院校"
   },
   "Партнёрские": {
     "de": "Partner-",
+    "en": "Partner",
     "ko": "파트너",
     "zh-hans": "合作"
   },
   "Партнёрство с вузами Кореи": {
     "de": "Partnerschaft mit koreanischen Universitäten",
+    "en": "Partnership with Korean Universities",
     "ko": "한국 대학교와의 파트너십",
     "zh-hans": "与韩国高校的合作伙伴关系"
   },
   "Партнёры": {
     "de": "Partner",
+    "en": "Partners",
     "ko": "파트너",
     "zh-hans": "合作伙伴"
   },
   "Первое занятие": {
     "de": "Erste Unterrichtsstunde",
+    "en": "First Lesson",
     "ko": "첫 수업",
     "zh-hans": "第一节课"
   },
   "Переключить тему": {
     "de": "Design wechseln",
+    "en": "Toggle Theme",
     "ko": "테마 전환",
     "zh-hans": "切换主题"
   },
   "Плохо": {
     "de": "Schlecht",
+    "en": "Poor",
     "ko": "나쁨",
     "zh-hans": "较差"
   },
   "Пн - Сб: 09:00 - 19:00": {
     "de": "Mo - Sa: 09:00 - 19:00",
+    "en": "Mon - Sat: 09:00 - 19:00",
     "ko": "월 - 토: 09:00 - 19:00",
     "zh-hans": "周一至周六:09:00 - 19:00"
   },
   "Пн–Сб: 09:00–19:00": {
     "de": "Mo–Sa: 09:00–19:00",
+    "en": "Mon–Sat: 09:00–19:00",
     "ko": "월–토: 09:00–19:00",
     "zh-hans": "周一至周六:09:00–19:00"
   },
   "Погружение в культуру, корейский этикет, традиции и особенности жизни в современной Корее.": {
     "de": "Eintauchen in die Kultur, koreanische Etikette, Traditionen und Besonderheiten des Lebens im modernen Korea.",
+    "en": "Immersion in Korean culture, etiquette, traditions, and the features of life in modern Korea.",
     "ko": "한국 문화, 예절, 전통, 현대 한국 생활의 특징에 대한 이해.",
     "zh-hans": "深入了解韩国文化、礼仪、传统以及现代韩国的生活特点。"
   },
   "Подать заявку": {
     "de": "Bewerbung einreichen",
+    "en": "Submit Application",
     "ko": "신청하기",
     "zh-hans": "提交申请"
   },
   "Подготовка HSK": {
     "de": "HSK-Vorbereitung",
+    "en": "HSK Preparation",
     "ko": "HSK 대비",
     "zh-hans": "HSK备考"
   },
   "Подготовка TOPIK": {
     "de": "TOPIK-Vorbereitung",
+    "en": "TOPIK Preparation",
     "ko": "TOPIK 대비",
     "zh-hans": "TOPIK备考"
   },
   "Подготовка к": {
     "de": "Vorbereitung auf",
+    "en": "Preparation for",
     "ko": "준비:",
     "zh-hans": "备考"
   },
   "Подготовка к Goethe-Zertifikat": {
     "de": "Vorbereitung auf das Goethe-Zertifikat",
+    "en": "Preparation for the Goethe-Zertifikat",
     "ko": "Goethe-Zertifikat 대비",
     "zh-hans": "Goethe-Zertifikat备考"
   },
   "Подготовка к IELTS. Все уровни": {
     "de": "Vorbereitung auf IELTS. Alle Niveaus",
+    "en": "IELTS Preparation. All Levels",
     "ko": "IELTS 대비. 전 레벨",
     "zh-hans": "IELTS备考。各级别"
   },
   "Подготовка к TOPIK I и II": {
     "de": "Vorbereitung auf TOPIK I und II",
+    "en": "Preparation for TOPIK I and II",
     "ko": "TOPIK I, II 대비",
     "zh-hans": "TOPIK I 和 II 备考"
   },
   "Подготовка к TOPIK, обучение с нуля до продвинутого уровня.": {
     "de": "Vorbereitung auf TOPIK, vom Anfänger- bis zum Fortgeschrittenenniveau.",
+    "en": "TOPIK preparation, training from beginner to advanced level.",
     "ko": "TOPIK 대비, 초급부터 고급까지.",
     "zh-hans": "TOPIK备考,从零基础到高级水平。"
   },
   "Подготовка к международным экзаменам": {
     "de": "Vorbereitung auf internationale Prüfungen",
+    "en": "Preparation for International Exams",
     "ko": "국제 시험 대비",
     "zh-hans": "国际考试备考"
   },
   "Подготовка к уровню B1/B2 для прохождения дуального обучения в Германии.": {
     "de": "Vorbereitung auf das Niveau B1/B2 für die duale Ausbildung in Deutschland.",
+    "en": "Preparation for B1/B2 level for dual vocational training in Germany.",
     "ko": "독일 이원화 직업교육 참여를 위한 B1/B2 레벨 대비.",
     "zh-hans": "为参加德国双元制职业培训进行B1/B2水平备考。"
   },
   "Поделитесь впечатлениями об уроках...": {
     "de": "Teilen Sie Ihre Eindrücke vom Unterricht...",
+    "en": "Share your impressions of the lessons...",
     "ko": "수업에 대한 소감을 남겨주세요...",
     "zh-hans": "分享您对课程的感受..."
   },
   "Поделитесь своими впечатлениями об обучении, преподавателях и результатах...": {
     "de": "Teilen Sie Ihre Eindrücke vom Unterricht, den Lehrkräften und den Ergebnissen mit...",
+    "en": "Share your impressions of the training, the teachers, and the results...",
     "ko": "수업, 강사진 및 학습 성과에 대한 소감을 남겨주세요...",
     "zh-hans": "分享您对课程、教师和学习成果的感受……"
   },
   "Подписаться": {
     "de": "Folgen",
+    "en": "Follow",
     "ko": "팔로우하기",
     "zh-hans": "关注我们"
   },
   "Подписывайтесь на наш Instagram и следите за жизнью центра, успехами студентов и новостями!": {
     "de": "Folgen Sie unserem Instagram und verfolgen Sie das Leben im Zentrum, die Erfolge unserer Studenten und aktuelle Neuigkeiten!",
+    "en": "Follow our Instagram to keep up with life at the center, student achievements, and the latest news!",
     "ko": "저희 인스타그램을 팔로우하고 센터의 일상, 학생들의 성과, 다양한 소식을 확인하세요!",
     "zh-hans": "关注我们的Instagram,了解中心动态、学员风采和最新资讯!"
   },
   "Подробнее": {
     "de": "Mehr erfahren",
+    "en": "Learn More",
     "ko": "자세히 보기",
     "zh-hans": "了解更多"
   },
   "Подробнее о": {
     "de": "Mehr über",
+    "en": "Learn More About",
     "ko": "자세히 보기:",
     "zh-hans": "了解更多关于"
   },
   "Подробнее об": {
     "de": "Mehr über",
+    "en": "Learn More About",
     "ko": "자세히 보기:",
     "zh-hans": "了解更多关于"
   },
   "Подробнее →": {
     "de": "Mehr erfahren →",
+    "en": "Learn More →",
     "ko": "자세히 보기 →",
     "zh-hans": "了解详情 →"
   },
   "Подтверждение": {
     "de": "Bestätigung",
+    "en": "Confirmation",
     "ko": "확인",
     "zh-hans": "确认"
   },
   "Подтверждение немецкого языка для Германии.": {
     "de": "Deutschnachweis für Deutschland.",
+    "en": "German language certification for Germany.",
     "ko": "독일 이주를 위한 독일어 능력 증명.",
     "zh-hans": "赴德所需的德语水平证明。"
   },
   "Поиск курсов, статей...": {
     "de": "Kurse, Artikel suchen...",
+    "en": "Search courses, articles...",
     "ko": "강좌, 게시글 검색...",
     "zh-hans": "搜索课程、文章……"
   },
   "Поиск по сайту": {
     "de": "Suche auf der Website",
+    "en": "Search the Site",
     "ko": "사이트 검색",
     "zh-hans": "网站搜索"
   },
   "Поиск...": {
     "de": "Suche...",
+    "en": "Search...",
     "ko": "검색...",
     "zh-hans": "搜索..."
   },
   "Пока нет опубликованных отзывов об этом преподавателе.": {
     "de": "Für diese Lehrkraft wurden noch keine Bewertungen veröffentlicht.",
+    "en": "No reviews have been published for this teacher yet.",
     "ko": "아직 이 강사에 대해 게시된 리뷰가 없습니다.",
     "zh-hans": "该教师暂无已发布的评价。"
   },
   "Пока нет опубликованных отзывов. Будьте первыми!": {
     "de": "Es gibt noch keine veröffentlichten Bewertungen. Seien Sie die Ersten!",
+    "en": "No reviews have been published yet. Be the first!",
     "ko": "아직 게시된 후기가 없습니다. 첫 번째가 되어보세요!",
     "zh-hans": "暂无已发布的评价。快来抢占第一个吧!"
   },
   "Пока нет отзывов — станьте первым": {
     "de": "Noch keine Bewertungen — seien Sie die/der Erste",
+    "en": "No reviews yet — be the first",
     "ko": "아직 리뷰가 없습니다 — 첫 번째 리뷰를 남겨보세요",
     "zh-hans": "暂无评价——快来抢占沙发"
   },
   "Полезные статьи, советы по изучению языков и секреты сдачи экзаменов": {
     "de": "Nützliche Artikel, Tipps zum Sprachenlernen und Geheimnisse für erfolgreiche Prüfungen",
+    "en": "Useful articles, language-learning tips, and secrets to passing your exams",
     "ko": "유용한 기사, 언어 학습 팁, 시험 합격의 비결",
     "zh-hans": "实用文章、语言学习技巧与考试通关秘诀"
   },
   "Полная программа состоит из": {
     "de": "Das vollständige Programm besteht aus",
+    "en": "The full program consists of",
     "ko": "전체 프로그램은",
     "zh-hans": "完整课程体系包含"
   },
   "Полный цикл обучения": {
     "de": "Vollständiger Lernzyklus",
+    "en": "Full Learning Cycle",
     "ko": "전체 학습 과정",
     "zh-hans": "完整学习周期"
   },
   "Получите официальный сертификат для поступления в зарубежные вузы и иммиграции": {
     "de": "Erhalten Sie ein offizielles Zertifikat für die Zulassung an ausländischen Hochschulen und für die Einwanderung",
+    "en": "Get an official certificate for admission to foreign universities and for immigration",
     "ko": "해외 대학 입학과 이민에 필요한 공인 자격증을 취득하세요",
     "zh-hans": "获取用于申请海外院校和移民的官方证书"
   },
   "Помощь в выборе университета (например Paichai University), сборе документов и получении грантов (GKS).": {
     "de": "Hilfe bei der Wahl der Universität (z. B. Paichai University), bei der Zusammenstellung der Unterlagen und beim Erhalt von Stipendien (GKS).",
+    "en": "Assistance choosing a university (e.g. Paichai University), preparing documents, and obtaining grants (GKS).",
     "ko": "대학교 선택(예: Paichai University), 서류 준비, 장학금(GKS) 취득을 도와드립니다.",
     "zh-hans": "协助选择大学（如Paichai University）、准备申请材料以及申请奖学金（GKS）。"
   },
   "Помощь с визой": {
     "de": "Visa-Unterstützung",
+    "en": "Visa Assistance",
     "ko": "비자 지원",
     "zh-hans": "签证协助"
   },
   "Попробуйте изменить поисковый запрос или перейти в каталог курсов": {
     "de": "Versuchen Sie, die Suchanfrage zu ändern, oder besuchen Sie den Kurskatalog",
+    "en": "Try changing your search query or browse the course catalog",
     "ko": "검색어를 변경하시거나 강좌 목록을 확인해 보세요",
     "zh-hans": "请尝试更改搜索词,或前往课程目录浏览"
   },
   "Популярные курсы": {
     "de": "Beliebte Kurse",
+    "en": "Popular Courses",
     "ko": "인기 과정",
     "zh-hans": "热门课程"
   },
   "После завершения каждого 2-месячного блока студент сдаёт": {
     "de": "Nach jedem 2-monatigen Block legt der Student ab",
+    "en": "After completing each 2-month block, the student takes",
     "ko": "각 2개월 과정을 마칠 때마다 학생은",
     "zh-hans": "每完成一个为期2个月的阶段,学员将参加"
   },
   "После каждых 2 месяцев": {
     "de": "Nach jeweils 2 Monaten",
+    "en": "Every 2 months",
     "ko": "매 2개월마다",
     "zh-hans": "每2个月一次"
   },
   "Последние": {
     "de": "Neueste",
+    "en": "Latest",
     "ko": "최신",
     "zh-hans": "最新"
   },
   "Постоянная диалоговая практика, постановка правильного акцента и преодоление языкового барьера.": {
     "de": "Ständige Dialogpraxis, Arbeit an der richtigen Aussprache und Überwindung der Sprachbarriere.",
+    "en": "Constant conversational practice, correct accent training, and overcoming the language barrier.",
     "ko": "지속적인 대화 연습, 정확한 발음 교정, 언어 장벽 극복.",
     "zh-hans": "持续的对话练习，纠正发音，克服语言障碍。"
   },
   "Поступаемость": {
     "de": "Aufnahmequote",
+    "en": "Admission rate",
     "ko": "합격률",
     "zh-hans": "录取率"
   },
   "Поступление в вузы Кореи": {
     "de": "Aufnahme an koreanischen Hochschulen",
+    "en": "Admission to universities in Korea",
     "ko": "한국 대학 입학",
     "zh-hans": "考入韩国高校"
   },
   "Почему выбирают": {
     "de": "Warum entscheiden sich alle für",
+    "en": "Why everyone chooses",
     "ko": "다들 선택하는",
     "zh-hans": "为什么大家都选择"
   },
   "Почему наш курс корейского —": {
     "de": "Warum unser Koreanischkurs —",
+    "en": "Why our Korean course is —",
     "ko": "왜 저희 한국어 강좌가 —",
     "zh-hans": "为什么我们的韩语课程是 —"
   },
   "Преимущества нашего курса": {
     "de": "Vorteile unseres Kurses",
+    "en": "Advantages of our course",
     "ko": "본 과정의 장점",
     "zh-hans": "我们课程的优势"
   },
   "Преподаватели": {
     "de": "Lehrkräfte",
+    "en": "Teachers",
     "ko": "강사진",
     "zh-hans": "教师"
   },
   "Преподаватель": {
     "de": "Lehrkraft",
+    "en": "Teacher",
     "ko": "강사",
     "zh-hans": "教师"
   },
   "Преподаватель английского (IELTS 8.5)": {
     "de": "Englischlehrerin (IELTS 8.5)",
+    "en": "English teacher (IELTS 8.5)",
     "ko": "영어 강사 (IELTS 8.5)",
     "zh-hans": "英语教师(雅思8.5分)"
   },
   "Преподаватель корейского языка": {
     "de": "Lehrkraft für Koreanisch",
+    "en": "Korean language teacher",
     "ko": "한국어 강사",
     "zh-hans": "韩语教师"
   },
   "Преподаватель немецкого языка (C1)": {
     "de": "Deutschlehrer (C1)",
+    "en": "German language teacher (C1)",
     "ko": "독일어 강사 (C1)",
     "zh-hans": "德语教师(C1水平)"
   },
   "Преподаватель уточняется": {
     "de": "Lehrkraft wird noch bekannt gegeben",
+    "en": "Teacher to be announced",
     "ko": "강사 추후 공지",
     "zh-hans": "教师待定"
   },
   "Преподаватель:": {
     "de": "Lehrkraft:",
+    "en": "Teacher:",
     "ko": "담당 강사:",
     "zh-hans": "授课教师:"
   },
   "Присоединиться": {
     "de": "Jetzt anmelden",
+    "en": "Join now",
     "ko": "지금 참여하기",
     "zh-hans": "立即加入"
   },
   "Программа подготовки в": {
     "de": "Vorbereitungsprogramm bei",
+    "en": "Preparation program at",
     "ko": "수강 준비 프로그램:",
     "zh-hans": "备考项目:"
   },
   "Продвинутый (C1)": {
     "de": "Fortgeschritten (C1)",
+    "en": "Advanced (C1)",
     "ko": "고급 (C1)",
     "zh-hans": "高级(C1)"
   },
   "Пройдите бесплатное тестирование и узнайте свой точный уровень!": {
     "de": "Machen Sie einen kostenlosen Test und erfahren Sie Ihr genaues Niveau!",
+    "en": "Take a free test and find out your exact level!",
     "ko": "무료 테스트를 통해 정확한 실력을 확인해 보세요!",
     "zh-hans": "参加免费测试，了解您的准确水平！"
   },
   "Пройти тест / Записаться": {
     "de": "Test machen / Anmelden",
+    "en": "Take the test / Sign up",
     "ko": "테스트 응시 / 신청하기",
     "zh-hans": "参加测试 / 立即报名"
   },
   "Профессиональная подготовка с высоким процентом сдачи": {
     "de": "Professionelle Vorbereitung mit hoher Erfolgsquote",
+    "en": "Professional preparation with a high pass rate",
     "ko": "높은 합격률을 자랑하는 전문 대비 과정",
     "zh-hans": "专业备考,通过率高"
   },
   "Профессиональное обучение с нуля": {
     "de": "Professioneller Unterricht ab null Vorkenntnissen",
+    "en": "Professional training from scratch",
     "ko": "기초부터 시작하는 전문 교육",
     "zh-hans": "零基础专业教学"
   },
   "Профессиональный курс изучения языка": {
     "de": "Professioneller Sprachkurs",
+    "en": "Professional language course",
     "ko": "전문 어학 과정",
     "zh-hans": "专业语言课程"
   },
   "Проходной тест": {
     "de": "Abschlusstest",
+    "en": "Level test",
     "ko": "통과 시험",
     "zh-hans": "过关测试"
   },
   "Проходной тест каждые 2 месяца для перехода на новый уровень": {
     "de": "Alle 2 Monate ein Einstufungstest für den nächsten Level",
+    "en": "A level test every 2 months to advance to the next level",
     "ko": "2개월마다 레벨 테스트를 통해 다음 단계로 진급",
     "zh-hans": "每2个月进行升级测试,晋级下一水平"
   },
   "Работаем": {
     "de": "Öffnungszeiten:",
+    "en": "Hours:",
     "ko": "영업시간:",
     "zh-hans": "营业时间:"
   },
   "Разбор реальных тестовых заданий прошлых лет, методика быстрого чтения (읽기) и аудирования (듣기).": {
     "de": "Analyse realer Prüfungsaufgaben vergangener Jahre, Methodik für schnelles Lesen (읽기) und Hörverstehen (듣기).",
+    "en": "Analysis of real past exam tasks, speed-reading techniques (읽기), and listening comprehension methods (듣기).",
     "ko": "지난 시험 기출문제 분석, 빠른 읽기(읽기)와 듣기(듣기) 학습법.",
     "zh-hans": "分析历年真题，快速阅读（읽기）和听力（듣기）方法训练。"
   },
   "Развитие": {
     "de": "Entwicklung",
+    "en": "Growth",
     "ko": "성장 과정",
     "zh-hans": "发展历程"
   },
   "Разговорный Корейский": {
     "de": "Koreanisch im Alltag sprechen",
+    "en": "Conversational Korean",
     "ko": "한국어 회화",
     "zh-hans": "韩语口语"
   },
   "Разговорный английский для путешествий, работы и свободного общения.": {
     "de": "Englisch im Alltag für Reisen, Arbeit und freie Kommunikation.",
+    "en": "Conversational English for travel, work, and everyday communication.",
     "ko": "여행, 업무, 자유로운 소통을 위한 영어 회화.",
     "zh-hans": "面向旅行、工作和日常交流的英语口语。"
   },
   "Разговорный курс для предпринимателей и людей, работающих с Китаем.": {
     "de": "Sprachkurs für Unternehmer und Personen, die mit China zusammenarbeiten.",
+    "en": "A conversational course for entrepreneurs and people working with China.",
     "ko": "기업가와 중국과 협업하는 분들을 위한 회화 강좌.",
     "zh-hans": "面向企业家及与中国有业务往来人士的口语课程。"
   },
   "Расписание занятий": {
     "de": "Unterrichtsplan",
+    "en": "Class schedule",
     "ko": "수업 일정",
     "zh-hans": "课程安排"
   },
   "Расширение": {
     "de": "Erweiterung",
+    "en": "Expansion",
     "ko": "확장",
     "zh-hans": "扩展"
   },
   "Реальные успехи наших выпускников в Корее": {
     "de": "Echte Erfolge unserer Absolventen in Korea",
+    "en": "Real success stories of our graduates in Korea",
     "ko": "한국에서 이룬 졸업생들의 실제 성과",
     "zh-hans": "毕业生在韩国的真实成就"
   },
   "Результаты по запросу": {
     "de": "Ergebnisse für die Anfrage",
+    "en": "Results for the query",
     "ko": "검색어에 대한 결과",
     "zh-hans": "搜索结果关键词"
   },
   "Результаты поиска": {
     "de": "Suchergebnisse",
+    "en": "Search results",
     "ko": "검색 결과",
     "zh-hans": "搜索结果"
   },
   "Рекомендация": {
     "de": "Empfehlung",
+    "en": "Recommendation",
     "ko": "지인 추천",
     "zh-hans": "他人推荐"
   },
   "С нуля (Никогда не изучал)": {
     "de": "Von Grund auf (noch nie gelernt)",
+    "en": "From scratch (never studied before)",
     "ko": "초급 (전혀 배운 적 없음)",
     "zh-hans": "零基础(从未学过)"
   },
   "С нуля до TOPIK. Учёба в Корее": {
     "de": "Von null bis TOPIK. Studium in Korea",
+    "en": "From scratch to TOPIK. Studying in Korea",
     "ko": "기초부터 TOPIK까지. 한국 유학",
     "zh-hans": "从零基础到TOPIK。赴韩留学"
   },
   "С этого года": {
     "de": "Seit diesem Jahr",
+    "en": "Since this year",
     "ko": "올해부터",
     "zh-hans": "自今年起"
   },
   "Свободно": {
     "de": "Frei",
+    "en": "Available",
     "ko": "잔여 좌석",
     "zh-hans": "剩余名额"
   },
   "Свяжитесь с нами, чтобы узнать о наборе в новые группы": {
     "de": "Kontaktieren Sie uns, um sich über neue Gruppen zu informieren",
+    "en": "Contact us to find out about enrollment in new groups",
     "ko": "새로운 그룹 모집에 대해 문의해 주세요",
     "zh-hans": "请联系我们了解新班级招生信息"
   },
   "Связаться с нами": {
     "de": "Kontaktieren Sie uns",
+    "en": "Contact us",
     "ko": "문의하기",
     "zh-hans": "联系我们"
   },
   "Сдали": {
     "de": "Bestanden",
+    "en": "Passed",
     "ko": "합격",
     "zh-hans": "通过考试"
   },
   "Сделай первый шаг прямо сейчас — записавшись на первое бесплатное занятие!": {
     "de": "Mach jetzt den ersten Schritt — melde dich zur ersten kostenlosen Probestunde an!",
+    "en": "Take the first step right now — sign up for your first free lesson!",
     "ko": "지금 바로 첫걸음을 내딛으세요 — 무료 체험 수업을 신청하세요!",
     "zh-hans": "现在就迈出第一步——报名参加首堂免费体验课！"
   },
   "Сегодня": {
     "de": "Heute",
+    "en": "Today",
     "ko": "현재",
     "zh-hans": "今天"
   },
   "Сейчас нет открытых наборов": {
     "de": "Derzeit sind keine Gruppen offen",
+    "en": "There are currently no open enrollments",
     "ko": "현재 모집 중인 그룹이 없습니다",
     "zh-hans": "当前暂无招生班级"
   },
   "Сертификат Edu Point": {
     "de": "Edu Point Zertifikat",
+    "en": "Edu Point Certificate",
     "ko": "Edu Point 수료증",
     "zh-hans": "Edu Point 证书"
   },
   "Сертифицированный CELTA преподаватель.": {
     "de": "CELTA-zertifizierte Lehrkraft.",
+    "en": "CELTA-certified teacher.",
     "ko": "CELTA 인증 강사.",
     "zh-hans": "持有CELTA认证的教师。"
   },
   "Скидки грантов": {
     "de": "Stipendienrabatte",
+    "en": "Scholarship discounts",
     "ko": "장학 혜택",
     "zh-hans": "奖学金优惠"
   },
   "Сколько длится один курс?": {
     "de": "Wie lange dauert ein Kurs?",
+    "en": "How long does one course last?",
     "ko": "한 과정은 얼마나 걸리나요?",
     "zh-hans": "一期课程需要多长时间?"
   },
   "Сколько стоит обучение?": {
     "de": "Wie viel kostet der Unterricht?",
+    "en": "How much does tuition cost?",
     "ko": "수강료는 얼마인가요?",
     "zh-hans": "学费是多少?"
   },
   "Следите за обновлениями на нашем сайте!": {
     "de": "Bleiben Sie auf unserer Website auf dem Laufenden!",
+    "en": "Stay tuned for updates on our website!",
     "ko": "저희 웹사이트의 업데이트를 지켜봐 주세요!",
     "zh-hans": "请关注我们网站的更新!"
   },
   "Современный университет в г. Хончхон. Международная программа с адаптационными курсами для иностранных студентов.": {
     "de": "Eine moderne Universität in der Stadt Hongcheon. Internationales Programm mit Vorbereitungskursen für ausländische Studenten.",
+    "en": "A modern university in the city of Hongcheon. An international program with adaptation courses for foreign students.",
     "ko": "홍천에 위치한 현대적인 대학교입니다. 외국인 유학생을 위한 적응 과정을 포함한 국제 프로그램을 운영합니다.",
     "zh-hans": "位于洪川市的现代化大学。设有面向国际学生的适应课程国际项目。"
   },
   "Современный языковой центр в Оше. Мы помогаем открыть мир через изучение языков и подготовку к международным экзаменам.": {
     "de": "Ein modernes Sprachzentrum in Osch. Wir helfen dabei, die Welt durch das Erlernen von Sprachen und die Vorbereitung auf internationale Prüfungen zu entdecken.",
+    "en": "A modern language center in Osh. We help open up the world through language learning and preparation for international exams.",
     "ko": "오쉬의 현대적인 어학원입니다. 언어 학습과 국제 시험 준비를 통해 세상을 여는 것을 도와드립니다.",
     "zh-hans": "位于奥什的现代化语言中心。我们通过语言学习和国际考试培训,帮助学员开启通往世界的大门。"
   },
   "Сообщение *": {
     "de": "Nachricht *",
+    "en": "Message *",
     "ko": "메시지 *",
     "zh-hans": "留言 *"
   },
   "Сочетание классической грамматики и интерактивной разговорной практики с носителем.": {
     "de": "Eine Kombination aus klassischer Grammatik und interaktiver Sprechpraxis mit Muttersprachlern.",
+    "en": "A combination of classic grammar and interactive speaking practice with a native speaker.",
     "ko": "정통 문법 학습과 원어민과의 인터랙티브 회화 연습을 결합했습니다.",
     "zh-hans": "将传统语法教学与外教互动口语练习相结合。"
   },
   "Специализированная подготовка к экзаменам HSK 1-4 для грантовой учёбы в Китае.": {
     "de": "Spezialisierte Vorbereitung auf die HSK-Prüfungen 1-4 für ein Stipendienstudium in China.",
+    "en": "Specialized preparation for the HSK 1-4 exams for scholarship studies in China.",
     "ko": "중국 장학 유학을 위한 HSK 1-4급 전문 대비 과정.",
     "zh-hans": "针对赴华公费留学的HSK 1-4级专项备考。"
   },
   "Спросить в WhatsApp": {
     "de": "Über WhatsApp fragen",
+    "en": "Ask via WhatsApp",
     "ko": "WhatsApp으로 문의하기",
     "zh-hans": "通过WhatsApp咨询"
   },
   "Средний (B1-B2)": {
     "de": "Mittelstufe (B1-B2)",
+    "en": "Intermediate (B1-B2)",
     "ko": "중급 (B1-B2)",
     "zh-hans": "中级(B1-B2)"
   },
   "Стажа и успешной работы": {
     "de": "Erfahrung und erfolgreicher Arbeit",
+    "en": "of experience and successful work",
     "ko": "경력과 성공적인 운영",
     "zh-hans": "从业经验与卓越成果"
   },
   "Станьте частью команды Edu Point": {
     "de": "Werden Sie Teil des Edu Point-Teams",
+    "en": "Become part of the Edu Point team",
     "ko": "Edu Point 팀의 일원이 되어보세요",
     "zh-hans": "加入Edu Point大家庭"
   },
   "Старт": {
     "de": "Start",
+    "en": "Start",
     "ko": "시작",
     "zh-hans": "开课"
   },
   "Статей пока нет": {
     "de": "Noch keine Artikel",
+    "en": "No articles yet",
     "ko": "아직 게시글이 없습니다",
     "zh-hans": "暂无文章"
   },
   "Стоимость:": {
     "de": "Preis:",
+    "en": "Price:",
     "ko": "수강료:",
     "zh-hans": "费用："
   },
   "Страница не найдена": {
     "de": "Seite nicht gefunden",
+    "en": "Page not found",
     "ko": "페이지를 찾을 수 없습니다",
     "zh-hans": "页面未找到"
   },
   "Страницы": {
     "de": "Seiten",
+    "en": "Pages",
     "ko": "페이지",
     "zh-hans": "页面"
   },
   "Студентов": {
     "de": "Studenten",
+    "en": "Students",
     "ko": "학생",
     "zh-hans": "学生"
   },
   "Студенты & Университеты Кореи": {
     "de": "Studierende & Universitäten in Korea",
+    "en": "Students & Universities of Korea",
     "ko": "학생 & 한국 대학교",
     "zh-hans": "学员与韩国高校"
   },
   "ТЦ Корона, 3 этаж — центр города Ош": {
     "de": "Einkaufszentrum Korona, 3. Stock – im Zentrum von Osch",
+    "en": "Korona Mall, 3rd floor — Osh city center",
     "ko": "코로나 쇼핑몰 3층 — 오시 시내 중심",
     "zh-hans": "科罗纳购物中心3楼——位于奥什市中心"
   },
   "Также можно написать нам в WhatsApp:": {
     "de": "Sie können uns auch über WhatsApp schreiben:",
+    "en": "You can also message us on WhatsApp:",
     "ko": "WhatsApp으로도 문의 가능합니다:",
     "zh-hans": "您也可以通过WhatsApp联系我们:"
   },
   "Текст вашего отзыва": {
     "de": "Text Ihrer Bewertung",
+    "en": "Your review text",
     "ko": "후기 내용",
     "zh-hans": "评价内容"
   },
   "Телефон": {
     "de": "Telefon",
+    "en": "Phone",
     "ko": "전화번호",
     "zh-hans": "电话"
   },
   "Телефон *": {
     "de": "Telefon *",
+    "en": "Phone *",
     "ko": "전화번호 *",
     "zh-hans": "电话 *"
   },
   "Телефоны": {
     "de": "Telefonnummern",
+    "en": "Phone numbers",
     "ko": "전화번호",
     "zh-hans": "电话"
   },
   "Топ центр в Оше": {
     "de": "Top-Zentrum in Osch",
+    "en": "Top center in Osh",
     "ko": "오시 최고의 어학원",
     "zh-hans": "奥什顶尖语言中心"
   },
   "У вас нет прав на просмотр этой страницы.": {
     "de": "Sie haben keine Berechtigung, diese Seite anzuzeigen.",
+    "en": "You do not have permission to view this page.",
     "ko": "이 페이지를 볼 수 있는 권한이 없습니다.",
     "zh-hans": "您没有权限查看此页面。"
   },
   "Удобное место": {
     "de": "Günstige Lage",
+    "en": "Convenient location",
     "ko": "편리한 위치",
     "zh-hans": "地理位置优越"
   },
   "Удовлетворительно": {
     "de": "Befriedigend",
+    "en": "Satisfactory",
     "ko": "보통",
     "zh-hans": "一般"
   },
   "Уровень:": {
     "de": "Niveau:",
+    "en": "Level:",
     "ko": "레벨:",
     "zh-hans": "级别："
   },
   "Успешных выпускников": {
     "de": "Erfolgreiche Absolventen",
+    "en": "Successful graduates",
     "ko": "성공적인 졸업생",
     "zh-hans": "成功毕业生"
   },
   "Учебные классы": {
     "de": "Unterrichtsräume",
+    "en": "Classrooms",
     "ko": "수업 교실",
     "zh-hans": "教室"
   },
   "Учебный центр": {
     "de": "Bildungszentrum",
+    "en": "Education center",
     "ko": "교육 센터",
     "zh-hans": "教育中心"
   },
   "Учились у нас? Оставьте отзыв!": {
     "de": "Haben Sie bei uns gelernt? Hinterlassen Sie eine Bewertung!",
+    "en": "Studied with us? Leave a review!",
     "ko": "저희와 함께 공부하셨나요? 후기를 남겨주세요!",
     "zh-hans": "在我们这里学习过?欢迎留下你的评价!"
   },
   "Учёба в Корее": {
     "de": "Studium in Korea",
+    "en": "Studying in Korea",
     "ko": "한국 유학",
     "zh-hans": "赴韩留学"
   },
   "Учёба и работа в Германии (Ausbildung, ВУЗы). Подготовка к экзаменам A1, A2, B1, B2.": {
     "de": "Studium und Arbeit in Deutschland (Ausbildung, Hochschulen). Vorbereitung auf die Prüfungen A1, A2, B1, B2.",
+    "en": "Study and work in Germany (Ausbildung, universities). Preparation for the A1, A2, B1, B2 exams.",
     "ko": "독일에서의 학업과 취업(Ausbildung, 대학교). A1, A2, B1, B2 시험 대비.",
     "zh-hans": "赴德学习与工作（职业培训Ausbildung、高校）。A1、A2、B1、B2考试备考。"
   },
   "ФИО": {
     "de": "Name",
+    "en": "Full name",
     "ko": "성명",
     "zh-hans": "姓名"
   },
   "Флагманское направление Edu Point": {
     "de": "Vorzeigeprogramm von Edu Point",
+    "en": "Edu Point's flagship program",
     "ko": "Edu Point의 대표 프로그램",
     "zh-hans": "Edu Point 旗舰课程"
   },
   "Ханыль, грамматика, разговор": {
     "de": "Hangeul, Grammatik, Konversation",
+    "en": "Hangeul, grammar, conversation",
     "ko": "한글, 문법, 회화",
     "zh-hans": "韩文字母、语法、口语"
   },
   "Хорошо": {
     "de": "Gut",
+    "en": "Good",
     "ko": "좋음",
     "zh-hans": "良好"
   },
   "Целеустремленность": {
     "de": "Zielstrebigkeit",
+    "en": "Determination",
     "ko": "목표 지향성",
     "zh-hans": "目标导向"
   },
   "Ценности": {
     "de": "Werte",
+    "en": "Values",
     "ko": "핵심 가치",
     "zh-hans": "价值观"
   },
   "Часто задаваемые": {
     "de": "Häufig gestellte",
+    "en": "Frequently asked",
     "ko": "자주 묻는",
     "zh-hans": "常见"
   },
   "Четыре языковых направления с профессиональными преподавателями и проверенными методиками": {
     "de": "Vier Sprachrichtungen mit professionellen Lehrkräften und bewährten Methoden",
+    "en": "Four language programs with professional teachers and proven methods",
     "ko": "전문 강사진과 검증된 교육 방식으로 운영되는 4개의 언어 과정",
     "zh-hans": "四大语言方向,配备专业教师和成熟的教学方法"
   },
   "Читайте также": {
     "de": "Lesen Sie auch",
+    "en": "Read also",
     "ko": "함께 읽으면 좋은 글",
     "zh-hans": "相关阅读"
   },
   "Читать все отзывы": {
     "de": "Alle Bewertungen lesen",
+    "en": "Read all reviews",
     "ko": "모든 후기 보기",
     "zh-hans": "查看全部评价"
   },
   "Читать далее": {
     "de": "Weiterlesen",
+    "en": "Read more",
     "ko": "더 읽기",
     "zh-hans": "阅读更多"
   },
   "Читать статью": {
     "de": "Artikel lesen",
+    "en": "Read article",
     "ko": "글 읽기",
     "zh-hans": "阅读文章"
   },
   "Что говорят наши": {
     "de": "Was unsere",
+    "en": "What our",
     "ko": "우리",
     "zh-hans": "我们的"
   },
   "Что дает курс:": {
     "de": "Was der Kurs bietet:",
+    "en": "What the course offers:",
     "ko": "과정에서 얻는 것:",
     "zh-hans": "课程收获:"
   },
   "Что-то пошло не так": {
     "de": "Etwas ist schiefgelaufen",
+    "en": "Something went wrong",
     "ko": "문제가 발생했습니다",
     "zh-hans": "出了点问题"
   },
   "Экзамены": {
     "de": "Prüfungen",
+    "en": "Exams",
     "ko": "시험",
     "zh-hans": "考试"
   },
   "Элементарный (A2)": {
     "de": "Elementar (A2)",
+    "en": "Elementary (A2)",
     "ko": "초중급 (A2)",
     "zh-hans": "基础级(A2)"
   },
   "Этапы нашего": {
     "de": "Etappen unseres",
+    "en": "Stages of our",
     "ko": "우리의",
     "zh-hans": "我们的"
   },
   "Язык": {
     "de": "Sprache",
+    "en": "Language",
     "ko": "언어",
     "zh-hans": "语言"
   },
   "Языка": {
     "de": "Sprachen",
+    "en": "Language",
     "ko": "언어",
     "zh-hans": "语言"
   },
   "Языки": {
     "de": "Sprachen",
+    "en": "Languages",
     "ko": "언어",
     "zh-hans": "语言"
   },
   "Языковой центр в Оше": {
     "de": "Sprachzentrum in Osch",
+    "en": "Language center in Osh",
     "ko": "오시의 어학원",
     "zh-hans": "奥什语言中心"
   },
   "бесплатно": {
     "de": "kostenlos",
+    "en": "free of charge",
     "ko": "무료입니다",
     "zh-hans": "完全免费"
   },
   "будущему": {
     "de": "Zukunft",
+    "en": "future",
     "ko": "미래를 여는 길",
     "zh-hans": "未来之路"
   },
   "в Корее": {
     "de": "in Korea",
+    "en": "in Korea",
     "ko": "한국에서",
     "zh-hans": "在韩国"
   },
   "в г. Ош был основан с целю предоставить студентам и взрослым современное, доступное и высокоэффективное языковое образование.": {
     "de": "in Osch wurde mit dem Ziel gegründet, Studierenden und Erwachsenen eine moderne, zugängliche und hocheffektive Sprachausbildung zu bieten.",
+    "en": "in Osh was founded with the goal of providing students and adults with modern, affordable, and highly effective language education.",
     "ko": "오시(Osh)에서 학생과 성인들에게 현대적이고 합리적이며 효과적인 어학 교육을 제공하기 위해 설립되었습니다.",
     "zh-hans": "在奥什市成立,旨在为学生和成人提供现代化、实惠且高效的语言教育。"
   },
   "в неделю": {
     "de": "pro Woche",
+    "en": "per week",
     "ko": "회/주",
     "zh-hans": "次/周"
   },
   "вопросы": {
     "de": "Fragen",
+    "en": "questions",
     "ko": "질문",
     "zh-hans": "问题"
   },
   "г. Ош, пр. А. Масалиева 44, ТЦ Корона, 3 этаж": {
     "de": "Osch, A.-Masaliev-Allee 44, EKZ Korona, 3. Stock",
+    "en": "Osh, A. Masaliev Ave. 44, Korona Mall, 3rd floor",
     "ko": "오시(오쉬)시 A. 마살리예프 대로 44, 코로나 쇼핑몰 3층",
     "zh-hans": "奥什市马萨利耶夫大道44号,科罗纳购物中心3楼"
   },
   "и": {
     "de": "und",
+    "en": "and",
     "ko": "및",
     "zh-hans": "和"
   },
   "из": {
     "de": "von",
+    "en": "out of",
     "ko": "/",
     "zh-hans": "/"
   },
   "из 5 - Отлично": {
     "de": "von 5 - Ausgezeichnet",
+    "en": "out of 5 - Excellent",
     "ko": "점 - 매우 만족",
     "zh-hans": "分 - 非常满意"
   },
   "из 5 - Очень плохо": {
     "de": "von 5 - Sehr schlecht",
+    "en": "out of 5 - Very poor",
     "ko": "점 - 매우 나쁨",
     "zh-hans": "分 - 非常差"
   },
   "из 5 - Плохо": {
     "de": "von 5 - Schlecht",
+    "en": "out of 5 - Poor",
     "ko": "점 - 나쁨",
     "zh-hans": "分 - 较差"
   },
   "из 5 - Удовлетворительно": {
     "de": "von 5 - Befriedigend",
+    "en": "out of 5 - Satisfactory",
     "ko": "점 - 보통",
     "zh-hans": "分 - 一般"
   },
   "из 5 - Хорошо": {
     "de": "von 5 - Gut",
+    "en": "out of 5 - Good",
     "ko": "점 - 좋음",
     "zh-hans": "分 - 良好"
   },
   "каждый. В конце каждого курса проводится проходной тест для перехода на следующий уровень.": {
     "de": "Am Ende jedes Kurses findet ein Einstufungstest statt, um in das nächste Niveau aufzusteigen.",
+    "en": "each. At the end of each course, a level test is held to advance to the next level.",
     "ko": "구성되며, 각 과정이 끝날 때마다 다음 레벨로 진급하기 위한 테스트를 치릅니다.",
     "zh-hans": "。每期课程结束时都会进行升级测试,以便晋级下一水平。"
   },
   "корейского языка": {
     "de": "Koreanisch",
+    "en": "Korean language",
     "ko": "한국어 그룹",
     "zh-hans": "韩语课程"
   },
   "курса": {
     "de": "Kurse",
+    "en": "courses",
     "ko": "개 과정",
     "zh-hans": "门课程"
   },
   "курсы": {
     "de": "Kurse",
+    "en": "courses",
     "ko": "과정",
     "zh-hans": "课程"
   },
   "лет опыта": {
     "de": "Jahre Erfahrung",
+    "en": "years of experience",
     "ko": "년 경력",
     "zh-hans": "年教学经验"
   },
   "лет стажа": {
     "de": "Jahre Erfahrung",
+    "en": "years of experience",
     "ko": "년 경력",
     "zh-hans": "年教龄"
   },
   "мест своб.": {
     "de": "Plätze frei",
+    "en": "spots left",
     "ko": "자리 남음",
     "zh-hans": "个名额剩余"
   },
   "на курсы": {
     "de": "für Kurse",
+    "en": "for courses",
     "ko": "과정",
     "zh-hans": "课程"
   },
   "наборы": {
     "de": "Anmeldungen",
+    "en": "enrollment",
     "ko": "모집",
     "zh-hans": "招生"
   },
   "наш": {
     "de": "unsere",
+    "en": "our",
     "ko": "우리의",
     "zh-hans": "我们的"
   },
   "новости": {
     "de": "Neuigkeiten",
+    "en": "news",
     "ko": "소식",
     "zh-hans": "资讯"
   },
   "одного курса — 2 месяца": {
     "de": "eines Kurses beträgt 2 Monate",
+    "en": "of one course is 2 months",
     "ko": "한 과정당 2개월입니다",
     "zh-hans": "一期课程为2个月"
   },
   "показать все языки": {
     "de": "alle Sprachen anzeigen",
+    "en": "show all languages",
     "ko": "모든 언어 보기",
     "zh-hans": "查看所有语言"
   },
   "преподаватели": {
     "de": "Lehrkräfte",
+    "en": "teachers",
     "ko": "강사진",
     "zh-hans": "教师"
   },
   "принципы": {
     "de": "Prinzipien",
+    "en": "principles",
     "ko": "원칙",
     "zh-hans": "原则"
   },
   "приоритет": {
     "de": "Priorität",
+    "en": "priority",
     "ko": "우선순위",
     "zh-hans": "重点"
   },
   "просмотров": {
     "de": "Aufrufe",
+    "en": "views",
     "ko": "조회수",
     "zh-hans": "次浏览"
   },
   "проходной тест": {
     "de": "einen Einstufungstest",
+    "en": "a level test",
     "ko": "레벨 테스트를 치르며",
     "zh-hans": "升级测试"
   },
   "роста": {
     "de": "Wachstums",
+    "en": "growth",
     "ko": "성장 단계",
     "zh-hans": "成长历程"
   },
   "с нуля": {
     "de": "ab null Vorkenntnissen",
+    "en": "from scratch",
     "ko": "완전 초보자도",
     "zh-hans": "零基础学员"
   },
   "сом/мес": {
     "de": "Som/Monat",
+    "en": "som/month",
     "ko": "솜/월",
     "zh-hans": "索姆/月"
   },
   "стажа": {
     "de": "Erfahrung",
+    "en": "experience",
     "ko": "경력",
     "zh-hans": "经验"
   },
   "старт": {
     "de": "Start",
+    "en": "start",
     "ko": "개강",
     "zh-hans": "开课"
   },
   "студенты": {
     "de": "Studenten sagen",
+    "en": "students say",
     "ko": "학생들이 말하는 후기",
     "zh-hans": "学员怎么说"
   },
   "университеты Кореи": {
     "de": "Universitäten in Korea",
+    "en": "universities of Korea",
     "ko": "한국 대학교",
     "zh-hans": "韩国大学"
   },
   "уточняется": {
     "de": "wird noch bekannt gegeben",
+    "en": "to be announced",
     "ko": "추후 공지",
     "zh-hans": "待定"
   },
   "утренние и вечерние группы": {
     "de": "Vormittags- und Abendgruppen",
+    "en": "morning and evening groups",
     "ko": "오전반과 저녁반이",
     "zh-hans": "早班和晚班"
   },
   "через": {
     "de": "durch",
+    "en": "through",
     "ko": "통해",
     "zh-hans": "通过"
   },
   "экзаменам": {
     "de": "Prüfungen",
+    "en": "exams",
     "ko": "국제 시험",
     "zh-hans": "国际考试"
   },
   "язык": {
     "de": "Sprache",
+    "en": "language",
     "ko": "어",
     "zh-hans": "语"
   },
   "языка": {
     "de": "Sprache",
+    "en": "languages",
     "ko": "",
     "zh-hans": ""
   },
   "языки": {
     "de": "Sprachen",
+    "en": "languages",
     "ko": "언어",
     "zh-hans": "语言"
   },
   "№1 в Оше": {
     "de": "Nr. 1 in Osch",
+    "en": "#1 in Osh",
     "ko": "오쉬 1위",
     "zh-hans": "奥什第一"
   }

@@ -12,7 +12,11 @@ def site_settings(request):
     categories = cache.get_or_set(
         'language_categories', lambda: list(Category.objects.all().order_by('order')), 300
     )
+    from .views import EGG_IDS
+    found_eggs = request.session.get('found_eggs', [])
     return {
         'site_settings': settings,
         'language_categories': categories,
+        'eggs_found_count': len(found_eggs),
+        'eggs_total_count': len(EGG_IDS),
     }

@@ -513,7 +513,8 @@ def teacher_homework(request):
     if not tp:
         return redirect('lms:dashboard')
     groups = Group.objects.filter(teacher=tp.teacher)
-    homeworks = Homework.objects.filter(group__teacher=tp.teacher).select_related('group')
+    homeworks = Homework.objects.filter(group__teacher=tp.teacher).select_related('group') \
+        .prefetch_related('submissions__student__user').annotate(submissions_count=Count('submissions'))
 
     if request.method == 'POST':
         form = HomeworkForm(request.POST, request.FILES)
@@ -569,7 +570,8 @@ def teacher_homework_edit(request, pk):
     return render(request, 'lms/teacher/homework.html', {
         'tp': tp,
         'groups': groups,
-        'homeworks': Homework.objects.filter(group__teacher=tp.teacher).select_related('group'),
+        'homeworks': Homework.objects.filter(group__teacher=tp.teacher).select_related('group') \
+            .prefetch_related('submissions__student__user').annotate(submissions_count=Count('submissions')),
         'form': form,
         'editing': hw,
         'active_section': 'homework',

@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-11 00:00+0600\n"
 "PO-Revision-Date: 2026-08-11 00:00+0600\n"
-"Language: de\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,1464 +14,1441 @@ msgid ""
 ", а также группы выходного дня. Расписание согласуется при записи, чтобы не "
 "мешать вашей учёбе или работе."
 msgstr ""
-", sowie Wochenendgruppen. Der Stundenplan wird bei der Anmeldung so "
-"abgestimmt, dass er Ihre Schule oder Arbeit nicht beeinträchtigt."
+", as well as weekend groups. The schedule is arranged at enrollment so it "
+"doesn't interfere with your studies or work."
 
 msgid ""
 ", подтверждающий освоение уровня. Полная программа по языку — 6 курсов (12 "
 "месяцев)."
 msgstr ""
-", der den erreichten Kenntnisstand bestätigt. Das vollständige "
-"Sprachprogramm umfasst 6 Kurse (12 Monate)."
+", confirming that you have mastered the level. The full language program "
+"consists of 6 courses (12 months)."
 
 msgid ""
 ". После прохождения курсов и сдачи TOPIK мы помогаем с подачей документов, "
 "получением студенческой визы и переездом в Корею. Консультация —"
 msgstr ""
-". Nach Abschluss der Kurse und dem Bestehen von TOPIK helfen wir bei der "
-"Einreichung der Unterlagen, der Beantragung des Studentenvisums und dem "
-"Umzug nach Korea. Die Beratung ist —"
+". After completing the courses and passing TOPIK, we help you with document "
+"submission, obtaining a student visa, and moving to Korea. Consultation is —"
 
 msgid ""
 ". Программа разработана так, что даже полный новичок начинает с самых основ "
 "и шаг за шагом доходит до продвинутого уровня. Главное — желание учиться!"
 msgstr ""
-". Das Programm ist so aufgebaut, dass selbst ein absoluter Anfänger bei den "
-"Grundlagen beginnt und Schritt für Schritt bis zum fortgeschrittenen Niveau "
-"gelangt. Wichtig ist nur der Wille zu lernen!"
+". The program is designed so that even a complete beginner starts from the "
+"very basics and progresses step by step to an advanced level. All you need "
+"is the desire to learn!"
 
 msgid "2 500 сом / мес"
-msgstr "2.500 Som / Monat"
+msgstr "2,500 som / month"
 
 msgid "2 500 сом в месяц"
-msgstr "2.500 Som pro Monat"
+msgstr "2,500 som per month"
 
 msgid "2 месяца"
-msgstr "2 Monate"
+msgstr "2 months"
 
 msgid "20 лет"
-msgstr "20 Jahre"
+msgstr "20 years"
 
 msgid "20 лет опыта в сфере языкового образования в Оше"
-msgstr "20 Jahre Erfahrung in der Sprachausbildung in Osch"
+msgstr "20 years of experience in language education in Osh"
 
 msgid "20 лет стажа"
-msgstr "20 Jahre Erfahrung"
+msgstr "20 years of experience"
 
 msgid "3 раза в неделю"
-msgstr "3 Mal pro Woche"
+msgstr "3 times a week"
 
 msgid "500+ Студентов"
-msgstr "500+ Studenten"
+msgstr "500+ Students"
 
 msgid "6 курсов"
-msgstr "6 Kurse"
+msgstr "6 courses"
 
 msgid "6 курсов по 2 мес."
-msgstr "6 Kurse à 2 Monate"
+msgstr "6 courses of 2 months each"
 
 msgid "6 курсов по 2 месяца"
-msgstr "6 Kursen à 2 Monate"
+msgstr "into 6 courses of 2 months each"
 
 msgid "Ausbildung & Работа"
-msgstr "Ausbildung & Arbeit"
+msgstr "Ausbildung & Work"
 
 msgid "Edu Point является официальным партнёром"
-msgstr "Edu Point ist offizieller Partner von"
+msgstr "Edu Point is the official partner of"
 
 msgid "Edu Point — Языковой центр в Оше"
-msgstr "Edu Point — Sprachzentrum in Osch"
+msgstr "Edu Point — Language Center in Osh"
 
 msgid ""
 "Edu Point — ваш путь к международным возможностям. Корейский, английский, "
 "немецкий и китайский язык. Подготовка к TOPIK, IELTS, GOETHE."
 msgstr ""
-"Edu Point — Ihr Weg zu internationalen Möglichkeiten. Koreanisch, Englisch, "
-"Deutsch und Chinesisch. Vorbereitung auf TOPIK, IELTS, GOETHE."
+"Edu Point — your path to international opportunities. Korean, English, "
+"German, and Chinese. Preparation for TOPIK, IELTS, GOETHE."
 
 msgid "Email (необязательно)"
-msgstr "E-Mail (optional)"
+msgstr "Email (optional)"
 
 msgid ""
 "Goethe-Zertifikat — признанный во всём мире сертификат знания немецкого "
 "языка"
 msgstr ""
-"Goethe-Zertifikat – weltweit anerkanntes Zertifikat für Deutschkenntnisse"
+"Goethe-Zertifikat — a globally recognized certificate of German language "
+"proficiency"
 
 msgid ""
 "International English Language Testing System — открывает двери в мировые "
 "университеты"
 msgstr ""
-"International English Language Testing System – öffnet Ihnen die Türen zu "
-"Universitäten weltweit"
+"International English Language Testing System — opens the doors to "
+"universities worldwide"
 
 msgid "K-pop, K-drama, традиции"
-msgstr "K-Pop, K-Drama, Traditionen"
+msgstr "K-pop, K-drama, traditions"
 
 msgid "Songho University Корея"
 msgstr "Songho University Korea"
 
 msgid "TOPIK I и TOPIK II"
-msgstr "TOPIK I und TOPIK II"
+msgstr "TOPIK I and TOPIK II"
 
 msgid "TOPIK Сертификат"
-msgstr "TOPIK-Zertifikat"
+msgstr "TOPIK Certificate"
 
 msgid ""
 "Test of Proficiency in Korean — официальный экзамен на знание корейского "
 "языка"
 msgstr ""
-"Test of Proficiency in Korean – die offizielle Prüfung zum Nachweis der "
-"Koreanischkenntnisse"
+"Test of Proficiency in Korean — the official exam for certifying Korean "
+"language proficiency"
 
 msgid "x в неделю"
-msgstr "x pro Woche"
+msgstr "x per week"
 
 msgid "Адрес"
-msgstr "Adresse"
+msgstr "Address"
 
 msgid "Актуальные события, наборы в группы и анонсы"
-msgstr "Aktuelle Ereignisse, Gruppenanmeldungen und Ankündigungen"
+msgstr "Latest events, group enrollments, and announcements"
 
 msgid "Английский"
-msgstr "Englisch"
+msgstr "English"
 
 msgid "Английский язык и IELTS"
-msgstr "Englisch und IELTS"
+msgstr "English and IELTS"
 
 msgid "Асан Асанов"
 msgstr "Asan Asanov"
 
 msgid "Аудитория"
-msgstr "Raum"
+msgstr "Classroom"
 
 msgid ""
 "Базовый курс грамматики и бытовой лексики для воссоединения семьи и Au-Pair."
 msgstr ""
-"Grundkurs für Grammatik und Alltagswortschatz für Familienzusammenführung "
-"und Au-Pair."
+"A basic course in grammar and everyday vocabulary for family reunification "
+"and Au-Pair."
 
 msgid "Бизнес-китайский"
-msgstr "Wirtschaftschinesisch"
+msgstr "Business Chinese"
 
 msgid "Блог"
 msgstr "Blog"
 
 msgid "Блог об изучении языков"
-msgstr "Blog über das Sprachenlernen"
+msgstr "Blog about language learning"
 
 msgid ""
 "Более 500 студентов, успешные миграционные и студенческие визы, партнерства "
 "с вузами Южной Кореи."
 msgstr ""
-"Über 500 Studierende, erfolgreiche Migrations- und Studentenvisa, "
-"Partnerschaften mit Hochschulen in Südkorea."
+"Over 500 students, successful migration and student visas, partnerships with"
+" universities in South Korea."
 
 msgid "В кабинет"
-msgstr "Zum Konto"
+msgstr "To Account"
 
 msgid "В этой категории пока нет курсов"
-msgstr "In dieser Kategorie gibt es noch keine Kurse"
+msgstr "There are no courses in this category yet"
 
 msgid "Ваш вопрос..."
-msgstr "Ihre Frage..."
+msgstr "Your question..."
 
 msgid ""
 "Ваш опыт важен — помогите другим студентам сделать правильный выбор. Отзыв "
 "публикуется после проверки модератором."
 msgstr ""
-"Ihre Erfahrung zählt – helfen Sie anderen Studenten bei ihrer Entscheidung. "
-"Bewertungen werden nach Prüfung durch einen Moderator veröffentlicht."
+"Your experience matters — help other students make the right choice. Reviews"
+" are published after moderator approval."
 
 msgid "Ваш отзыв будет опубликован сразу после проверки модератором."
 msgstr ""
-"Ihre Bewertung wird sofort nach der Prüfung durch einen Moderator "
-"veröffentlicht."
+"Your review will be published as soon as it's approved by a moderator."
 
 msgid "Ваш текущий уровень языка"
-msgstr "Ihr aktuelles Sprachniveau"
+msgstr "Your current language level"
 
 msgid "Ваша оценка"
-msgstr "Ihre Bewertung"
+msgstr "Your rating"
 
 msgid "Ваше имя"
-msgstr "Ihr Name"
+msgstr "Your name"
 
 msgid "Ваше имя *"
-msgstr "Ihr Name *"
+msgstr "Your name *"
 
 msgid "Ваше полное имя *"
-msgstr "Ihr vollständiger Name *"
+msgstr "Your full name *"
 
 msgid "Возраст"
-msgstr "Alter"
+msgstr "Age"
 
 msgid "Войти"
-msgstr "Login"
+msgstr "Log in"
 
 msgid "Войти в кабинет"
-msgstr "Zum Konto anmelden"
+msgstr "Log in to your account"
 
 msgid "Время"
-msgstr "Uhrzeit"
+msgstr "Time"
 
 msgid "Вс: Выходной"
-msgstr "So: Geschlossen"
+msgstr "Sun: Closed"
 
 msgid "Все курсы"
-msgstr "Alle Kurse"
+msgstr "All Courses"
 
 msgid "Все новости"
-msgstr "Alle Neuigkeiten"
+msgstr "All News"
 
 msgid "Все о TOPIK"
-msgstr "Alles über TOPIK"
+msgstr "Everything about TOPIK"
 
 msgid "Все отзывы"
-msgstr "Alle Bewertungen"
+msgstr "All Reviews"
 
 msgid "Все права защищены."
-msgstr "Alle Rechte vorbehalten."
+msgstr "All rights reserved."
 
 msgid "Все преподаватели"
-msgstr "Alle Lehrkräfte"
+msgstr "All Teachers"
 
 msgid "Все статьи"
-msgstr "Alle Artikel"
+msgstr "All Articles"
 
 msgid "Все статьи блога"
-msgstr "Alle Blogartikel"
+msgstr "All Blog Articles"
 
 msgid "Все уровни"
-msgstr "Alle Niveaus"
+msgstr "All Levels"
 
 msgid "Все фото"
-msgstr "Alle Fotos"
+msgstr "All Photos"
 
 msgid "Все языки"
-msgstr "Alle Sprachen"
+msgstr "All Languages"
 
 msgid "Вы записываетесь на"
-msgstr "Sie melden sich an für"
+msgstr "You are enrolling in"
 
 msgid "Выбери свой"
-msgstr "Wähle deine"
+msgstr "Choose your"
 
 msgid "Выберите группу"
-msgstr "Gruppe auswählen"
+msgstr "Select a group"
 
 msgid "Выберите курс (необязательно)"
-msgstr "Kurs auswählen (optional)"
+msgstr "Select a course (optional)"
 
 msgid "Выберите открытый набор"
-msgstr "Wählen Sie eine offene Gruppe"
+msgstr "Select an open enrollment group"
 
 msgid ""
 "Выберите открытый набор — мы покажем расписание, преподавателя и свободные "
 "места."
 msgstr ""
-"Wählen Sie eine offene Gruppe — wir zeigen Ihnen den Stundenplan, die "
-"Lehrkraft und die freien Plätze."
+"Select an open enrollment group — we'll show you the schedule, teacher, and "
+"available spots."
 
 msgid "Выберите подходящий курс и начните свой путь к успеху"
-msgstr "Wählen Sie den passenden Kurs und starten Sie Ihren Weg zum Erfolg"
+msgstr "Choose the right course and start your path to success"
 
 msgid "Выберите язык и программу обучения"
-msgstr "Wählen Sie eine Sprache und ein Lernprogramm"
+msgstr "Choose a language and study program"
 
 msgid "Выдача сертификатов"
-msgstr "Zertifikatsverleihung"
+msgstr "Certificate Ceremony"
 
 msgid "Выпускник немецкого университета, эксперт по Ausbildung."
-msgstr "Absolvent einer deutschen Universität, Experte für Ausbildung."
+msgstr "Graduate of a German university, Ausbildung expert."
 
 msgid "Галерея"
-msgstr "Galerie"
+msgstr "Gallery"
 
 msgid "Галерея учебного центра"
-msgstr "Galerie des Bildungszentrums"
+msgstr "Learning Center Gallery"
 
 msgid "Где вы находитесь?"
-msgstr "Wo befinden Sie sich?"
+msgstr "Where are you located?"
 
 msgid "Главная"
-msgstr "Startseite"
+msgstr "Home"
 
 msgid "Главное направление"
-msgstr "Hauptrichtung"
+msgstr "Main Focus"
 
 msgid "Главный курс"
-msgstr "Hauptkurs"
+msgstr "Main Course"
 
 msgid "Глобальное мышление"
-msgstr "Globales Denken"
+msgstr "Global Mindset"
 
 msgid "Готовим к"
-msgstr "Vorbereitung auf"
+msgstr "Preparing for"
 
 msgid "Готовы начать своё путешествие?"
-msgstr "Bereit, Ihre Reise zu beginnen?"
+msgstr "Ready to start your journey?"
 
 msgid "Готовы повысить свой уровень английского?"
-msgstr "Bereit, Ihr Englischniveau zu verbessern?"
+msgstr "Ready to level up your English?"
 
 msgid "Гранты"
-msgstr "Stipendien"
+msgstr "Scholarships"
 
 msgid "График работы"
-msgstr "Öffnungszeiten"
+msgstr "Working Hours"
 
 msgid "День"
-msgstr "Tag"
+msgstr "Day"
 
 msgid "Детали курса"
-msgstr "Kursdetails"
+msgstr "Course Details"
 
 msgid "Длительность"
-msgstr "Die Dauer"
+msgstr "The duration is"
 
 msgid "Длительность 1 курса"
-msgstr "Dauer eines Kurses"
+msgstr "Duration of 1 course"
 
 msgid "Длительность:"
-msgstr "Dauer:"
+msgstr "Duration:"
 
 msgid "Добавление Английского, Немецкого и Китайского языков"
-msgstr "Einführung von Englisch, Deutsch und Chinesisch"
+msgstr "Addition of English, German, and Chinese courses"
 
 msgid "Дополнительный комментарий / Вопрос"
-msgstr "Zusätzlicher Kommentar / Frage"
+msgstr "Additional comment / Question"
 
 msgid "Доступ запрещён"
-msgstr "Zugriff verweigert"
+msgstr "Access Denied"
 
 msgid "Доступная ежемесячная стоимость обучения"
-msgstr "Erschwingliche monatliche Kursgebühr"
+msgstr "Affordable monthly tuition"
 
 msgid "Доступны"
-msgstr "Verfügbar"
+msgstr "Available"
 
 msgid "Доступные группы"
-msgstr "Verfügbare Gruppen für"
+msgstr "Available Groups for"
 
 msgid "Доступные курсы английского"
-msgstr "Verfügbare Englischkurse"
+msgstr "Available English Courses"
 
 msgid "Другие новости"
-msgstr "Weitere Neuigkeiten"
+msgstr "Other News"
 
 msgid "Другое"
-msgstr "Sonstiges"
+msgstr "Other"
 
 msgid "Ежемесячная оплата"
-msgstr "Monatliche Zahlung"
+msgstr "Monthly Payment"
 
 msgid "Ежемесячная стоимость обучения составляет"
-msgstr "Die monatliche Kursgebühr beträgt"
+msgstr "The monthly tuition fee is"
 
 msgid "Задать вопрос"
-msgstr "Frage stellen"
+msgstr "Ask a Question"
 
 msgid "Занятий в неделю:"
-msgstr "Unterrichtseinheiten pro Woche:"
+msgstr "Classes per week:"
 
 msgid "Занятия проводятся"
-msgstr "Der Unterricht findet statt"
+msgstr "Classes are held"
 
 msgid "Записаться"
-msgstr "Anmelden"
+msgstr "Enroll"
 
 msgid "Записаться бесплатно"
-msgstr "Kostenlos anmelden"
+msgstr "Enroll for free"
 
 msgid "Записаться на корейский"
-msgstr "Für Koreanisch anmelden"
+msgstr "Enroll in Korean"
 
 msgid "Записаться на курс"
-msgstr "Für einen Kurs anmelden"
+msgstr "Enroll in a Course"
 
 msgid "Записаться на этот курс"
-msgstr "Für diesen Kurs anmelden"
+msgstr "Enroll in this course"
 
 msgid "Запись на курсы Edu Point"
-msgstr "Anmeldung zu Edu Point-Kursen"
+msgstr "Enrollment for Edu Point Courses"
 
 msgid ""
 "Запишитесь на бесплатную пробную консультацию и узнайте, какой курс подходит"
 " именно вам"
 msgstr ""
-"Vereinbaren Sie eine kostenlose Probeberatung und finden Sie heraus, welcher"
-" Kurs am besten zu Ihnen passt"
+"Sign up for a free trial consultation and find out which course is right for"
+" you"
 
 msgid "Запишитесь на первое занятие и ощутите разницу в преподавании"
-msgstr ""
-"Melden Sie sich zur ersten Unterrichtsstunde an und spüren Sie den "
-"Unterschied in der Lehre"
+msgstr "Sign up for your first lesson and feel the difference in teaching"
 
 msgid "Заполните форму, и наш менеджер свяжется с вами в течение 15 минут"
-msgstr ""
-"Füllen Sie das Formular aus, und unser Mitarbeiter meldet sich innerhalb von"
-" 15 Minuten bei Ihnen"
+msgstr "Fill out the form, and our manager will contact you within 15 minutes"
 
 msgid "Запрашиваемая страница не существует или была перемещена."
-msgstr "Die angeforderte Seite existiert nicht oder wurde verschoben."
+msgstr "The page you requested does not exist or has been moved."
 
 msgid "Запуск первых курсов подготовки студентов к обучению в Южной Корее."
 msgstr ""
-"Start der ersten Kurse zur Vorbereitung von Studierenden auf ein Studium in "
-"Südkorea."
+"Launch of the first courses preparing students to study in South Korea."
 
 msgid ""
 "Запуск подготовки к IELTS и GOETHE. Переезд в новый современный офис в ТЦ "
 "Корона."
 msgstr ""
-"Start der Vorbereitung auf IELTS und GOETHE. Umzug in ein neues modernes "
-"Büro im Einkaufszentrum Corona."
+"Launch of IELTS and GOETHE preparation courses. Moved to a new, modern "
+"office in the Corona Mall."
 
 msgid "Звонок"
-msgstr "Anruf"
+msgstr "Call"
 
 msgid ""
 "Здесь собраны ответы на самые популярные вопросы о наших курсах, стоимости, "
 "расписании и поступлении в Корею."
 msgstr ""
-"Hier finden Sie Antworten auf die häufigsten Fragen zu unseren Kursen, "
-"Preisen, dem Stundenplan und dem Studium in Korea."
+"Here you'll find answers to the most common questions about our courses, "
+"prices, schedule, and admission to Korea."
 
 msgid "Здравствуйте! Меня интересует курс"
-msgstr "Hallo! Ich interessiere mich für den Kurs"
+msgstr "Hello! I'm interested in the course"
 
 msgid "Здравствуйте, я хочу узнать подробнее про курс..."
-msgstr "Hallo, ich möchte mehr über den Kurs erfahren..."
+msgstr "Hello, I'd like to learn more about the course..."
 
 msgid "Игры"
-msgstr "Spiele"
+msgstr "Games"
 
 msgid ""
 "Изучайте корейский, английский, немецкий и китайский языки в Edu Point. "
 "Подготовка к TOPIK, IELTS, GOETHE. Ош, Кыргызстан."
 msgstr ""
-"Lernen Sie Koreanisch, Englisch, Deutsch und Chinesisch bei Edu Point. "
-"Vorbereitung auf TOPIK, IELTS und GOETHE. Osch, Kirgisistan."
+"Learn Korean, English, German, and Chinese at Edu Point. TOPIK, IELTS, and "
+"GOETHE exam preparation. Osh, Kyrgyzstan."
 
 msgid "Изучение 4 тонов, произношения Пиньинь и бакалаврской иероглифики."
-msgstr ""
-"Erlernen der 4 Töne, der Pinyin-Aussprache und grundlegender Schriftzeichen."
+msgstr "Learning the 4 tones, Pinyin pronunciation, and basic characters."
 
 msgid ""
 "Изучение алфавита Хангыль (한글), произношения и бакалаврской грамматики в "
 "легкой и понятной форме."
 msgstr ""
-"Erlernen des Hangeul-Alphabets (한글), der Aussprache und grundlegender "
-"Grammatik in leicht verständlicher Form."
+"Learning the Hangeul alphabet (한글), pronunciation, and basic grammar in a "
+"simple and easy-to-understand way."
 
 msgid ""
 "Изучение языка — это первая ступень к учебе, работе и карьере в "
 "международных компаниях."
 msgstr ""
-"Sprachenlernen ist die erste Stufe auf dem Weg zu Studium, Arbeit und "
-"Karriere in internationalen Unternehmen."
+"Learning a language is the first step toward studying, working, and building"
+" a career at international companies."
 
 msgid "Инновационные методики"
-msgstr "Innovative Methoden"
+msgstr "Innovative Methods"
 
 msgid ""
 "Интенсивная подготовка по всем 4 модулям: Listening, Reading, Writing, "
 "Speaking."
 msgstr ""
-"Intensive Vorbereitung in allen 4 Modulen: Listening, Reading, Writing, "
+"Intensive preparation across all 4 modules: Listening, Reading, Writing, "
 "Speaking."
 
 msgid ""
 "Интенсивные тренинги с разбором типовых экзаменационных моделей Гёте-"
 "Института."
 msgstr ""
-"Intensivtrainings mit Analyse typischer Prüfungsmodelle des Goethe-"
-"Instituts."
+"Intensive training sessions analyzing typical Goethe-Institut exam models."
 
 msgid "Интерактивная программа для школьников с игровыми методиками."
-msgstr "Interaktives Programm für Schüler mit spielerischen Methoden."
+msgstr "An interactive program for schoolchildren using game-based methods."
 
 msgid "История успеха и впечатления от обучения в"
-msgstr "Erfolgsgeschichten und Eindrücke vom Lernen bei"
+msgstr "Success story and impressions of studying at"
 
 msgid "Кабинет"
-msgstr "Konto"
+msgstr "Account"
 
 msgid "Кабинет 302"
-msgstr "Raum 302"
+msgstr "Room 302"
 
 msgid "Как попасть на учёбу в Корею через Edu Point?"
-msgstr "Wie kann ich über Edu Point in Korea studieren?"
+msgstr "How can I study in Korea through Edu Point?"
 
 msgid "Какое расписание занятий?"
-msgstr "Wie sieht der Stundenplan aus?"
+msgstr "What is the class schedule?"
 
 msgid "Карта сайта"
 msgstr "Sitemap"
 
 msgid "Каталог курсов"
-msgstr "Kurskatalog"
+msgstr "Course Catalog"
 
 msgid "Качественное образование — путь к вашему"
-msgstr "Qualitativ hochwertige Bildung — der Weg in Ihre"
+msgstr "Quality education — the path to your"
 
 msgid "Китайский"
-msgstr "Chinesisch"
+msgstr "Chinese"
 
 msgid "Китайский курс"
-msgstr "Chinesischkurs"
+msgstr "Chinese Course"
 
 msgid "Китайский с нуля"
-msgstr "Chinesisch von Grund auf"
+msgstr "Chinese from Scratch"
 
 msgid "Китайский язык"
-msgstr "Chinesisch"
+msgstr "Chinese"
 
 msgid "Китайский язык (Мандарин)"
-msgstr "Chinesisch (Mandarin)"
+msgstr "Chinese (Mandarin)"
 
 msgid "Команда"
 msgstr "Team"
 
 msgid ""
 "Команда квалифицированных преподавателей с опытом стажировки за рубежом"
-msgstr "Ein Team qualifizierter Lehrkräfte mit Auslandserfahrung"
+msgstr "A team of qualified teachers with experience studying abroad"
 
 msgid "Консультации и сбор документов для вузов Кореи"
-msgstr "Beratung und Unterlagenzusammenstellung für koreanische Hochschulen"
+msgstr "Consultations and document preparation for Korean universities"
 
 msgid "Консультации по Учёбе в Корее"
-msgstr "Beratung zum Studium in Korea"
+msgstr "Consultations on Studying in Korea"
 
 msgid "Контакты"
-msgstr "Kontakt"
+msgstr "Contacts"
 
 msgid "Корейская Грамматика и Алфавит"
-msgstr "Koreanische Grammatik und Alphabet"
+msgstr "Korean Grammar and Alphabet"
 
 msgid "Корейский"
-msgstr "Koreanisch"
+msgstr "Korean"
 
 msgid "Корейский курс"
-msgstr "Koreanischkurs"
+msgstr "Korean Course"
 
 msgid "Корейский с нуля"
-msgstr "Koreanisch ab null"
+msgstr "Korean from Scratch"
 
 msgid "Корейский язык"
-msgstr "Koreanisch"
+msgstr "Korean"
 
 msgid "Корейский язык в Оше"
-msgstr "Koreanisch in Osch"
+msgstr "Korean Language in Osh"
 
 msgid "Корейский язык с нуля и подготовка к TOPIK"
-msgstr "Koreanisch von Grund auf und TOPIK-Vorbereitung"
+msgstr "Korean from Scratch and TOPIK Preparation"
 
 msgid "Корейский язык —"
-msgstr "Koreanisch —"
+msgstr "Korean —"
 
 msgid "Культура Кореи"
-msgstr "Koreanische Kultur"
+msgstr "Korean Culture"
 
 msgid "Культурная Подготовка"
-msgstr "Kulturelle Vorbereitung"
+msgstr "Cultural Preparation"
 
 msgid "Курс, который вы проходили"
-msgstr "Kurs, den Sie besucht haben"
+msgstr "The course you attended"
 
 msgid "Курсов в программе"
-msgstr "Kurse im Programm"
+msgstr "Courses in the program"
 
 msgid "Курсы"
-msgstr "Kurse"
+msgstr "Courses"
 
 msgid "Курсы иностранных языков"
-msgstr "Fremdsprachenkurse"
+msgstr "Foreign Language Courses"
 
 msgid "Курсы китайского языка"
-msgstr "Chinesischkurse"
+msgstr "Chinese Language Courses"
 
 msgid "Курсы немецкого языка"
-msgstr "Deutschkurse"
+msgstr "German Language Courses"
 
 msgid "Лет"
-msgstr "Jahre"
+msgstr "Years"
 
 msgid "Лет стажа"
-msgstr "Jahre Erfahrung"
+msgstr "Years of Experience"
 
 msgid "Лидирующий языковой центр Оша"
-msgstr "Führendes Sprachzentrum in Osch"
+msgstr "Leading Language Center in Osh"
 
 msgid "Личный кабинет"
-msgstr "Mein Konto"
+msgstr "My Account"
 
 msgid "Мандаринский диалект, иероглифы, разговорный уровень."
-msgstr "Hochchinesisch, Schriftzeichen, Konversationsniveau."
+msgstr "Mandarin Chinese, characters, conversational level."
 
 msgid "Мандаринский диалект. Иероглифы"
-msgstr "Hochchinesisch (Mandarin). Schriftzeichen"
+msgstr "Mandarin Chinese. Characters"
 
 msgid "Международные экзамены"
-msgstr "Internationale Prüfungen"
+msgstr "International Exams"
 
 msgid "Международный экзамен английского языка."
-msgstr "Internationale Englischprüfung."
+msgstr "International English exam."
 
 msgid "Меню"
-msgstr "Menü"
+msgstr "Menu"
 
 msgid "Мероприятия & Выдача сертификатов"
-msgstr "Veranstaltungen & Zertifikatsverleihung"
+msgstr "Events & Certificate Ceremonies"
 
 msgid "Мест достаточно"
-msgstr "Ausreichend Plätze"
+msgstr "Seats Available"
 
 msgid ""
 "Мечтаете поступить в корейский университет или получить визу для работы в "
 "Южной Корее? Наш специализированный курс подготовит вас с нуля до сдачи "
 "TOPIK I & II!"
 msgstr ""
-"Träumen Sie davon, an einer koreanischen Universität zu studieren oder ein "
-"Arbeitsvisum für Südkorea zu erhalten? Unser spezialisierter Kurs bereitet "
-"Sie von Grund auf bis zur TOPIK I & II Prüfung vor!"
+"Dreaming of getting into a Korean university or securing a work visa for "
+"South Korea? Our specialized course will take you from zero to passing TOPIK"
+" I & II!"
 
 msgid ""
 "Мечтаете учиться или работать в Корее? Edu Point — ваш лучший старт. Мы "
 "специализируемся на корейском языке и предлагаем полный путь: от нулевого "
 "уровня до сдачи TOPIK и поступления в корейские университеты."
 msgstr ""
-"Träumen Sie davon, in Korea zu studieren oder zu arbeiten? Edu Point ist Ihr"
-" bester Start. Wir haben uns auf die koreanische Sprache spezialisiert und "
-"bieten den kompletten Weg: vom absoluten Anfängerniveau bis zum TOPIK-"
-"Abschluss und der Aufnahme an koreanischen Universitäten."
+"Dreaming of studying or working in Korea? Edu Point is your best starting "
+"point. We specialize in the Korean language and offer a complete path: from "
+"zero level to passing TOPIK and admission to Korean universities."
 
 msgid "Мечтаешь о студенческой жизни в Южной Корее?"
-msgstr "Träumst du vom Studentenleben in Südkorea?"
+msgstr "Dreaming of student life in South Korea?"
 
 msgid "Мы в"
-msgstr "Wir bei"
+msgstr "We're on"
 
 msgid "Мы в соцсетях"
-msgstr "Wir in sozialen Netzwerken"
+msgstr "We're on Social Media"
 
 msgid ""
 "Мы гордимся тем, что на протяжении многих лет являемся ведущим центром в "
 "сфере подготовки студентов к учебе в Южной Корее, а также сдачи "
 "международных языковых экзаменов TOPIK, IELTS и GOETHE."
 msgstr ""
-"Wir sind stolz darauf, seit vielen Jahren das führende Zentrum für die "
-"Vorbereitung von Studierenden auf ein Studium in Südkorea sowie auf die "
-"internationalen Sprachprüfungen TOPIK, IELTS und GOETHE zu sein."
+"We are proud to have been, for many years, the leading center for preparing "
+"students to study in South Korea, as well as for the international language "
+"exams TOPIK, IELTS, and GOETHE."
 
 msgid "Мы находимся по адресу:"
-msgstr "Unsere Adresse lautet:"
+msgstr "Our address:"
 
 msgid ""
 "Мы не просто учебный центр — мы ваш проводник в мир международных "
 "возможностей. Каждый студент получает индивидуальный подход и реальный "
 "результат."
 msgstr ""
-"Wir sind nicht einfach nur ein Bildungszentrum – wir sind Ihr Wegweiser in "
-"die Welt internationaler Möglichkeiten. Jeder Student erhält einen "
-"individuellen Ansatz und echte Ergebnisse."
+"We are not just an educational center — we are your guide to a world of "
+"international opportunities. Every student receives a personalized approach "
+"and real results."
 
 msgid ""
 "Мы помогаем каждому студенту сформулировать четкую цель и прийти к "
 "конкретному результату."
-msgstr ""
-"Wir helfen jedem Studierenden, sich ein klares Ziel zu setzen und ein "
-"konkretes Ergebnis zu erreichen."
+msgstr "We help every student set a clear goal and achieve a concrete result."
 
 msgid "Мы принимаем студентов"
-msgstr "Wir nehmen Studenten auf"
+msgstr "We accept students"
 
 msgid "Мы скоро опубликуем первые полезные гайды!"
-msgstr "Wir veröffentlichen bald die ersten hilfreichen Leitfäden!"
+msgstr "We'll soon be publishing our first helpful guides!"
 
 msgid "На главную"
-msgstr "Zur Startseite"
+msgstr "Back to Home"
 
 msgid ""
 "На сервере произошла ошибка. Попробуйте обновить страницу или зайдите позже."
 msgstr ""
-"Auf dem Server ist ein Fehler aufgetreten. Bitte laden Sie die Seite neu "
-"oder versuchen Sie es später erneut."
+"A server error has occurred. Please try refreshing the page or come back "
+"later."
 
 msgid "Набор"
-msgstr "Gruppe"
+msgstr "Group"
 
 msgid "Набор в группы продолжается"
-msgstr "Die Anmeldung für neue Gruppen läuft"
+msgstr "Group enrollment is ongoing"
 
 msgid "Наверх"
-msgstr "Nach oben"
+msgstr "Back to Top"
 
 msgid "Назад к новостям"
-msgstr "Zurück zu den Neuigkeiten"
+msgstr "Back to News"
 
 msgid "Найденные курсы"
-msgstr "Gefundene Kurse"
+msgstr "Courses Found"
 
 msgid "Найденные новости и статьи"
-msgstr "Gefundene Neuigkeiten und Artikel"
+msgstr "News and Articles Found"
 
 msgid "Напишите нам"
-msgstr "Schreiben Sie uns"
+msgstr "Write to Us"
 
 msgid "Направления"
-msgstr "Sprachrichtungen"
+msgstr "Language Directions"
 
 msgid "Например: 18"
-msgstr "Zum Beispiel: 18"
+msgstr "For example: 18"
 
 msgid "Например: Асан Асанов"
-msgstr "Zum Beispiel: Asan Asanov"
+msgstr "For example: Asan Asanov"
 
 msgid "Начальный (Знаю алфавит/слова)"
-msgstr "Anfänger (kenne Alphabet/Wörter)"
+msgstr "Beginner (I know the alphabet/some words)"
 
 msgid "Начните изучать уже сегодня с профессиональными преподавателями."
-msgstr "Beginnen Sie noch heute mit professionellen Lehrkräften."
+msgstr "Start learning today with professional teachers."
 
 msgid "Наш офис в Оше"
-msgstr "Unser Büro in Osch"
+msgstr "Our Office in Osh"
 
 msgid "Наша история"
-msgstr "Unsere Geschichte"
+msgstr "Our History"
 
 msgid "Наша миссия и"
-msgstr "Unsere Mission und"
+msgstr "Our Mission and"
 
 msgid "Наши"
-msgstr "Unsere"
+msgstr "Our"
 
 msgid "Наши преимущества"
-msgstr "Unsere Vorteile"
+msgstr "Our Advantages"
 
 msgid "Наши преподаватели"
-msgstr "Unsere Lehrkräfte"
+msgstr "Our Teachers"
 
 msgid "Наши студенты"
-msgstr "Unsere Studenten"
+msgstr "Our Students"
 
 msgid ""
 "Наши студенты поступают в ведущие вузы Южной Кореи благодаря официальному "
 "партнёрству"
 msgstr ""
-"Dank offizieller Partnerschaften werden unsere Studenten an führenden "
-"Hochschulen Südkoreas aufgenommen"
+"Thanks to our official partnership, our students are admitted to leading "
+"universities in South Korea"
 
 msgid "Наши студенты поступают в ведущие университеты Кореи"
-msgstr "Unsere Studenten werden an führenden Universitäten Koreas aufgenommen"
+msgstr "Our students are admitted to leading universities in Korea"
 
 msgid "Наших студентов"
-msgstr "Unserer Studenten"
+msgstr "Our Students"
 
 msgid "Немецкий"
-msgstr "Deutsch"
+msgstr "German"
 
 msgid "Немецкий A1-A2"
-msgstr "Deutsch A1-A2"
+msgstr "German A1-A2"
 
 msgid "Немецкий язык и GOETHE"
-msgstr "Deutsch und GOETHE"
+msgstr "German Language and GOETHE"
 
 msgid "Немецкий язык и Goethe-Zertifikat"
-msgstr "Deutsch und Goethe-Zertifikat"
+msgstr "German Language and the Goethe-Zertifikat"
 
 msgid "Нет!"
-msgstr "Nein!"
+msgstr "No!"
 
 msgid "Ничего не найдено"
-msgstr "Nichts gefunden"
+msgstr "Nothing Found"
 
 msgid "Новостей пока нет"
-msgstr "Noch keine Neuigkeiten"
+msgstr "No News Yet"
 
 msgid "Новости"
-msgstr "Neuigkeiten"
+msgstr "News"
 
 msgid "Новости учебного центра"
-msgstr "Neuigkeiten des Bildungszentrums"
+msgstr "Education Center News"
 
 msgid ""
 "Новые наборы открываются регулярно. Оставьте свои контакты в Telegram-канале"
 " Edu Point, и мы сообщим о старте."
 msgstr ""
-"Neue Gruppen werden regelmäßig eröffnet. Hinterlassen Sie Ihre Kontaktdaten "
-"im Telegram-Kanal von Edu Point, und wir informieren Sie über den Start."
+"New groups open regularly. Leave your contact details in the Edu Point "
+"Telegram channel, and we'll let you know when they start."
 
 msgid "Новый"
-msgstr "Neu"
+msgstr "New"
 
 msgid "Новый курс"
-msgstr "Neuer Kurs"
+msgstr "New Course"
 
 msgid "Новый партнёр"
-msgstr "Neuer Partner"
+msgstr "New Partner"
 
 msgid "Номер телефона (WhatsApp) *"
-msgstr "Telefonnummer (WhatsApp) *"
+msgstr "Phone Number (WhatsApp) *"
 
 msgid "Носитель языка, эксперт по подготовке к TOPIK I & II."
-msgstr "Muttersprachlerin, Expertin für die Vorbereitung auf TOPIK I & II."
+msgstr "Native speaker, expert in TOPIK I & II preparation."
 
 msgid "Нужны ли предварительные знания языка?"
-msgstr "Braucht man Vorkenntnisse der Sprache?"
+msgstr "Do I need prior knowledge of the language?"
 
 msgid "О TOPIK"
-msgstr "Über TOPIK"
+msgstr "About TOPIK"
 
 msgid "О нас"
-msgstr "Über uns"
+msgstr "About Us"
 
 msgid "О нас подробнее"
-msgstr "Mehr über uns"
+msgstr "More About Us"
 
 msgid "О нашем центре"
-msgstr "Über unser Zentrum"
+msgstr "About Our Center"
 
 msgid "О партнёрстве подробнее"
-msgstr "Mehr über die Partnerschaft"
+msgstr "More About the Partnership"
 
 msgid "О преподавателе"
-msgstr "Über die Lehrkraft"
+msgstr "About the Teacher"
 
 msgid "О программе курса"
-msgstr "Über das Kursprogramm"
+msgstr "About the Course Program"
 
 msgid "О структуре экзамена"
-msgstr "Über den Aufbau der Prüfung"
+msgstr "About the Exam Structure"
 
 msgid "Обучение в классах"
-msgstr "Unterricht im Klassenzimmer"
+msgstr "Classroom Learning"
 
 msgid ""
 "Один из старейших и престижных университетов Кореи в г. Тэджон. Официальный "
 "партнёр Edu Point с 2025 года."
 msgstr ""
-"Eine der ältesten und angesehensten Universitäten Koreas in der Stadt "
-"Daejeon. Offizieller Partner von Edu Point seit 2025."
+"One of the oldest and most prestigious universities in Korea, located in "
+"Daejeon. Official partner of Edu Point since 2025."
 
 msgid "Онлайн запись на курс"
-msgstr "Online-Anmeldung zum Kurs"
+msgstr "Online Course Registration"
 
 msgid "Опытные специалисты с международными сертификатами"
-msgstr "Erfahrene Fachkräfte mit internationalen Zertifikaten"
+msgstr "Experienced specialists with international certificates"
 
 msgid ""
 "Освойте самый перспективный язык бизнеса, иероглифику и фонетику Пиньинь с "
 "нуля."
 msgstr ""
-"Beherrschen Sie von Grund auf die zukunftsträchtigste Geschäftssprache, "
-"Schriftzeichen und Pinyin-Aussprache."
+"Master the most promising business language, its characters, and Pinyin "
+"phonetics from scratch."
 
 msgid "Основание"
-msgstr "Gründung"
+msgstr "Founded"
 
 msgid "Особенности программы"
-msgstr "Besonderheiten des Programms"
+msgstr "Program Features"
 
 msgid "Оставить заявку"
-msgstr "Anfrage senden"
+msgstr "Submit a Request"
 
 msgid "Оставить отзыв"
-msgstr "Bewertung hinterlassen"
+msgstr "Leave a Review"
 
 msgid "Оставить отзыв об"
-msgstr "Bewertung abgeben zu"
+msgstr "Leave a Review for"
 
 msgid "Оставьте заявку, чтобы получить консультацию расписания"
-msgstr ""
-"Hinterlassen Sie eine Anfrage, um eine Beratung zum Stundenplan zu erhalten"
+msgstr "Submit a request to get a schedule consultation"
 
 msgid ""
 "От начального уровня A1 до уверенного владения и сдачи международного "
 "экзамена IELTS 7.0+"
 msgstr ""
-"Vom Anfängerniveau A1 bis zu sicherer Sprachbeherrschung und dem "
-"internationalen IELTS-Examen mit 7.0+"
+"From beginner level A1 to confident fluency and an international IELTS score"
+" of 7.0+"
 
 msgid "Отзыв будет опубликован после проверки модератором."
-msgstr "Die Bewertung wird nach Prüfung durch einen Moderator veröffentlicht."
+msgstr "The review will be published after moderator approval."
 
 msgid "Отзыв о преподавателе"
-msgstr "Bewertung für die Lehrkraft"
+msgstr "Review of the Teacher"
 
 msgid "Отзывы"
-msgstr "Bewertungen"
+msgstr "Reviews"
 
 msgid "Отзывы наших студентов"
-msgstr "Bewertungen unserer Studenten"
+msgstr "Reviews from Our Students"
 
 msgid "Отзывы студентов"
-msgstr "Bewertungen der Studenten"
+msgstr "Student Reviews"
 
 msgid "Открой мир"
-msgstr "Entdecke die Welt"
+msgstr "Open Up the World"
 
 msgid "Открытие первого класса корейского языка"
-msgstr "Eröffnung der ersten Koreanischklasse"
+msgstr "Opening of Our First Korean Language Class"
 
 msgid "Открытые"
-msgstr "Offene"
+msgstr "Open"
 
 msgid "Откуда вы узнали о нас?"
-msgstr "Wie haben Sie von uns erfahren?"
+msgstr "How did you hear about us?"
 
 msgid "Отлично"
-msgstr "Ausgezeichnet"
+msgstr "Excellent"
 
 msgid "Отправить заявку"
-msgstr "Anmeldung absenden"
+msgstr "Submit Application"
 
 msgid "Отправить отзыв"
-msgstr "Bewertung absenden"
+msgstr "Submit Review"
 
 msgid "Отправить сообщение"
-msgstr "Nachricht senden"
+msgstr "Send Message"
 
 msgid "Официальный корейский экзамен для учебы в Корее."
-msgstr "Offizielle koreanische Sprachprüfung für ein Studium in Korea."
+msgstr "The official Korean exam for studying in Korea."
 
 msgid "Официальный партнёр"
-msgstr "Offizieller Partner"
+msgstr "Official Partner"
 
 msgid "Официальный сертификат по окончанию каждого уровня (A1 до C1)."
-msgstr "Offizielles Zertifikat nach Abschluss jeder Stufe (A1 bis C1)."
+msgstr "Official certificate upon completion of each level (A1 to C1)."
 
 msgid "Очень плохо"
-msgstr "Sehr schlecht"
+msgstr "Very Poor"
 
 msgid "Партнёр"
 msgstr "Partner"
 
 msgid "Партнёрские"
-msgstr "Partner-"
-
-msgid "Партнёрство с вузами Кореи"
-msgstr "Partnerschaft mit koreanischen Universitäten"
-
-msgid "Партнёры"
 msgstr "Partner"
 
+msgid "Партнёрство с вузами Кореи"
+msgstr "Partnership with Korean Universities"
+
+msgid "Партнёры"
+msgstr "Partners"
+
 msgid "Первое занятие"
-msgstr "Erste Unterrichtsstunde"
+msgstr "First Lesson"
 
 msgid "Переключить тему"
-msgstr "Design wechseln"
+msgstr "Toggle Theme"
 
 msgid "Плохо"
-msgstr "Schlecht"
+msgstr "Poor"
 
 msgid "Пн - Сб: 09:00 - 19:00"
-msgstr "Mo - Sa: 09:00 - 19:00"
+msgstr "Mon - Sat: 09:00 - 19:00"
 
 msgid "Пн–Сб: 09:00–19:00"
-msgstr "Mo–Sa: 09:00–19:00"
+msgstr "Mon–Sat: 09:00–19:00"
 
 msgid ""
 "Погружение в культуру, корейский этикет, традиции и особенности жизни в "
 "современной Корее."
 msgstr ""
-"Eintauchen in die Kultur, koreanische Etikette, Traditionen und "
-"Besonderheiten des Lebens im modernen Korea."
+"Immersion in Korean culture, etiquette, traditions, and the features of life"
+" in modern Korea."
 
 msgid "Подать заявку"
-msgstr "Bewerbung einreichen"
+msgstr "Submit Application"
 
 msgid "Подготовка HSK"
-msgstr "HSK-Vorbereitung"
+msgstr "HSK Preparation"
 
 msgid "Подготовка TOPIK"
-msgstr "TOPIK-Vorbereitung"
+msgstr "TOPIK Preparation"
 
 msgid "Подготовка к"
-msgstr "Vorbereitung auf"
+msgstr "Preparation for"
 
 msgid "Подготовка к Goethe-Zertifikat"
-msgstr "Vorbereitung auf das Goethe-Zertifikat"
+msgstr "Preparation for the Goethe-Zertifikat"
 
 msgid "Подготовка к IELTS. Все уровни"
-msgstr "Vorbereitung auf IELTS. Alle Niveaus"
+msgstr "IELTS Preparation. All Levels"
 
 msgid "Подготовка к TOPIK I и II"
-msgstr "Vorbereitung auf TOPIK I und II"
+msgstr "Preparation for TOPIK I and II"
 
 msgid "Подготовка к TOPIK, обучение с нуля до продвинутого уровня."
-msgstr ""
-"Vorbereitung auf TOPIK, vom Anfänger- bis zum Fortgeschrittenenniveau."
+msgstr "TOPIK preparation, training from beginner to advanced level."
 
 msgid "Подготовка к международным экзаменам"
-msgstr "Vorbereitung auf internationale Prüfungen"
+msgstr "Preparation for International Exams"
 
 msgid ""
 "Подготовка к уровню B1/B2 для прохождения дуального обучения в Германии."
-msgstr ""
-"Vorbereitung auf das Niveau B1/B2 für die duale Ausbildung in Deutschland."
+msgstr "Preparation for B1/B2 level for dual vocational training in Germany."
 
 msgid "Поделитесь впечатлениями об уроках..."
-msgstr "Teilen Sie Ihre Eindrücke vom Unterricht..."
+msgstr "Share your impressions of the lessons..."
 
 msgid ""
 "Поделитесь своими впечатлениями об обучении, преподавателях и результатах..."
 msgstr ""
-"Teilen Sie Ihre Eindrücke vom Unterricht, den Lehrkräften und den "
-"Ergebnissen mit..."
+"Share your impressions of the training, the teachers, and the results..."
 
 msgid "Подписаться"
-msgstr "Folgen"
+msgstr "Follow"
 
 msgid ""
 "Подписывайтесь на наш Instagram и следите за жизнью центра, успехами "
 "студентов и новостями!"
 msgstr ""
-"Folgen Sie unserem Instagram und verfolgen Sie das Leben im Zentrum, die "
-"Erfolge unserer Studenten und aktuelle Neuigkeiten!"
+"Follow our Instagram to keep up with life at the center, student "
+"achievements, and the latest news!"
 
 msgid "Подробнее"
-msgstr "Mehr erfahren"
+msgstr "Learn More"
 
 msgid "Подробнее о"
-msgstr "Mehr über"
+msgstr "Learn More About"
 
 msgid "Подробнее об"
-msgstr "Mehr über"
+msgstr "Learn More About"
 
 msgid "Подробнее →"
-msgstr "Mehr erfahren →"
+msgstr "Learn More →"
 
 msgid "Подтверждение"
-msgstr "Bestätigung"
+msgstr "Confirmation"
 
 msgid "Подтверждение немецкого языка для Германии."
-msgstr "Deutschnachweis für Deutschland."
+msgstr "German language certification for Germany."
 
 msgid "Поиск курсов, статей..."
-msgstr "Kurse, Artikel suchen..."
+msgstr "Search courses, articles..."
 
 msgid "Поиск по сайту"
-msgstr "Suche auf der Website"
+msgstr "Search the Site"
 
 msgid "Поиск..."
-msgstr "Suche..."
+msgstr "Search..."
 
 msgid "Пока нет опубликованных отзывов об этом преподавателе."
-msgstr "Für diese Lehrkraft wurden noch keine Bewertungen veröffentlicht."
+msgstr "No reviews have been published for this teacher yet."
 
 msgid "Пока нет опубликованных отзывов. Будьте первыми!"
-msgstr ""
-"Es gibt noch keine veröffentlichten Bewertungen. Seien Sie die Ersten!"
+msgstr "No reviews have been published yet. Be the first!"
 
 msgid "Пока нет отзывов — станьте первым"
-msgstr "Noch keine Bewertungen — seien Sie die/der Erste"
+msgstr "No reviews yet — be the first"
 
 msgid "Полезные статьи, советы по изучению языков и секреты сдачи экзаменов"
 msgstr ""
-"Nützliche Artikel, Tipps zum Sprachenlernen und Geheimnisse für erfolgreiche"
-" Prüfungen"
+"Useful articles, language-learning tips, and secrets to passing your exams"
 
 msgid "Полная программа состоит из"
-msgstr "Das vollständige Programm besteht aus"
+msgstr "The full program consists of"
 
 msgid "Полный цикл обучения"
-msgstr "Vollständiger Lernzyklus"
+msgstr "Full Learning Cycle"
 
 msgid ""
 "Получите официальный сертификат для поступления в зарубежные вузы и "
 "иммиграции"
 msgstr ""
-"Erhalten Sie ein offizielles Zertifikat für die Zulassung an ausländischen "
-"Hochschulen und für die Einwanderung"
+"Get an official certificate for admission to foreign universities and for "
+"immigration"
 
 msgid ""
 "Помощь в выборе университета (например Paichai University), сборе документов"
 " и получении грантов (GKS)."
 msgstr ""
-"Hilfe bei der Wahl der Universität (z. B. Paichai University), bei der "
-"Zusammenstellung der Unterlagen und beim Erhalt von Stipendien (GKS)."
+"Assistance choosing a university (e.g. Paichai University), preparing "
+"documents, and obtaining grants (GKS)."
 
 msgid "Помощь с визой"
-msgstr "Visa-Unterstützung"
+msgstr "Visa Assistance"
 
 msgid "Попробуйте изменить поисковый запрос или перейти в каталог курсов"
-msgstr ""
-"Versuchen Sie, die Suchanfrage zu ändern, oder besuchen Sie den Kurskatalog"
+msgstr "Try changing your search query or browse the course catalog"
 
 msgid "Популярные курсы"
-msgstr "Beliebte Kurse"
+msgstr "Popular Courses"
 
 msgid "После завершения каждого 2-месячного блока студент сдаёт"
-msgstr "Nach jedem 2-monatigen Block legt der Student ab"
+msgstr "After completing each 2-month block, the student takes"
 
 msgid "После каждых 2 месяцев"
-msgstr "Nach jeweils 2 Monaten"
+msgstr "Every 2 months"
 
 msgid "Последние"
-msgstr "Neueste"
+msgstr "Latest"
 
 msgid ""
 "Постоянная диалоговая практика, постановка правильного акцента и преодоление"
 " языкового барьера."
 msgstr ""
-"Ständige Dialogpraxis, Arbeit an der richtigen Aussprache und Überwindung "
-"der Sprachbarriere."
+"Constant conversational practice, correct accent training, and overcoming "
+"the language barrier."
 
 msgid "Поступаемость"
-msgstr "Aufnahmequote"
+msgstr "Admission rate"
 
 msgid "Поступление в вузы Кореи"
-msgstr "Aufnahme an koreanischen Hochschulen"
+msgstr "Admission to universities in Korea"
 
 msgid "Почему выбирают"
-msgstr "Warum entscheiden sich alle für"
+msgstr "Why everyone chooses"
 
 msgid "Почему наш курс корейского —"
-msgstr "Warum unser Koreanischkurs —"
+msgstr "Why our Korean course is —"
 
 msgid "Преимущества нашего курса"
-msgstr "Vorteile unseres Kurses"
+msgstr "Advantages of our course"
 
 msgid "Преподаватели"
-msgstr "Lehrkräfte"
+msgstr "Teachers"
 
 msgid "Преподаватель"
-msgstr "Lehrkraft"
+msgstr "Teacher"
 
 msgid "Преподаватель английского (IELTS 8.5)"
-msgstr "Englischlehrerin (IELTS 8.5)"
+msgstr "English teacher (IELTS 8.5)"
 
 msgid "Преподаватель корейского языка"
-msgstr "Lehrkraft für Koreanisch"
+msgstr "Korean language teacher"
 
 msgid "Преподаватель немецкого языка (C1)"
-msgstr "Deutschlehrer (C1)"
+msgstr "German language teacher (C1)"
 
 msgid "Преподаватель уточняется"
-msgstr "Lehrkraft wird noch bekannt gegeben"
+msgstr "Teacher to be announced"
 
 msgid "Преподаватель:"
-msgstr "Lehrkraft:"
+msgstr "Teacher:"
 
 msgid "Присоединиться"
-msgstr "Jetzt anmelden"
+msgstr "Join now"
 
 msgid "Программа подготовки в"
-msgstr "Vorbereitungsprogramm bei"
+msgstr "Preparation program at"
 
 msgid "Продвинутый (C1)"
-msgstr "Fortgeschritten (C1)"
+msgstr "Advanced (C1)"
 
 msgid "Пройдите бесплатное тестирование и узнайте свой точный уровень!"
-msgstr ""
-"Machen Sie einen kostenlosen Test und erfahren Sie Ihr genaues Niveau!"
+msgstr "Take a free test and find out your exact level!"
 
 msgid "Пройти тест / Записаться"
-msgstr "Test machen / Anmelden"
+msgstr "Take the test / Sign up"
 
 msgid "Профессиональная подготовка с высоким процентом сдачи"
-msgstr "Professionelle Vorbereitung mit hoher Erfolgsquote"
+msgstr "Professional preparation with a high pass rate"
 
 msgid "Профессиональное обучение с нуля"
-msgstr "Professioneller Unterricht ab null Vorkenntnissen"
+msgstr "Professional training from scratch"
 
 msgid "Профессиональный курс изучения языка"
-msgstr "Professioneller Sprachkurs"
+msgstr "Professional language course"
 
 msgid "Проходной тест"
-msgstr "Abschlusstest"
+msgstr "Level test"
 
 msgid "Проходной тест каждые 2 месяца для перехода на новый уровень"
-msgstr "Alle 2 Monate ein Einstufungstest für den nächsten Level"
+msgstr "A level test every 2 months to advance to the next level"
 
 msgid "Работаем"
-msgstr "Öffnungszeiten:"
+msgstr "Hours:"
 
 msgid ""
 "Разбор реальных тестовых заданий прошлых лет, методика быстрого чтения (읽기) "
 "и аудирования (듣기)."
 msgstr ""
-"Analyse realer Prüfungsaufgaben vergangener Jahre, Methodik für schnelles "
-"Lesen (읽기) und Hörverstehen (듣기)."
+"Analysis of real past exam tasks, speed-reading techniques (읽기), and "
+"listening comprehension methods (듣기)."
 
 msgid "Развитие"
-msgstr "Entwicklung"
+msgstr "Growth"
 
 msgid "Разговорный Корейский"
-msgstr "Koreanisch im Alltag sprechen"
+msgstr "Conversational Korean"
 
 msgid "Разговорный английский для путешествий, работы и свободного общения."
-msgstr "Englisch im Alltag für Reisen, Arbeit und freie Kommunikation."
+msgstr "Conversational English for travel, work, and everyday communication."
 
 msgid "Разговорный курс для предпринимателей и людей, работающих с Китаем."
 msgstr ""
-"Sprachkurs für Unternehmer und Personen, die mit China zusammenarbeiten."
+"A conversational course for entrepreneurs and people working with China."
 
 msgid "Расписание занятий"
-msgstr "Unterrichtsplan"
+msgstr "Class schedule"
 
 msgid "Расширение"
-msgstr "Erweiterung"
+msgstr "Expansion"
 
 msgid "Реальные успехи наших выпускников в Корее"
-msgstr "Echte Erfolge unserer Absolventen in Korea"
+msgstr "Real success stories of our graduates in Korea"
 
 msgid "Результаты по запросу"
-msgstr "Ergebnisse für die Anfrage"
+msgstr "Results for the query"
 
 msgid "Результаты поиска"
-msgstr "Suchergebnisse"
+msgstr "Search results"
 
 msgid "Рекомендация"
-msgstr "Empfehlung"
+msgstr "Recommendation"
 
 msgid "С нуля (Никогда не изучал)"
-msgstr "Von Grund auf (noch nie gelernt)"
+msgstr "From scratch (never studied before)"
 
 msgid "С нуля до TOPIK. Учёба в Корее"
-msgstr "Von null bis TOPIK. Studium in Korea"
+msgstr "From scratch to TOPIK. Studying in Korea"
 
 msgid "С этого года"
-msgstr "Seit diesem Jahr"
+msgstr "Since this year"
 
 msgid "Свободно"
-msgstr "Frei"
+msgstr "Available"
 
 msgid "Свяжитесь с нами, чтобы узнать о наборе в новые группы"
-msgstr "Kontaktieren Sie uns, um sich über neue Gruppen zu informieren"
+msgstr "Contact us to find out about enrollment in new groups"
 
 msgid "Связаться с нами"
-msgstr "Kontaktieren Sie uns"
+msgstr "Contact us"
 
 msgid "Сдали"
-msgstr "Bestanden"
+msgstr "Passed"
 
 msgid ""
 "Сделай первый шаг прямо сейчас — записавшись на первое бесплатное занятие!"
-msgstr ""
-"Mach jetzt den ersten Schritt — melde dich zur ersten kostenlosen "
-"Probestunde an!"
+msgstr "Take the first step right now — sign up for your first free lesson!"
 
 msgid "Сегодня"
-msgstr "Heute"
+msgstr "Today"
 
 msgid "Сейчас нет открытых наборов"
-msgstr "Derzeit sind keine Gruppen offen"
+msgstr "There are currently no open enrollments"
 
 msgid "Сертификат Edu Point"
-msgstr "Edu Point Zertifikat"
+msgstr "Edu Point Certificate"
 
 msgid "Сертифицированный CELTA преподаватель."
-msgstr "CELTA-zertifizierte Lehrkraft."
+msgstr "CELTA-certified teacher."
 
 msgid "Скидки грантов"
-msgstr "Stipendienrabatte"
+msgstr "Scholarship discounts"
 
 msgid "Сколько длится один курс?"
-msgstr "Wie lange dauert ein Kurs?"
+msgstr "How long does one course last?"
 
 msgid "Сколько стоит обучение?"
-msgstr "Wie viel kostet der Unterricht?"
+msgstr "How much does tuition cost?"
 
 msgid "Следите за обновлениями на нашем сайте!"
-msgstr "Bleiben Sie auf unserer Website auf dem Laufenden!"
+msgstr "Stay tuned for updates on our website!"
 
 msgid ""
 "Современный университет в г. Хончхон. Международная программа с "
 "адаптационными курсами для иностранных студентов."
 msgstr ""
-"Eine moderne Universität in der Stadt Hongcheon. Internationales Programm "
-"mit Vorbereitungskursen für ausländische Studenten."
+"A modern university in the city of Hongcheon. An international program with "
+"adaptation courses for foreign students."
 
 msgid ""
 "Современный языковой центр в Оше. Мы помогаем открыть мир через изучение "
 "языков и подготовку к международным экзаменам."
 msgstr ""
-"Ein modernes Sprachzentrum in Osch. Wir helfen dabei, die Welt durch das "
-"Erlernen von Sprachen und die Vorbereitung auf internationale Prüfungen zu "
-"entdecken."
+"A modern language center in Osh. We help open up the world through language "
+"learning and preparation for international exams."
 
 msgid "Сообщение *"
-msgstr "Nachricht *"
+msgstr "Message *"
 
 msgid ""
 "Сочетание классической грамматики и интерактивной разговорной практики с "
 "носителем."
 msgstr ""
-"Eine Kombination aus klassischer Grammatik und interaktiver Sprechpraxis mit"
-" Muttersprachlern."
+"A combination of classic grammar and interactive speaking practice with a "
+"native speaker."
 
 msgid ""
 "Специализированная подготовка к экзаменам HSK 1-4 для грантовой учёбы в "
 "Китае."
 msgstr ""
-"Spezialisierte Vorbereitung auf die HSK-Prüfungen 1-4 für ein "
-"Stipendienstudium in China."
+"Specialized preparation for the HSK 1-4 exams for scholarship studies in "
+"China."
 
 msgid "Спросить в WhatsApp"
-msgstr "Über WhatsApp fragen"
+msgstr "Ask via WhatsApp"
 
 msgid "Средний (B1-B2)"
-msgstr "Mittelstufe (B1-B2)"
+msgstr "Intermediate (B1-B2)"
 
 msgid "Стажа и успешной работы"
-msgstr "Erfahrung und erfolgreicher Arbeit"
+msgstr "of experience and successful work"
 
 msgid "Станьте частью команды Edu Point"
-msgstr "Werden Sie Teil des Edu Point-Teams"
+msgstr "Become part of the Edu Point team"
 
 msgid "Старт"
 msgstr "Start"
 
 msgid "Статей пока нет"
-msgstr "Noch keine Artikel"
+msgstr "No articles yet"
 
 msgid "Стоимость:"
-msgstr "Preis:"
+msgstr "Price:"
 
 msgid "Страница не найдена"
-msgstr "Seite nicht gefunden"
+msgstr "Page not found"
 
 msgid "Страницы"
-msgstr "Seiten"
+msgstr "Pages"
 
 msgid "Студентов"
-msgstr "Studenten"
+msgstr "Students"
 
 msgid "Студенты & Университеты Кореи"
-msgstr "Studierende & Universitäten in Korea"
+msgstr "Students & Universities of Korea"
 
 msgid "ТЦ Корона, 3 этаж — центр города Ош"
-msgstr "Einkaufszentrum Korona, 3. Stock – im Zentrum von Osch"
+msgstr "Korona Mall, 3rd floor — Osh city center"
 
 msgid "Также можно написать нам в WhatsApp:"
-msgstr "Sie können uns auch über WhatsApp schreiben:"
+msgstr "You can also message us on WhatsApp:"
 
 msgid "Текст вашего отзыва"
-msgstr "Text Ihrer Bewertung"
+msgstr "Your review text"
 
 msgid "Телефон"
-msgstr "Telefon"
+msgstr "Phone"
 
 msgid "Телефон *"
-msgstr "Telefon *"
+msgstr "Phone *"
 
 msgid "Телефоны"
-msgstr "Telefonnummern"
+msgstr "Phone numbers"
 
 msgid "Топ центр в Оше"
-msgstr "Top-Zentrum in Osch"
+msgstr "Top center in Osh"
 
 msgid "У вас нет прав на просмотр этой страницы."
-msgstr "Sie haben keine Berechtigung, diese Seite anzuzeigen."
+msgstr "You do not have permission to view this page."
 
 msgid "Удобное место"
-msgstr "Günstige Lage"
+msgstr "Convenient location"
 
 msgid "Удовлетворительно"
-msgstr "Befriedigend"
+msgstr "Satisfactory"
 
 msgid "Уровень:"
-msgstr "Niveau:"
+msgstr "Level:"
 
 msgid "Успешных выпускников"
-msgstr "Erfolgreiche Absolventen"
+msgstr "Successful graduates"
 
 msgid "Учебные классы"
-msgstr "Unterrichtsräume"
+msgstr "Classrooms"
 
 msgid "Учебный центр"
-msgstr "Bildungszentrum"
+msgstr "Education center"
 
 msgid "Учились у нас? Оставьте отзыв!"
-msgstr "Haben Sie bei uns gelernt? Hinterlassen Sie eine Bewertung!"
+msgstr "Studied with us? Leave a review!"
 
 msgid "Учёба в Корее"
-msgstr "Studium in Korea"
+msgstr "Studying in Korea"
 
 msgid ""
 "Учёба и работа в Германии (Ausbildung, ВУЗы). Подготовка к экзаменам A1, A2,"
 " B1, B2."
 msgstr ""
-"Studium und Arbeit in Deutschland (Ausbildung, Hochschulen). Vorbereitung "
-"auf die Prüfungen A1, A2, B1, B2."
+"Study and work in Germany (Ausbildung, universities). Preparation for the "
+"A1, A2, B1, B2 exams."
 
 msgid "ФИО"
-msgstr "Name"
+msgstr "Full name"
 
 msgid "Флагманское направление Edu Point"
-msgstr "Vorzeigeprogramm von Edu Point"
+msgstr "Edu Point's flagship program"
 
 msgid "Ханыль, грамматика, разговор"
-msgstr "Hangeul, Grammatik, Konversation"
+msgstr "Hangeul, grammar, conversation"
 
 msgid "Хорошо"
-msgstr "Gut"
+msgstr "Good"
 
 msgid "Целеустремленность"
-msgstr "Zielstrebigkeit"
+msgstr "Determination"
 
 msgid "Ценности"
-msgstr "Werte"
+msgstr "Values"
 
 msgid "Часто задаваемые"
-msgstr "Häufig gestellte"
+msgstr "Frequently asked"
 
 msgid ""
 "Четыре языковых направления с профессиональными преподавателями и "
 "проверенными методиками"
-msgstr ""
-"Vier Sprachrichtungen mit professionellen Lehrkräften und bewährten Methoden"
+msgstr "Four language programs with professional teachers and proven methods"
 
 msgid "Читайте также"
-msgstr "Lesen Sie auch"
+msgstr "Read also"
 
 msgid "Читать все отзывы"
-msgstr "Alle Bewertungen lesen"
+msgstr "Read all reviews"
 
 msgid "Читать далее"
-msgstr "Weiterlesen"
+msgstr "Read more"
 
 msgid "Читать статью"
-msgstr "Artikel lesen"
+msgstr "Read article"
 
 msgid "Что говорят наши"
-msgstr "Was unsere"
+msgstr "What our"
 
 msgid "Что дает курс:"
-msgstr "Was der Kurs bietet:"
+msgstr "What the course offers:"
 
 msgid "Что-то пошло не так"
-msgstr "Etwas ist schiefgelaufen"
+msgstr "Something went wrong"
 
 msgid "Экзамены"
-msgstr "Prüfungen"
+msgstr "Exams"
 
 msgid "Элементарный (A2)"
-msgstr "Elementar (A2)"
+msgstr "Elementary (A2)"
 
 msgid "Этапы нашего"
-msgstr "Etappen unseres"
+msgstr "Stages of our"
 
 msgid "Язык"
-msgstr "Sprache"
+msgstr "Language"
 
 msgid "Языка"
-msgstr "Sprachen"
+msgstr "Language"
 
 msgid "Языки"
-msgstr "Sprachen"
+msgstr "Languages"
 
 msgid "Языковой центр в Оше"
-msgstr "Sprachzentrum in Osch"
+msgstr "Language center in Osh"
 
 msgid "бесплатно"
-msgstr "kostenlos"
+msgstr "free of charge"
 
 msgid "будущему"
-msgstr "Zukunft"
+msgstr "future"
 
 msgid "в Корее"
 msgstr "in Korea"
@@ -1480,138 +1457,138 @@ msgid ""
 "в г. Ош был основан с целю предоставить студентам и взрослым современное, "
 "доступное и высокоэффективное языковое образование."
 msgstr ""
-"in Osch wurde mit dem Ziel gegründet, Studierenden und Erwachsenen eine "
-"moderne, zugängliche und hocheffektive Sprachausbildung zu bieten."
+"in Osh was founded with the goal of providing students and adults with "
+"modern, affordable, and highly effective language education."
 
 msgid "в неделю"
-msgstr "pro Woche"
+msgstr "per week"
 
 msgid "вопросы"
-msgstr "Fragen"
+msgstr "questions"
 
 msgid "г. Ош, пр. А. Масалиева 44, ТЦ Корона, 3 этаж"
-msgstr "Osch, A.-Masaliev-Allee 44, EKZ Korona, 3. Stock"
+msgstr "Osh, A. Masaliev Ave. 44, Korona Mall, 3rd floor"
 
 msgid "и"
-msgstr "und"
+msgstr "and"
 
 msgid "из"
-msgstr "von"
+msgstr "out of"
 
 msgid "из 5 - Отлично"
-msgstr "von 5 - Ausgezeichnet"
+msgstr "out of 5 - Excellent"
 
 msgid "из 5 - Очень плохо"
-msgstr "von 5 - Sehr schlecht"
+msgstr "out of 5 - Very poor"
 
 msgid "из 5 - Плохо"
-msgstr "von 5 - Schlecht"
+msgstr "out of 5 - Poor"
 
 msgid "из 5 - Удовлетворительно"
-msgstr "von 5 - Befriedigend"
+msgstr "out of 5 - Satisfactory"
 
 msgid "из 5 - Хорошо"
-msgstr "von 5 - Gut"
+msgstr "out of 5 - Good"
 
 msgid ""
 "каждый. В конце каждого курса проводится проходной тест для перехода на "
 "следующий уровень."
 msgstr ""
-"Am Ende jedes Kurses findet ein Einstufungstest statt, um in das nächste "
-"Niveau aufzusteigen."
+"each. At the end of each course, a level test is held to advance to the next"
+" level."
 
 msgid "корейского языка"
-msgstr "Koreanisch"
+msgstr "Korean language"
 
 msgid "курса"
-msgstr "Kurse"
+msgstr "courses"
 
 msgid "курсы"
-msgstr "Kurse"
+msgstr "courses"
 
 msgid "лет опыта"
-msgstr "Jahre Erfahrung"
+msgstr "years of experience"
 
 msgid "лет стажа"
-msgstr "Jahre Erfahrung"
+msgstr "years of experience"
 
 msgid "мест своб."
-msgstr "Plätze frei"
+msgstr "spots left"
 
 msgid "на курсы"
-msgstr "für Kurse"
+msgstr "for courses"
 
 msgid "наборы"
-msgstr "Anmeldungen"
+msgstr "enrollment"
 
 msgid "наш"
-msgstr "unsere"
+msgstr "our"
 
 msgid "новости"
-msgstr "Neuigkeiten"
+msgstr "news"
 
 msgid "одного курса — 2 месяца"
-msgstr "eines Kurses beträgt 2 Monate"
+msgstr "of one course is 2 months"
 
 msgid "показать все языки"
-msgstr "alle Sprachen anzeigen"
+msgstr "show all languages"
 
 msgid "преподаватели"
-msgstr "Lehrkräfte"
+msgstr "teachers"
 
 msgid "принципы"
-msgstr "Prinzipien"
+msgstr "principles"
 
 msgid "приоритет"
-msgstr "Priorität"
+msgstr "priority"
 
 msgid "просмотров"
-msgstr "Aufrufe"
+msgstr "views"
 
 msgid "проходной тест"
-msgstr "einen Einstufungstest"
+msgstr "a level test"
 
 msgid "роста"
-msgstr "Wachstums"
+msgstr "growth"
 
 msgid "с нуля"
-msgstr "ab null Vorkenntnissen"
+msgstr "from scratch"
 
 msgid "сом/мес"
-msgstr "Som/Monat"
+msgstr "som/month"
 
 msgid "стажа"
-msgstr "Erfahrung"
+msgstr "experience"
 
 msgid "старт"
-msgstr "Start"
+msgstr "start"
 
 msgid "студенты"
-msgstr "Studenten sagen"
+msgstr "students say"
 
 msgid "университеты Кореи"
-msgstr "Universitäten in Korea"
+msgstr "universities of Korea"
 
 msgid "уточняется"
-msgstr "wird noch bekannt gegeben"
+msgstr "to be announced"
 
 msgid "утренние и вечерние группы"
-msgstr "Vormittags- und Abendgruppen"
+msgstr "morning and evening groups"
 
 msgid "через"
-msgstr "durch"
+msgstr "through"
 
 msgid "экзаменам"
-msgstr "Prüfungen"
+msgstr "exams"
 
 msgid "язык"
-msgstr "Sprache"
+msgstr "language"
 
 msgid "языка"
-msgstr "Sprache"
+msgstr "languages"
 
 msgid "языки"
-msgstr "Sprachen"
+msgstr "languages"
 
 msgid "№1 в Оше"
-msgstr "Nr. 1 in Osch"
+msgstr "#1 in Osh"

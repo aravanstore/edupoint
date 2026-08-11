@@ -9,6 +9,7 @@
 
 {% block content %}
 <section class="auth-page">
+  {% include 'includes/easter_egg.html' with egg_id='notfound' egg_style='top:10%;left:8%;' %}
   <div class="auth-card text-center">
     <div style="font-size:4rem;font-weight:900;line-height:1;color:var(--primary);">404</div>
     <h1 class="mt-2">{% trans "Страница не найдена" %}</h1>

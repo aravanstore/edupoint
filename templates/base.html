@@ -155,7 +155,8 @@
           {% get_current_language as CURRENT_LANGUAGE %}
           <div class="dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" title="{% trans 'Язык' %}">
-              {% if CURRENT_LANGUAGE == 'de' %}🇩🇪 DE
+              {% if CURRENT_LANGUAGE == 'en' %}🇬🇧 EN
+              {% elif CURRENT_LANGUAGE == 'de' %}🇩🇪 DE
               {% elif CURRENT_LANGUAGE == 'ko' %}🇰🇷 KO
               {% elif CURRENT_LANGUAGE == 'zh-hans' %}🇨🇳 中文
               {% else %}🇷🇺 RU{% endif %}
@@ -167,6 +168,14 @@
                   <input type="hidden" name="next" value="{{ request.get_full_path }}">
                   <input type="hidden" name="language" value="ru">
                   <button type="submit" class="dropdown-item{% if CURRENT_LANGUAGE == 'ru' %} active{% endif %}">🇷🇺 Русский</button>
+                </form>
+              </li>
+              <li>
+                <form action="{% url 'set_language' %}" method="post" class="m-0">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                  <input type="hidden" name="language" value="en">
+                  <button type="submit" class="dropdown-item{% if CURRENT_LANGUAGE == 'en' %} active{% endif %}">🇬🇧 English</button>
                 </form>
               </li>
               <li>
@@ -251,6 +260,7 @@
      FOOTER
      ============================================================ -->
   <footer class="footer">
+    {% include 'includes/easter_egg.html' with egg_id='footer' egg_style='top:2rem;right:2rem;' %}
     <div class="container">
       <div class="row g-5">
         <!-- Brand column -->
@@ -363,18 +373,22 @@
 
     <!-- Developer credit -->
     <div
-      style="background:rgba(0,0,0,0.35);border-top:1px solid rgba(255,255,255,0.06);padding:0.9rem 1rem;text-align:center;">
-      <a href="#"
-        style="display:inline-flex;align-items:center;gap:0.6rem;text-decoration:none;opacity:0.75;transition:opacity 0.2s;"
-        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+      style="background:rgba(0,0,0,0.35);border-top:1px solid rgba(255,255,255,0.08);padding:1.1rem 1rem;text-align:center;">
+      <a href="https://www.instagram.com/abdullaev.fs/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener"
+        class="dev-credit-link"
+        style="display:inline-flex;align-items:center;gap:0.7rem;text-decoration:none;padding:0.4rem 1rem;border-radius:999px;transition:transform 0.25s, box-shadow 0.25s;">
         <span aria-hidden="true"
-          style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#fff;color:#0C1A2E;font-size:0.72rem;font-weight:800;letter-spacing:0;">AF</span>
+          style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;font-size:0.75rem;font-weight:800;letter-spacing:0;box-shadow:0 0 12px rgba(220,39,67,0.5);">AF</span>
         <span
-          style="color:rgba(255,255,255,0.55);font-size:0.78rem;font-family:'Inter',sans-serif;letter-spacing:0.03em;">
-          Developed by <strong style="color:rgba(255,255,255,0.8);">abdullaev.fs</strong>
+          style="color:rgba(255,255,255,0.65);font-size:0.82rem;font-family:'Inter',sans-serif;letter-spacing:0.03em;">
+          Developed by <strong style="color:#fff;">abdullaev.fs</strong>
         </span>
+        <i class="bi bi-instagram" style="color:#dc2743;font-size:0.95rem;"></i>
       </a>
     </div>
+    <style>
+      .dev-credit-link:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 6px 20px rgba(220,39,67,0.35); }
+    </style>
   </footer>
 
   <!-- ============================================================
@@ -395,6 +409,11 @@
   <button class="scroll-top" id="scrollTopBtn" title="{% trans 'Наверх' %}">
     <i class="bi bi-arrow-up-short fs-4"></i>
   </button>
+
+  <!-- Easter egg counter -->
+  <div class="egg-counter{% if eggs_found_count >= eggs_total_count %} egg-counter-complete{% endif %}" id="eggCounter" title="{% trans 'Пасхалки, найденные на сайте' %}">
+    🥚 <span class="egg-counter-text">{{ eggs_found_count }}/{{ eggs_total_count }}</span>
+  </div>
 
   <!-- Gallery Lightbox -->
   <div class="lightbox-overlay" id="lightboxOverlay">

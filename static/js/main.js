@@ -352,6 +352,57 @@ const PhoneFormatter = {
 };
 
 /* ============================================================
+   EASTER EGGS
+   ============================================================ */
+const EasterEggs = {
+  init() {
+    document.querySelectorAll('.easter-egg[data-egg-id]').forEach(el => {
+      el.addEventListener('click', () => this.click(el));
+    });
+  },
+  async click(el) {
+    if (el.classList.contains('found')) return;
+    const eggId = el.dataset.eggId;
+    try {
+      const res = await fetch(`/egg/${eggId}/`, {
+        method: 'POST',
+        headers: { 'X-Requested-With': 'XMLHttpRequest', 'X-CSRFToken': this.getCsrf() },
+      });
+      const data = await res.json();
+      if (!data.ok) return;
+      el.classList.add('found');
+      this.updateCounter(data.count, data.total);
+      if (data.is_new) this.showToast(data.count, data.total);
+    } catch (e) {
+      console.error('Egg error:', e);
+    }
+  },
+  getCsrf() {
+    const m = document.cookie.match(/csrftoken=([^;]+)/);
+    return m ? m[1] : '';
+  },
+  updateCounter(count, total) {
+    const counter = document.getElementById('eggCounter');
+    if (!counter) return;
+    counter.querySelector('.egg-counter-text').textContent = `${count}/${total}`;
+    if (count >= total) counter.classList.add('egg-counter-complete');
+  },
+  showToast(count, total) {
+    const toast = document.createElement('div');
+    toast.className = 'egg-toast';
+    toast.textContent = count >= total
+      ? `🎉 Все пасхалки найдены! ${count}/${total}`
+      : `🥚 Пасхалка найдена! ${count}/${total}`;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('show'));
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 350);
+    }, 2200);
+  }
+};
+
+/* ============================================================
    INIT ALL
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -367,6 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
   GalleryFilter.init();
   FormValidator.init();
   PhoneFormatter.init();
+  EasterEggs.init();
 
   // Dark mode toggle button
   const toggleBtn = document.getElementById('darkModeToggle');

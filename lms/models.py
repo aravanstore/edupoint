@@ -393,6 +393,7 @@ class Payment(models.Model):
         verbose_name = 'Оплата'
         verbose_name_plural = 'Оплаты'
         ordering = ['-month']
+        indexes = [models.Index(fields=['student', 'month'])]
 
     def __str__(self):
         return f'{self.student} — {self.month.strftime("%m.%Y")} ({self.amount} сом)'
@@ -414,6 +415,7 @@ class PaymentExtension(models.Model):
         verbose_name = 'Отсрочка оплаты'
         verbose_name_plural = 'Отсрочки оплаты'
         ordering = ['-created_at']
+        indexes = [models.Index(fields=['student', 'month'])]
 
     def __str__(self):
         return f'{self.student} — отсрочка до {self.new_due_date}'

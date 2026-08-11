@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
 from django.db.models import Q, Prefetch
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from .models import GalleryImage, ContactMessage
 from .telegram_utils import notify_new_contact
 from courses.models import Course, Category
@@ -157,6 +159,24 @@ def search(request):
         'page_title': f'Поиск: {query} — Edu Point',
     }
     return render(request, 'core/search.html', context)
+
+
+EGG_IDS = [
+    'hero', 'about', 'courses', 'teachers', 'contact', 'gallery', 'footer', 'notfound',
+]
+
+
+@csrf_exempt
+@require_POST
+def egg_found(request, egg_id):
+    """Пасхалка найдена — отмечаем в сессии (работает и без входа в систему)."""
+    if egg_id not in EGG_IDS:
+        return JsonResponse({'ok': False}, status=404)
+    found = set(request.session.get('found_eggs', []))
+    is_new = egg_id not in found
+    found.add(egg_id)
+    request.session['found_eggs'] = list(found)
+    return JsonResponse({'ok': True, 'is_new': is_new, 'count': len(found), 'total': len(EGG_IDS)})
 
 
 def robots_txt(request):

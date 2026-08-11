@@ -74,9 +74,9 @@
       <div class="hw-meta mt-2">
         {{ hw.created_at|date:"d.m.Y" }}
         {% if hw.due_date %} · Срок: {{ hw.due_date|date:"d.m.Y" }}{% endif %}
-        · Ответов: {{ hw.submissions.count }}
+        · Ответов: {{ hw.submissions_count }}
       </div>
-      {% if hw.submissions.count %}
+      {% if hw.submissions_count %}
       <div class="mt-2">
         {% for s in hw.submissions.all %}
         <span class="badge-ep badge-green me-1"><i class="bi bi-person-check"></i> {{ s.student }}</span>

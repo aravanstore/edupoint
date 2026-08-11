@@ -1,0 +1,2 @@
+<span class="easter-egg{% if egg_id in request.session.found_eggs %} found{% endif %}"
+      data-egg-id="{{ egg_id }}" style="{{ egg_style|default:'' }}" aria-hidden="true">🥚</span>
