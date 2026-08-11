@@ -86,13 +86,11 @@
       <div class="lms-card-body">
         {% if frozen_count %}
         <div class="text-muted small mb-2">{{ frozen_count }} учеников с просроченной оплатой</div>
-        {% for s in students %}
-          {% if s.is_frozen %}
+        {% for s in frozen_students %}
           <a href="{% url 'lms:reception_student_detail' s.pk %}" class="d-flex justify-content-between align-items-center p-2 rounded mb-1 text-decoration-none" style="background:rgba(239,68,68,0.06);">
             <span class="fw-bold" style="color:var(--text-primary);">{{ s }}</span>
             <span class="badge-ep badge-red text-nowrap">Frozen</span>
           </a>
-          {% endif %}
         {% endfor %}
         {% else %}
         <div class="empty-lms"><i class="bi bi-emoji-smile"></i><p>Все оплаты в порядке.</p></div>

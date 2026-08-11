@@ -24,7 +24,7 @@ from .forms import (
     LoginForm, StudentForm, HomeworkForm, SubmissionForm, PaymentForm,
     ExtensionForm, AnnouncementForm, GradeAttendanceForm, ProfileForm,
 )
-from .utils import log_request_activity, notify_student, notify_user, bulk_frozen_student_ids
+from .utils import log_request_activity, notify_student, notify_user, bulk_frozen_student_ids, bulk_payment_status
 
 DAY_ORDER = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 DAY_LABELS = {
@@ -606,7 +606,7 @@ def reception_dashboard(request):
         'frozen_count': len(frozen),
         'recent_payments': recent_payments,
         'today': today,
-        'students': students[:8],
+        'frozen_students': frozen[:8],
         'active_section': 'overview',
         'page_title': 'Кабинет ресепшена — Edu Point',
     })
@@ -624,7 +624,10 @@ def reception_students(request):
             Q(user__first_name__icontains=q) | Q(user__last_name__icontains=q) |
             Q(user__username__icontains=q) | Q(phone__icontains=q)
         )
-    students = students.order_by('user__first_name')
+    students = list(students.order_by('user__first_name'))
+    status_map = bulk_payment_status(students)
+    for s in students:
+        s.payment_status_cached = status_map.get(s.id, ('frozen', timezone.localdate().replace(day=1)))
     return render(request, 'lms/reception/students.html', {
         'students': students,
         'q': q,

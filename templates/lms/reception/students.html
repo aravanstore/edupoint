@@ -47,17 +47,15 @@
           <td>{{ s.book|default:'—' }}</td>
           <td>{{ s.phone|default:'—' }}</td>
           <td>
-            {% if s.is_frozen %}
+            {% with st=s.payment_status_cached %}
+            {% if st.0 == 'frozen' %}
               <span class="badge-ep badge-red"><i class="bi bi-pause-circle"></i> Frozen</span>
+            {% elif st.0 == 'paid' %}
+              <span class="badge-ep badge-green"><i class="bi bi-check-circle"></i> Оплачено</span>
             {% else %}
-              {% with st=s.payment_status %}
-              {% if st.0 == 'paid' %}
-                <span class="badge-ep badge-green"><i class="bi bi-check-circle"></i> Оплачено</span>
-              {% else %}
-                <span class="badge-ep badge-amber"><i class="bi bi-clock"></i> До {{ st.1|date:"d.m" }}</span>
-              {% endif %}
-              {% endwith %}
+              <span class="badge-ep badge-amber"><i class="bi bi-clock"></i> До {{ st.1|date:"d.m" }}</span>
             {% endif %}
+            {% endwith %}
           </td>
         </tr>
         {% endfor %}

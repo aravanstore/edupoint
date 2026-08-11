@@ -32,6 +32,40 @@ def bulk_frozen_student_ids(students):
     }
 
 
+def bulk_payment_status(students):
+    """{student_id: (status, due_date)} для 'paid'/'pending'/'frozen' — массово,
+    без payment_status()/is_frozen() в цикле по каждому ученику (та же N+1
+    проблема, но там, где нужен не только флаг «просрочен», а полный статус
+    для бейджа в таблице)."""
+    ids = list(students.values_list('id', flat=True)) if hasattr(students, 'values_list') else [s.id for s in students]
+    if not ids:
+        return {}
+
+    today = timezone.localdate()
+    month_start = today.replace(day=1)
+
+    paid_months = dict(
+        Payment.objects.filter(
+            student_id__in=ids, month__year=month_start.year,
+            month__month=month_start.month, is_confirmed=True,
+        ).values_list('student_id', 'month')
+    )
+    extended_due = dict(
+        PaymentExtension.objects.filter(
+            student_id__in=ids, month__year=month_start.year, month__month=month_start.month,
+        ).order_by('student_id', 'new_due_date').values_list('student_id', 'new_due_date')
+    )
+
+    result = {}
+    for sid in ids:
+        if sid in paid_months:
+            result[sid] = ('paid', paid_months[sid])
+            continue
+        due = extended_due.get(sid, month_start)
+        result[sid] = ('pending', due) if today <= due else ('frozen', due)
+    return result
+
+
 def notify_user(user, text, link=''):
     """Создаёт внутрисайтовое уведомление пользователю."""
     if not user or not user.is_authenticated:
