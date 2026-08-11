@@ -1848,9 +1848,9 @@ html, body {
   font-size: 0.78rem;
   font-weight: 600;
   border-radius: 999px;
-  background: var(--bg-secondary, #f1f5f9);
-  color: var(--text-primary, #0f172a);
-  border: 1px solid var(--border, #e2e8f0);
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--primary-border);
 }
 
 /* Таблица учеников в наборе — bootstrap .table жёстко светлая */
@@ -1881,10 +1881,13 @@ html, body {
 .night-set .fw-semibold,
 .night-set a:not(.btn-primary-ep) { color: #eef2ff; }
 .night-set p,
-.night-set .text-muted,
 .night-set .set-students-table,
 .night-set .set-students-table th,
-.night-set .set-students-table td { color: rgba(226, 232, 240, 0.85); }
+.night-set .set-students-table td { color: rgba(226, 232, 240, 0.88) !important; }
+.night-set .text-muted,
+.night-set small,
+.night-set .small { color: rgba(199, 210, 254, 0.92) !important; }
+.night-set i { color: #a5b4fc !important; }
 .night-set .set-students-table th,
 .night-set .set-students-table td { border-bottom-color: rgba(148, 163, 184, 0.2); }
 .night-set .course-badge {
@@ -1953,63 +1956,119 @@ html, body {
 
 /* ============================================================
    КОРЕЙСКАЯ ТЕМА ПРОФИЛЯ ПРЕПОДАВАТЕЛЯ
+   Тёмный «ночной ханок»: одинаково читается в светлой и тёмной теме,
+   поэтому цвета заданы явно, а не через переменные темы.
    ============================================================ */
 .korean-hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #fdf2f4 0%, #fff7f8 60%, var(--bg-primary, #fff) 100%);
+  padding: 5rem 0 4.5rem;
+  background:
+    radial-gradient(900px 420px at 78% -10%, rgba(190, 24, 93, 0.35), transparent 62%),
+    radial-gradient(700px 380px at 12% 110%, rgba(55, 48, 163, 0.4), transparent 60%),
+    linear-gradient(160deg, #1a0b1a 0%, #2b1030 45%, #1b1340 100%);
+  border-bottom: 0;
 }
 [data-theme="dark"] .korean-hero {
-  background: linear-gradient(180deg, #2a1520 0%, #1d1220 60%, var(--bg-primary, #0f172a) 100%);
+  background:
+    radial-gradient(900px 420px at 78% -10%, rgba(190, 24, 93, 0.32), transparent 62%),
+    radial-gradient(700px 380px at 12% 110%, rgba(55, 48, 163, 0.38), transparent 60%),
+    linear-gradient(160deg, #14081a 0%, #1f0c26 45%, #140e33 100%);
 }
-.korean-deco { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.korean-hero::after { display: none; }
 
-/* Силуэт гор — отсылка к традиционной корейской живописи */
+/* Всё содержимое героя — светлое, независимо от темы сайта */
+.korean-hero h1 {
+  color: #fff !important;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 24px rgba(190, 24, 93, 0.45);
+}
+.korean-hero .text-primary { color: #f9a8d4 !important; }
+.korean-hero .text-muted,
+.korean-hero .badge { color: rgba(237, 233, 254, 0.85) !important; }
+.korean-hero .badge {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(249, 168, 212, 0.35) !important;
+}
+.korean-hero .container { position: relative; z-index: 2; }
+
+.korean-deco { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+
+/* Многослойные силуэты гор — традиционная корейская живопись */
 .k-mountains {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 90px;
+  height: 160px;
   background:
-    radial-gradient(ellipse 220px 90px at 12% 100%, rgba(190, 24, 93, 0.10) 0 60%, transparent 61%),
-    radial-gradient(ellipse 300px 120px at 42% 100%, rgba(190, 24, 93, 0.08) 0 60%, transparent 61%),
-    radial-gradient(ellipse 260px 100px at 78% 100%, rgba(190, 24, 93, 0.10) 0 60%, transparent 61%);
+    radial-gradient(ellipse 280px 130px at 8% 100%,  rgba(190, 24, 93, 0.30) 0 62%, transparent 63%),
+    radial-gradient(ellipse 380px 170px at 34% 100%, rgba(88, 28, 135, 0.34) 0 62%, transparent 63%),
+    radial-gradient(ellipse 320px 140px at 62% 100%, rgba(190, 24, 93, 0.24) 0 62%, transparent 63%),
+    radial-gradient(ellipse 420px 180px at 92% 100%, rgba(55, 48, 163, 0.32) 0 62%, transparent 63%);
 }
-[data-theme="dark"] .k-mountains {
-  background:
-    radial-gradient(ellipse 220px 90px at 12% 100%, rgba(244, 114, 182, 0.16) 0 60%, transparent 61%),
-    radial-gradient(ellipse 300px 120px at 42% 100%, rgba(244, 114, 182, 0.12) 0 60%, transparent 61%),
-    radial-gradient(ellipse 260px 100px at 78% 100%, rgba(244, 114, 182, 0.16) 0 60%, transparent 61%);
+
+/* Полная луна с ореолом */
+.k-moon {
+  position: absolute;
+  top: 16%;
+  right: 9%;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, #fff8f0, #ffe9d6 55%, #f7d5b8);
+  box-shadow:
+    0 0 40px rgba(255, 236, 210, 0.55),
+    0 0 100px 30px rgba(249, 168, 212, 0.22);
+  animation: moon-glow 7s ease-in-out infinite;
+}
+@keyframes moon-glow {
+  0%, 100% { box-shadow: 0 0 40px rgba(255,236,210,0.5),  0 0 100px 30px rgba(249,168,212,0.18); }
+  50%      { box-shadow: 0 0 56px rgba(255,236,210,0.75), 0 0 130px 40px rgba(249,168,212,0.3); }
 }
 
 /* Лепестки сакуры */
 .k-petal {
   position: absolute;
-  top: -30px;
-  font-size: 1rem;
+  top: -40px;
+  font-size: 1.05rem;
   opacity: 0;
-  animation: petal-fall 12s linear infinite;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+  animation: petal-fall 13s linear infinite;
 }
 @keyframes petal-fall {
-  0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
-  8%   { opacity: 0.85; }
-  92%  { opacity: 0.6; }
-  100% { opacity: 0; transform: translateY(320px) translateX(60px) rotate(320deg); }
+  0%   { opacity: 0;    transform: translate(0, 0) rotate(0deg); }
+  8%   { opacity: 0.95; }
+  50%  { transform: translate(40px, 220px) rotate(180deg); }
+  92%  { opacity: 0.5; }
+  100% { opacity: 0;    transform: translate(85px, 430px) rotate(360deg); }
 }
 
+/* Хангыль-подпись */
 .korean-hangul {
+  display: inline-block;
   font-family: 'Noto Sans KR', 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: #be185d;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fbcfe8;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid rgba(249, 168, 212, 0.45);
+  border-radius: 999px;
+  background: rgba(190, 24, 93, 0.22);
+  backdrop-filter: blur(4px);
 }
-[data-theme="dark"] .korean-hangul { color: #f472b6; }
 
+/* Аватар в двойном кольце с сиянием */
 .korean-avatar {
-  border: 3px solid #be185d !important;
-  box-shadow: 0 0 0 6px rgba(190, 24, 93, 0.12), 0 8px 28px rgba(190, 24, 93, 0.25);
+  border: 3px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow:
+    0 0 0 8px rgba(190, 24, 93, 0.35),
+    0 0 0 9px rgba(249, 168, 212, 0.5),
+    0 12px 40px rgba(0, 0, 0, 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .k-petal { animation: none; opacity: 0; }
+  .k-moon  { animation: none; }
 }
