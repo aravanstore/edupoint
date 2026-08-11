@@ -1,0 +1,15 @@
+<div class="journal-toolbar">
+  <div class="btn-group" role="group">
+    <a href="{% url 'applications:analytics_dashboard' %}" class="btn-outline-ep {% if analytics_tab == 'dashboard' %}btn-outline-ep-active{% endif %}">Сводка</a>
+    <a href="{% url 'applications:analytics_courses' %}" class="btn-outline-ep {% if analytics_tab == 'courses' %}btn-outline-ep-active{% endif %}">Курсы</a>
+    <a href="{% url 'applications:analytics_teachers' %}" class="btn-outline-ep {% if analytics_tab == 'teachers' %}btn-outline-ep-active{% endif %}">Преподаватели</a>
+    <a href="{% url 'applications:analytics_attendance' %}" class="btn-outline-ep {% if analytics_tab == 'attendance' %}btn-outline-ep-active{% endif %}">Посещаемость</a>
+    <a href="{% url 'applications:analytics_financial' %}" class="btn-outline-ep {% if analytics_tab == 'financial' %}btn-outline-ep-active{% endif %}">Финансы</a>
+    <a href="{% url 'applications:analytics_marketing' %}" class="btn-outline-ep {% if analytics_tab == 'marketing' %}btn-outline-ep-active{% endif %}">Маркетинг</a>
+  </div>
+  <div class="flex-grow-1"></div>
+  <div class="btn-group" role="group">
+    <a href="{% url 'applications:analytics_export' %}?section={{ analytics_tab }}&fmt=xlsx" class="btn-outline-ep btn-sm-ep"><i class="bi bi-file-earmark-excel me-1"></i> Excel</a>
+    <a href="{% url 'applications:analytics_export' %}?section={{ analytics_tab }}&fmt=pdf" class="btn-outline-ep btn-sm-ep"><i class="bi bi-file-earmark-pdf me-1"></i> PDF</a>
+  </div>
+</div>

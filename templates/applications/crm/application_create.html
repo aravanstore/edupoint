@@ -1,0 +1,65 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Новая заявка{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'applications:application_list' %}">Заявки</a> / Новая{% endblock %}
+{% block lms_heading %}Новая заявка{% endblock %}
+
+{% block lms_content %}
+{% if messages %}{% for message in messages %}<div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">{{ message }}</div>{% endfor %}{% endif %}
+
+<div class="lms-card" style="max-width:760px;">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-person-plus me-2 text-primary"></i> Заявка вручную</h2>
+  </div>
+  <div class="lms-card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label-lms">Имя *</label>
+          <input type="text" name="name" class="form-control" required placeholder="Имя клиента">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Телефон *</label>
+          <input type="text" name="phone" class="form-control" required placeholder="+996 ...">
+        </div>
+        <div class="col-12">
+          <label class="form-label-lms">Набор *</label>
+          <select name="group_set" class="form-select" required>
+            <option value="">— Выберите набор —</option>
+            {% for s in sets %}
+            <option value="{{ s.pk }}">{{ s.name }} · {{ s.schedule_display }} · свободно {{ s.seats_left|default:'∞' }}</option>
+            {% endfor %}
+          </select>
+          {% if not sets %}<div class="form-text text-danger">Открытых наборов с местами нет. Сначала создайте набор.</div>{% endif %}
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Источник</label>
+          <select name="source" class="form-select">
+            {% for code, label in sources %}
+            <option value="{{ code }}" {% if forloop.first %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">Уровень языка</label>
+          <select name="language_level" class="form-select">
+            {% for code, label in levels %}
+            <option value="{{ code }}">{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-12">
+          <label class="form-label-lms">Комментарий</label>
+          <textarea name="comment" class="form-control" rows="2" placeholder="Что обсуждали по телефону..."></textarea>
+        </div>
+      </div>
+      <div class="d-flex gap-2 mt-4">
+        <button type="submit" class="btn-primary-ep"><i class="bi bi-check-lg me-2"></i> Создать заявку</button>
+        <a href="{% url 'applications:application_list' %}" class="btn-outline-ep">Отмена</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

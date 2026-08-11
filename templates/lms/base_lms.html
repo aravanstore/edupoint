@@ -3,7 +3,7 @@
 {% load lms_extras %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/lms.css' %}?v=20260807-lms">
+<link rel="stylesheet" href="{% static 'css/lms.css' %}?v=20260810-lms">
 {% endblock %}
 
 {% block title %}{% block lms_title %}Кабинет — Edu Point{% endblock %}{% endblock %}
@@ -42,9 +42,12 @@
       {% elif user.profile.role == 'reception' or user.profile.role == 'admin' %}
         <div class="lms-nav-label">Управление</div>
         <a href="{% url 'lms:reception_dashboard' %}" class="{% if active_section == 'overview' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> Обзор</a>
+        <a href="{% url 'applications:set_list' %}" class="{% if active_section == 'sets' %}active{% endif %}"><i class="bi bi-inboxes"></i> Наборы</a>
+        <a href="{% url 'applications:application_list' %}" class="{% if active_section == 'applications' %}active{% endif %}"><i class="bi bi-funnel"></i> Заявки</a>
+        <a href="{% url 'applications:waitlist_list' %}" class="{% if active_section == 'waitlist' %}active{% endif %}"><i class="bi bi-hourglass-split"></i> Лист ожидания</a>
         <a href="{% url 'lms:reception_students' %}" class="{% if active_section == 'students' %}active{% endif %}"><i class="bi bi-people"></i> Ученики</a>
         <a href="{% url 'lms:reception_announcements' %}" class="{% if active_section == 'announcements' %}active{% endif %}"><i class="bi bi-megaphone"></i> Объявления</a>
-        <a href="{% url 'lms:admin_analytics' %}" class="{% if active_section == 'analytics' %}active{% endif %}"><i class="bi bi-graph-up"></i> Аналитика</a>
+        <a href="{% url 'applications:analytics_dashboard' %}" class="{% if active_section == 'analytics' %}active{% endif %}"><i class="bi bi-graph-up"></i> Аналитика</a>
         <a href="{% url 'lms:activity_log' %}" class="{% if active_section == 'activity' %}active{% endif %}"><i class="bi bi-clock-history"></i> История действий</a>
         {% if user.is_superuser %}
           <div class="lms-nav-label">Разработчик</div>
@@ -54,7 +57,10 @@
 
       <div class="lms-nav-label">Аккаунт</div>
       <a href="{% url 'lms:profile' %}" class="{% if active_section == 'profile' %}active{% endif %}"><i class="bi bi-person"></i> Мой профиль</a>
-      <a href="{% url 'lms:logout' %}" class="nav-logout"><i class="bi bi-box-arrow-right"></i> Выйти</a>
+      <form method="post" action="{% url 'lms:logout' %}" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="nav-logout"><i class="bi bi-box-arrow-right"></i> Выйти</button>
+      </form>
     </nav>
   </aside>
 

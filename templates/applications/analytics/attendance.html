@@ -1,0 +1,117 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Аналитика посещаемости{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Аналитика{% endblock %}
+{% block lms_heading %}Аналитика посещаемости{% endblock %}
+
+{% block lms_content %}
+{% include 'applications/analytics/_tabs.html' %}
+
+<div class="lms-card mb-4">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-calendar-check me-2 text-primary"></i> Посещаемость за 30 дней</h2>
+  </div>
+  <div class="lms-card-body">
+    <canvas id="chartAtt" height="90"></canvas>
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-lg-6">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-people me-2 text-primary"></i> По группам</h2>
+      </div>
+      {% if by_group %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead><tr><th>Группа</th><th>Присут.</th><th>Опозд.</th><th>Проп.</th><th>Посещаемость</th></tr></thead>
+          <tbody>
+            {% for g in by_group %}
+            <tr>
+              <td class="fw-bold">{{ g.group.name }}</td>
+              <td>{{ g.present }}</td>
+              <td>{{ g.late }}</td>
+              <td>{{ g.absent }}</td>
+              <td><span class="badge-ep {% if g.percent >= 90 %}badge-green{% elif g.percent >= 75 %}badge-amber{% else %}badge-red{% endif %}">{{ g.percent }}%</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-people"></i><p>Нет групп.</p></div>{% endif %}
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="lms-card mb-4">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-person-workspace me-2 text-primary"></i> По преподавателям</h2>
+      </div>
+      {% if by_teacher %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead><tr><th>Преподаватель</th><th>Присут.</th><th>Опозд.</th><th>Посещаемость</th></tr></thead>
+          <tbody>
+            {% for t in by_teacher %}
+            <tr>
+              <td class="fw-bold">{{ t.teacher.name }}</td>
+              <td>{{ t.present }}</td>
+              <td>{{ t.late }}</td>
+              <td><span class="badge-ep {% if t.percent >= 90 %}badge-green{% elif t.percent >= 75 %}badge-amber{% else %}badge-red{% endif %}">{{ t.percent }}%</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-person-workspace"></i><p>Нет данных.</p></div>{% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="lms-card">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-exclamation-triangle me-2 text-warning"></i> Риск отчисления ({{ at_risk_threshold }}+ пропуска подряд)</h2>
+  </div>
+  {% if at_risk %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead><tr><th>Ученик</th><th>Группа</th><th>Преподаватель</th><th>Пропусков подряд</th></tr></thead>
+      <tbody>
+        {% for item in at_risk %}
+        <tr>
+          <td class="fw-bold">{{ item.student }}</td>
+          <td>{{ item.student.group.name|default:'—' }}</td>
+          <td>{{ item.student.group.teacher.name|default:'—' }}</td>
+          <td><span class="badge-ep badge-red">{{ item.streak }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms"><i class="bi bi-emoji-smile"></i><p>Учащихся с риском нет — отлично.</p></div>
+  {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function () {
+  var data = {{ by_day|safe }};
+  var labels = data.map(function (r) { return r.date.slice(5); });
+  new Chart(document.getElementById('chartAtt'), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        { label: 'Присутствие', data: data.map(function (r) { return r.present; }), backgroundColor: '#22c55e' },
+        { label: 'Пропуски', data: data.map(function (r) { return r.absent; }), backgroundColor: '#ef4444' },
+        { label: 'Опоздания', data: data.map(function (r) { return r.late; }), backgroundColor: '#f59e0b' }
+      ]
+    },
+    options: { scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true, ticks: { precision: 0 } } } }
+  });
+})();
+</script>
+{% endblock %}

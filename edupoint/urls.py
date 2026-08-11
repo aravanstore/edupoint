@@ -22,6 +22,9 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
 
+    # Переключатель языка (django.views.i18n.set_language)
+    path('i18n/', include('django.conf.urls.i18n')),
+
     # Core pages
     path('', include('core.urls')),
 

@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
-from django.db.models import Q
+from django.db.models import Q, Prefetch
 from .models import GalleryImage, ContactMessage
 from .telegram_utils import notify_new_contact
 from courses.models import Course, Category
 from teachers.models import Teacher
 from reviews.models import Review
 from news.models import NewsPost
+from applications.models import GroupSet, StudentApplication
 
 
 def home(request):
@@ -17,6 +18,20 @@ def home(request):
     teachers = Teacher.objects.filter(is_active=True)[:4]
     reviews = Review.objects.filter(is_approved=True)[:6]
     latest_news = NewsPost.objects.filter(is_published=True)[:3]
+    open_sets = list(
+        GroupSet.objects.filter(status='open')
+        .select_related('course', 'course__category', 'teacher')
+        .prefetch_related(
+            Prefetch(
+                'applications',
+                queryset=StudentApplication.objects.filter(
+                    status__in=StudentApplication.ACTIVE_STATUSES
+                ).order_by('created_at'),
+                to_attr='active_applications',
+            )
+        )
+        .order_by('-created_at')[:6]
+    )
 
     stats = {
         'students': 500,
@@ -31,6 +46,7 @@ def home(request):
         'teachers': teachers,
         'reviews': reviews,
         'latest_news': latest_news,
+        'open_sets': open_sets,
         'stats': stats,
         'page_title': 'Edu Point — Языковой центр в Оше',
         'meta_description': 'Изучайте корейский, английский, немецкий и китайский языки. Подготовка к TOPIK, IELTS, GOETHE. Ош, Кыргызстан.',

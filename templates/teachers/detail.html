@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{ teacher.name }} — Edu Point{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container" data-aos="fade-up">
+    <div class="row align-items-center g-4">
+      <div class="col-auto">
+        {% if teacher.photo %}
+        <img src="{{ teacher.photo.url }}" alt="{{ teacher.name }}" class="teacher-avatar" style="width:120px;height:120px;">
+        {% else %}
+        <div class="teacher-avatar-placeholder" style="width:120px;height:120px;font-size:2.5rem;">{{ teacher.name|first }}</div>
+        {% endif %}
+      </div>
+      <div class="col">
+        <h1 class="mb-1">{{ teacher.name }}</h1>
+        <div class="text-primary fw-semibold mb-2">{{ teacher.position }}</div>
+        {% if teacher.languages %}<div class="badge bg-light text-dark border mb-2">{{ teacher.languages }}</div>{% endif %}
+        <div class="d-flex align-items-center gap-2 flex-wrap">
+          {% if reviews_count %}
+          <span class="fs-5">
+            {% for i in "12345" %}{% if forloop.counter <= average_rating|floatformat:0|add:0 %}⭐{% else %}☆{% endif %}{% endfor %}
+          </span>
+          <span class="text-muted">{{ average_rating|floatformat:1 }} · {{ reviews_count }} отзыв{{ reviews_count|pluralize:",а,ов" }}</span>
+          {% else %}
+          <span class="text-muted">{% trans "Пока нет отзывов — станьте первым" %}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4" data-aos="fade-right">
+        {% if teacher.bio %}
+        <h4 class="fw-bold mb-2">{% trans "О преподавателе" %}</h4>
+        <p class="text-muted" style="line-height:1.7;">{{ teacher.bio|linebreaksbr }}</p>
+        {% endif %}
+        <div class="d-flex flex-column gap-2 mt-3">
+          {% if teacher.experience_years %}<div><i class="bi bi-award me-2 text-primary"></i>{{ teacher.experience_years }} {% trans "лет опыта" %}</div>{% endif %}
+          {% if teacher.education %}<div><i class="bi bi-mortarboard me-2 text-primary"></i>{{ teacher.education }}</div>{% endif %}
+        </div>
+        <a href="{% url 'teachers:list' %}" class="btn-outline-ep mt-4"><i class="bi bi-arrow-left"></i> {% trans "Все преподаватели" %}</a>
+      </div>
+
+      <div class="col-lg-8" data-aos="fade-left">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="fw-bold mb-0">{% trans "Отзывы студентов" %}</h4>
+          <button class="btn-primary-ep" data-bs-toggle="modal" data-bs-target="#addTeacherReviewModal">
+            <i class="bi bi-pencil-square"></i> {% trans "Оставить отзыв" %}
+          </button>
+        </div>
+
+        <div class="row g-4">
+          {% for review in reviews %}
+          <div class="col-md-6">
+            <div class="review-card h-100 d-flex flex-column">
+              <div class="quote-icon">"</div>
+              <div class="review-stars mb-2">
+                {% for i in review.get_stars_range %}⭐{% endfor %}
+              </div>
+              <p class="review-text flex-fill">{{ review.text }}</p>
+              <div class="reviewer-info mt-auto">
+                {% if review.photo %}
+                <img src="{{ review.photo.url }}" alt="{{ review.name }}" class="reviewer-avatar">
+                {% else %}
+                <div class="reviewer-avatar-placeholder">{{ review.name|first }}</div>
+                {% endif %}
+                <div class="reviewer-name">{{ review.name }}</div>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <div class="col-12 text-center text-muted py-5">
+            <h5>{% trans "Пока нет опубликованных отзывов об этом преподавателе." %}</h5>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal: Оставить отзыв о преподавателе -->
+<div class="modal fade" id="addTeacherReviewModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg" style="border-radius:20px;">
+      <div class="modal-header border-0 pb-0">
+        <h4 class="modal-title fw-bold">{% trans "Отзыв о преподавателе" %} «{{ teacher.name }}»</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form method="post" action="{% url 'teachers:detail' teacher.pk %}" enctype="multipart/form-data" class="form-ep" data-validate>
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">{% trans "Ваше имя" %} *</label>
+            <input type="text" name="name" class="form-control" placeholder="Асан Асанов" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">{% trans "Ваша оценка" %} *</label>
+            <select name="rating" class="form-select" required>
+              <option value="5">⭐⭐⭐⭐⭐ (5 {% trans "из 5 - Отлично" %})</option>
+              <option value="4">⭐⭐⭐⭐ (4 {% trans "из 5 - Хорошо" %})</option>
+              <option value="3">⭐⭐⭐ (3 {% trans "из 5 - Удовлетворительно" %})</option>
+              <option value="2">⭐⭐ (2 {% trans "из 5 - Плохо" %})</option>
+              <option value="1">⭐ (1 {% trans "из 5 - Очень плохо" %})</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="form-label">{% trans "Текст вашего отзыва" %} *</label>
+            <textarea name="text" rows="4" class="form-control" placeholder="{% trans 'Поделитесь впечатлениями об уроках...' %}" required></textarea>
+          </div>
+          <div class="alert alert-info py-2 px-3 mb-4 fs-6" style="border-radius:12px;">
+            <i class="bi bi-info-circle me-1"></i> {% trans "Отзыв будет опубликован после проверки модератором." %}
+          </div>
+          <button type="submit" class="btn-primary-ep w-100 justify-content-center py-3 fs-5">
+            {% trans "Отправить отзыв" %} <i class="bi bi-send ms-2"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -168,10 +168,14 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# Публичный сайт: русский по умолчанию, автоопределение по браузеру
+# (Accept-Language) + ручной переключатель в шапке. ЛМС (личный кабинет)
+# не переводится — им пользуется только персонал в Оше.
 LANGUAGES = [
-    ('ru', 'Russian'),
-    ('ky', 'Kyrgyz'),
-    ('en', 'English'),
+    ('ru', 'Русский'),
+    ('de', 'Deutsch'),
+    ('ko', '한국어'),
+    ('zh-hans', '中文'),
 ]
 
 LOCALE_PATHS = [BASE_DIR / 'locale']
@@ -207,7 +211,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # TELEGRAM BOT
 # ===========================================================================
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '7569848532:AAGWG6p2LdKBVIN2oYJQHrBvyJq7uIAlRl8')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '5650262847')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '-5236512491')
 
 # ===========================================================================
 # EMAIL

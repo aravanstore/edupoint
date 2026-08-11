@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Блог об изучении языков — Edu Point{% endblock %}
+{% block title %}{% trans "Блог об изучении языков" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
-    <h1>Блог Edu Point</h1>
-    <p style="color:var(--text-muted);">Полезные статьи, советы по изучению языков и секреты сдачи экзаменов</p>
+    <h1>{% trans "Блог" %} Edu Point</h1>
+    <p style="color:var(--text-muted);">{% trans "Полезные статьи, советы по изучению языков и секреты сдачи экзаменов" %}</p>
   </div>
 </section>
 
@@ -15,7 +16,7 @@
   <div class="container">
     <!-- Categories -->
     <div class="filter-tabs justify-content-center mb-5" data-aos="fade-up">
-      <a href="{% url 'blog:list' %}" class="filter-tab {% if not active_category %}active{% endif %}">Все статьи</a>
+      <a href="{% url 'blog:list' %}" class="filter-tab {% if not active_category %}active{% endif %}">{% trans "Все статьи" %}</a>
       {% for code, label in categories %}
       <a href="?category={{ code }}" class="filter-tab {% if active_category == code %}active{% endif %}">{{ label }}</a>
       {% endfor %}
@@ -34,15 +35,15 @@
             <div class="news-date mb-2"><i class="bi bi-tag"></i> {{ post.get_category_display }} · {{ post.published_at|date:"d.m.Y" }}</div>
             <h4>{{ post.title }}</h4>
             <p class="text-muted flex-fill">{{ post.excerpt|default:post.content|striptags|truncatewords:20 }}</p>
-            <span class="text-primary fw-semibold mt-3">Читать статью →</span>
+            <span class="text-primary fw-semibold mt-3">{% trans "Читать статью" %} →</span>
           </div>
         </a>
       </div>
       {% empty %}
       <div class="empty-state">
         <div class="empty-state-icon">📝</div>
-        <h4>Статей пока нет</h4>
-        <p>Мы скоро опубликуем первые полезные гайды!</p>
+        <h4>{% trans "Статей пока нет" %}</h4>
+        <p>{% trans "Мы скоро опубликуем первые полезные гайды!" %}</p>
       </div>
       {% endfor %}
     </div>

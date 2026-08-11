@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Немецкий язык и GOETHE — Edu Point{% endblock %}
+{% block title %}{% trans "Немецкий язык и GOETHE" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
     <div class="display-1 mb-2">🇩🇪</div>
-    <h1>Немецкий язык и Goethe-Zertifikat</h1>
+    <h1>{% trans "Немецкий язык и Goethe-Zertifikat" %}</h1>
     <p style="color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto;">
-      Учёба и работа в Германии (Ausbildung, ВУЗы). Подготовка к экзаменам A1, A2, B1, B2.
+      {% trans "Учёба и работа в Германии (Ausbildung, ВУЗы). Подготовка к экзаменам A1, A2, B1, B2." %}
     </p>
   </div>
 </section>
@@ -20,28 +21,28 @@
       <div class="col-md-4" data-aos="fade-up">
         <div class="card-ep p-4 text-center">
           <div class="fs-1 mb-2">🇩🇪</div>
-          <h4>Немецкий A1-A2</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;">Базовый курс грамматики и бытовой лексики для воссоединения семьи и Au-Pair.</p>
+          <h4>{% trans "Немецкий A1-A2" %}</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">{% trans "Базовый курс грамматики и бытовой лексики для воссоединения семьи и Au-Pair." %}</p>
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card-ep p-4 text-center">
           <div class="fs-1 mb-2">🏥</div>
-          <h4>Ausbildung & Работа</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;">Подготовка к уровню B1/B2 для прохождения дуального обучения в Германии.</p>
+          <h4>{% trans "Ausbildung & Работа" %}</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">{% trans "Подготовка к уровню B1/B2 для прохождения дуального обучения в Германии." %}</p>
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <div class="card-ep p-4 text-center">
           <div class="fs-1 mb-2">🏆</div>
           <h4>Goethe-Zertifikat</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;">Интенсивные тренинги с разбором типовых экзаменационных моделей Гёте-Института.</p>
+          <p style="color:var(--text-muted);font-size:0.9rem;">{% trans "Интенсивные тренинги с разбором типовых экзаменационных моделей Гёте-Института." %}</p>
         </div>
       </div>
     </div>
 
     {% if courses %}
-    <h3 class="fw-bold mb-4" data-aos="fade-up">Курсы немецкого языка</h3>
+    <h3 class="fw-bold mb-4" data-aos="fade-up">{% trans "Курсы немецкого языка" %}</h3>
     <div class="row g-4">
       {% for course in courses %}
       <div class="col-md-6" data-aos="fade-up">
@@ -51,7 +52,7 @@
             <p>{{ course.short_description }}</p>
             <div class="d-flex justify-content-between align-items-center mt-3">
               <span class="fs-4 fw-bold text-primary-ep">{{ course.price|floatformat:0 }} сом/мес</span>
-              <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep" style="font-size:0.85rem;padding:0.5rem 1rem;">Записаться</a>
+              <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep" style="font-size:0.85rem;padding:0.5rem 1rem;">{% trans "Записаться" %}</a>
             </div>
           </div>
         </div>

@@ -1,0 +1,136 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Заявка: {{ application.name }}{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'applications:application_list' %}">Заявки</a> / {{ application.name }}{% endblock %}
+{% block lms_heading %}Заявка: {{ application.name }}{% endblock %}
+
+{% block lms_content %}
+{% if messages %}{% for message in messages %}<div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">{{ message }}</div>{% endfor %}{% endif %}
+
+<div class="row g-4">
+  <div class="col-lg-7">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-person-vcard me-2 text-primary"></i> Данные заявки</h2>
+        <span class="badge-ep {% if application.status == 'enrolled' %}badge-green{% elif application.status == 'rejected' or application.status == 'lost' %}badge-gray{% elif application.status == 'test' or application.status == 'test_passed' %}badge-amber{% else %}badge-blue{% endif %}">{{ application.get_status_display }}</span>
+      </div>
+      <div class="lms-card-body">
+        <div class="row g-2 small">
+          <div class="col-md-6"><strong>Имя:</strong> {{ application.name }}</div>
+          <div class="col-md-6"><strong>Телефон:</strong> {{ application.phone }}</div>
+          <div class="col-md-6"><strong>Возраст:</strong> {{ application.age|default:'—' }}</div>
+          <div class="col-md-6"><strong>Источник:</strong> {{ application.get_source_display }}</div>
+          <div class="col-md-6"><strong>Набор:</strong>
+            {% if application.group_set %}<a href="{% url 'applications:set_detail' application.group_set.pk %}">{{ application.group_set.name }}</a>{% else %}—{% endif %}
+          </div>
+          <div class="col-md-6"><strong>Уровень:</strong> {{ application.get_language_level_display }}</div>
+          <div class="col-md-6"><strong>Создана:</strong> {{ application.created_at|date:"d.m.Y H:i" }}</div>
+          <div class="col-md-6"><strong>Статус изменён:</strong> {{ application.status_changed_at|date:"d.m.Y H:i"|default:'—' }}</div>
+          {% if application.group_set and application.group_set.group_id %}
+          <div class="col-12"><strong>Связанный ученик:</strong>
+            {% if application.student_id %}<a href="{% url 'lms:reception_student_detail' application.student.pk %}">{{ application.student }}</a>
+            {% else %}<a href="{% url 'lms:reception_student_add' %}?application={{ application.pk }}">Создать ученика из заявки →</a>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% if application.comment %}
+          <div class="col-12"><strong>Комментарий:</strong> {{ application.comment }}</div>
+          {% endif %}
+        </div>
+
+        <div class="mt-4 pt-3" style="border-top:1px solid var(--border);">
+          <h5 class="mb-2"><i class="bi bi-arrow-repeat me-2 text-primary"></i> Сменить статус</h5>
+          <form method="post" action="{% url 'applications:application_status' application.pk %}" class="row g-2 align-items-end">
+            {% csrf_token %}
+            <div class="col-md-4">
+              <label class="form-label-lms">Статус</label>
+              {{ status_form.status }}
+            </div>
+            <div class="col-md-5">
+              <label class="form-label-lms">Примечание</label>
+              {{ status_form.note }}
+            </div>
+            <div class="col-md-3">
+              <button type="submit" class="btn-primary-ep w-100"><i class="bi bi-check-lg me-1"></i> Обновить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="lms-card mt-3">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-clock-history me-2 text-primary"></i> История статусов</h2>
+      </div>
+      {% if history %}
+      <div class="lms-card-body">
+        <div class="d-flex flex-column gap-2">
+          {% for h in history %}
+          <div class="d-flex justify-content-between align-items-center p-2 rounded" style="background:var(--primary-bg);">
+            <div>
+              <span class="badge-ep badge-gray">{{ h.old_status|default:'Создана' }}</span>
+              <i class="bi bi-arrow-right mx-1 text-muted small"></i>
+              <span class="badge-ep badge-blue">{{ h.new_status_label }}</span>
+              {% if h.note %}<span class="small text-muted ms-2">{{ h.note }}</span>{% endif %}
+            </div>
+            <div class="small text-muted">{{ h.created_at|date:"d.m.Y H:i" }}{% if h.changed_by %} · {{ h.changed_by.get_full_name|default:h.changed_by.username }}{% endif %}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-clock-history"></i><p>История пуста.</p></div>{% endif %}
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-journal-text me-2 text-primary"></i> Заметки CRM</h2>
+      </div>
+      <div class="lms-card-body">
+        <form method="post" action="{% url 'applications:application_notes' application.pk %}">
+          {% csrf_token %}
+          {{ note_form.notes }}
+          <button type="submit" class="btn-primary-ep mt-2"><i class="bi bi-save me-1"></i> Сохранить заметки</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="lms-card mt-3">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-lightning me-2 text-primary"></i> Быстрые действия</h2>
+      </div>
+      <div class="lms-card-body d-flex flex-column gap-2">
+        <form method="post" action="{% url 'applications:application_status' application.pk %}">
+          {% csrf_token %}
+          <input type="hidden" name="status" value="contacted">
+          <input type="hidden" name="note" value="">
+          <button type="submit" class="btn-outline-ep w-100"><i class="bi bi-telephone me-1"></i> Связались</button>
+        </form>
+        <form method="post" action="{% url 'applications:application_status' application.pk %}">
+          {% csrf_token %}
+          <input type="hidden" name="status" value="test">
+          <input type="hidden" name="note" value="">
+          <button type="submit" class="btn-outline-ep w-100"><i class="bi bi-journal-check me-1"></i> Записан на тест</button>
+        </form>
+        <form method="post" action="{% url 'applications:application_status' application.pk %}">
+          {% csrf_token %}
+          <input type="hidden" name="status" value="test_passed">
+          <input type="hidden" name="note" value="">
+          <button type="submit" class="btn-outline-ep w-100"><i class="bi bi-award me-1"></i> Тест пройден</button>
+        </form>
+        {% if application.group_set and application.group_set.group_id and not application.student_id %}
+        <a href="{% url 'lms:reception_student_add' %}?application={{ application.pk }}" class="btn-teal-ep w-100"><i class="bi bi-person-plus me-1"></i> Зачислить (создать ученика)</a>
+        {% endif %}
+        <form method="post" action="{% url 'applications:application_status' application.pk %}">
+          {% csrf_token %}
+          <input type="hidden" name="status" value="lost">
+          <input type="hidden" name="note" value="">
+          <button type="submit" class="btn-outline-ep w-100 text-danger"><i class="bi bi-person-x me-1"></i> Потерянный лид</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -12,6 +12,7 @@ from django.utils import timezone
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_post_parameters
+from django.views.decorators.http import require_POST
 
 from teachers.models import Teacher
 from .models import (
@@ -132,6 +133,7 @@ def login_view(request):
 
 
 @never_cache
+@require_POST
 def logout_view(request):
     logout(request)
     messages.success(request, 'Вы вышли из системы.')
@@ -633,6 +635,15 @@ def reception_students(request):
 @login_required
 @role_required('reception', 'admin')
 def reception_student_add(request):
+    application_id = request.GET.get('application') or request.POST.get('application') or ''
+    application = None
+    if application_id:
+        try:
+            from applications.models import StudentApplication
+            application = StudentApplication.objects.select_related('group_set').filter(pk=application_id).first()
+        except Exception:
+            application = None
+
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
@@ -642,6 +653,7 @@ def reception_student_add(request):
                                         'Выберите другую группу или увеличьте лимит.')
                 return render(request, 'lms/reception/student_add.html', {
                     'form': form,
+                    'application': application,
                     'active_section': 'students',
                     'page_title': 'Новый ученик — Edu Point',
                 })
@@ -664,6 +676,14 @@ def reception_student_add(request):
             student.user = user
             student.save()
 
+            # Привязка к заявке (если пришли из CRM)
+            if application:
+                from applications.services import set_application_status
+                application.student = student
+                application.updated_by = request.user
+                application.save(update_fields=['student', 'updated_by'])
+                set_application_status(application, 'enrolled', user=request.user, note='Ученик создан')
+
             log_request_activity(request, 'Создал ученика', target=f'{first_name} {last_name}',
                                  details=f'логин: {username}, группа: {student.group.name if student.group else "—"}')
             messages.success(request, f'Ученик создан. Логин: {username}, пароль: {password}')
@@ -671,8 +691,14 @@ def reception_student_add(request):
         messages.error(request, 'Проверьте форму.')
     else:
         form = StudentForm()
+        if application:
+            form.initial['first_name'] = application.name
+            form.initial['phone'] = application.phone
+            if application.group_set and application.group_set.group_id:
+                form.initial['group'] = application.group_set.group_id
     return render(request, 'lms/reception/student_add.html', {
         'form': form,
+        'application': application,
         'active_section': 'students',
         'page_title': 'Новый ученик — Edu Point',
     })

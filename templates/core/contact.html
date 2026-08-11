@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Контакты — Edu Point{% endblock %}
+{% block title %}{% trans "Контакты" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
-    <h1>Связаться с нами</h1>
+    <h1>{% trans "Связаться с нами" %}</h1>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb justify-content-center">
-        <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Главная</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+        <li class="breadcrumb-item"><a href="{% url 'core:home' %}">{% trans "Главная" %}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{% trans "Контакты" %}</li>
       </ol>
     </nav>
   </div>
@@ -22,12 +23,12 @@
       <!-- Contact details -->
       <div class="col-lg-5" data-aos="fade-right">
         <div class="contact-info-card">
-          <h3 style="font-weight:800;margin-bottom:1.5rem;">Наш офис в Оше</h3>
+          <h3 style="font-weight:800;margin-bottom:1.5rem;">{% trans "Наш офис в Оше" %}</h3>
 
           <div class="contact-item">
             <div class="contact-item-icon">📍</div>
             <div>
-              <div class="contact-item-label">Адрес</div>
+              <div class="contact-item-label">{% trans "Адрес" %}</div>
               <div class="contact-item-value">{{ site_settings.address }}</div>
             </div>
           </div>
@@ -35,9 +36,9 @@
           <div class="contact-item">
             <div class="contact-item-icon">📞</div>
             <div>
-              <div class="contact-item-label">Телефоны</div>
+              <div class="contact-item-label">{% trans "Телефоны" %}</div>
               <div class="contact-item-value">
-                <a href="tel:0551977778">0551 977 778</a> · <a href="tel:+996551977778">+996 551 977 778</a>
+                <a href="tel:{{ site_settings.phone|cut:' ' }}">{{ site_settings.phone }}</a>
               </div>
             </div>
           </div>
@@ -57,13 +58,13 @@
           <div class="contact-item">
             <div class="contact-item-icon">🕒</div>
             <div>
-              <div class="contact-item-label">График работы</div>
-              <div class="contact-item-value">Пн - Сб: 09:00 - 19:00<br>Вс: Выходной</div>
+              <div class="contact-item-label">{% trans "График работы" %}</div>
+              <div class="contact-item-value">{% trans "Пн - Сб: 09:00 - 19:00" %}<br>{% trans "Вс: Выходной" %}</div>
             </div>
           </div>
 
           <div style="margin-top:2rem;">
-            <div class="contact-item-label" style="margin-bottom:0.75rem;">Мы в соцсетях</div>
+            <div class="contact-item-label" style="margin-bottom:0.75rem;">{% trans "Мы в соцсетях" %}</div>
             <div class="footer-social" style="margin:0;">
               {% if site_settings.instagram %}
               <a href="{{ site_settings.instagram }}" target="_blank" style="background:var(--primary);color:white;border:none;"><i class="bi bi-instagram"></i></a>
@@ -79,34 +80,34 @@
       <!-- Contact form -->
       <div class="col-lg-7" data-aos="fade-left">
         <div class="card-ep p-4 p-md-5">
-          <h3 style="font-weight:800;margin-bottom:0.5rem;">Напишите нам</h3>
-          <p style="color:var(--text-muted);margin-bottom:2rem;">Заполните форму, и наш менеджер свяжется с вами в течение 15 минут</p>
+          <h3 style="font-weight:800;margin-bottom:0.5rem;">{% trans "Напишите нам" %}</h3>
+          <p style="color:var(--text-muted);margin-bottom:2rem;">{% trans "Заполните форму, и наш менеджер свяжется с вами в течение 15 минут" %}</p>
 
           <form method="post" action="{% url 'core:contact' %}" class="form-ep" data-validate>
             {% csrf_token %}
             <div class="mb-3">
-              <label class="form-label">Ваше имя *</label>
-              <input type="text" name="name" class="form-control" placeholder="Асан Асанов" required>
+              <label class="form-label">{% trans "Ваше имя *" %}</label>
+              <input type="text" name="name" class="form-control" placeholder="{% trans 'Асан Асанов' %}" required>
             </div>
 
             <div class="row g-3 mb-3">
               <div class="col-md-6">
-                <label class="form-label">Телефон *</label>
+                <label class="form-label">{% trans "Телефон *" %}</label>
                 <input type="tel" name="phone" class="form-control" placeholder="+996 700 000 000" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label">Email (необязательно)</label>
+                <label class="form-label">{% trans "Email (необязательно)" %}</label>
                 <input type="email" name="email" class="form-control" placeholder="example@gmail.com">
               </div>
             </div>
 
             <div class="mb-4">
-              <label class="form-label">Сообщение *</label>
-              <textarea name="message" rows="4" class="form-control" placeholder="Здравствуйте, я хочу узнать подробнее про курс..." required></textarea>
+              <label class="form-label">{% trans "Сообщение *" %}</label>
+              <textarea name="message" rows="4" class="form-control" placeholder="{% trans 'Здравствуйте, я хочу узнать подробнее про курс...' %}" required></textarea>
             </div>
 
             <button type="submit" class="btn-primary-ep w-100 justify-content-center">
-              Отправить сообщение <i class="bi bi-send ms-1"></i>
+              {% trans "Отправить сообщение" %} <i class="bi bi-send ms-1"></i>
             </button>
           </form>
         </div>

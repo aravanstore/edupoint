@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Отзывы студентов — Edu Point{% endblock %}
+{% block title %}{% trans "Отзывы студентов" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
-    <h1>Отзывы наших студентов</h1>
-    <p style="color:var(--text-muted);">История успеха и впечатления от обучения в Edu Point</p>
+    <h1>{% trans "Отзывы наших студентов" %}</h1>
+    <p style="color:var(--text-muted);">{% trans "История успеха и впечатления от обучения в" %} Edu Point</p>
     <div class="mt-4">
       <button class="btn-primary-ep" data-bs-toggle="modal" data-bs-target="#addReviewModal">
-        <i class="bi bi-pencil-square"></i> Оставить отзыв
+        <i class="bi bi-pencil-square"></i> {% trans "Оставить отзыв" %}
       </button>
     </div>
   </div>
@@ -44,7 +45,7 @@
       </div>
       {% empty %}
       <div class="col-12 text-center text-muted py-5">
-        <h4>Пока нет опубликованных отзывов. Будьте первыми!</h4>
+        <h4>{% trans "Пока нет опубликованных отзывов. Будьте первыми!" %}</h4>
       </div>
       {% endfor %}
     </div>
@@ -56,21 +57,21 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-0 shadow-lg" style="border-radius:20px;">
       <div class="modal-header border-0 pb-0">
-        <h4 class="modal-title fw-bold">Оставить отзыв об Edu Point</h4>
+        <h4 class="modal-title fw-bold">{% trans "Оставить отзыв об" %} Edu Point</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body p-4">
         <form method="post" action="{% url 'reviews:list' %}" enctype="multipart/form-data" class="form-ep" data-validate>
           {% csrf_token %}
           <div class="mb-3">
-            <label class="form-label">Ваше имя *</label>
-            <input type="text" name="name" class="form-control" placeholder="Асан Асанов" required>
+            <label class="form-label">{% trans "Ваше имя" %} *</label>
+            <input type="text" name="name" class="form-control" placeholder="{% trans 'Асан Асанов' %}" required>
           </div>
 
           <div class="mb-3">
-            <label class="form-label">Курс, который вы проходили</label>
+            <label class="form-label">{% trans "Курс, который вы проходили" %}</label>
             <select name="course" class="form-select">
-              <option value="">-- Выберите курс (необязательно) --</option>
+              <option value="">-- {% trans "Выберите курс (необязательно)" %} --</option>
               {% for course in courses %}
               <option value="{{ course.id }}">{{ course.category.flag_emoji }} {{ course.name }}</option>
               {% endfor %}
@@ -78,27 +79,27 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label">Ваша оценка *</label>
+            <label class="form-label">{% trans "Ваша оценка" %} *</label>
             <select name="rating" class="form-select" required>
-              <option value="5">⭐⭐⭐⭐⭐ (5 из 5 - Отлично)</option>
-              <option value="4">⭐⭐⭐⭐ (4 из 5 - Хорошо)</option>
-              <option value="3">⭐⭐⭐ (3 из 5 - Удовлетворительно)</option>
-              <option value="2">⭐⭐ (2 из 5 - Плохо)</option>
-              <option value="1">⭐ (1 из 5 - Очень плохо)</option>
+              <option value="5">⭐⭐⭐⭐⭐ (5 {% trans "из" %} 5 - {% trans "Отлично" %})</option>
+              <option value="4">⭐⭐⭐⭐ (4 {% trans "из" %} 5 - {% trans "Хорошо" %})</option>
+              <option value="3">⭐⭐⭐ (3 {% trans "из" %} 5 - {% trans "Удовлетворительно" %})</option>
+              <option value="2">⭐⭐ (2 {% trans "из" %} 5 - {% trans "Плохо" %})</option>
+              <option value="1">⭐ (1 {% trans "из" %} 5 - {% trans "Очень плохо" %})</option>
             </select>
           </div>
 
           <div class="mb-4">
-            <label class="form-label">Текст вашего отзыва *</label>
-            <textarea name="text" rows="4" class="form-control" placeholder="Поделитесь своими впечатлениями об обучении, преподавателях и результатах..." required></textarea>
+            <label class="form-label">{% trans "Текст вашего отзыва" %} *</label>
+            <textarea name="text" rows="4" class="form-control" placeholder="{% trans 'Поделитесь своими впечатлениями об обучении, преподавателях и результатах...' %}" required></textarea>
           </div>
 
           <div class="alert alert-info py-2 px-3 mb-4 fs-6" style="border-radius:12px;">
-            <i class="bi bi-info-circle me-1"></i> Ваш отзыв будет опубликован сразу после проверки модератором.
+            <i class="bi bi-info-circle me-1"></i> {% trans "Ваш отзыв будет опубликован сразу после проверки модератором." %}
           </div>
 
           <button type="submit" class="btn-primary-ep w-100 justify-content-center py-3 fs-5">
-            Отправить отзыв <i class="bi bi-send ms-2"></i>
+            {% trans "Отправить отзыв" %} <i class="bi bi-send ms-2"></i>
           </button>
         </form>
       </div>

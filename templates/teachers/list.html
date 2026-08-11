@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Преподаватели — Edu Point{% endblock %}
+{% block title %}{% trans "Преподаватели" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
-    <h1>Наши преподаватели</h1>
+    <h1>{% trans "Наши преподаватели" %}</h1>
     <p style="color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto;">
-      Команда квалифицированных преподавателей с опытом стажировки за рубежом
+      {% trans "Команда квалифицированных преподавателей с опытом стажировки за рубежом" %}
     </p>
   </div>
 </section>
@@ -18,7 +19,7 @@
     <div class="row g-4">
       {% for teacher in teachers %}
       <div class="col-lg-4 col-md-6" data-aos="fade-up">
-        <div class="teacher-card h-100 d-flex flex-column align-items-center">
+        <a href="{% url 'teachers:detail' teacher.pk %}" class="teacher-card h-100 d-flex flex-column align-items-center text-decoration-none">
           {% if teacher.photo %}
           <img src="{{ teacher.photo.url }}" alt="{{ teacher.name }}" class="teacher-avatar mb-3">
           {% else %}
@@ -32,10 +33,14 @@
           <p class="text-muted fs-6 mb-3" style="line-height:1.6;">{{ teacher.bio }}</p>
           {% endif %}
 
+          {% if teacher.reviews_count %}
+          <div class="mb-2 small text-muted">⭐ {{ teacher.average_rating|floatformat:1 }} · {{ teacher.reviews_count }} отзыв{{ teacher.reviews_count|pluralize:",а,ов" }}</div>
+          {% endif %}
+
           <div class="mt-auto">
-            <span class="experience">{{ teacher.experience_years }} лет стажа</span>
+            <span class="experience">{{ teacher.experience_years }} {% trans "лет стажа" %}</span>
           </div>
-        </div>
+        </a>
       </div>
       {% empty %}
       <!-- Static showcase if empty -->
@@ -43,27 +48,27 @@
         <div class="teacher-card">
           <div class="teacher-avatar-placeholder mb-3">K</div>
           <h4 class="fw-bold">Ким Мин Сон</h4>
-          <div class="position text-primary">Преподаватель корейского языка</div>
-          <p class="text-muted fs-6 mt-2">Носитель языка, эксперт по подготовке к TOPIK I & II.</p>
-          <span class="experience">7 лет стажа</span>
+          <div class="position text-primary">{% trans "Преподаватель корейского языка" %}</div>
+          <p class="text-muted fs-6 mt-2">{% trans "Носитель языка, эксперт по подготовке к TOPIK I & II." %}</p>
+          <span class="experience">7 {% trans "лет стажа" %}</span>
         </div>
       </div>
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <div class="teacher-card">
           <div class="teacher-avatar-placeholder mb-3">A</div>
           <h4 class="fw-bold">Алина Сергеева</h4>
-          <div class="position text-primary">Преподаватель английского (IELTS 8.5)</div>
-          <p class="text-muted fs-6 mt-2">Сертифицированный CELTA преподаватель.</p>
-          <span class="experience">5 лет стажа</span>
+          <div class="position text-primary">{% trans "Преподаватель английского (IELTS 8.5)" %}</div>
+          <p class="text-muted fs-6 mt-2">{% trans "Сертифицированный CELTA преподаватель." %}</p>
+          <span class="experience">5 {% trans "лет стажа" %}</span>
         </div>
       </div>
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
         <div class="teacher-card">
           <div class="teacher-avatar-placeholder mb-3">M</div>
           <h4 class="fw-bold">Максим Шмидт</h4>
-          <div class="position text-primary">Преподаватель немецкого языка (C1)</div>
-          <p class="text-muted fs-6 mt-2">Выпускник немецкого университета, эксперт по Ausbildung.</p>
-          <span class="experience">6 лет стажа</span>
+          <div class="position text-primary">{% trans "Преподаватель немецкого языка (C1)" %}</div>
+          <p class="text-muted fs-6 mt-2">{% trans "Выпускник немецкого университета, эксперт по Ausbildung." %}</p>
+          <span class="experience">6 {% trans "лет стажа" %}</span>
         </div>
       </div>
       {% endfor %}

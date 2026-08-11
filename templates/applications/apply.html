@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Онлайн запись на курс — Edu Point{% endblock %}
+{% block title %}{% trans "Онлайн запись на курс" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="apply-hero">
   <div class="container text-center" data-aos="fade-up">
-    <h1>Запись на курсы Edu Point</h1>
-    <p style="color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto;">
-      Заполните форму ниже. Наш менеджер свяжется с вами и подберёт удобное расписание!
+    <h1>{% trans "Запись на курсы Edu Point" %}</h1>
+    <p style="color:var(--text-muted);font-size:1.1rem;max-width:620px;margin:0 auto;">
+      {% if course_filter_active %}
+        {% for s in open_sets %}
+          {% if forloop.first %}{% trans "Вы записываетесь на" %} {{ s.course.category.name|lower }}. {% endif %}
+        {% endfor %}
+      {% endif %}
+      {% trans "Выберите открытый набор — мы покажем расписание, преподавателя и свободные места." %}
     </p>
   </div>
 </section>
@@ -23,78 +29,191 @@
             <div class="col-md-4">
               <div class="apply-step m-0">
                 <div class="apply-step-num">1</div>
-                <div class="apply-step-text"><strong>Заявка</strong> Заполните форму</div>
+                <div class="apply-step-text"><strong>{% trans "Набор" %}</strong> {% trans "Выберите группу" %}</div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="apply-step m-0">
                 <div class="apply-step-num">2</div>
-                <div class="apply-step-text"><strong>Звонок</strong> Подбор группы</div>
+                <div class="apply-step-text"><strong>{% trans "Звонок" %}</strong> {% trans "Подтверждение" %}</div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="apply-step m-0">
                 <div class="apply-step-num">3</div>
-                <div class="apply-step-text"><strong>Старт</strong> Первое занятие</div>
+                <div class="apply-step-text"><strong>{% trans "Старт" %}</strong> {% trans "Первое занятие" %}</div>
               </div>
             </div>
           </div>
 
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          {% if open_sets %}
           <form method="post" action="{% url 'applications:apply' %}" class="form-ep" data-validate>
             {% csrf_token %}
 
+            <div class="mb-4">
+              <label class="form-label">{% trans "Выберите открытый набор" %} *
+                {% if course_filter_active %}
+                  <a href="{% url 'applications:apply' %}" class="ms-2" style="font-size:0.85rem;">{% trans "показать все языки" %}</a>
+                {% endif %}
+              </label>
+              <div class="d-flex flex-column gap-3" id="setList">
+                {% trans "Преподаватель уточняется" as default_teacher_text %}
+                {% trans "уточняется" as tbd_text %}
+                {% for s in open_sets %}
+                <label class="set-card" data-set-card>
+                  <input type="radio" name="group_set" value="{{ s.id }}"
+                         {% if selected_set_id == s.id|stringformat:"s" %}checked{% endif %}
+                         class="set-card-radio" data-set-input>
+                  <div class="d-flex flex-column flex-md-row align-items-md-center gap-3 w-100">
+                    <div class="set-card-flag">{{ s.course.category.flag_emoji }}</div>
+                    <div class="flex-grow-1 min-width-0">
+                      <div class="set-card-title">{{ s.course.name }}</div>
+                      <div class="set-card-sub">
+                        👨‍🏫 {{ s.teacher.name|default:default_teacher_text }}
+                        {% if s.branch %} · 🏢 {{ s.branch.name }}{% endif %}
+                      </div>
+                      <div class="set-card-meta">
+                        <span>🗓 {{ s.days_display|default:"—" }} {{ s.time_display }}</span>
+                        <span>🚀 {% trans "Старт" %}: {{ s.start_date|date:"d.m.Y"|default:tbd_text }}</span>
+                      </div>
+                    </div>
+                    <div class="set-card-seats text-md-end">
+                      {% if s.capacity %}
+                        <span class="badge {% if s.seats_left <= 2 %}bg-danger{% elif s.seats_left <= 5 %}bg-warning text-dark{% else %}bg-success{% endif %}">
+                          {% trans "Свободно" %}: {{ s.seats_left }}
+                        </span>
+                      {% else %}
+                        <span class="badge bg-success">{% trans "Мест достаточно" %}</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </label>
+                {% endfor %}
+              </div>
+            </div>
+
             <div class="mb-3">
-              <label class="form-label">Ваше полное имя *</label>
-              <input type="text" name="name" class="form-control" placeholder="Например: Асан Асанов" required>
+              <label class="form-label">{% trans "Ваше полное имя *" %}</label>
+              <input type="text" name="name" class="form-control" placeholder="{% trans 'Например: Асан Асанов' %}" required>
             </div>
 
             <div class="row g-3 mb-3">
               <div class="col-md-6">
-                <label class="form-label">Номер телефона (WhatsApp) *</label>
+                <label class="form-label">{% trans "Номер телефона (WhatsApp) *" %}</label>
                 <input type="tel" name="phone" class="form-control" placeholder="+996 700 000 000" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label">Возраст</label>
-                <input type="number" name="age" class="form-control" placeholder="Например: 18" min="7" max="80">
+                <label class="form-label">{% trans "Возраст" %}</label>
+                <input type="number" name="age" class="form-control" placeholder="{% trans 'Например: 18' %}" min="7" max="80">
               </div>
             </div>
 
             <div class="row g-3 mb-3">
               <div class="col-md-6">
-                <label class="form-label">Выбор курса</label>
-                <select name="course" class="form-select">
-                  <option value="">-- Выберите курс --</option>
-                  {% for course in courses %}
-                  <option value="{{ course.id }}" {% if selected_course_id == course.id|stringformat:"s" %}selected{% endif %}>
-                    {{ course.category.flag_emoji }} {{ course.name }}
-                  </option>
-                  {% endfor %}
+                <label class="form-label">{% trans "Ваш текущий уровень языка" %}</label>
+                <select name="language_level" class="form-select">
+                  <option value="zero">{% trans "С нуля (Никогда не изучал)" %}</option>
+                  <option value="beginner">{% trans "Начальный (Знаю алфавит/слова)" %}</option>
+                  <option value="elementary">{% trans "Элементарный (A2)" %}</option>
+                  <option value="intermediate">{% trans "Средний (B1-B2)" %}</option>
+                  <option value="advanced">{% trans "Продвинутый (C1)" %}</option>
                 </select>
               </div>
               <div class="col-md-6">
-                <label class="form-label">Ваш текущий уровень языка</label>
-                <select name="language_level" class="form-select">
-                  <option value="zero">С нуля (Никогда не изучал)</option>
-                  <option value="beginner">Начальный (Знаю алфавит/слова)</option>
-                  <option value="elementary">Элементарный (A2)</option>
-                  <option value="intermediate">Средний (B1-B2)</option>
-                  <option value="advanced">Продвинутый (C1)</option>
+                <label class="form-label">{% trans "Откуда вы узнали о нас?" %}</label>
+                <select name="source" class="form-select">
+                  <option value="instagram">Instagram</option>
+                  <option value="telegram">Telegram</option>
+                  <option value="google">Google</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="tiktok">TikTok</option>
+                  <option value="referral">{% trans "Рекомендация" %}</option>
+                  <option value="other">{% trans "Другое" %}</option>
                 </select>
               </div>
             </div>
 
             <div class="mb-4">
-              <label class="form-label">Дополнительный комментарий / Вопрос</label>
-              <textarea name="comment" rows="3" class="form-control" placeholder="Например: Удобно заниматься вечером после 18:00..."></textarea>
+              <label class="form-label">{% trans "Дополнительный комментарий / Вопрос" %}</label>
+              <textarea name="comment" rows="3" class="form-control" placeholder="{% trans 'Ваш вопрос...' %}"></textarea>
             </div>
 
             <button type="submit" class="btn-primary-ep w-100 justify-content-center py-3 fs-5">
-              <i class="bi bi-send-fill me-2"></i> Записаться на курс
+              <i class="bi bi-send-fill me-2"></i> {% trans "Отправить заявку" %}
             </button>
           </form>
+          {% else %}
+          <div class="text-center py-5">
+            <div style="font-size:3rem;">📭</div>
+            <h4 class="mt-3">{% trans "Сейчас нет открытых наборов" %}</h4>
+            <p style="color:var(--text-muted);">{% trans "Новые наборы открываются регулярно. Оставьте свои контакты в Telegram-канале Edu Point, и мы сообщим о старте." %}</p>
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .set-card {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--border, #e2e8f0);
+    border-radius: 14px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color .15s, box-shadow .15s, background .15s;
+    position: relative;
+    background: #fff;
+  }
+  .set-card:has(input:checked) {
+    border-color: var(--primary, #0EA5E9);
+    background: rgba(14, 165, 233, 0.04);
+    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.12);
+  }
+  .set-card-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .set-card-flag {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+  .set-card-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .set-card-sub {
+    color: var(--text-muted, #64748b);
+    font-size: .9rem;
+  }
+  .set-card-meta {
+    color: var(--text-muted, #64748b);
+    font-size: .85rem;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-set-card]').forEach(card => {
+    const input = card.querySelector('[data-set-input]');
+    card.addEventListener('click', () => {
+      document.querySelectorAll('[data-set-input]').forEach(i => i.checked = false);
+      input.checked = true;
+    });
+  });
+</script>
 {% endblock %}

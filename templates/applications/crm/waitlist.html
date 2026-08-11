@@ -1,0 +1,57 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Лист ожидания{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Лист ожидания{% endblock %}
+{% block lms_heading %}Лист ожидания{% endblock %}
+
+{% block lms_content %}
+{% if messages %}{% for message in messages %}<div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">{{ message }}</div>{% endfor %}{% endif %}
+
+<div class="lms-card">
+  <div class="journal-toolbar">
+    <form method="get" class="d-flex gap-2 flex-wrap">
+      <select name="set" class="form-select" style="max-width:280px;" onchange="this.form.submit()">
+        <option value="">Все наборы</option>
+        {% for s in sets %}
+        <option value="{{ s.pk }}" {% if set_filter == s.pk|stringformat:"s" %}selected{% endif %}>{{ s.name }}</option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+
+  {% if entries %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr><th>Имя</th><th>Телефон</th><th>Набор</th><th>Записан</th><th>Состояние</th><th>Действия</th></tr>
+      </thead>
+      <tbody>
+        {% for w in entries %}
+        <tr>
+          <td class="fw-bold">{{ w.name }}</td>
+          <td>{{ w.phone }}</td>
+          <td><a href="{% url 'applications:set_detail' w.group_set.pk %}">{{ w.group_set.name }}</a></td>
+          <td>{{ w.created_at|date:"d.m.Y" }}</td>
+          <td>
+            {% if w.notified %}<span class="badge-ep badge-green"><i class="bi bi-check"></i> Уведомлён о месте</span>
+            {% else %}<span class="badge-ep badge-amber">Ожидает</span>{% endif %}
+          </td>
+          <td>
+            {% if not w.notified %}
+            <form method="post" action="{% url 'applications:waitlist_notify' w.pk %}" class="d-inline">
+              {% csrf_token %}
+              <button type="submit" class="btn-outline-ep btn-sm-ep"><i class="bi bi-send me-1"></i> Место освободилось — уведомить</button>
+            </form>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms"><i class="bi bi-hourglass"></i><p>Лист ожидания пуст.</p></div>
+  {% endif %}
+</div>
+{% endblock %}

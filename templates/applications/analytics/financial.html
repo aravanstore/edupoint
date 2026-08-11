@@ -1,0 +1,146 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Финансовая аналитика{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Аналитика{% endblock %}
+{% block lms_heading %}Финансовая аналитика{% endblock %}
+
+{% block lms_content %}
+{% include 'applications/analytics/_tabs.html' %}
+
+<div class="row g-3">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon green"><i class="bi bi-cash-stack"></i></div>
+      <div><div class="stat-num">{{ revenue_total|floatformat:0 }} ₸</div><div class="stat-lbl">Общая выручка</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon red"><i class="bi bi-exclamation-octagon"></i></div>
+      <div><div class="stat-num">{{ debts|floatformat:0 }} ₸</div><div class="stat-lbl">Задолженности ({{ frozen_count }})</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon amber"><i class="bi bi-hourglass-split"></i></div>
+      <div><div class="stat-num">{{ expected|floatformat:0 }} ₸</div><div class="stat-lbl">Ожидаем оплаты ({{ pending_count }})</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-receipt"></i></div>
+      <div><div class="stat-num">{{ paid_invoices }}</div><div class="stat-lbl">Оплаченных счетов (месяц)</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-cash-coin"></i></div>
+      <div><div class="stat-num">{{ avg_check|floatformat:0 }} ₸</div><div class="stat-lbl">Средний чек</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon purple"><i class="bi bi-graph-up-arrow"></i></div>
+      <div><div class="stat-num">{{ ltv|floatformat:0 }} ₸</div><div class="stat-lbl">LTV ученика</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mt-0">
+  <div class="col-lg-7">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-bar-chart me-2 text-primary"></i> Выручка по месяцам</h2>
+      </div>
+      <div class="lms-card-body">
+        <canvas id="chartFin" height="110"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-building me-2 text-primary"></i> По филиалам</h2>
+      </div>
+      {% if by_branch %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead><tr><th>Филиал</th><th>Студентов</th><th>Доход</th></tr></thead>
+          <tbody>
+            {% for b in by_branch %}
+            <tr>
+              <td class="fw-bold">{{ b.name }}</td>
+              <td>{{ b.students }}</td>
+              <td>{{ b.revenue|floatformat:0 }} ₸</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-building"></i><p>Нет данных.</p></div>{% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mt-0">
+  <div class="col-lg-6">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-diagram-3 me-2 text-primary"></i> По курсам</h2>
+      </div>
+      {% if by_course %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead><tr><th>Курс</th><th>Студентов</th><th>Доход</th></tr></thead>
+          <tbody>
+            {% for c in by_course %}
+            <tr>
+              <td class="fw-bold">{{ c.name }}</td>
+              <td>{{ c.students }}</td>
+              <td>{{ c.revenue|floatformat:0 }} ₸</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-diagram-3"></i><p>Нет данных.</p></div>{% endif %}
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-person-workspace me-2 text-primary"></i> По преподавателям</h2>
+      </div>
+      {% if by_teacher %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead><tr><th>Преподаватель</th><th>Студентов</th><th>Доход</th></tr></thead>
+          <tbody>
+            {% for t in by_teacher %}
+            <tr>
+              <td class="fw-bold">{{ t.name }}</td>
+              <td>{{ t.students }}</td>
+              <td>{{ t.revenue|floatformat:0 }} ₸</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-person-workspace"></i><p>Нет данных.</p></div>{% endif %}
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function () {
+  var data = {{ revenue_by_month|safe }};
+  new Chart(document.getElementById('chartFin'), {
+    type: 'bar',
+    data: { labels: data.map(function (r) { return r.label; }), datasets: [{ label: 'Выручка', data: data.map(function (r) { return r.total; }), backgroundColor: '#10b981' }] },
+    options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { precision: 0 } } } }
+  });
+})();
+</script>
+{% endblock %}

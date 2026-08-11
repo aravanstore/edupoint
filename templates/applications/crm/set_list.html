@@ -1,0 +1,74 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Наборы групп{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Наборы{% endblock %}
+{% block lms_heading %}Наборы групп{% endblock %}
+
+{% block lms_content %}
+<div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+  <div class="btn-group" role="group">
+    <a href="{% url 'applications:set_list' %}" class="btn-outline-ep {% if not status_filter %}btn-outline-ep-active{% endif %}">Все</a>
+    <a href="?status=open" class="btn-outline-ep {% if status_filter == 'open' %}btn-outline-ep-active{% endif %}">Открытые ({{ counts.open }})</a>
+    <a href="?status=closed" class="btn-outline-ep {% if status_filter == 'closed' %}btn-outline-ep-active{% endif %}">Закрытые ({{ counts.closed }})</a>
+    <a href="?status=archived" class="btn-outline-ep {% if status_filter == 'archived' %}btn-outline-ep-active{% endif %}">Архив ({{ counts.archived }})</a>
+  </div>
+  <div class="flex-grow-1"></div>
+  <a href="{% url 'applications:set_create' %}" class="btn-teal-ep text-nowrap">
+    <i class="bi bi-plus-lg me-1"></i> Создать набор
+  </a>
+</div>
+
+<div class="lms-card">
+  {% if sets %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Набор</th>
+          <th>Курс</th>
+          <th>Преподаватель</th>
+          <th>Расписание</th>
+          <th>Старт</th>
+          <th>Места</th>
+          <th>Заполненность</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in sets %}
+        <tr style="cursor:pointer;" onclick="location.href='{% url 'applications:set_detail' s.pk %}'">
+          <td class="text-muted small">#{{ s.pk }}</td>
+          <td class="fw-bold">{{ s.name }}</td>
+          <td>{{ s.course.name }}</td>
+          <td>{{ s.teacher.name|default:'—' }}</td>
+          <td>{{ s.schedule_display }}</td>
+          <td>{{ s.start_date|date:"d.m.Y"|default:'—' }}</td>
+          <td>
+            {% if s.capacity %}
+              {{ s.seats_left_val }} / {{ s.capacity }}
+            {% else %}∞{% endif %}
+          </td>
+          <td style="min-width:160px;">
+            <div class="progress-lms"><div class="progress-lms-bar" style="width:{{ s.fill }}%;background:{% if s.fill >= 100 %}#ef4444{% elif s.fill >= 80 %}#f59e0b{% else %}#22c55e{% endif %};"></div></div>
+            <span class="small text-muted">{{ s.fill }}%</span>
+          </td>
+          <td>
+            {% if s.status == 'open' %}<span class="badge-ep badge-green">Открыт</span>
+            {% elif s.status == 'closed' %}<span class="badge-ep badge-amber">Закрыт</span>
+            {% else %}<span class="badge-ep badge-gray">Архив</span>{% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms">
+    <i class="bi bi-inboxes"></i>
+    <p>Наборов нет. Создайте первый набор — и заявки с сайта пойдут именно в него.</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

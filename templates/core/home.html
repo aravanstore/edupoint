@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -18,24 +19,24 @@
       <!-- Left: Text content -->
       <div class="col-lg-6" data-aos="fade-right">
         <div class="hero-badge">
-          <span>🎓</span> Языковой центр в Оше
+          <span>🎓</span> {% trans "Языковой центр в Оше" %}
         </div>
 
         <h1 class="hero-title">
-          Открой мир<br>
-          через <span class="highlight">языки</span>
+          {% trans "Открой мир" %}<br>
+          {% trans "через" %} <span class="highlight">{% trans "языки" %}</span>
         </h1>
 
         <p class="hero-subtitle">
-          Edu Point — ваш путь к международным возможностям. Корейский, английский, немецкий и китайский язык. Подготовка к TOPIK, IELTS, GOETHE.
+          {% trans "Edu Point — ваш путь к международным возможностям. Корейский, английский, немецкий и китайский язык. Подготовка к TOPIK, IELTS, GOETHE." %}
         </p>
 
         <div class="hero-actions">
           <a href="{% url 'applications:apply' %}" class="btn-primary-ep">
-            <i class="bi bi-pencil-square"></i> Записаться на курс
+            <i class="bi bi-pencil-square"></i> {% trans "Записаться на курс" %}
           </a>
           <a href="{% url 'courses:list' %}" class="btn-outline-ep">
-            <i class="bi bi-book"></i> Все курсы
+            <i class="bi bi-book"></i> {% trans "Все курсы" %}
           </a>
         </div>
 
@@ -43,19 +44,19 @@
         <div class="hero-stats">
           <div class="hero-stat">
             <span class="hero-stat-number counter" data-target="500" data-suffix="+">0</span>
-            <div class="hero-stat-label">Студентов</div>
+            <div class="hero-stat-label">{% trans "Студентов" %}</div>
           </div>
           <div class="hero-stat">
             <span class="hero-stat-number counter" data-target="4" data-suffix="">0</span>
-            <div class="hero-stat-label">Языка</div>
+            <div class="hero-stat-label">{% trans "Языка" %}</div>
           </div>
           <div class="hero-stat">
             <span class="hero-stat-number counter" data-target="6" data-suffix="">0</span>
-            <div class="hero-stat-label">Курсов в программе</div>
+            <div class="hero-stat-label">{% trans "Курсов в программе" %}</div>
           </div>
           <div class="hero-stat">
             <span class="hero-stat-number counter" data-target="20" data-suffix="+">0</span>
-            <div class="hero-stat-label">Лет стажа</div>
+            <div class="hero-stat-label">{% trans "Лет стажа" %}</div>
           </div>
         </div>
       </div>
@@ -64,17 +65,17 @@
       <div class="col-lg-6 d-none d-lg-flex justify-content-center" data-aos="fade-left">
         <div class="hero-visual">
           <div class="hero-logo-circle">
-            <img src="{% static 'images/edu_logo.png' %}" alt="Edu Point">
+            <img src="{% static 'images/edu_logo_v3.png' %}" alt="Edu Point">
           </div>
           <!-- Floating info cards -->
           <div class="hero-float-card">
-            <span>🇰🇷</span> TOPIK Сертификат
+            <span>🇰🇷</span> {% trans "TOPIK Сертификат" %}
           </div>
           <div class="hero-float-card">
-            <span>🎓</span> 500+ Студентов
+            <span>🎓</span> {% trans "500+ Студентов" %}
           </div>
           <div class="hero-float-card">
-            <span>⭐</span> Топ центр в Оше
+            <span>⭐</span> {% trans "Топ центр в Оше" %}
           </div>
         </div>
       </div>
@@ -89,19 +90,20 @@
 <section class="section">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">Направления</div>
-      <h2 class="section-title">Выбери свой <span class="text-gradient">язык</span></h2>
-      <p class="section-subtitle">Четыре языковых направления с профессиональными преподавателями и проверенными методиками</p>
+      <div class="section-tag">{% trans "Направления" %}</div>
+      <h2 class="section-title">{% trans "Выбери свой" %} <span class="text-gradient">{% trans "язык" %}</span></h2>
+      <p class="section-subtitle">{% trans "Четыре языковых направления с профессиональными преподавателями и проверенными методиками" %}</p>
     </div>
 
     <div class="row g-4">
+      {% trans "Профессиональное обучение с нуля" as default_category_desc %}
       {% for category in categories %}
       <div class="col-6 col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:'0' }}00">
         <a href="{% url 'courses:language' category.slug %}" class="language-card language-card-{{ category.language_code }}">
           <span class="flag">{{ category.flag_emoji }}</span>
           <h3>{{ category.name }}</h3>
-          <p>{{ category.description|default:"Профессиональное обучение с нуля" }}</p>
-          <span class="course-count">{{ category.courses.count }} курса</span>
+          <p>{{ category.description|default:default_category_desc }}</p>
+          <span class="course-count">{{ category.courses.count }} {% trans "курса" %}</span>
         </a>
       </div>
       {% empty %}
@@ -109,33 +111,33 @@
       <div class="col-6 col-lg-3 col-md-6" data-aos="zoom-in">
         <a href="{% url 'courses:list' %}" class="language-card language-card-korean">
           <span class="flag">🇰🇷</span>
-          <h3>Корейский</h3>
-          <p>С нуля до TOPIK. Учёба в Корее</p>
-          <span class="course-count">Главный курс</span>
+          <h3>{% trans "Корейский" %}</h3>
+          <p>{% trans "С нуля до TOPIK. Учёба в Корее" %}</p>
+          <span class="course-count">{% trans "Главный курс" %}</span>
         </a>
       </div>
       <div class="col-6 col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
         <a href="{% url 'courses:list' %}" class="language-card language-card-english">
           <span class="flag">🇬🇧</span>
-          <h3>Английский</h3>
-          <p>Подготовка к IELTS. Все уровни</p>
+          <h3>{% trans "Английский" %}</h3>
+          <p>{% trans "Подготовка к IELTS. Все уровни" %}</p>
           <span class="course-count">IELTS Ready</span>
         </a>
       </div>
       <div class="col-6 col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
         <a href="{% url 'courses:list' %}" class="language-card language-card-german">
           <span class="flag">🇩🇪</span>
-          <h3>Немецкий</h3>
-          <p>Подготовка к Goethe-Zertifikat</p>
+          <h3>{% trans "Немецкий" %}</h3>
+          <p>{% trans "Подготовка к Goethe-Zertifikat" %}</p>
           <span class="course-count">GOETHE Prep</span>
         </a>
       </div>
       <div class="col-6 col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
         <a href="{% url 'courses:list' %}" class="language-card language-card-chinese">
           <span class="flag">🇨🇳</span>
-          <h3>Китайский</h3>
-          <p>Мандаринский диалект. Иероглифы</p>
-          <span class="course-count">Новый курс</span>
+          <h3>{% trans "Китайский" %}</h3>
+          <p>{% trans "Мандаринский диалект. Иероглифы" %}</p>
+          <span class="course-count">{% trans "Новый курс" %}</span>
         </a>
       </div>
       {% endfor %}
@@ -144,33 +146,89 @@
 </section>
 
 <!-- ============================================================
-     RECRUITMENT SECTION - Chinese & Korean
+     RECRUITMENT SECTION - Открытые наборы (динамически из CRM)
      ============================================================ -->
 <section class="section mobile-enrollment">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">Набор</div>
-      <h2 class="section-title">Открыт набор на курсы <span class="text-gradient">китайского и корейского</span> языков</h2>
-      <p class="section-subtitle">Начните изучать уже сегодня с профессиональными преподавателями.</p>
+      <div class="section-tag">{% trans "Набор" %}</div>
+      <h2 class="section-title">{% trans "Открытые" %} <span class="text-gradient">{% trans "наборы" %}</span> {% trans "на курсы" %}</h2>
+      <p class="section-subtitle">{% trans "Начните изучать уже сегодня с профессиональными преподавателями." %}</p>
     </div>
+
+    {% if open_sets %}
+    <div class="row g-4">
+      {% for set in open_sets %}
+      <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0 }}00">
+        <div class="card-ep p-4 h-100">
+          <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+            <div>
+              {% if set.course.category %}
+              <div class="course-badge mb-1">{{ set.course.category.flag_emoji }} {{ set.course.category.name }}</div>
+              {% endif %}
+              <h4 class="mb-0">{{ set.name }}</h4>
+            </div>
+            {% if set.capacity %}
+            <span class="badge bg-light text-dark border text-nowrap">{{ set.seats_left }} {% trans "мест своб." %}</span>
+            {% endif %}
+          </div>
+
+          <p class="text-muted small mb-2">
+            <i class="bi bi-calendar3"></i> {{ set.schedule_display }}
+            {% if set.start_date %} · {% trans "старт" %} {{ set.start_date|date:"d.m.Y" }}{% endif %}
+          </p>
+
+          {% if set.teacher %}
+          <p class="mb-3">
+            <i class="bi bi-person-badge text-primary"></i>
+            {% trans "Преподаватель:" %} <a href="{% url 'teachers:detail' set.teacher.pk %}" class="fw-semibold">{{ set.teacher.name }}</a>
+          </p>
+          {% endif %}
+
+          {% if set.active_applications %}
+          <div class="table-responsive mb-3">
+            <table class="table table-sm align-middle mb-0">
+              <thead>
+                <tr><th style="width:2.5rem;">#</th><th>{% trans "ФИО" %}</th><th>{% trans "Телефон" %}</th></tr>
+              </thead>
+              <tbody>
+                {% for a in set.active_applications %}
+                <tr>
+                  <td class="text-muted">{{ forloop.counter }}</td>
+                  <td>{{ a.masked_name }}</td>
+                  <td>{{ a.masked_phone }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% endif %}
+
+          <a href="{% url 'applications:apply' %}?set={{ set.pk }}" class="btn-primary-ep w-100 justify-content-center">{% trans "Оставить заявку" %}</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
     <div class="row g-4">
       <div class="col-lg-6 col-md-12" data-aos="zoom-in">
         <div class="card-ep p-4 h-100 text-center">
-          <img src="{% static 'images/chinese_course.png' %}" alt="Китайский курс" class="mb-3" style="height:80px;object-fit:contain;">
-          <h4>Китайский язык</h4>
-          <p>Мандаринский диалект, иероглифы, разговорный уровень.</p>
-          <a href="{% url 'applications:apply' %}?course=chinese" class="btn-primary-ep mt-3">Оставить заявку</a>
+          <img src="{% static 'images/chinese_course.png' %}" alt="{% trans 'Китайский курс' %}" class="mb-3" style="height:80px;object-fit:contain;">
+          <h4>{% trans "Китайский язык" %}</h4>
+          <p>{% trans "Мандаринский диалект, иероглифы, разговорный уровень." %}</p>
+          <a href="{% url 'applications:apply' %}?course=chinese" class="btn-primary-ep mt-3">{% trans "Оставить заявку" %}</a>
         </div>
       </div>
       <div class="col-lg-6 col-md-12" data-aos="zoom-in" data-aos-delay="100">
         <div class="card-ep p-4 h-100 text-center">
-          <img src="{% static 'images/korean_course.png' %}" alt="Корейский курс" class="mb-3" style="height:80px;object-fit:contain;">
-          <h4>Корейский язык</h4>
-          <p>Подготовка к TOPIK, обучение с нуля до продвинутого уровня.</p>
-          <a href="{% url 'applications:apply' %}?course=korean" class="btn-primary-ep mt-3">Оставить заявку</a>
+          <img src="{% static 'images/korean_course.png' %}" alt="{% trans 'Корейский курс' %}" class="mb-3" style="height:80px;object-fit:contain;">
+          <h4>{% trans "Корейский язык" %}</h4>
+          <p>{% trans "Подготовка к TOPIK, обучение с нуля до продвинутого уровня." %}</p>
+          <a href="{% url 'applications:apply' %}?course=korean" class="btn-primary-ep mt-3">{% trans "Оставить заявку" %}</a>
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
 </section>
 
@@ -181,18 +239,18 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6" data-aos="fade-right">
-        <div class="section-tag" style="background:rgba(239,68,68,0.1);color:#DC2626;border-color:rgba(239,68,68,0.2);">🇰🇷 Главное направление</div>
-        <h2 class="section-title" style="margin-top:1rem;">Корейский язык —<br>наш <span class="text-gradient">приоритет</span></h2>
+        <div class="section-tag" style="background:rgba(239,68,68,0.1);color:#DC2626;border-color:rgba(239,68,68,0.2);">🇰🇷 {% trans "Главное направление" %}</div>
+        <h2 class="section-title" style="margin-top:1rem;">{% trans "Корейский язык —" %}<br>{% trans "наш" %} <span class="text-gradient">{% trans "приоритет" %}</span></h2>
         <p style="font-size:1.05rem;color:var(--text-secondary);line-height:1.8;margin:1.5rem 0;">
-          Мечтаете учиться или работать в Корее? Edu Point — ваш лучший старт. Мы специализируемся на корейском языке и предлагаем полный путь: от нулевого уровня до сдачи TOPIK и поступления в корейские университеты.
+          {% trans "Мечтаете учиться или работать в Корее? Edu Point — ваш лучший старт. Мы специализируемся на корейском языке и предлагаем полный путь: от нулевого уровня до сдачи TOPIK и поступления в корейские университеты." %}
         </p>
         <div class="row g-3">
           <div class="col-6">
             <div class="feature-item" style="padding:1rem;background:white;border-radius:12px;border:1px solid var(--border);">
               <div class="feature-icon" style="background:linear-gradient(135deg,#EF4444,#DC2626);width:44px;height:44px;font-size:1.2rem;">📚</div>
               <div class="feature-content">
-                <h4 style="font-size:0.9rem;">Корейский с нуля</h4>
-                <p style="font-size:0.8rem;">Ханыль, грамматика, разговор</p>
+                <h4 style="font-size:0.9rem;">{% trans "Корейский с нуля" %}</h4>
+                <p style="font-size:0.8rem;">{% trans "Ханыль, грамматика, разговор" %}</p>
               </div>
             </div>
           </div>
@@ -200,8 +258,8 @@
             <div class="feature-item" style="padding:1rem;background:white;border-radius:12px;border:1px solid var(--border);">
               <div class="feature-icon" style="background:linear-gradient(135deg,#EF4444,#DC2626);width:44px;height:44px;font-size:1.2rem;">🏆</div>
               <div class="feature-content">
-                <h4 style="font-size:0.9rem;">Подготовка TOPIK</h4>
-                <p style="font-size:0.8rem;">TOPIK I и TOPIK II</p>
+                <h4 style="font-size:0.9rem;">{% trans "Подготовка TOPIK" %}</h4>
+                <p style="font-size:0.8rem;">{% trans "TOPIK I и TOPIK II" %}</p>
               </div>
             </div>
           </div>
@@ -209,8 +267,8 @@
             <div class="feature-item" style="padding:1rem;background:white;border-radius:12px;border:1px solid var(--border);">
               <div class="feature-icon" style="background:linear-gradient(135deg,#EF4444,#DC2626);width:44px;height:44px;font-size:1.2rem;">🎓</div>
               <div class="feature-content">
-                <h4 style="font-size:0.9rem;">Учёба в Корее</h4>
-                <p style="font-size:0.8rem;">Поступление в вузы Кореи</p>
+                <h4 style="font-size:0.9rem;">{% trans "Учёба в Корее" %}</h4>
+                <p style="font-size:0.8rem;">{% trans "Поступление в вузы Кореи" %}</p>
               </div>
             </div>
           </div>
@@ -218,18 +276,18 @@
             <div class="feature-item" style="padding:1rem;background:white;border-radius:12px;border:1px solid var(--border);">
               <div class="feature-icon" style="background:linear-gradient(135deg,#EF4444,#DC2626);width:44px;height:44px;font-size:1.2rem;">🌏</div>
               <div class="feature-content">
-                <h4 style="font-size:0.9rem;">Культура Кореи</h4>
-                <p style="font-size:0.8rem;">K-pop, K-drama, традиции</p>
+                <h4 style="font-size:0.9rem;">{% trans "Культура Кореи" %}</h4>
+                <p style="font-size:0.8rem;">{% trans "K-pop, K-drama, традиции" %}</p>
               </div>
             </div>
           </div>
         </div>
         <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
           <a href="{% url 'courses:language' 'korean' %}" class="btn-primary-ep" style="background:linear-gradient(135deg,#EF4444,#DC2626);box-shadow:0 4px 20px rgba(239,68,68,0.4);">
-            <span>🇰🇷</span> Корейский язык
+            <span>🇰🇷</span> {% trans "Корейский язык" %}
           </a>
           <a href="{% url 'exams:detail' 'topik' %}" class="btn-outline-ep" style="color:#DC2626;border-color:#EF4444;">
-            🏆 О TOPIK
+            🏆 {% trans "О TOPIK" %}
           </a>
         </div>
       </div>
@@ -237,19 +295,19 @@
         <div class="card-glass p-4 text-center">
           <img src="{% static 'images/paichai university.jpg' %}" alt="Paichai University" style="width:120px;height:120px;object-fit:contain;margin:0 auto 1.5rem;display:block;">
           <h4 style="color:var(--text-primary);font-weight:800;margin-bottom:0.5rem;">Paichai University</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;">Наши студенты поступают в ведущие университеты Кореи</p>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;">{% trans "Наши студенты поступают в ведущие университеты Кореи" %}</p>
           <div class="row g-3 text-center">
             <div class="col-4">
               <div style="font-size:2rem;font-weight:900;color:#EF4444;" class="counter" data-target="120" data-suffix="+">0</div>
-              <div style="font-size:0.8rem;color:var(--text-muted);">Студентов<br>в Корее</div>
+              <div style="font-size:0.8rem;color:var(--text-muted);">{% trans "Студентов" %}<br>{% trans "в Корее" %}</div>
             </div>
             <div class="col-4">
               <div style="font-size:2rem;font-weight:900;color:#EF4444;" class="counter" data-target="95" data-suffix="%">0</div>
-              <div style="font-size:0.8rem;color:var(--text-muted);">Сдали<br>TOPIK</div>
+              <div style="font-size:0.8rem;color:var(--text-muted);">{% trans "Сдали" %}<br>TOPIK</div>
             </div>
             <div class="col-4">
               <div style="font-size:2rem;font-weight:900;color:#EF4444;" class="counter" data-target="20" data-suffix="+">0</div>
-              <div style="font-size:0.8rem;color:var(--text-muted);">Лет<br>стажа</div>
+              <div style="font-size:0.8rem;color:var(--text-muted);">{% trans "Лет" %}<br>{% trans "стажа" %}</div>
             </div>
           </div>
         </div>
@@ -264,9 +322,9 @@
 <section class="section mobile-secondary">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">Международные экзамены</div>
-      <h2 class="section-title">Готовим к <span class="text-gradient">экзаменам</span></h2>
-      <p class="section-subtitle">Профессиональная подготовка с высоким процентом сдачи</p>
+      <div class="section-tag">{% trans "Международные экзамены" %}</div>
+      <h2 class="section-title">{% trans "Готовим к" %} <span class="text-gradient">{% trans "экзаменам" %}</span></h2>
+      <p class="section-subtitle">{% trans "Профессиональная подготовка с высоким процентом сдачи" %}</p>
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-lg-4 col-md-6" data-aos="zoom-in">
@@ -274,9 +332,9 @@
           <div class="exam-card exam-card-topik">
             <div class="exam-icon">🇰🇷</div>
             <h3>TOPIK</h3>
-            <p>Test of Proficiency in Korean — официальный экзамен на знание корейского языка</p>
+            <p>{% trans "Test of Proficiency in Korean — официальный экзамен на знание корейского языка" %}</p>
             <div style="margin-top:1.5rem;">
-              <span style="background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:700;">Подробнее →</span>
+              <span style="background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:700;">{% trans "Подробнее →" %}</span>
             </div>
           </div>
         </a>
@@ -286,9 +344,9 @@
           <div class="exam-card exam-card-ielts">
             <div class="exam-icon">🇬🇧</div>
             <h3>IELTS</h3>
-            <p>International English Language Testing System — открывает двери в мировые университеты</p>
+            <p>{% trans "International English Language Testing System — открывает двери в мировые университеты" %}</p>
             <div style="margin-top:1.5rem;">
-              <span style="background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:700;">Подробнее →</span>
+              <span style="background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:700;">{% trans "Подробнее →" %}</span>
             </div>
           </div>
         </a>
@@ -298,9 +356,9 @@
           <div class="exam-card exam-card-goethe">
             <div class="exam-icon">🇩🇪</div>
             <h3>GOETHE</h3>
-            <p>Goethe-Zertifikat — признанный во всём мире сертификат знания немецкого языка</p>
+            <p>{% trans "Goethe-Zertifikat — признанный во всём мире сертификат знания немецкого языка" %}</p>
             <div style="margin-top:1.5rem;">
-              <span style="background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:700;">Подробнее →</span>
+              <span style="background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:700;">{% trans "Подробнее →" %}</span>
             </div>
           </div>
         </a>
@@ -316,11 +374,12 @@
 <section class="section section-alt mobile-course-showcase">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">Популярные курсы</div>
-      <h2 class="section-title">Наши <span class="text-gradient">курсы</span></h2>
-      <p class="section-subtitle">Выберите подходящий курс и начните свой путь к успеху</p>
+      <div class="section-tag">{% trans "Популярные курсы" %}</div>
+      <h2 class="section-title">{% trans "Наши" %} <span class="text-gradient">{% trans "курсы" %}</span></h2>
+      <p class="section-subtitle">{% trans "Выберите подходящий курс и начните свой путь к успеху" %}</p>
     </div>
     <div class="row g-4">
+      {% trans "Профессиональный курс изучения языка" as default_course_desc %}
       {% for course in featured_courses %}
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
         <div class="course-card">
@@ -332,23 +391,23 @@
           <div class="course-card-body">
             <div class="course-badge">{{ course.category.flag_emoji }} {{ course.category.name }}</div>
             <h4>{{ course.name }}</h4>
-            <p>{{ course.short_description|default:"Профессиональный курс изучения языка" }}</p>
+            <p>{{ course.short_description|default:default_course_desc }}</p>
             <div class="course-meta">
               <span><i class="bi bi-clock"></i> {{ course.duration }}</span>
-              <span><i class="bi bi-calendar3"></i> {{ course.lessons_per_week }}x в неделю</span>
+              <span><i class="bi bi-calendar3"></i> {{ course.lessons_per_week }}{% trans "x в неделю" %}</span>
               <span>
                 <i class="bi bi-bar-chart"></i>
                 {% if course.level == 'beginner' %}A1-A2
                 {% elif course.level == 'intermediate' %}B1-B2
                 {% elif course.level == 'advanced' %}C1-C2
-                {% else %}Все уровни{% endif %}
+                {% else %}{% trans "Все уровни" %}{% endif %}
               </span>
             </div>
             {% if course.price %}
-            <div class="course-price">{{ course.price|floatformat:0 }} сом/мес</div>
+            <div class="course-price">{{ course.price|floatformat:0 }} {% trans "сом/мес" %}</div>
             {% endif %}
             <a href="{{ course.get_absolute_url }}" class="btn-primary-ep mt-3" style="font-size:0.9rem;padding:0.65rem 1.5rem;display:inline-flex;">
-              Подробнее <i class="bi bi-arrow-right ms-1"></i>
+              {% trans "Подробнее" %} <i class="bi bi-arrow-right ms-1"></i>
             </a>
           </div>
         </div>
@@ -357,7 +416,7 @@
     </div>
     <div class="text-center mt-5" data-aos="fade-up">
       <a href="{% url 'courses:list' %}" class="btn-outline-ep">
-        <i class="bi bi-grid"></i> Все курсы
+        <i class="bi bi-grid"></i> {% trans "Все курсы" %}
       </a>
     </div>
   </div>
@@ -371,13 +430,13 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-5" data-aos="fade-right">
-        <div class="section-tag">Наши преимущества</div>
-        <h2 class="section-title mt-3">Почему выбирают<br><span class="text-gradient">Edu Point</span>?</h2>
+        <div class="section-tag">{% trans "Наши преимущества" %}</div>
+        <h2 class="section-title mt-3">{% trans "Почему выбирают" %}<br><span class="text-gradient">Edu Point</span>?</h2>
         <p style="color:var(--text-muted);line-height:1.8;margin:1.5rem 0;">
-          Мы не просто учебный центр — мы ваш проводник в мир международных возможностей. Каждый студент получает индивидуальный подход и реальный результат.
+          {% trans "Мы не просто учебный центр — мы ваш проводник в мир международных возможностей. Каждый студент получает индивидуальный подход и реальный результат." %}
         </p>
         <a href="{% url 'core:about' %}" class="btn-outline-ep">
-          О нас подробнее <i class="bi bi-arrow-right"></i>
+          {% trans "О нас подробнее" %} <i class="bi bi-arrow-right"></i>
         </a>
       </div>
       <div class="col-lg-7" data-aos="fade-left">
@@ -386,8 +445,8 @@
             <div class="feature-item" style="background:var(--bg-card);border-radius:16px;border:1px solid var(--border);">
               <div class="feature-icon">🏅</div>
               <div class="feature-content">
-                <h4>20 лет стажа</h4>
-                <p>20 лет опыта в сфере языкового образования в Оше</p>
+                <h4>{% trans "20 лет стажа" %}</h4>
+                <p>{% trans "20 лет опыта в сфере языкового образования в Оше" %}</p>
               </div>
             </div>
           </div>
@@ -395,8 +454,8 @@
             <div class="feature-item" style="background:var(--bg-card);border-radius:16px;border:1px solid var(--border);">
               <div class="feature-icon">💳</div>
               <div class="feature-content">
-                <h4>2 500 сом / мес</h4>
-                <p>Доступная ежемесячная стоимость обучения</p>
+                <h4>{% trans "2 500 сом / мес" %}</h4>
+                <p>{% trans "Доступная ежемесячная стоимость обучения" %}</p>
               </div>
             </div>
           </div>
@@ -406,8 +465,8 @@
                 <img src="{% static 'images/kurs_logo.png' %}" alt="" class="adv-icon-img" style="width:32px;height:32px;margin:0;object-fit:contain;">
               </div>
               <div class="feature-content">
-                <h4>6 курсов по 2 мес.</h4>
-                <p>Проходной тест каждые 2 месяца для перехода на новый уровень</p>
+                <h4>{% trans "6 курсов по 2 мес." %}</h4>
+                <p>{% trans "Проходной тест каждые 2 месяца для перехода на новый уровень" %}</p>
               </div>
             </div>
           </div>
@@ -417,8 +476,8 @@
                 <img src="{% static 'images/adres_logo.png' %}" alt="" class="adv-icon-img" style="width:32px;height:32px;margin:0;object-fit:contain;">
               </div>
               <div class="feature-content">
-                <h4>Удобное место</h4>
-                <p>ТЦ Корона, 3 этаж — центр города Ош</p>
+                <h4>{% trans "Удобное место" %}</h4>
+                <p>{% trans "ТЦ Корона, 3 этаж — центр города Ош" %}</p>
               </div>
             </div>
           </div>
@@ -428,8 +487,8 @@
                 <img src="{% static 'images/visa_logo.png' %}" alt="" class="adv-icon-img" style="width:32px;height:32px;margin:0;object-fit:contain;">
               </div>
               <div class="feature-content">
-                <h4>Помощь с визой</h4>
-                <p>Консультации и сбор документов для вузов Кореи</p>
+                <h4>{% trans "Помощь с визой" %}</h4>
+                <p>{% trans "Консультации и сбор документов для вузов Кореи" %}</p>
               </div>
             </div>
           </div>
@@ -439,8 +498,8 @@
                 <img src="{% static 'images/our_students_logo.png' %}" alt="" class="adv-icon-img" style="width:32px;height:32px;margin:0;object-fit:contain;">
               </div>
               <div class="feature-content">
-                <h4>Наши студенты</h4>
-                <p>Реальные успехи наших выпускников в Корее</p>
+                <h4>{% trans "Наши студенты" %}</h4>
+                <p>{% trans "Реальные успехи наших выпускников в Корее" %}</p>
               </div>
             </div>
           </div>
@@ -457,14 +516,14 @@
 <section class="section section-alt mobile-secondary">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">Команда</div>
-      <h2 class="section-title">Наши <span class="text-gradient">преподаватели</span></h2>
-      <p class="section-subtitle">Опытные специалисты с международными сертификатами</p>
+      <div class="section-tag">{% trans "Команда" %}</div>
+      <h2 class="section-title">{% trans "Наши" %} <span class="text-gradient">{% trans "преподаватели" %}</span></h2>
+      <p class="section-subtitle">{% trans "Опытные специалисты с международными сертификатами" %}</p>
     </div>
     <div class="row g-4 justify-content-center">
       {% for teacher in teachers %}
       <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
-        <div class="teacher-card">
+        <a href="{% url 'teachers:detail' teacher.pk %}" class="teacher-card text-decoration-none d-block">
           {% if teacher.photo %}
           <img src="{{ teacher.photo.url }}" alt="{{ teacher.name }}" class="teacher-avatar">
           {% else %}
@@ -473,13 +532,16 @@
           <h4>{{ teacher.name }}</h4>
           <div class="position">{{ teacher.position }}</div>
           <div class="languages">{{ teacher.languages }}</div>
-          <span class="experience">{{ teacher.experience_years }} лет опыта</span>
-        </div>
+          {% if teacher.reviews_count %}
+          <div class="small text-muted mt-1">⭐ {{ teacher.average_rating|floatformat:1 }} · {{ teacher.reviews_count }} отзыв{{ teacher.reviews_count|pluralize:",а,ов" }}</div>
+          {% endif %}
+          <span class="experience">{{ teacher.experience_years }} {% trans "лет опыта" %}</span>
+        </a>
       </div>
       {% endfor %}
     </div>
     <div class="text-center mt-5" data-aos="fade-up">
-      <a href="{% url 'teachers:list' %}" class="btn-outline-ep">Все преподаватели</a>
+      <a href="{% url 'teachers:list' %}" class="btn-outline-ep">{% trans "Все преподаватели" %}</a>
     </div>
   </div>
 </section>
@@ -493,9 +555,9 @@
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <div class="section-tag">
-        <img src="{% static 'images/otzyv logo.jpg' %}" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;"> Отзывы
+        <img src="{% static 'images/otzyv logo.jpg' %}" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;"> {% trans "Отзывы" %}
       </div>
-      <h2 class="section-title">Что говорят наши <span class="text-gradient">студенты</span></h2>
+      <h2 class="section-title">{% trans "Что говорят наши" %} <span class="text-gradient">{% trans "студенты" %}</span></h2>
     </div>
     <div class="row g-4">
       {% for review in reviews %}
@@ -524,7 +586,7 @@
       {% endfor %}
     </div>
     <div class="text-center mt-5" data-aos="fade-up">
-      <a href="{% url 'reviews:list' %}" class="btn-outline-ep">Все отзывы</a>
+      <a href="{% url 'reviews:list' %}" class="btn-outline-ep">{% trans "Все отзывы" %}</a>
     </div>
   </div>
 </section>
@@ -537,8 +599,8 @@
 <section class="section section-alt mobile-secondary">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">Новости</div>
-      <h2 class="section-title">Последние <span class="text-gradient">новости</span></h2>
+      <div class="section-tag">{% trans "Новости" %}</div>
+      <h2 class="section-title">{% trans "Последние" %} <span class="text-gradient">{% trans "новости" %}</span></h2>
     </div>
     <div class="row g-4">
       {% for post in latest_news %}
@@ -559,7 +621,7 @@
       {% endfor %}
     </div>
     <div class="text-center mt-5" data-aos="fade-up">
-      <a href="{% url 'news:list' %}" class="btn-outline-ep">Все новости</a>
+      <a href="{% url 'news:list' %}" class="btn-outline-ep">{% trans "Все новости" %}</a>
     </div>
   </div>
 </section>
@@ -571,9 +633,9 @@
 <section class="section section-alt mobile-secondary">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">🤝 Партнёры</div>
-      <h2 class="section-title">Партнёрские <span class="text-gradient">университеты Кореи</span></h2>
-      <p class="section-subtitle">Наши студенты поступают в ведущие вузы Южной Кореи благодаря официальному партнёрству</p>
+      <div class="section-tag">🤝 {% trans "Партнёры" %}</div>
+      <h2 class="section-title">{% trans "Партнёрские" %} <span class="text-gradient">{% trans "университеты Кореи" %}</span></h2>
+      <p class="section-subtitle">{% trans "Наши студенты поступают в ведущие вузы Южной Кореи благодаря официальному партнёрству" %}</p>
     </div>
     <div class="row g-4 justify-content-center align-items-stretch">
       <!-- Paichai University -->
@@ -581,22 +643,22 @@
         <div class="card-ep p-4 h-100 text-center" style="border-top: 4px solid #EF4444;">
           <img src="{% static 'images/paichai_university.png' %}" alt="Paichai University" style="height:80px;object-fit:contain;margin:0 auto 1rem;display:block;">
           <h4 style="font-weight:800;color:#EF4444;">Paichai University 🇰🇷</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;margin:0.75rem 0 1rem;">Один из старейших и престижных университетов Кореи в г. Тэджон. Официальный партнёр Edu Point с 2025 года.</p>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin:0.75rem 0 1rem;">{% trans "Один из старейших и престижных университетов Кореи в г. Тэджон. Официальный партнёр Edu Point с 2025 года." %}</p>
           <div class="row g-2 text-center mb-3">
             <div class="col-4">
               <div style="font-size:1.5rem;font-weight:800;color:#EF4444;">120+</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);">Наших студентов</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">{% trans "Наших студентов" %}</div>
             </div>
             <div class="col-4">
               <div style="font-size:1.5rem;font-weight:800;color:#EF4444;">95%</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);">Поступаемость</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">{% trans "Поступаемость" %}</div>
             </div>
             <div class="col-4">
-              <div style="font-size:1.5rem;font-weight:800;color:#EF4444;">Гранты</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);">Доступны</div>
+              <div style="font-size:1.5rem;font-weight:800;color:#EF4444;">{% trans "Гранты" %}</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">{% trans "Доступны" %}</div>
             </div>
           </div>
-          <div class="section-tag" style="font-size:0.75rem;display:inline-block;">✅ Официальный партнёр</div>
+          <div class="section-tag" style="font-size:0.75rem;display:inline-block;">✅ {% trans "Официальный партнёр" %}</div>
         </div>
       </div>
       <!-- Songho University -->
@@ -604,27 +666,27 @@
         <div class="card-ep p-4 h-100 text-center" style="border-top: 4px solid var(--primary);">
           <img src="/media/gallery/universities_songho-university-1.jpg" alt="Songho University" style="height:80px;width:100%;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
           <h4 style="font-weight:800;color:var(--primary);">Songho University 🇰🇷</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;margin:0.75rem 0 1rem;">Современный университет в г. Хончхон. Международная программа с адаптационными курсами для иностранных студентов.</p>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin:0.75rem 0 1rem;">{% trans "Современный университет в г. Хончхон. Международная программа с адаптационными курсами для иностранных студентов." %}</p>
           <div class="row g-2 text-center mb-3">
             <div class="col-4">
               <div style="font-size:1.5rem;font-weight:800;color:var(--primary);">2025</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);">С этого года</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">{% trans "С этого года" %}</div>
             </div>
             <div class="col-4">
               <div style="font-size:1.5rem;font-weight:800;color:var(--primary);">50%</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);">Скидки грантов</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">{% trans "Скидки грантов" %}</div>
             </div>
             <div class="col-4">
-              <div style="font-size:1.5rem;font-weight:800;color:var(--primary);">Новый</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);">Партнёр</div>
+              <div style="font-size:1.5rem;font-weight:800;color:var(--primary);">{% trans "Новый" %}</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">{% trans "Партнёр" %}</div>
             </div>
           </div>
-          <div class="section-tag" style="font-size:0.75rem;display:inline-block;background:var(--primary-bg);color:var(--primary-dark);">✅ Новый партнёр</div>
+          <div class="section-tag" style="font-size:0.75rem;display:inline-block;background:var(--primary-bg);color:var(--primary-dark);">✅ {% trans "Новый партнёр" %}</div>
         </div>
       </div>
     </div>
     <div class="text-center mt-4" data-aos="fade-up">
-      <a href="{% url 'core:about' %}" class="btn-outline-ep">О партнёрстве подробнее <i class="bi bi-arrow-right"></i></a>
+      <a href="{% url 'core:about' %}" class="btn-outline-ep">{% trans "О партнёрстве подробнее" %} <i class="bi bi-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -637,10 +699,10 @@
     <div class="row align-items-start g-5">
       <div class="col-lg-5" data-aos="fade-right">
         <div class="section-tag">FAQ</div>
-        <h2 class="section-title mt-3">Часто задаваемые <span class="text-gradient">вопросы</span></h2>
-        <p style="color:var(--text-muted);line-height:1.8;margin-top:1rem;">Здесь собраны ответы на самые популярные вопросы о наших курсах, стоимости, расписании и поступлении в Корею.</p>
+        <h2 class="section-title mt-3">{% trans "Часто задаваемые" %} <span class="text-gradient">{% trans "вопросы" %}</span></h2>
+        <p style="color:var(--text-muted);line-height:1.8;margin-top:1rem;">{% trans "Здесь собраны ответы на самые популярные вопросы о наших курсах, стоимости, расписании и поступлении в Корею." %}</p>
         <a href="{% url 'core:contact' %}" class="btn-outline-ep mt-4">
-          <i class="bi bi-chat-dots"></i> Задать вопрос
+          <i class="bi bi-chat-dots"></i> {% trans "Задать вопрос" %}
         </a>
       </div>
       <div class="col-lg-7" data-aos="fade-left">
@@ -648,72 +710,72 @@
           <div class="accordion-item border-0 mb-3" style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);">
             <h2 class="accordion-header">
               <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="border-radius:12px;background:var(--bg-card);">
-                💰 Сколько стоит обучение?
+                💰 {% trans "Сколько стоит обучение?" %}
               </button>
             </h2>
             <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
               <div class="accordion-body" style="background:var(--bg-card);">
-                Ежемесячная стоимость обучения составляет <strong>2 500 сом в месяц</strong>. Полная программа состоит из <strong>6 курсов по 2 месяца</strong> каждый. В конце каждого курса проводится проходной тест для перехода на следующий уровень.
+                {% trans "Ежемесячная стоимость обучения составляет" %} <strong>{% trans "2 500 сом в месяц" %}</strong>. {% trans "Полная программа состоит из" %} <strong>{% trans "6 курсов по 2 месяца" %}</strong> {% trans "каждый. В конце каждого курса проводится проходной тест для перехода на следующий уровень." %}
               </div>
             </div>
           </div>
           <div class="accordion-item border-0 mb-3" style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="border-radius:12px;background:var(--bg-card);">
-                📅 Сколько длится один курс?
+                📅 {% trans "Сколько длится один курс?" %}
               </button>
             </h2>
             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
               <div class="accordion-body" style="background:var(--bg-card);">
-                Длительность <strong>одного курса — 2 месяца</strong>. После завершения каждого 2-месячного блока студент сдаёт <strong>проходной тест</strong>, подтверждающий освоение уровня. Полная программа по языку — 6 курсов (12 месяцев).
+                {% trans "Длительность" %} <strong>{% trans "одного курса — 2 месяца" %}</strong>. {% trans "После завершения каждого 2-месячного блока студент сдаёт" %} <strong>{% trans "проходной тест" %}</strong>{% trans ", подтверждающий освоение уровня. Полная программа по языку — 6 курсов (12 месяцев)." %}
               </div>
             </div>
           </div>
           <div class="accordion-item border-0 mb-3" style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="border-radius:12px;background:var(--bg-card);">
-                🇰🇷 Как попасть на учёбу в Корею через Edu Point?
+                🇰🇷 {% trans "Как попасть на учёбу в Корею через Edu Point?" %}
               </button>
             </h2>
             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
               <div class="accordion-body" style="background:var(--bg-card);">
-                Edu Point является официальным партнёром <strong>Paichai University</strong> и <strong>Songho University</strong>. После прохождения курсов и сдачи TOPIK мы помогаем с подачей документов, получением студенческой визы и переездом в Корею. Консультация — <strong>бесплатно</strong>!
+                {% trans "Edu Point является официальным партнёром" %} <strong>Paichai University</strong> {% trans "и" %} <strong>Songho University</strong>{% trans ". После прохождения курсов и сдачи TOPIK мы помогаем с подачей документов, получением студенческой визы и переездом в Корею. Консультация —" %} <strong>{% trans "бесплатно" %}</strong>!
               </div>
             </div>
           </div>
           <div class="accordion-item border-0 mb-3" style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" style="border-radius:12px;background:var(--bg-card);">
-                📍 Где вы находитесь?
+                📍 {% trans "Где вы находитесь?" %}
               </button>
             </h2>
             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
               <div class="accordion-body" style="background:var(--bg-card);">
-                Мы находимся по адресу: <strong>г. Ош, пр. А. Масалиева 44, ТЦ Корона, 3 этаж</strong>. Работаем <strong>Пн–Сб: 09:00–19:00</strong>. Также можно написать нам в WhatsApp: <a href="tel:0551977778">0551 977 778</a>.
+                {% trans "Мы находимся по адресу:" %} <strong>{% trans "г. Ош, пр. А. Масалиева 44, ТЦ Корона, 3 этаж" %}</strong>. {% trans "Работаем" %} <strong>{% trans "Пн–Сб: 09:00–19:00" %}</strong>. {% trans "Также можно написать нам в WhatsApp:" %} <a href="tel:+996700995577">+996 700 995 577</a>.
               </div>
             </div>
           </div>
           <div class="accordion-item border-0 mb-3" style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" style="border-radius:12px;background:var(--bg-card);">
-                🎓 Нужны ли предварительные знания языка?
+                🎓 {% trans "Нужны ли предварительные знания языка?" %}
               </button>
             </h2>
             <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
               <div class="accordion-body" style="background:var(--bg-card);">
-                <strong>Нет!</strong> Мы принимаем студентов <strong>с нуля</strong>. Программа разработана так, что даже полный новичок начинает с самых основ и шаг за шагом доходит до продвинутого уровня. Главное — желание учиться!
+                <strong>{% trans "Нет!" %}</strong> {% trans "Мы принимаем студентов" %} <strong>{% trans "с нуля" %}</strong>{% trans ". Программа разработана так, что даже полный новичок начинает с самых основ и шаг за шагом доходит до продвинутого уровня. Главное — желание учиться!" %}
               </div>
             </div>
           </div>
           <div class="accordion-item border-0" style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" style="border-radius:12px;background:var(--bg-card);">
-                ⏰ Какое расписание занятий?
+                ⏰ {% trans "Какое расписание занятий?" %}
               </button>
             </h2>
             <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
               <div class="accordion-body" style="background:var(--bg-card);">
-                Занятия проводятся <strong>3 раза в неделю</strong>. Доступны <strong>утренние и вечерние группы</strong>, а также группы выходного дня. Расписание согласуется при записи, чтобы не мешать вашей учёбе или работе.
+                {% trans "Занятия проводятся" %} <strong>{% trans "3 раза в неделю" %}</strong>. {% trans "Доступны" %} <strong>{% trans "утренние и вечерние группы" %}</strong>{% trans ", а также группы выходного дня. Расписание согласуется при записи, чтобы не мешать вашей учёбе или работе." %}
               </div>
             </div>
           </div>
@@ -730,8 +792,8 @@
   <div class="container text-center">
     <div class="section-header" data-aos="fade-up">
       <div class="section-tag"><i class="bi bi-instagram"></i> Instagram</div>
-      <h2 class="section-title">Мы в <span class="text-gradient">Instagram</span></h2>
-      <p class="section-subtitle">Подписывайтесь на наш Instagram и следите за жизнью центра, успехами студентов и новостями!</p>
+      <h2 class="section-title">{% trans "Мы в" %} <span class="text-gradient">Instagram</span></h2>
+      <p class="section-subtitle">{% trans "Подписывайтесь на наш Instagram и следите за жизнью центра, успехами студентов и новостями!" %}</p>
     </div>
     <div class="row g-3 justify-content-center mb-4" data-aos="fade-up">
       <!-- Instagram photo previews using real gallery images -->
@@ -773,7 +835,7 @@
       </div>
     </div>
     <a href="https://www.instagram.com/edupoint.ec/" target="_blank" rel="noopener" class="btn-primary-ep" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);" data-aos="fade-up">
-      <i class="bi bi-instagram"></i> @edupoint.ec — Подписаться
+      <i class="bi bi-instagram"></i> @edupoint.ec — {% trans "Подписаться" %}
     </a>
   </div>
 </section>
@@ -788,15 +850,15 @@
         <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;">
           <span style="font-size:1.5rem;">⭐⭐⭐⭐⭐</span>
         </div>
-        <h3 style="font-weight:800;">Учились у нас? Оставьте отзыв!</h3>
-        <p style="color:var(--text-muted);margin-top:0.5rem;">Ваш опыт важен — помогите другим студентам сделать правильный выбор. Отзыв публикуется после проверки модератором.</p>
+        <h3 style="font-weight:800;">{% trans "Учились у нас? Оставьте отзыв!" %}</h3>
+        <p style="color:var(--text-muted);margin-top:0.5rem;">{% trans "Ваш опыт важен — помогите другим студентам сделать правильный выбор. Отзыв публикуется после проверки модератором." %}</p>
       </div>
       <div class="col-lg-5 text-lg-end" data-aos="fade-left">
         <a href="{% url 'reviews:list' %}" class="btn-primary-ep">
-          <i class="bi bi-pencil-square"></i> Оставить отзыв
+          <i class="bi bi-pencil-square"></i> {% trans "Оставить отзыв" %}
         </a>
         <a href="{% url 'reviews:list' %}" class="btn-outline-ep ms-2">
-          Читать все отзывы <i class="bi bi-arrow-right"></i>
+          {% trans "Читать все отзывы" %} <i class="bi bi-arrow-right"></i>
         </a>
       </div>
     </div>
@@ -811,11 +873,11 @@
     <div class="row justify-content-center text-center">
       <div class="col-lg-8">
         <div style="font-size:3rem;margin-bottom:1rem;">🚀</div>
-        <h2>Готовы начать своё путешествие?</h2>
-        <p>Запишитесь на бесплатную пробную консультацию и узнайте, какой курс подходит именно вам</p>
+        <h2>{% trans "Готовы начать своё путешествие?" %}</h2>
+        <p>{% trans "Запишитесь на бесплатную пробную консультацию и узнайте, какой курс подходит именно вам" %}</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
           <a href="{% url 'applications:apply' %}" class="btn-cta-white">
-            <i class="bi bi-pencil-square"></i> Записаться бесплатно
+            <i class="bi bi-pencil-square"></i> {% trans "Записаться бесплатно" %}
           </a>
           {% if site_settings.whatsapp %}
           <a href="https://wa.me/{{ site_settings.whatsapp }}" class="btn-cta-white" target="_blank" style="background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.4);">

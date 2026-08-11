@@ -1,0 +1,88 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Маркетинговая аналитика{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Аналитика{% endblock %}
+{% block lms_heading %}Маркетинговая аналитика{% endblock %}
+
+{% block lms_content %}
+{% include 'applications/analytics/_tabs.html' %}
+
+<div class="row g-3">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-megaphone"></i></div>
+      <div><div class="stat-num">{{ total_leads }}</div><div class="stat-lbl">Всего лидов</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon red"><i class="bi bi-cash-stack"></i></div>
+      <div><div class="stat-num">{{ total_spend }} ₸</div><div class="stat-lbl">Расходы на рекламу</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-person-plus"></i></div>
+      <div><div class="stat-num">{{ total_revenue|floatformat:0 }} ₸</div><div class="stat-lbl">Доход от лидов</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card mt-3">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-bar-chart me-2 text-primary"></i> Эффективность источников</h2>
+  </div>
+  {% if rows %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr><th>Источник</th><th>Лиды</th><th>Зачислено</th><th>Конверсия</th><th>Расходы</th><th>CPL</th><th>Доход</th></tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td class="fw-bold">{{ r.label }}</td>
+          <td>{{ r.leads }}</td>
+          <td>{{ r.enrolled }}</td>
+          <td>
+            <span class="badge-ep {% if r.conv >= 30 %}badge-green{% elif r.conv >= 10 %}badge-amber{% else %}badge-gray{% endif %}">{{ r.conv }}%</span>
+          </td>
+          <td>{{ r.spend|floatformat:0 }} ₸</td>
+          <td>{% if r.cpl is not None %}{{ r.cpl }} ₸{% else %}—{% endif %}</td>
+          <td>{{ r.revenue|floatformat:0 }} ₸</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms"><i class="bi bi-bar-chart"></i><p>Нет данных.</p></div>
+  {% endif %}
+</div>
+
+<div class="lms-card mt-3">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-receipt me-2 text-primary"></i> Учёт расходов по источникам</h2>
+  </div>
+  {% if spend_entries %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead><tr><th>Месяц</th><th>Источник</th><th>Сумма</th><th>Примечание</th></tr></thead>
+      <tbody>
+        {% for e in spend_entries %}
+        <tr>
+          <td>{{ e.month|date:"m.Y" }}</td>
+          <td>{{ e.get_source_display }}</td>
+          <td>{{ e.amount }} ₸</td>
+          <td>{{ e.note|default:'—' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms"><i class="bi bi-receipt"></i><p>Расходы не внесены. Добавьте их в админке → «Расходы на маркетинг».</p></div>
+  {% endif %}
+</div>
+{% endblock %}

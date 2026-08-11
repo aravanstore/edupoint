@@ -26,3 +26,13 @@ class Teacher(models.Model):
 
     def __str__(self):
         return self.name
+
+    def approved_reviews(self):
+        return self.reviews.filter(is_approved=True).order_by('order', '-created_at')
+
+    def average_rating(self):
+        from django.db.models import Avg
+        return self.approved_reviews().aggregate(avg=Avg('rating'))['avg'] or 0
+
+    def reviews_count(self):
+        return self.approved_reviews().count()

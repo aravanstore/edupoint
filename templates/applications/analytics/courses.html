@@ -1,0 +1,58 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Аналитика по курсам{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Аналитика{% endblock %}
+{% block lms_heading %}Аналитика по курсам{% endblock %}
+
+{% block lms_content %}
+{% include 'applications/analytics/_tabs.html' %}
+
+<div class="lms-card">
+  <div class="journal-toolbar">
+    <span class="small text-muted"><i class="bi bi-diagram-3 me-1"></i> Удержание и отсев учеников по курсам</span>
+    <div class="flex-grow-1"></div>
+    <span class="badge-ep badge-green">Доход всего: {{ total_revenue|floatformat:0 }} ₸</span>
+  </div>
+  {% if rows %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Заявки</th>
+          <th>Студентов</th>
+          <th>Активны</th>
+          <th>Завершили</th>
+          <th>Удержание</th>
+          <th>Отсев</th>
+          <th>Рейтинг</th>
+          <th>Доход</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td class="fw-bold">{{ r.course.name }}</td>
+          <td>{{ r.apps }}</td>
+          <td>{{ r.total }}</td>
+          <td>{{ r.active }}</td>
+          <td>{{ r.finished }}</td>
+          <td>
+            {% if r.total %}
+            <span class="badge-ep {% if r.retention >= 70 %}badge-green{% elif r.retention >= 40 %}badge-amber{% else %}badge-red{% endif %}">{{ r.retention }}%</span>
+            {% else %}—{% endif %}
+          </td>
+          <td>{% if r.total %}<span class="badge-ep badge-gray">{{ r.dropout }}%</span>{% else %}—{% endif %}</td>
+          <td>{% if r.rating %}{{ r.rating }} <i class="bi bi-star-fill text-warning small"></i> ({{ r.reviews }}){% else %}—{% endif %}</td>
+          <td>{{ r.revenue|floatformat:0 }} ₸</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms"><i class="bi bi-diagram-3"></i><p>Данных нет.</p></div>
+  {% endif %}
+</div>
+{% endblock %}

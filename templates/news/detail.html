@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}{{ post.title }} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container" data-aos="fade-up">
-    <div class="news-date mb-2"><i class="bi bi-calendar3"></i> {{ post.published_at|date:"d F Y" }} · <i class="bi bi-eye"></i> {{ post.views }} просмотров</div>
+    <div class="news-date mb-2"><i class="bi bi-calendar3"></i> {{ post.published_at|date:"d F Y" }} · <i class="bi bi-eye"></i> {{ post.views }} {% trans "просмотров" %}</div>
     <h1>{{ post.title }}</h1>
   </div>
 </section>
@@ -23,13 +24,13 @@
           {{ post.content|safe }}
         </div>
 
-        <a href="{% url 'news:list' %}" class="btn-outline-ep">← Назад к новостям</a>
+        <a href="{% url 'news:list' %}" class="btn-outline-ep">← {% trans "Назад к новостям" %}</a>
       </div>
 
       <div class="col-lg-4" data-aos="fade-left">
         {% if related %}
         <div class="sidebar-widget">
-          <h5>Другие новости</h5>
+          <h5>{% trans "Другие новости" %}</h5>
           {% for r in related %}
           <div class="mb-3 pb-3 border-bottom">
             <div class="text-muted fs-6 mb-1">{{ r.published_at|date:"d.m.Y" }}</div>

@@ -98,6 +98,9 @@ class Group(models.Model):
                                            help_text='Максимум учеников в группе (пусто — без ограничений)')
     status = models.CharField('Статус', max_length=20, choices=STATUS_CHOICES, default='active')
     started_at = models.DateField('Дата начала', null=True, blank=True)
+    branch = models.ForeignKey('applications.Branch', on_delete=models.SET_NULL,
+                               null=True, blank=True, related_name='lms_groups',
+                               verbose_name='Филиал')
 
     class Meta:
         verbose_name = 'Группа'

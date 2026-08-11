@@ -8,6 +8,8 @@ class Review(models.Model):
     photo = models.ImageField('Фото', upload_to='reviews/', blank=True)
     course = models.ForeignKey('courses.Course', on_delete=models.SET_NULL, null=True, blank=True,
                                related_name='reviews', verbose_name='Курс')
+    teacher = models.ForeignKey('teachers.Teacher', on_delete=models.SET_NULL, null=True, blank=True,
+                                related_name='reviews', verbose_name='Преподаватель')
     text = models.TextField('Отзыв')
     rating = models.PositiveIntegerField(
         'Оценка', default=5,

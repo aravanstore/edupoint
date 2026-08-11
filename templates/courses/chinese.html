@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Китайский язык — Edu Point{% endblock %}
+{% block title %}{% trans "Китайский язык" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
     <div class="display-1 mb-2">🇨🇳</div>
-    <h1>Китайский язык (Мандарин)</h1>
+    <h1>{% trans "Китайский язык (Мандарин)" %}</h1>
     <p style="color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto;">
-      Освойте самый перспективный язык бизнеса, иероглифику и фонетику Пиньинь с нуля.
+      {% trans "Освойте самый перспективный язык бизнеса, иероглифику и фонетику Пиньинь с нуля." %}
     </p>
   </div>
 </section>
@@ -20,28 +21,28 @@
       <div class="col-md-4" data-aos="fade-up">
         <div class="card-ep p-4 text-center">
           <div class="fs-1 mb-2">🏮</div>
-          <h4>Китайский с нуля</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;">Изучение 4 тонов, произношения Пиньинь и бакалаврской иероглифики.</p>
+          <h4>{% trans "Китайский с нуля" %}</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">{% trans "Изучение 4 тонов, произношения Пиньинь и бакалаврской иероглифики." %}</p>
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card-ep p-4 text-center">
           <div class="fs-1 mb-2">📜</div>
-          <h4>Подготовка HSK</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;">Специализированная подготовка к экзаменам HSK 1-4 для грантовой учёбы в Китае.</p>
+          <h4>{% trans "Подготовка HSK" %}</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">{% trans "Специализированная подготовка к экзаменам HSK 1-4 для грантовой учёбы в Китае." %}</p>
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <div class="card-ep p-4 text-center">
           <div class="fs-1 mb-2">💼</div>
-          <h4>Бизнес-китайский</h4>
-          <p style="color:var(--text-muted);font-size:0.9rem;">Разговорный курс для предпринимателей и людей, работающих с Китаем.</p>
+          <h4>{% trans "Бизнес-китайский" %}</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">{% trans "Разговорный курс для предпринимателей и людей, работающих с Китаем." %}</p>
         </div>
       </div>
     </div>
 
     {% if courses %}
-    <h3 class="fw-bold mb-4" data-aos="fade-up">Курсы китайского языка</h3>
+    <h3 class="fw-bold mb-4" data-aos="fade-up">{% trans "Курсы китайского языка" %}</h3>
     <div class="row g-4">
       {% for course in courses %}
       <div class="col-md-6" data-aos="fade-up">
@@ -51,7 +52,7 @@
             <p>{{ course.short_description }}</p>
             <div class="d-flex justify-content-between align-items-center mt-3">
               <span class="fs-4 fw-bold text-primary-ep">{{ course.price|floatformat:0 }} сом/мес</span>
-              <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep" style="font-size:0.85rem;padding:0.5rem 1rem;">Записаться</a>
+              <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep" style="font-size:0.85rem;padding:0.5rem 1rem;">{% trans "Записаться" %}</a>
             </div>
           </div>
         </div>

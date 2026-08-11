@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Каталог курсов — Edu Point{% endblock %}
+{% block title %}{% trans "Каталог курсов" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
-    <h1>Курсы иностранных языков</h1>
-    <p style="color:var(--text-muted);">Выберите язык и программу обучения</p>
+    <h1>{% trans "Курсы иностранных языков" %}</h1>
+    <p style="color:var(--text-muted);">{% trans "Выберите язык и программу обучения" %}</p>
   </div>
 </section>
 
@@ -15,7 +16,7 @@
   <div class="container">
     <!-- Category Tabs -->
     <div class="filter-tabs justify-content-center mb-5" data-aos="fade-up">
-      <a href="{% url 'courses:list' %}" class="filter-tab {% if not active_category %}active{% endif %}">Все языки</a>
+      <a href="{% url 'courses:list' %}" class="filter-tab {% if not active_category %}active{% endif %}">{% trans "Все языки" %}</a>
       {% for cat in categories %}
       <a href="?category={{ cat.slug }}" class="filter-tab {% if active_category.slug == cat.slug %}active{% endif %}">
         {{ cat.flag_emoji }} {{ cat.name }}
@@ -45,8 +46,8 @@
             <div class="course-price">{{ course.price|floatformat:0 }} сом/мес</div>
             {% endif %}
             <div class="d-flex gap-2 mt-3">
-              <a href="{{ course.get_absolute_url }}" class="btn-outline-ep flex-fill text-center" style="font-size:0.85rem;padding:0.5rem 1rem;">Подробнее</a>
-              <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep flex-fill text-center" style="font-size:0.85rem;padding:0.5rem 1rem;">Записаться</a>
+              <a href="{{ course.get_absolute_url }}" class="btn-outline-ep flex-fill text-center" style="font-size:0.85rem;padding:0.5rem 1rem;">{% trans "Подробнее" %}</a>
+              <a href="{% url 'applications:apply' %}?course={{ course.id }}" class="btn-primary-ep flex-fill text-center" style="font-size:0.85rem;padding:0.5rem 1rem;">{% trans "Записаться" %}</a>
             </div>
           </div>
         </div>
@@ -54,8 +55,8 @@
       {% empty %}
       <div class="empty-state">
         <div class="empty-state-icon">📚</div>
-        <h4>В этой категории пока нет курсов</h4>
-        <p>Свяжитесь с нами, чтобы узнать о наборе в новые группы</p>
+        <h4>{% trans "В этой категории пока нет курсов" %}</h4>
+        <p>{% trans "Свяжитесь с нами, чтобы узнать о наборе в новые группы" %}</p>
       </div>
       {% endfor %}
     </div>

@@ -1,0 +1,144 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Аналитика — сводка{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Аналитика{% endblock %}
+{% block lms_heading %}Аналитика{% endblock %}
+
+{% block lms_content %}
+{% include 'applications/analytics/_tabs.html' %}
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-person-plus"></i></div>
+      <div><div class="stat-num">{{ apps_today }}</div><div class="stat-lbl">Заявок сегодня</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-person-plus-fill"></i></div>
+      <div><div class="stat-num">{{ apps_week }}</div><div class="stat-lbl">Заявок за 7 дней</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-people"></i></div>
+      <div><div class="stat-num">{{ new_students }}</div><div class="stat-lbl">Новых учеников (месяц)</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-person-check"></i></div>
+      <div><div class="stat-num">{{ active_students }}</div><div class="stat-lbl">Активных учеников</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon green"><i class="bi bi-cash-stack"></i></div>
+      <div><div class="stat-num">{{ revenue_total|floatformat:0 }} ₸</div><div class="stat-lbl">Общая выручка</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon green"><i class="bi bi-wallet2"></i></div>
+      <div><div class="stat-num">{{ revenue_month|floatformat:0 }} ₸</div><div class="stat-lbl">Выручка за месяц</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon purple"><i class="bi bi-people-fill"></i></div>
+      <div><div class="stat-num">{{ open_groups }}</div><div class="stat-lbl">Открытых групп · заполнено {{ avg_fill }}%</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon amber"><i class="bi bi-filter-circle"></i></div>
+      <div><div class="stat-num">{{ conversion }}%</div><div class="stat-lbl">Конверсия в зачисление ({{ enrolled }}/{{ total_apps }})</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mt-0">
+  <div class="col-lg-7">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-graph-up me-2 text-primary"></i> Заявки за 30 дней</h2>
+      </div>
+      <div class="lms-card-body">
+        <canvas id="chartApps" height="110"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-bar-chart me-2 text-primary"></i> Выручка по месяцам</h2>
+      </div>
+      <div class="lms-card-body">
+        <canvas id="chartRevenue" height="110"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mt-0">
+  <div class="col-lg-7">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-filter me-2 text-primary"></i> Заявки по статусам</h2>
+      </div>
+      {% if total_apps %}
+      <div class="lms-card-body">
+        <div class="d-flex flex-column gap-1">
+          {% for code, label, count in status_rows %}
+          {% if count %}
+          <div class="d-flex align-items-center gap-2">
+            <div class="small text-muted" style="width:170px;">{{ label }}</div>
+            <div class="flex-grow-1 progress-lms"><div class="progress-lms-bar" style="width:{% widthratio count total_apps 100 %}%;background:{% if code == 'enrolled' %}#22c55e{% elif code == 'rejected' or code == 'lost' %}#94a3b8{% else %}#6366f1{% endif %};"></div></div>
+            <div class="small fw-bold text-muted" style="width:50px;text-align:right;">{{ count }}</div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-inbox"></i><p>Заявок пока нет.</p></div>{% endif %}
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-trophy me-2 text-primary"></i> Показатели</h2>
+      </div>
+      <div class="lms-card-body">
+        <div class="d-flex flex-column gap-2 small">
+          <div class="d-flex justify-content-between p-2 rounded" style="background:var(--primary-bg);"><span>Заявок за месяц</span><strong>{{ apps_month }}</strong></div>
+          <div class="d-flex justify-content-between p-2 rounded" style="background:var(--primary-bg);"><span>Завершивших курс учеников</span><strong>{{ finished_students }}</strong></div>
+          <div class="d-flex justify-content-between p-2 rounded" style="background:var(--primary-bg);"><span>Всего заявок</span><strong>{{ total_apps }}</strong></div>
+          <div class="d-flex justify-content-between p-2 rounded" style="background:var(--primary-bg);"><span>Зачислено</span><strong>{{ enrolled }}</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function () {
+  var appsData = {{ apps_by_day|safe }};
+  var revData = {{ revenue_by_month|safe }};
+  var labels = appsData.map(function (r) { return r.date.slice(5); });
+  var counts = appsData.map(function (r) { return r.count; });
+  new Chart(document.getElementById('chartApps'), {
+    type: 'line',
+    data: { labels: labels, datasets: [{ label: 'Заявки', data: counts, borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.1)', fill: true, tension: 0.3, pointRadius: 2 }] },
+    options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { precision: 0 } } } }
+  });
+  new Chart(document.getElementById('chartRevenue'), {
+    type: 'bar',
+    data: { labels: revData.map(function (r) { return r.label; }), datasets: [{ label: 'Выручка', data: revData.map(function (r) { return r.total; }), backgroundColor: '#10b981' }] },
+    options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { precision: 0 } } } }
+  });
+})();
+</script>
+{% endblock %}

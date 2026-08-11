@@ -1,0 +1,56 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Аналитика по преподавателям{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Аналитика{% endblock %}
+{% block lms_heading %}Аналитика по преподавателям{% endblock %}
+
+{% block lms_content %}
+{% include 'applications/analytics/_tabs.html' %}
+
+<div class="lms-card">
+  <div class="journal-toolbar">
+    <span class="small text-muted"><i class="bi bi-person-workspace me-1"></i> Эффективность преподавателей</span>
+  </div>
+  {% if rows %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr>
+          <th>Преподаватель</th>
+          <th>Групп</th>
+          <th>Студентов</th>
+          <th>Посещаемость</th>
+          <th>Средний балл</th>
+          <th>Отзывы</th>
+          <th>Рейтинг</th>
+          <th>Завершили</th>
+          <th>Доход</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td class="fw-bold">{{ r.teacher.name }}</td>
+          <td>{{ r.groups }}</td>
+          <td>{{ r.total }}</td>
+          <td>
+            {% if r.att_percent is not None %}
+            <span class="badge-ep {% if r.att_percent >= 90 %}badge-green{% elif r.att_percent >= 75 %}badge-amber{% else %}badge-red{% endif %}">{{ r.att_percent }}%</span>
+            {% else %}—{% endif %}
+          </td>
+          <td>{{ r.avg_grade|default:'—' }}</td>
+          <td>{{ r.reviews }}</td>
+          <td>{% if r.rating %}{{ r.rating }} <i class="bi bi-star-fill text-warning small"></i>{% else %}—{% endif %}</td>
+          <td><span class="badge-ep badge-green">{{ r.success }}%</span></td>
+          <td>{{ r.revenue|floatformat:0 }} ₸</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms"><i class="bi bi-person-workspace"></i><p>Данных нет.</p></div>
+  {% endif %}
+</div>
+{% endblock %}

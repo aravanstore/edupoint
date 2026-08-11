@@ -1,0 +1,157 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Набор: {{ group_set.name }}{% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'applications:set_list' %}">Наборы</a> / {{ group_set.name }}{% endblock %}
+{% block lms_heading %}{{ group_set.name }} <span class="text-muted small fw-normal">ID #{{ group_set.pk }}</span>{% endblock %}
+
+{% block lms_content %}
+{% if messages %}{% for message in messages %}<div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">{{ message }}</div>{% endfor %}{% endif %}
+
+<div class="row g-3">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="bi bi-person-plus"></i></div>
+      <div><div class="stat-num">{{ app_count }}</div><div class="stat-lbl">Заявок (занято мест)</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon teal"><i class="bi bi-people"></i></div>
+      <div><div class="stat-num">{{ seats_left|default:'∞' }}</div><div class="stat-lbl">Свободных мест</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon {% if fill >= 100 %}red{% elif fill >= 80 %}amber{% else %}blue{% endif %}"><i class="bi bi-speedometer2"></i></div>
+      <div><div class="stat-num">{{ fill }}%</div><div class="stat-lbl">Заполненность</div></div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon purple"><i class="bi bi-hourglass-split"></i></div>
+      <div><div class="stat-num">{{ group_set.waitlist.count }}</div><div class="stat-lbl">В листе ожидания</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card mt-3">
+  <div class="lms-card-head">
+    <h2><i class="bi bi-info-circle me-2 text-primary"></i> Информация</h2>
+    <div class="d-flex gap-2">
+      <a href="{% url 'applications:set_edit' group_set.pk %}" class="btn-outline-ep btn-sm-ep"><i class="bi bi-pencil me-1"></i> Изменить</a>
+      {% if group_set.status == 'open' %}
+      <form method="post" action="{% url 'applications:set_status' group_set.pk %}">
+        {% csrf_token %}
+        <button type="submit" name="action" value="close" class="btn-outline-ep btn-sm-ep"><i class="bi bi-lock me-1"></i> Закрыть</button>
+      </form>
+      {% elif group_set.status == 'closed' %}
+      <form method="post" action="{% url 'applications:set_status' group_set.pk %}">
+        {% csrf_token %}
+        <button type="submit" name="action" value="open" class="btn-outline-ep btn-sm-ep"><i class="bi bi-unlock me-1"></i> Открыть</button>
+      </form>
+      {% endif %}
+      {% if group_set.status != 'archived' %}
+      <form method="post" action="{% url 'applications:set_status' group_set.pk %}" onsubmit="return confirm('Архивировать набор?');">
+        {% csrf_token %}
+        <button type="submit" name="action" value="archive" class="btn-outline-ep btn-sm-ep"><i class="bi bi-archive me-1"></i> В архив</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+  <div class="lms-card-body">
+    <div class="row g-2 small">
+      <div class="col-md-4"><strong>Курс:</strong> {{ group_set.course.name }}</div>
+      <div class="col-md-4"><strong>Преподаватель:</strong> {{ group_set.teacher.name|default:'Не назначен' }}</div>
+      <div class="col-md-4"><strong>Филиал:</strong> {{ group_set.branch.name|default:'—' }}</div>
+      <div class="col-md-4"><strong>Дни:</strong> {{ group_set.days_display|default:'—' }}</div>
+      <div class="col-md-4"><strong>Время:</strong> {{ group_set.time_display }}</div>
+      <div class="col-md-4"><strong>Старт:</strong> {{ group_set.start_date|date:"d.m.Y"|default:'—' }}</div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mt-3 pt-3" style="border-top:1px solid var(--border);">
+      {% if group_set.status == 'open' and group_set.is_full %}
+      <form method="post" action="{% url 'applications:set_status' group_set.pk %}">
+        {% csrf_token %}
+        <button type="submit" name="action" value="close" class="btn-outline-ep btn-sm-ep"><i class="bi bi-lock me-1"></i> Набор заполнен — закрыть</button>
+      </form>
+      {% endif %}
+      {% if not group_set.group_id %}
+      <form method="post" action="{% url 'applications:set_create_group' group_set.pk %}" onsubmit="return confirm('Создать учебную группу из этого набора?');">
+        {% csrf_token %}
+        <button type="submit" class="btn-teal-ep btn-sm-ep"><i class="bi bi-plus-lg me-1"></i> Создать группу из набора</button>
+      </form>
+      {% else %}
+      <a href="#" class="btn-outline-ep btn-sm-ep" disabled><i class="bi bi-check-lg me-1"></i> Группа создана: «{{ group_set.group.name }}»</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mt-0">
+  <div class="col-lg-7">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-person-plus me-2 text-primary"></i> Заявки набора ({{ app_count }})</h2>
+        <a href="{% url 'applications:application_list' %}?set={{ group_set.pk }}" class="small">Все заявки →</a>
+      </div>
+      {% if applications %}
+      <div class="table-responsive-ep">
+        <table class="table-ep">
+          <thead><tr><th>Имя</th><th>Телефон</th><th>Источник</th><th>Статус</th><th>Дата</th></tr></thead>
+          <tbody>
+            {% for a in applications %}
+            <tr style="cursor:pointer;" onclick="location.href='{% url 'applications:application_detail' a.pk %}'">
+              <td class="fw-bold">{{ a.name }}</td>
+              <td>{{ a.phone }}</td>
+              <td>{{ a.get_source_display }}</td>
+              <td>
+                {% if a.status == 'enrolled' %}<span class="badge-ep badge-green">{{ a.get_status_display }}</span>
+                {% elif a.status == 'rejected' or a.status == 'lost' %}<span class="badge-ep badge-gray">{{ a.get_status_display }}</span>
+                {% elif a.status == 'test' or a.status == 'test_passed' %}<span class="badge-ep badge-amber">{{ a.get_status_display }}</span>
+                {% else %}<span class="badge-ep badge-blue">{{ a.get_status_display }}</span>{% endif %}
+              </td>
+              <td>{{ a.created_at|date:"d.m.Y" }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}<div class="empty-lms"><i class="bi bi-inbox"></i><p>Заявок пока нет.</p></div>{% endif %}
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-hourglass-split me-2 text-primary"></i> Лист ожидания</h2>
+      </div>
+      <div class="lms-card-body">
+        <form method="post" action="{% url 'applications:waitlist_add' group_set.pk %}" class="d-flex flex-column gap-2 mb-3">
+          {% csrf_token %}
+          <div class="row g-2">
+            <div class="col-5">{{ waitlist_form.name }}</div>
+            <div class="col-4">{{ waitlist_form.phone }}</div>
+            <div class="col-3"><button type="submit" class="btn-primary-ep w-100"><i class="bi bi-plus-lg"></i></button></div>
+          </div>
+          {{ waitlist_form.note }}
+        </form>
+        {% if waitlist %}
+        <div class="d-flex flex-column gap-1">
+          {% for w in waitlist %}
+          <div class="d-flex justify-content-between align-items-center p-2 rounded" style="background:var(--primary-bg);">
+            <div>
+              <div class="fw-bold">{{ w.name }}</div>
+              <div class="small text-muted">{{ w.phone }} · {{ w.created_at|date:"d.m.Y" }}</div>
+            </div>
+            {% if w.notified %}<span class="badge-ep badge-green"><i class="bi bi-check"></i> Уведомлён</span>
+            {% else %}<span class="badge-ep badge-amber">Ожидает</span>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}<div class="empty-lms"><i class="bi bi-hourglass"></i><p>Лист ожидания пуст.</p></div>{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -21,7 +21,7 @@ def log_activity(user, action, target='', details=''):
         return
     ActivityLog.objects.create(
         user=user,
-        action=action,
+        action=str(action)[:100],
         target=str(target)[:300],
         details=str(details)[:500],
     )

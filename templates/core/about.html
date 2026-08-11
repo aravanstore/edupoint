@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}О нас — Edu Point{% endblock %}
+{% block title %}{% trans "О нас" %} — Edu Point{% endblock %}
 
 {% block content %}
 <!-- Page Header -->
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
-    <h1>О нашем центре</h1>
+    <h1>{% trans "О нашем центре" %}</h1>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb justify-content-center">
-        <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Главная</a></li>
-        <li class="breadcrumb-item active" aria-current="page">О нас</li>
+        <li class="breadcrumb-item"><a href="{% url 'core:home' %}">{% trans "Главная" %}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{% trans "О нас" %}</li>
       </ol>
     </nav>
   </div>
@@ -22,25 +23,25 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6" data-aos="fade-right">
-        <div class="section-tag">Наша история</div>
-        <h2 class="section-title">Качественное образование — путь к вашему <span class="text-gradient">будущему</span></h2>
+        <div class="section-tag">{% trans "Наша история" %}</div>
+        <h2 class="section-title">{% trans "Качественное образование — путь к вашему" %} <span class="text-gradient">{% trans "будущему" %}</span></h2>
         <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:1.5rem;">
-          Учебный центр <strong>Edu Point</strong> в г. Ош был основан с целю предоставить студентам и взрослым современное, доступное и высокоэффективное языковое образование.
+          {% trans "Учебный центр" %} <strong>Edu Point</strong> {% trans "в г. Ош был основан с целю предоставить студентам и взрослым современное, доступное и высокоэффективное языковое образование." %}
         </p>
         <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:1.5rem;">
-          Мы гордимся тем, что на протяжении многих лет являемся ведущим центром в сфере подготовки студентов к учебе в Южной Корее, а также сдачи международных языковых экзаменов TOPIK, IELTS и GOETHE.
+          {% trans "Мы гордимся тем, что на протяжении многих лет являемся ведущим центром в сфере подготовки студентов к учебе в Южной Корее, а также сдачи международных языковых экзаменов TOPIK, IELTS и GOETHE." %}
         </p>
         <div class="row g-3">
           <div class="col-sm-6">
             <div style="padding:1rem;background:var(--primary-bg);border-radius:12px;border:1px solid var(--primary-border);">
-              <div style="font-size:1.8rem;font-weight:800;color:var(--primary);">20 лет</div>
-              <div style="font-size:0.9rem;color:var(--text-muted);">Стажа и успешной работы</div>
+              <div style="font-size:1.8rem;font-weight:800;color:var(--primary);">{% trans "20 лет" %}</div>
+              <div style="font-size:0.9rem;color:var(--text-muted);">{% trans "Стажа и успешной работы" %}</div>
             </div>
           </div>
           <div class="col-sm-6">
             <div style="padding:1rem;background:var(--primary-bg);border-radius:12px;border:1px solid var(--primary-border);">
               <div style="font-size:1.8rem;font-weight:800;color:var(--teal);">500+</div>
-              <div style="font-size:0.9rem;color:var(--text-muted);">Успешных выпускников</div>
+              <div style="font-size:0.9rem;color:var(--text-muted);">{% trans "Успешных выпускников" %}</div>
             </div>
           </div>
         </div>
@@ -48,7 +49,7 @@
 
       <div class="col-lg-6" data-aos="fade-left">
         <div class="card-glass p-4">
-          <img src="{% static 'images/edu_logo.png' %}" alt="Edu Point" style="width:100%;max-height:350px;object-fit:contain;border-radius:12px;">
+          <img src="{% static 'images/edu_logo_v3.png' %}" alt="Edu Point" style="width:100%;max-height:350px;object-fit:contain;border-radius:12px;">
         </div>
       </div>
     </div>
@@ -59,32 +60,32 @@
 <section class="section section-alt">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">Ценности</div>
-      <h2 class="section-title">Наша миссия и <span class="text-gradient">принципы</span></h2>
+      <div class="section-tag">{% trans "Ценности" %}</div>
+      <h2 class="section-title">{% trans "Наша миссия и" %} <span class="text-gradient">{% trans "принципы" %}</span></h2>
     </div>
 
     <div class="row g-4">
       <div class="col-md-4" data-aos="fade-up">
         <div class="about-value-card text-center">
           <div class="about-value-icon">🎯</div>
-          <h4>Целеустремленность</h4>
-          <p style="font-size:0.9rem;color:var(--text-muted);">Мы помогаем каждому студенту сформулировать четкую цель и прийти к конкретному результату.</p>
+          <h4>{% trans "Целеустремленность" %}</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">{% trans "Мы помогаем каждому студенту сформулировать четкую цель и прийти к конкретному результату." %}</p>
         </div>
       </div>
 
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="about-value-card text-center">
           <div class="about-value-icon">🌏</div>
-          <h4>Глобальное мышление</h4>
-          <p style="font-size:0.9rem;color:var(--text-muted);">Изучение языка — это первая ступень к учебе, работе и карьере в международных компаниях.</p>
+          <h4>{% trans "Глобальное мышление" %}</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">{% trans "Изучение языка — это первая ступень к учебе, работе и карьере в международных компаниях." %}</p>
         </div>
       </div>
 
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <div class="about-value-card text-center">
           <div class="about-value-icon">💡</div>
-          <h4>Инновационные методики</h4>
-          <p style="font-size:0.9rem;color:var(--text-muted);">Сочетание классической грамматики и интерактивной разговорной практики с носителем.</p>
+          <h4>{% trans "Инновационные методики" %}</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">{% trans "Сочетание классической грамматики и интерактивной разговорной практики с носителем." %}</p>
         </div>
       </div>
     </div>
@@ -95,8 +96,8 @@
 <section class="section">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <div class="section-tag">Развитие</div>
-      <h2 class="section-title">Этапы нашего <span class="text-gradient">роста</span></h2>
+      <div class="section-tag">{% trans "Развитие" %}</div>
+      <h2 class="section-title">{% trans "Этапы нашего" %} <span class="text-gradient">{% trans "роста" %}</span></h2>
     </div>
 
     <div class="row justify-content-center">
@@ -104,21 +105,21 @@
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-year">Основание</div>
-            <div class="timeline-title">Открытие первого класса корейского языка</div>
-            <div class="timeline-text">Запуск первых курсов подготовки студентов к обучению в Южной Корее.</div>
+            <div class="timeline-year">{% trans "Основание" %}</div>
+            <div class="timeline-title">{% trans "Открытие первого класса корейского языка" %}</div>
+            <div class="timeline-text">{% trans "Запуск первых курсов подготовки студентов к обучению в Южной Корее." %}</div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-year">Расширение</div>
-            <div class="timeline-title">Добавление Английского, Немецкого и Китайского языков</div>
-            <div class="timeline-text">Запуск подготовки к IELTS и GOETHE. Переезд в новый современный офис в ТЦ Корона.</div>
+            <div class="timeline-year">{% trans "Расширение" %}</div>
+            <div class="timeline-title">{% trans "Добавление Английского, Немецкого и Китайского языков" %}</div>
+            <div class="timeline-text">{% trans "Запуск подготовки к IELTS и GOETHE. Переезд в новый современный офис в ТЦ Корона." %}</div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-year">Сегодня</div>
-            <div class="timeline-title">Лидирующий языковой центр Оша</div>
-            <div class="timeline-text">Более 500 студентов, успешные миграционные и студенческие визы, партнерства с вузами Южной Кореи.</div>
+            <div class="timeline-year">{% trans "Сегодня" %}</div>
+            <div class="timeline-title">{% trans "Лидирующий языковой центр Оша" %}</div>
+            <div class="timeline-text">{% trans "Более 500 студентов, успешные миграционные и студенческие визы, партнерства с вузами Южной Кореи." %}</div>
           </div>
         </div>
       </div>
@@ -129,9 +130,9 @@
 <!-- CTA -->
 <section class="cta-section" data-aos="fade-up">
   <div class="container text-center">
-    <h2>Станьте частью команды Edu Point</h2>
-    <p>Запишитесь на первое занятие и ощутите разницу в преподавании</p>
-    <a href="{% url 'applications:apply' %}" class="btn-cta-white">Присоединиться</a>
+    <h2>{% trans "Станьте частью команды Edu Point" %}</h2>
+    <p>{% trans "Запишитесь на первое занятие и ощутите разницу в преподавании" %}</p>
+    <a href="{% url 'applications:apply' %}" class="btn-cta-white">{% trans "Присоединиться" %}</a>
   </div>
 </section>
 {% endblock %}

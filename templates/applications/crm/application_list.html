@@ -1,0 +1,91 @@
+{% extends 'lms/base_lms.html' %}
+{% load static %}
+
+{% block lms_title %}Заявки (воронка){% endblock %}
+{% block lms_breadcrumb %}<a href="{% url 'lms:reception_dashboard' %}">Ресепшен</a> / Заявки{% endblock %}
+{% block lms_heading %}Воронка заявок{% endblock %}
+
+{% block lms_content %}
+<div class="row g-3 mb-4">
+  <div class="col-12">
+    <div class="lms-card">
+      <div class="lms-card-head">
+        <h2><i class="bi bi-filter me-2 text-primary"></i> Конверсия между этапами</h2>
+      </div>
+      <div class="lms-card-body">
+        <div class="d-flex flex-column flex-md-row gap-2 align-items-stretch">
+          {% for stage in funnel %}
+          <div class="flex-grow-1 p-3 rounded text-center" style="background:var(--primary-bg);border:1px solid var(--border);">
+            <div class="fw-bold fs-5">{{ stage.count }}</div>
+            <div class="small text-muted">{{ stage.label }}</div>
+            {% if stage.conv is not None %}
+            <div class="small fw-bold" style="color:var(--primary);">→ {{ stage.conv }}%</div>
+            {% endif %}
+          </div>
+          {% if not forloop.last %}<div class="d-none d-md-flex align-items-center text-muted"><i class="bi bi-arrow-right"></i></div>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-card">
+  <div class="journal-toolbar">
+    <form method="get" class="d-flex gap-2 flex-wrap">
+      <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Поиск по имени или телефону..." style="max-width:240px;">
+      <select name="status" class="form-select" style="max-width:190px;" onchange="this.form.submit()">
+        <option value="">Все статусы</option>
+        {% for code, label in statuses %}
+        <option value="{{ code }}" {% if status_filter == code %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <select name="source" class="form-select" style="max-width:170px;" onchange="this.form.submit()">
+        <option value="">Все источники</option>
+        {% for code, label in sources %}
+        <option value="{{ code }}" {% if source_filter == code %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <select name="set" class="form-select" style="max-width:220px;" onchange="this.form.submit()">
+        <option value="">Все наборы</option>
+        {% for s in sets %}
+        <option value="{{ s.pk }}" {% if set_filter == s.pk|stringformat:"s" %}selected{% endif %}>{{ s.name }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="btn-primary-ep" style="padding:0.5rem 1.2rem;"><i class="bi bi-search"></i></button>
+    </form>
+    <a href="{% url 'applications:application_create' %}" class="btn-teal-ep text-nowrap">
+      <i class="bi bi-plus-lg me-1"></i> Заявка вручную
+    </a>
+  </div>
+
+  {% if applications %}
+  <div class="table-responsive-ep">
+    <table class="table-ep">
+      <thead>
+        <tr><th>Имя</th><th>Телефон</th><th>Набор</th><th>Источник</th><th>Статус</th><th>Дата</th></tr>
+      </thead>
+      <tbody>
+        {% for a in applications %}
+        <tr style="cursor:pointer;" onclick="location.href='{% url 'applications:application_detail' a.pk %}'">
+          <td class="fw-bold">{{ a.name }}</td>
+          <td>{{ a.phone }}</td>
+          <td>{{ a.group_set.name|default:'—' }}</td>
+          <td>{{ a.get_source_display }}</td>
+          <td>
+            {% if a.status == 'enrolled' %}<span class="badge-ep badge-green">{{ a.get_status_display }}</span>
+            {% elif a.status == 'rejected' or a.status == 'lost' %}<span class="badge-ep badge-gray">{{ a.get_status_display }}</span>
+            {% elif a.status == 'test' or a.status == 'test_passed' %}<span class="badge-ep badge-amber">{{ a.get_status_display }}</span>
+            {% else %}<span class="badge-ep badge-blue">{{ a.get_status_display }}</span>{% endif %}
+          </td>
+          <td>{{ a.created_at|date:"d.m.Y H:i" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-lms"><i class="bi bi-inbox"></i><p>Заявки не найдены.</p></div>
+  {% endif %}
+</div>
+{% endblock %}

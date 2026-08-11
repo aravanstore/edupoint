@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Международные экзамены TOPIK, IELTS, GOETHE — Edu Point{% endblock %}
+{% block title %}{% trans "Международные экзамены" %} TOPIK, IELTS, GOETHE — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
-    <h1>Подготовка к международным экзаменам</h1>
+    <h1>{% trans "Подготовка к международным экзаменам" %}</h1>
     <p style="color:var(--text-muted);font-size:1.1rem;max-width:700px;margin:0 auto;">
-      Получите официальный сертификат для поступления в зарубежные вузы и иммиграции
+      {% trans "Получите официальный сертификат для поступления в зарубежные вузы и иммиграции" %}
     </p>
   </div>
 </section>
@@ -31,7 +32,7 @@
 
           {% if exam.benefits_list %}
           <div class="text-start bg-light p-3 rounded-3 mb-4">
-            <div class="fw-bold fs-6 mb-2 text-primary">Что дает курс:</div>
+            <div class="fw-bold fs-6 mb-2 text-primary">{% trans "Что дает курс:" %}</div>
             <ul class="list-unstyled mb-0">
               {% for b in exam.get_benefits_list|slice:":3" %}
               <li class="fs-6 text-muted mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> {{ b }}</li>
@@ -41,8 +42,8 @@
           {% endif %}
 
           <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
-            <span class="fw-bold text-primary fs-5">{{ exam.price|floatformat:0 }} сом/мес</span>
-            <a href="{% url 'exams:detail' exam.name %}" class="btn-primary-ep" style="font-size:0.85rem;padding:0.5rem 1.25rem;">Подробнее</a>
+            <span class="fw-bold text-primary fs-5">{{ exam.price|floatformat:0 }} {% trans "сом/мес" %}</span>
+            <a href="{% url 'exams:detail' exam.name %}" class="btn-primary-ep" style="font-size:0.85rem;padding:0.5rem 1.25rem;">{% trans "Подробнее" %}</a>
           </div>
         </div>
       </div>
@@ -52,24 +53,24 @@
         <div class="card-ep p-4 text-center h-100">
           <div class="display-3 mb-3">🇰🇷</div>
           <h3 class="fw-bold">TOPIK I & II</h3>
-          <p class="text-muted">Официальный корейский экзамен для учебы в Корее.</p>
-          <a href="{% url 'exams:detail' 'topik' %}" class="btn-primary-ep mt-3">Подробнее о TOPIK</a>
+          <p class="text-muted">{% trans "Официальный корейский экзамен для учебы в Корее." %}</p>
+          <a href="{% url 'exams:detail' 'topik' %}" class="btn-primary-ep mt-3">{% trans "Подробнее о" %} TOPIK</a>
         </div>
       </div>
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <div class="card-ep p-4 text-center h-100">
           <div class="display-3 mb-3">🇬🇧</div>
           <h3 class="fw-bold">IELTS Academic</h3>
-          <p class="text-muted">Международный экзамен английского языка.</p>
-          <a href="{% url 'exams:detail' 'ielts' %}" class="btn-primary-ep mt-3">Подробнее об IELTS</a>
+          <p class="text-muted">{% trans "Международный экзамен английского языка." %}</p>
+          <a href="{% url 'exams:detail' 'ielts' %}" class="btn-primary-ep mt-3">{% trans "Подробнее об" %} IELTS</a>
         </div>
       </div>
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
         <div class="card-ep p-4 text-center h-100">
           <div class="display-3 mb-3">🇩🇪</div>
           <h3 class="fw-bold">Goethe-Zertifikat</h3>
-          <p class="text-muted">Подтверждение немецкого языка для Германии.</p>
-          <a href="{% url 'exams:detail' 'goethe' %}" class="btn-primary-ep mt-3">Подробнее о GOETHE</a>
+          <p class="text-muted">{% trans "Подтверждение немецкого языка для Германии." %}</p>
+          <a href="{% url 'exams:detail' 'goethe' %}" class="btn-primary-ep mt-3">{% trans "Подробнее о" %} GOETHE</a>
         </div>
       </div>
       {% endfor %}

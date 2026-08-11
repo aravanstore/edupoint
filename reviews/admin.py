@@ -5,10 +5,11 @@ from .models import Review
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('name', 'course', 'rating_stars', 'is_approved', 'order', 'created_at')
+    list_display = ('name', 'course', 'teacher', 'rating_stars', 'is_approved', 'order', 'created_at')
     list_editable = ('is_approved', 'order')
     list_filter = ('is_approved', 'rating')
     search_fields = ('name', 'text')
+    autocomplete_fields = ('course', 'teacher')
 
     def rating_stars(self, obj):
         stars = '⭐' * obj.rating + '☆' * (5 - obj.rating)

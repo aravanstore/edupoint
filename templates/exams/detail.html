@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Подготовка к {{ exam.get_name_display }} — Edu Point{% endblock %}
+{% block title %}{% trans "Подготовка к" %} {{ exam.get_name_display }} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
@@ -9,7 +10,7 @@
     <div class="display-2 mb-2">
       {% if exam.name == 'topik' %}🇰🇷{% elif exam.name == 'ielts' %}🇬🇧{% else %}🇩🇪{% endif %}
     </div>
-    <h1>Подготовка к {{ exam.get_name_display }}</h1>
+    <h1>{% trans "Подготовка к" %} {{ exam.get_name_display }}</h1>
     <p style="color:var(--text-muted);font-size:1.1rem;">{{ exam.full_name }}</p>
   </div>
 </section>
@@ -18,20 +19,20 @@
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-8" data-aos="fade-right">
-        <h3 class="fw-bold mb-3">О структуре экзамена {{ exam.get_name_display }}</h3>
+        <h3 class="fw-bold mb-3">{% trans "О структуре экзамена" %} {{ exam.get_name_display }}</h3>
         <div class="fs-5 text-secondary mb-4" style="line-height:1.8;">
           {{ exam.description|safe }}
         </div>
 
         {% if exam.preparation_program %}
-        <h3 class="fw-bold mb-3">Программа подготовки в Edu Point</h3>
+        <h3 class="fw-bold mb-3">{% trans "Программа подготовки в" %} Edu Point</h3>
         <div class="bg-light p-4 rounded-4 mb-4 border">
           {{ exam.preparation_program|safe }}
         </div>
         {% endif %}
 
         {% if exam.get_benefits_list %}
-        <h3 class="fw-bold mb-3">Преимущества нашего курса</h3>
+        <h3 class="fw-bold mb-3">{% trans "Преимущества нашего курса" %}</h3>
         <div class="row g-3 mb-4">
           {% for b in exam.get_benefits_list %}
           <div class="col-md-6">
@@ -47,22 +48,22 @@
 
       <div class="col-lg-4" data-aos="fade-left">
         <div class="card-ep p-4 sticky-top" style="top:100px;">
-          <h4 class="fw-bold mb-3">Записаться на курс</h4>
+          <h4 class="fw-bold mb-3">{% trans "Записаться на курс" %}</h4>
           {% if exam.duration %}
           <div class="d-flex justify-content-between py-2 border-bottom">
-            <span class="text-muted">Длительность:</span>
+            <span class="text-muted">{% trans "Длительность:" %}</span>
             <strong>{{ exam.duration }}</strong>
           </div>
           {% endif %}
           {% if exam.price %}
           <div class="d-flex justify-content-between py-3 border-bottom mb-3">
-            <span class="text-muted fs-5">Стоимость:</span>
-            <strong class="fs-4 text-primary-ep">{{ exam.price|floatformat:0 }} сом/мес</strong>
+            <span class="text-muted fs-5">{% trans "Стоимость:" %}</span>
+            <strong class="fs-4 text-primary-ep">{{ exam.price|floatformat:0 }} {% trans "сом/мес" %}</strong>
           </div>
           {% endif %}
 
           <a href="{% url 'applications:apply' %}" class="btn-primary-ep w-100 justify-content-center">
-            <i class="bi bi-pencil-square"></i> Подать заявку
+            <i class="bi bi-pencil-square"></i> {% trans "Подать заявку" %}
           </a>
         </div>
       </div>

@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Галерея — Edu Point{% endblock %}
+{% block title %}{% trans "Галерея" %} — Edu Point{% endblock %}
 
 {% block content %}
 <section class="page-header">
   <div class="container text-center" data-aos="fade-up">
-    <h1>Галерея учебного центра</h1>
+    <h1>{% trans "Галерея учебного центра" %}</h1>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb justify-content-center">
-        <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Главная</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Галерея</li>
+        <li class="breadcrumb-item"><a href="{% url 'core:home' %}">{% trans "Главная" %}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{% trans "Галерея" %}</li>
       </ol>
     </nav>
   </div>
@@ -20,10 +21,10 @@
   <div class="container">
     <!-- Filter Buttons -->
     <div class="filter-tabs justify-content-center mb-5" data-aos="fade-up">
-      <button class="filter-tab active" data-gallery-filter="all">Все фото</button>
-      <button class="filter-tab" data-gallery-filter="classes">Учебные классы</button>
-      <button class="filter-tab" data-gallery-filter="events">Мероприятия & Выдача сертификатов</button>
-      <button class="filter-tab" data-gallery-filter="students">Студенты & Университеты Кореи</button>
+      <button class="filter-tab active" data-gallery-filter="all">{% trans "Все фото" %}</button>
+      <button class="filter-tab" data-gallery-filter="classes">{% trans "Учебные классы" %}</button>
+      <button class="filter-tab" data-gallery-filter="events">{% trans "Мероприятия & Выдача сертификатов" %}</button>
+      <button class="filter-tab" data-gallery-filter="students">{% trans "Студенты & Университеты Кореи" %}</button>
     </div>
 
     <!-- Gallery Grid -->
@@ -38,13 +39,13 @@
         <img src="/media/gallery/paichai_1.jpg" alt="Paichai University Келишим">
       </div>
       <div class="gallery-item" data-category="classes">
-        <img src="/media/gallery/process_2.jpg" alt="Обучение в классах">
+        <img src="/media/gallery/process_2.jpg" alt="{% trans 'Обучение в классах' %}">
       </div>
       <div class="gallery-item" data-category="events">
-        <img src="/media/gallery/certificates_1.jpg" alt="Выдача сертификатов">
+        <img src="/media/gallery/certificates_1.jpg" alt="{% trans 'Выдача сертификатов' %}">
       </div>
       <div class="gallery-item" data-category="students">
-        <img src="/media/gallery/universities_songho-university-1.jpg" alt="Songho University Корея">
+        <img src="/media/gallery/universities_songho-university-1.jpg" alt="{% trans 'Songho University Корея' %}">
       </div>
       <div class="gallery-item" data-category="events">
         <img src="/media/gallery/events_aid-mubarak.jpg" alt="Eid Mubarak">

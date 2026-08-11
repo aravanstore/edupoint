@@ -140,7 +140,16 @@
   box-shadow: var(--shadow-sm);
 }
 .lms-nav a.active i { color: #fff; }
-.lms-nav .nav-logout { color: var(--danger); }
+.lms-nav .logout-form { margin: 0; }
+.lms-nav .nav-logout {
+  width: 100%;
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  color: var(--danger);
+}
 .lms-nav .nav-logout i { color: var(--danger); }
 .lms-nav .nav-logout:hover { background: rgba(239,68,68,0.08); color: var(--danger); }
 
@@ -443,10 +452,10 @@
   .lms-topbar { flex-direction: column; align-items: flex-start; }
   .table-responsive-ep { overflow-x: auto; }
 }
-/* Вход: чекбокс  Запомнить меня */
+/* пїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ */
 .auth-card .form-check .form-check-label { font-size: 0.9rem; color: #5b6b7f; }
 .lms-muted { color: #5b6b7f; }
-/* Уведомления */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .lms-topbar-actions { display: flex; align-items: center; gap: 0.75rem; }
 .lms-notif-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); text-decoration: none; }
 .lms-notif-btn:hover { color: var(--primary); border-color: var(--primary); }

@@ -14,6 +14,15 @@
   <div class="lms-card-body">
     <form method="post">
       {% csrf_token %}
+      {% if application %}
+      <div class="alert alert-info">
+        <i class="bi bi-info-circle me-1"></i>
+        Данные подставлены из заявки <strong>«{{ application.name }}»</strong>
+        {% if application.group_set %}(набор «{{ application.group_set.name }}»){% endif %}.
+        После создания ученик будет привязан к заявке, а её статус станет «Зачислен».
+      </div>
+      <input type="hidden" name="application" value="{{ application.pk }}">
+      {% endif %}
       <div class="row g-3">
         <div class="col-md-4">
           <label class="form-label-lms">Имя *</label>
