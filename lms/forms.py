@@ -72,7 +72,7 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = StudentProfile
         fields = ['group', 'book', 'book_progress', 'parent', 'phone', 'parent_phone',
-                  'birth_date', 'notes', 'is_active']
+                  'birth_date', 'trial_date', 'notes', 'is_active']
         widgets = {
             'group': forms.Select(attrs={'class': 'form-select'}),
             'book': forms.Select(attrs={'class': 'form-select'}),
@@ -81,6 +81,7 @@ class StudentForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+996 ...'}),
             'parent_phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+996 ... (необязательно)'}),
             'birth_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'trial_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'notes': forms.Textarea(attrs={'class': 'form-control', 'rows': 2}),
             'is_active': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
@@ -95,6 +96,7 @@ class StudentForm(forms.ModelForm):
         self.fields['phone'].required = False
         self.fields['parent_phone'].required = False
         self.fields['birth_date'].required = False
+        self.fields['trial_date'].required = False
         self.fields['notes'].required = False
 
     def clean(self):

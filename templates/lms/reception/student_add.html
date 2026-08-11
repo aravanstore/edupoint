@@ -44,6 +44,11 @@
           <label class="form-label-lms">Дата рождения</label>
           {{ form.birth_date }}
         </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Дата пробного урока</label>
+          {{ form.trial_date }}
+          <small class="text-muted">До неё и 1 день после — статус «Пробный», не Frozen</small>
+        </div>
         <div class="col-md-6">
           <label class="form-label-lms">Группа</label>
           {{ form.group }}

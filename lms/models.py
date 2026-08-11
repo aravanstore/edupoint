@@ -150,6 +150,8 @@ class StudentProfile(models.Model):
     phone = models.CharField('Телефон', max_length=50, blank=True)
     parent_phone = models.CharField('Телефон родителя', max_length=50, blank=True)
     birth_date = models.DateField('Дата рождения', null=True, blank=True)
+    trial_date = models.DateField('Дата пробного урока', null=True, blank=True,
+                                  help_text='До этой даты и один день после — статус «Пробный урок», не Frozen')
     enrolled_at = models.DateField('Зачислен', auto_now_add=True)
     notes = models.TextField('Заметки', blank=True)
     is_active = models.BooleanField('Активен', default=True)
@@ -180,8 +182,10 @@ class StudentProfile(models.Model):
         ).order_by('-new_due_date').first()
 
     def payment_status(self):
-        """Возвращает (status, due_date): paid / pending / frozen / none."""
+        """Возвращает (status, due_date): paid / pending / trial / frozen."""
         today = timezone.localdate()
+        if self.trial_date and today <= self.trial_date + timezone.timedelta(days=1):
+            return ('trial', self.trial_date)
         month_start = today.replace(day=1)
         payment = self.payment_for_month(month_start)
         if payment and payment.is_confirmed:

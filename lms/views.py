@@ -659,6 +659,8 @@ def reception_dashboard(request):
     frozen = [s for s in students if s.id in frozen_ids]
     overdue = len(frozen)
     today = timezone.localdate()
+    trial_students = [s for s in students
+                      if s.trial_date and s.trial_date >= today - timezone.timedelta(days=1)]
     recent_payments = Payment.objects.order_by('-paid_at').select_related('student__user')[:10]
     return render(request, 'lms/reception/dashboard.html', {
         'total': total,
@@ -668,6 +670,8 @@ def reception_dashboard(request):
         'recent_payments': recent_payments,
         'today': today,
         'frozen_students': frozen[:8],
+        'trial_students': trial_students[:8],
+        'trial_count': len(trial_students),
         'active_section': 'overview',
         'page_title': 'Кабинет ресепшена — Edu Point',
     })
@@ -764,12 +768,13 @@ def reception_students(request):
 
     counts = {
         'all': len(students),
+        'trial': sum(1 for s in students if s.payment_status_cached[0] == 'trial'),
         'frozen': sum(1 for s in students if s.payment_status_cached[0] == 'frozen'),
         'pending': sum(1 for s in students if s.payment_status_cached[0] == 'pending'),
         'paid': sum(1 for s in students if s.payment_status_cached[0] == 'paid'),
     }
     status_filter = request.GET.get('status', '')
-    if status_filter in ('frozen', 'pending', 'paid'):
+    if status_filter in ('trial', 'frozen', 'pending', 'paid'):
         students = [s for s in students if s.payment_status_cached[0] == status_filter]
 
     return render(request, 'lms/reception/students.html', {

@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.utils import timezone
 
-from .models import ActivityLog, Notification, Payment, PaymentExtension
+from .models import ActivityLog, Notification, Payment, PaymentExtension, StudentProfile
 
 
 def bulk_frozen_student_ids(students):
@@ -14,6 +14,13 @@ def bulk_frozen_student_ids(students):
 
     today = timezone.localdate()
     month_start = today.replace(day=1)
+
+    trial_ids = set(
+        StudentProfile.objects.filter(
+            id__in=ids, trial_date__isnull=False, trial_date__gte=today - timezone.timedelta(days=1)
+        ).values_list('id', flat=True)
+    )
+    ids = [sid for sid in ids if sid not in trial_ids]
 
     paid_student_ids = set(
         Payment.objects.filter(
@@ -44,6 +51,12 @@ def bulk_payment_status(students):
     today = timezone.localdate()
     month_start = today.replace(day=1)
 
+    trial_dates = dict(
+        StudentProfile.objects.filter(
+            id__in=ids, trial_date__isnull=False, trial_date__gte=today - timezone.timedelta(days=1)
+        ).values_list('id', 'trial_date')
+    )
+
     paid_months = dict(
         Payment.objects.filter(
             student_id__in=ids, month__year=month_start.year,
@@ -58,6 +71,9 @@ def bulk_payment_status(students):
 
     result = {}
     for sid in ids:
+        if sid in trial_dates:
+            result[sid] = ('trial', trial_dates[sid])
+            continue
         if sid in paid_months:
             result[sid] = ('paid', paid_months[sid])
             continue
