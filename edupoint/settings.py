@@ -212,7 +212,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # TELEGRAM BOT
 # ===========================================================================
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '7569848532:AAGWG6p2LdKBVIN2oYJQHrBvyJq7uIAlRl8')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '-5236512491')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '-1003976333711')
 
 # ===========================================================================
 # EMAIL
