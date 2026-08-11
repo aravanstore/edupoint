@@ -17,6 +17,13 @@ class Teacher(models.Model):
     instagram = models.URLField('Instagram', blank=True)
     telegram = models.URLField('Telegram', blank=True)
     is_active = models.BooleanField('Активен', default=True)
+    THEME_CHOICES = [
+        ('', 'Обычное оформление'),
+        ('korean', '🇰🇷 Корейская тема (ханок, ханбок)'),
+    ]
+    profile_theme = models.CharField('Оформление профиля', max_length=20, blank=True,
+                                     choices=THEME_CHOICES, default='',
+                                     help_text='Особое оформление публичного профиля и личного кабинета')
     order = models.PositiveIntegerField('Порядок', default=0)
 
     class Meta:

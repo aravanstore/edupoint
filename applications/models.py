@@ -62,6 +62,8 @@ class GroupSet(models.Model):
     group = models.ForeignKey('lms.Group', on_delete=models.SET_NULL, null=True, blank=True,
                               related_name='group_set', verbose_name='Созданная группа')
     status = models.CharField('Статус', max_length=20, choices=STATUS_CHOICES, default='open')
+    is_night = models.BooleanField('Ночная группа', default=False,
+                                   help_text='На главной странице отображается в ночном оформлении')
     notified_80 = models.BooleanField('Уведомлено о 80%', default=False)
     notified_90 = models.BooleanField('Уведомлено о 90%', default=False)
     notified_100 = models.BooleanField('Уведомлено о 100%', default=False)

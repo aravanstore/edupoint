@@ -13,7 +13,7 @@ class TeacherForm(forms.ModelForm):
     class Meta:
         model = Teacher
         fields = ['name', 'position', 'photo', 'bio', 'experience_years', 'education',
-                  'languages', 'instagram', 'telegram', 'is_active']
+                  'languages', 'instagram', 'telegram', 'is_active', 'profile_theme']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'position': forms.TextInput(attrs={'class': 'form-control'}),
@@ -25,11 +25,12 @@ class TeacherForm(forms.ModelForm):
             'instagram': forms.URLInput(attrs={'class': 'form-control'}),
             'telegram': forms.URLInput(attrs={'class': 'form-control'}),
             'is_active': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'profile_theme': forms.Select(attrs={'class': 'form-select'}),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for f in ('bio', 'education', 'instagram', 'telegram', 'photo'):
+        for f in ('bio', 'education', 'instagram', 'telegram', 'photo', 'profile_theme'):
             self.fields[f].required = False
 
 from .models import (

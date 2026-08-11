@@ -5,17 +5,31 @@
 {% block title %}{{ teacher.name }} — Edu Point{% endblock %}
 
 {% block content %}
-<section class="page-header">
-  <div class="container" data-aos="fade-up">
+<section class="page-header {% if teacher.profile_theme == 'korean' %}korean-hero{% endif %}">
+  {% if teacher.profile_theme == 'korean' %}
+  <div class="korean-deco" aria-hidden="true">
+    <div class="k-mountains"></div>
+    <span class="k-petal" style="left:6%;animation-delay:0s;">🌸</span>
+    <span class="k-petal" style="left:22%;animation-delay:3s;">🌸</span>
+    <span class="k-petal" style="left:41%;animation-delay:6.5s;">🌸</span>
+    <span class="k-petal" style="left:63%;animation-delay:1.8s;">🌸</span>
+    <span class="k-petal" style="left:79%;animation-delay:8.2s;">🌸</span>
+    <span class="k-petal" style="left:92%;animation-delay:4.6s;">🌸</span>
+  </div>
+  {% endif %}
+  <div class="container position-relative" data-aos="fade-up">
     <div class="row align-items-center g-4">
       <div class="col-auto">
         {% if teacher.photo %}
-        <img src="{{ teacher.photo.url }}" alt="{{ teacher.name }}" class="teacher-avatar" style="width:120px;height:120px;">
+        <img src="{{ teacher.photo.url }}" alt="{{ teacher.name }}" class="teacher-avatar {% if teacher.profile_theme == 'korean' %}korean-avatar{% endif %}" style="width:120px;height:120px;">
         {% else %}
-        <div class="teacher-avatar-placeholder" style="width:120px;height:120px;font-size:2.5rem;">{{ teacher.name|first }}</div>
+        <div class="teacher-avatar-placeholder {% if teacher.profile_theme == 'korean' %}korean-avatar{% endif %}" style="width:120px;height:120px;font-size:2.5rem;">{{ teacher.name|first }}</div>
         {% endif %}
       </div>
       <div class="col">
+        {% if teacher.profile_theme == 'korean' %}
+        <div class="korean-hangul mb-1">한국어 선생님</div>
+        {% endif %}
         <h1 class="mb-1">{{ teacher.name }}</h1>
         <div class="text-primary fw-semibold mb-2">{{ teacher.position }}</div>
         {% if teacher.languages %}<div class="badge bg-light text-dark border mb-2">{{ teacher.languages }}</div>{% endif %}

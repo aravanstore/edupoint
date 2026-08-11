@@ -66,6 +66,15 @@
           <label class="form-label-lms">Статус</label>
           {{ form.status }}
         </div>
+        <div class="col-12">
+          <div class="d-flex align-items-center gap-2">
+            {{ form.is_night }}
+            <label class="form-label-lms mb-0" for="{{ form.is_night.id_for_label }}">
+              🌙 Ночная группа
+            </label>
+          </div>
+          <div class="form-text">На главной странице такой набор показывается в ночном оформлении — звёздное небо и метеоры.</div>
+        </div>
       </div>
       <div class="d-flex gap-2 mt-4">
         <button type="submit" class="btn-primary-ep">

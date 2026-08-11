@@ -15,7 +15,7 @@ class GroupSetForm(forms.ModelForm):
     class Meta:
         model = GroupSet
         fields = ['name', 'course', 'teacher', 'days', 'start_time', 'end_time',
-                  'start_date', 'capacity', 'branch', 'status']
+                  'start_date', 'capacity', 'branch', 'status', 'is_night']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
                                            'placeholder': 'Пусто — сгенерируется автоматически'}),
@@ -27,6 +27,7 @@ class GroupSetForm(forms.ModelForm):
             'capacity': forms.NumberInput(attrs={'class': 'form-control', 'min': 1}),
             'branch': forms.Select(attrs={'class': 'form-select'}),
             'status': forms.Select(attrs={'class': 'form-select'}),
+            'is_night': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
 
     def __init__(self, *args, **kwargs):

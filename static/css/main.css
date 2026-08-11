@@ -1835,3 +1835,181 @@ html, body {
 @media (max-width: 767px) {
   .egg-counter { bottom: 78px; font-size: 0.72rem; padding: 0.4rem 0.7rem; }
 }
+
+/* ============================================================
+   НАБОРЫ НА ГЛАВНОЙ: тёмная тема + ночные группы
+   ============================================================ */
+
+/* Бейдж свободных мест — вместо bootstrap bg-light/text-dark,
+   которые жёстко заданы под светлую тему и ломались в тёмной. */
+.seats-badge {
+  display: inline-block;
+  padding: 0.35em 0.7em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: var(--bg-secondary, #f1f5f9);
+  color: var(--text-primary, #0f172a);
+  border: 1px solid var(--border, #e2e8f0);
+}
+
+/* Таблица учеников в наборе — bootstrap .table жёстко светлая */
+.set-students-table {
+  color: var(--text-primary, #0f172a);
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text-primary, #0f172a);
+}
+.set-students-table th {
+  color: var(--text-muted, #64748b);
+  font-weight: 600;
+  border-bottom-color: var(--border, #e2e8f0);
+}
+.set-students-table td {
+  border-bottom-color: var(--border, #e2e8f0);
+}
+
+/* ---------- Ночная группа ---------- */
+.night-set {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0b1026 0%, #131b3a 55%, #1b2450 100%);
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  box-shadow: 0 8px 32px rgba(10, 15, 45, 0.45);
+}
+.night-set .night-content { position: relative; z-index: 2; }
+.night-set h4,
+.night-set .fw-semibold,
+.night-set a:not(.btn-primary-ep) { color: #eef2ff; }
+.night-set p,
+.night-set .text-muted,
+.night-set .set-students-table,
+.night-set .set-students-table th,
+.night-set .set-students-table td { color: rgba(226, 232, 240, 0.85); }
+.night-set .set-students-table th,
+.night-set .set-students-table td { border-bottom-color: rgba(148, 163, 184, 0.2); }
+.night-set .course-badge {
+  background: rgba(129, 140, 248, 0.18);
+  color: #c7d2fe;
+  border: 1px solid rgba(129, 140, 248, 0.35);
+}
+.night-set .seats-badge {
+  background: rgba(129, 140, 248, 0.18);
+  color: #e0e7ff;
+  border-color: rgba(129, 140, 248, 0.45);
+}
+
+.night-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.night-sky .star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.75;
+  animation: star-twinkle 3.2s ease-in-out infinite;
+}
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%      { opacity: 1;   transform: scale(1.25); }
+}
+
+.night-sky .meteor {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.65);
+  opacity: 0;
+  animation: meteor-fall 14s linear infinite;
+}
+.night-sky .meteor::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.85), transparent);
+  transform: translateX(-90px) rotate(0deg);
+}
+@keyframes meteor-fall {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  3%   { opacity: 1; }
+  18%  { opacity: 0; transform: translate(-320px, 220px); }
+  100% { opacity: 0; transform: translate(-320px, 220px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .night-sky .star,
+  .night-sky .meteor { animation: none; }
+  .night-sky .meteor { opacity: 0; }
+}
+
+/* ============================================================
+   КОРЕЙСКАЯ ТЕМА ПРОФИЛЯ ПРЕПОДАВАТЕЛЯ
+   ============================================================ */
+.korean-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fdf2f4 0%, #fff7f8 60%, var(--bg-primary, #fff) 100%);
+}
+[data-theme="dark"] .korean-hero {
+  background: linear-gradient(180deg, #2a1520 0%, #1d1220 60%, var(--bg-primary, #0f172a) 100%);
+}
+.korean-deco { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+
+/* Силуэт гор — отсылка к традиционной корейской живописи */
+.k-mountains {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 90px;
+  background:
+    radial-gradient(ellipse 220px 90px at 12% 100%, rgba(190, 24, 93, 0.10) 0 60%, transparent 61%),
+    radial-gradient(ellipse 300px 120px at 42% 100%, rgba(190, 24, 93, 0.08) 0 60%, transparent 61%),
+    radial-gradient(ellipse 260px 100px at 78% 100%, rgba(190, 24, 93, 0.10) 0 60%, transparent 61%);
+}
+[data-theme="dark"] .k-mountains {
+  background:
+    radial-gradient(ellipse 220px 90px at 12% 100%, rgba(244, 114, 182, 0.16) 0 60%, transparent 61%),
+    radial-gradient(ellipse 300px 120px at 42% 100%, rgba(244, 114, 182, 0.12) 0 60%, transparent 61%),
+    radial-gradient(ellipse 260px 100px at 78% 100%, rgba(244, 114, 182, 0.16) 0 60%, transparent 61%);
+}
+
+/* Лепестки сакуры */
+.k-petal {
+  position: absolute;
+  top: -30px;
+  font-size: 1rem;
+  opacity: 0;
+  animation: petal-fall 12s linear infinite;
+}
+@keyframes petal-fall {
+  0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
+  8%   { opacity: 0.85; }
+  92%  { opacity: 0.6; }
+  100% { opacity: 0; transform: translateY(320px) translateX(60px) rotate(320deg); }
+}
+
+.korean-hangul {
+  font-family: 'Noto Sans KR', 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #be185d;
+}
+[data-theme="dark"] .korean-hangul { color: #f472b6; }
+
+.korean-avatar {
+  border: 3px solid #be185d !important;
+  box-shadow: 0 0 0 6px rgba(190, 24, 93, 0.12), 0 8px 28px rgba(190, 24, 93, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .k-petal { animation: none; opacity: 0; }
+}

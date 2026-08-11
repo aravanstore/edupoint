@@ -9,7 +9,7 @@
 {% block title %}{% block lms_title %}Кабинет — Edu Point{% endblock %}{% endblock %}
 
 {% block content %}
-<div class="lms-shell">
+<div class="lms-shell{% if user.teacher_profile.teacher.profile_theme %} lms-theme-{{ user.teacher_profile.teacher.profile_theme }}{% endif %}">
   <div class="lms-scrim" id="lmsScrim"></div>
 
   <!-- ===== Sidebar ===== -->
