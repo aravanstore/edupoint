@@ -1,0 +1,48 @@
+version: "1.0"
+apps:
+  - name: edupoint
+    services:
+      - name: web
+        git:
+          repository: github.com/aravanstore/edupoint
+          branch: main
+          builder: dockerfile
+        ports:
+          - port: 8000
+            protocol: http
+        routes:
+          - path: /
+            port: 8000
+        envs:
+          - key: SECRET_KEY
+            value: "WPyVYXSr41-htwIaemm_P9cZ2p_YEqHoE4GTsq3siZ6tUTw-VQ5b9VhymUU90gRJlDg"
+          - key: DEBUG
+            value: "False"
+          - key: ALLOWED_HOSTS
+            value: "edupoint.aravan.kg,.koyeb.app,localhost"
+          - key: DB_ENGINE
+            value: "django.db.backends.postgresql"
+          - key: DB_NAME
+            value: "postgres"
+          - key: DB_USER
+            value: "postgres.ogygpnlaoneqhecumhlh"
+          - key: DB_PASSWORD
+            value: "24994533Mix"
+          - key: DB_HOST
+            value: "aws-0-ap-northeast-1.pooler.supabase.com"
+          - key: DB_PORT
+            value: "5432"
+          - key: SITE_URL
+            value: "https://edupoint.aravan.kg"
+          - key: SERVE_MEDIA
+            value: "True"
+          - key: SECURE_COOKIES
+            value: "True"
+          - key: SECURE_SSL_REDIRECT
+            value: "True"
+          - key: TRUST_PROXY_SSL
+            value: "True"
+          - key: TELEGRAM_BOT_TOKEN
+            value: "7569848532:AAGWG6p2LdKBVIN2oYJQHrBvyJq7uIAlRl8"
+          - key: TELEGRAM_CHAT_ID
+            value: "-5236512491"
