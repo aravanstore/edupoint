@@ -796,9 +796,25 @@ def reception_student_add(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             group = form.cleaned_data.get('group')
+            group_set = form.cleaned_data.get('group_set')
+            if not group and group_set:
+                if group_set.group_id:
+                    group = group_set.group
+                else:
+                    group = Group.objects.create(
+                        name=group_set.name, course=group_set.course, teacher=group_set.teacher,
+                        days=group_set.days, start_time=group_set.start_time, end_time=group_set.end_time,
+                        capacity=group_set.capacity, status='active',
+                        started_at=group_set.start_date or timezone.localdate(), branch=group_set.branch,
+                    )
+                    group_set.group = group
+                    group_set.save(update_fields=['group'])
+                    log_request_activity(request, 'Создал группу из набора', target=group.name,
+                                         details=f'набор: {group_set.name}')
+
             if group and group.is_full():
                 messages.error(request, f'Группа «{group.name}» заполнена (лимит {group.capacity}). '
-                                        'Выберите другую группу или увеличьте лимит.')
+                                        'Выберите другую группу или другой набор.')
                 return render(request, 'lms/reception/student_add.html', {
                     'form': form,
                     'application': application,
@@ -822,6 +838,7 @@ def reception_student_add(request):
 
             student = form.save(commit=False)
             student.user = user
+            student.group = group
             student.save()
 
             # Привязка к заявке (если пришли из CRM)

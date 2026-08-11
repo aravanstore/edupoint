@@ -63,16 +63,23 @@ class StudentForm(forms.ModelForm):
     password = forms.CharField(label='Пароль', max_length=128, required=False,
                                widget=forms.TextInput(attrs={'class': 'form-control',
                                                              'help_text': 'Если пусто — будет сгенерирован'}))
+    group_set = forms.ModelChoiceField(
+        label='Или открытый набор', queryset=None, required=False,
+        widget=forms.Select(attrs={'class': 'form-select'}),
+        help_text='Если группы для этого набора ещё нет — она будет создана автоматически'
+    )
 
     class Meta:
         model = StudentProfile
-        fields = ['group', 'book', 'book_progress', 'parent', 'phone', 'birth_date', 'notes', 'is_active']
+        fields = ['group', 'book', 'book_progress', 'parent', 'phone', 'parent_phone',
+                  'birth_date', 'notes', 'is_active']
         widgets = {
             'group': forms.Select(attrs={'class': 'form-select'}),
             'book': forms.Select(attrs={'class': 'form-select'}),
             'book_progress': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'max': 100}),
             'parent': forms.Select(attrs={'class': 'form-select'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+996 ...'}),
+            'parent_phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+996 ... (необязательно)'}),
             'birth_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'notes': forms.Textarea(attrs={'class': 'form-control', 'rows': 2}),
             'is_active': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
@@ -80,11 +87,21 @@ class StudentForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        from applications.models import GroupSet
+        self.fields['group_set'].queryset = GroupSet.objects.filter(status='open').select_related('course', 'teacher')
+        self.fields['group'].required = False
         self.fields['parent'].required = False
         self.fields['book'].required = False
         self.fields['phone'].required = False
+        self.fields['parent_phone'].required = False
         self.fields['birth_date'].required = False
         self.fields['notes'].required = False
+
+    def clean(self):
+        cleaned = super().clean()
+        if not cleaned.get('group') and not cleaned.get('group_set'):
+            raise forms.ValidationError('Выберите группу или открытый набор — одно из двух обязательно.')
+        return cleaned
 
 
 class HomeworkForm(forms.ModelForm):

@@ -55,6 +55,14 @@
         <div>{{ student.parent|default:'—' }}</div>
       </div>
       <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Телефон родителя</div>
+        <div>{{ student.parent_phone|default:'—' }}</div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted" style="font-size:0.78rem;">Дата рождения</div>
+        <div>{{ student.birth_date|date:"d.m.Y"|default:'—' }}</div>
+      </div>
+      <div class="col-md-4">
         <div class="text-muted" style="font-size:0.78rem;">Средний балл</div>
         <div class="fw-bold">{% with avg=student.average_grade %}{% if avg %}{{ avg }}/10{% else %}—{% endif %}{% endwith %}</div>
       </div>

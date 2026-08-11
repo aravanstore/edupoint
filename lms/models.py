@@ -148,6 +148,7 @@ class StudentProfile(models.Model):
     parent = models.ForeignKey('ParentProfile', on_delete=models.SET_NULL, null=True, blank=True,
                                related_name='children', verbose_name='Родитель')
     phone = models.CharField('Телефон', max_length=50, blank=True)
+    parent_phone = models.CharField('Телефон родителя', max_length=50, blank=True)
     birth_date = models.DateField('Дата рождения', null=True, blank=True)
     enrolled_at = models.DateField('Зачислен', auto_now_add=True)
     notes = models.TextField('Заметки', blank=True)

@@ -44,10 +44,18 @@
           <label class="form-label-lms">Дата рождения</label>
           {{ form.birth_date }}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <label class="form-label-lms">Группа</label>
           {{ form.group }}
         </div>
+        <div class="col-md-6">
+          <label class="form-label-lms">{{ form.group_set.label }}</label>
+          {{ form.group_set }}
+          <small class="text-muted">{{ form.group_set.help_text }}</small>
+        </div>
+        {% if form.non_field_errors %}
+        <div class="col-12"><div class="alert alert-danger py-2 mb-0">{{ form.non_field_errors }}</div></div>
+        {% endif %}
         <div class="col-md-4">
           <label class="form-label-lms">Книга</label>
           {{ form.book }}
@@ -57,8 +65,12 @@
           {{ form.book_progress }}
         </div>
         <div class="col-md-4">
-          <label class="form-label-lms">Родитель</label>
+          <label class="form-label-lms">Родитель (аккаунт)</label>
           {{ form.parent }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-lms">Телефон родителя</label>
+          {{ form.parent_phone }}
         </div>
         <div class="col-12">
           <label class="form-label-lms">Заметки</label>
