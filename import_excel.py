@@ -159,9 +159,11 @@ def parse_side(ws, room_num, fio_col):
         # строка ученика
         if current is not None:
             phone_raw = row[fio_col + 1] if fio_col + 1 < len(row) else None
+            pay_date_raw = row[fio_col + 2] if fio_col + 2 < len(row) else None
             current['students'].append({
                 'fio': sval,
                 'phone': normalize_phone(phone_raw),
+                'pay_date_raw': pay_date_raw,
             })
 
     return blocks
