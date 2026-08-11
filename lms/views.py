@@ -656,8 +656,23 @@ def reception_teacher_add(request):
             teacher = form.save(commit=False)
             teacher.order = Teacher.objects.count()
             teacher.save()
-            log_request_activity(request, 'Добавил преподавателя', target=teacher.name)
-            messages.success(request, f'Преподаватель «{teacher.name}» добавлен и уже виден на публичном сайте.')
+
+            password = form.cleaned_data.get('password') or _generate_password()
+            username = _generate_username(teacher.name, '', '')
+            user = User.objects.create_user(username=username, password=password, first_name=teacher.name)
+            profile, _ = UserProfile.objects.get_or_create(user=user)
+            profile.role = 'teacher'
+            profile.save(update_fields=['role'])
+            TeacherProfile.objects.get_or_create(user=user, defaults={'teacher': teacher})
+            teacher.user = user
+            teacher.save(update_fields=['user'])
+
+            log_request_activity(request, 'Добавил преподавателя', target=teacher.name,
+                                 details=f'логин: {username}')
+            messages.success(
+                request,
+                f'Преподаватель «{teacher.name}» добавлен. Логин для входа в кабинет: {username}, пароль: {password}'
+            )
             return redirect('lms:reception_groups')
         messages.error(request, 'Проверьте форму.')
     else:

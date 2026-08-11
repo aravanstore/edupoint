@@ -6,6 +6,10 @@ from teachers.models import Teacher
 
 
 class TeacherForm(forms.ModelForm):
+    password = forms.CharField(label='Пароль для входа в кабинет', max_length=128, required=False,
+                               widget=forms.TextInput(attrs={'class': 'form-control',
+                                                             'placeholder': 'Если пусто — будет сгенерирован'}))
+
     class Meta:
         model = Teacher
         fields = ['name', 'position', 'photo', 'bio', 'experience_years', 'education',
