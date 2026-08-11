@@ -173,7 +173,7 @@ const Search = {
     }
   },
   render(data, dropdown) {
-    const total = data.courses.length + data.news.length;
+    const total = data.courses.length + data.news.length + data.teachers.length + data.exams.length;
     if (!total) {
       dropdown.innerHTML = '<div class="search-result-item text-muted">Ничего не найдено</div>';
       dropdown.classList.add('show');
@@ -185,6 +185,22 @@ const Search = {
       data.courses.forEach(c => {
         html += `<div class="search-result-item" onclick="window.location='${c.url}'">
           <span style="color:var(--primary)">📚</span> ${c.name} <span style="color:var(--text-muted);font-size:0.8em">${c.category}</span>
+        </div>`;
+      });
+    }
+    if (data.teachers.length) {
+      html += '<div class="search-result-item" style="font-weight:700;font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Преподаватели</div>';
+      data.teachers.forEach(t => {
+        html += `<div class="search-result-item" onclick="window.location='${t.url}'">
+          <span style="color:var(--primary)">👤</span> ${t.name} <span style="color:var(--text-muted);font-size:0.8em">${t.position}</span>
+        </div>`;
+      });
+    }
+    if (data.exams.length) {
+      html += '<div class="search-result-item" style="font-weight:700;font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;">Экзамены</div>';
+      data.exams.forEach(e => {
+        html += `<div class="search-result-item" onclick="window.location='${e.url}'">
+          <span style="color:var(--primary)">🏆</span> ${e.name}
         </div>`;
       });
     }

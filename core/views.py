@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
 from django.db.models import Q, Prefetch
+from django.urls import reverse
 from .models import GalleryImage, ContactMessage
 from .telegram_utils import notify_new_contact
 from courses.models import Course, Category
@@ -9,6 +10,7 @@ from teachers.models import Teacher
 from reviews.models import Review
 from news.models import NewsPost
 from applications.models import GroupSet, StudentApplication
+from exams.models import Exam
 
 
 def home(request):
@@ -107,9 +109,9 @@ def contact(request):
 
 
 def search(request):
-    """AJAX и обычный поиск по курсам и статьям."""
+    """AJAX и обычный поиск по курсам, статьям, преподавателям и экзаменам."""
     query = request.GET.get('q', '').strip()
-    results = {'courses': [], 'news': []}
+    results = {'courses': [], 'news': [], 'teachers': [], 'exams': []}
 
     if query:
         courses = Course.objects.filter(
@@ -122,13 +124,27 @@ def search(request):
             is_published=True
         )[:5]
 
+        teachers = Teacher.objects.filter(
+            Q(name__icontains=query) | Q(position__icontains=query) | Q(languages__icontains=query),
+            is_active=True
+        )[:6]
+
+        exams = Exam.objects.filter(
+            Q(name__icontains=query) | Q(full_name__icontains=query),
+            is_active=True
+        )[:4]
+
         results['courses'] = courses
         results['news'] = news
+        results['teachers'] = teachers
+        results['exams'] = exams
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         data = {
             'courses': [{'name': c.name, 'url': c.get_absolute_url(), 'category': c.category.name} for c in results['courses']],
             'news': [{'title': n.title, 'url': n.get_absolute_url()} for n in results['news']],
+            'teachers': [{'name': t.name, 'url': reverse('teachers:detail', kwargs={'pk': t.pk}), 'position': t.position} for t in results['teachers']],
+            'exams': [{'name': e.get_name_display(), 'url': reverse('exams:detail', kwargs={'name': e.name})} for e in results['exams']],
         }
         return JsonResponse(data)
 
@@ -136,6 +152,8 @@ def search(request):
         'query': query,
         'courses': results['courses'],
         'news': results['news'],
+        'teachers': results['teachers'],
+        'exams': results['exams'],
         'page_title': f'Поиск: {query} — Edu Point',
     }
     return render(request, 'core/search.html', context)

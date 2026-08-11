@@ -663,9 +663,22 @@ def reception_students(request):
     status_map = bulk_payment_status(students)
     for s in students:
         s.payment_status_cached = status_map.get(s.id, ('frozen', timezone.localdate().replace(day=1)))
+
+    counts = {
+        'all': len(students),
+        'frozen': sum(1 for s in students if s.payment_status_cached[0] == 'frozen'),
+        'pending': sum(1 for s in students if s.payment_status_cached[0] == 'pending'),
+        'paid': sum(1 for s in students if s.payment_status_cached[0] == 'paid'),
+    }
+    status_filter = request.GET.get('status', '')
+    if status_filter in ('frozen', 'pending', 'paid'):
+        students = [s for s in students if s.payment_status_cached[0] == status_filter]
+
     return render(request, 'lms/reception/students.html', {
         'students': students,
         'q': q,
+        'counts': counts,
+        'status_filter': status_filter,
         'active_section': 'students',
         'page_title': 'Ученики — Edu Point',
     })

@@ -39,6 +39,44 @@
     </div>
     {% endif %}
 
+    {% if teachers %}
+    <h3 class="mb-4" data-aos="fade-up">{% trans "Найденные преподаватели" %} ({{ teachers|length }})</h3>
+    <div class="row g-4 mb-5">
+      {% for teacher in teachers %}
+      <div class="col-md-6" data-aos="fade-up">
+        <a href="{% url 'teachers:detail' teacher.pk %}" class="teacher-card d-flex align-items-center gap-3 text-decoration-none" style="flex-direction:row;">
+          {% if teacher.photo %}
+          <img src="{{ teacher.photo.url }}" alt="{{ teacher.name }}" class="teacher-avatar" style="width:56px;height:56px;flex-shrink:0;">
+          {% else %}
+          <div class="teacher-avatar-placeholder" style="width:56px;height:56px;flex-shrink:0;">{{ teacher.name|first }}</div>
+          {% endif %}
+          <div>
+            <h4 class="mb-0">{{ teacher.name }}</h4>
+            <div class="position text-primary small">{{ teacher.position }}</div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if exams %}
+    <h3 class="mb-4" data-aos="fade-up">{% trans "Найденные экзамены" %} ({{ exams|length }})</h3>
+    <div class="row g-4 mb-5">
+      {% for exam in exams %}
+      <div class="col-md-6" data-aos="fade-up">
+        <a href="{% url 'exams:detail' exam.name %}" class="course-card text-decoration-none">
+          <div class="course-card-body">
+            <h4>{{ exam.get_name_display }}</h4>
+            <p>{{ exam.full_name }}</p>
+            <span class="btn-outline-ep btn-sm mt-2">{% trans "Подробнее" %}</span>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
     {% if news %}
     <h3 class="mb-4" data-aos="fade-up">{% trans "Найденные новости и статьи" %} ({{ news|length }})</h3>
     <div class="row g-4">
@@ -56,7 +94,7 @@
     </div>
     {% endif %}
 
-    {% if not courses and not news %}
+    {% if not courses and not news and not teachers and not exams %}
     <div class="empty-state" data-aos="fade-up">
       <div class="empty-state-icon">🔍</div>
       <h4>{% trans "Ничего не найдено" %}</h4>

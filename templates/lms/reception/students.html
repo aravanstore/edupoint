@@ -6,12 +6,20 @@
 {% block lms_heading %}Ученики{% endblock %}
 
 {% block lms_content %}
+<div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+  <div class="btn-group" role="group">
+    <a href="{% url 'lms:reception_students' %}{% if q %}?q={{ q }}{% endif %}" class="btn-outline-ep {% if not status_filter %}btn-outline-ep-active{% endif %}">Все ({{ counts.all }})</a>
+    <a href="?status=frozen{% if q %}&q={{ q }}{% endif %}" class="btn-outline-ep {% if status_filter == 'frozen' %}btn-outline-ep-active{% endif %}">Frozen ({{ counts.frozen }})</a>
+    <a href="?status=pending{% if q %}&q={{ q }}{% endif %}" class="btn-outline-ep {% if status_filter == 'pending' %}btn-outline-ep-active{% endif %}">Ожидают ({{ counts.pending }})</a>
+    <a href="?status=paid{% if q %}&q={{ q }}{% endif %}" class="btn-outline-ep {% if status_filter == 'paid' %}btn-outline-ep-active{% endif %}">Оплачено ({{ counts.paid }})</a>
+  </div>
+</div>
+
 <div class="lms-card">
   <div class="journal-toolbar">
-    <form method="get" class="d-flex gap-2 flex-grow-1" style="max-width:420px;">
-      <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Поиск по имени, телефону или логину...">
-      <button type="submit" class="btn-primary-ep" style="padding:0.5rem 1.2rem;"><i class="bi bi-search"></i></button>
-    </form>
+    <div class="d-flex gap-2 flex-grow-1" style="max-width:420px;">
+      <input type="text" id="liveFilter" class="form-control" placeholder="Поиск по имени, телефону или логину..." autocomplete="off">
+    </div>
     <a href="{% url 'lms:reception_student_add' %}" class="btn-teal-ep text-nowrap">
       <i class="bi bi-person-plus me-1"></i> Добавить ученика
     </a>
@@ -30,7 +38,7 @@
           <th>Оплата</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="liveFilterBody">
         {% for s in students %}
         <tr style="cursor:pointer;" onclick="location.href='{% url 'lms:reception_student_detail' s.pk %}'">
           <td class="fw-bold">{{ s }}</td>
@@ -62,6 +70,10 @@
       </tbody>
     </table>
   </div>
+  <div id="liveFilterEmpty" class="empty-lms" style="display:none;">
+    <i class="bi bi-search"></i>
+    <p>Ничего не найдено по этому запросу.</p>
+  </div>
   {% else %}
   <div class="empty-lms">
     <i class="bi bi-people"></i>
@@ -69,4 +81,23 @@
   </div>
   {% endif %}
 </div>
+
+<script>
+  (function () {
+    const input = document.getElementById('liveFilter');
+    const body = document.getElementById('liveFilterBody');
+    const emptyState = document.getElementById('liveFilterEmpty');
+    if (!input || !body) return;
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      let visible = 0;
+      body.querySelectorAll('tr').forEach(row => {
+        const match = !q || row.textContent.toLowerCase().includes(q);
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      if (emptyState) emptyState.style.display = visible ? 'none' : '';
+    });
+  })();
+</script>
 {% endblock %}
